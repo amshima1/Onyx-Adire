@@ -1,25 +1,23 @@
 :root {
     --brand-red: #c61a21;
-    --brand-white: #ffffff;
     --dark-onyx: #1a1a1a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'serif'; }
 
-/* Marquee */
+/* Marquee & Header */
 .marquee-container { background: var(--brand-red); color: white; padding: 10px 0; overflow: hidden; }
 .marquee-text { display: inline-block; white-space: nowrap; animation: scroll 20s linear infinite; font-weight: bold; }
 @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
 
-/* Header */
-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #eee; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #eee; background: white; }
 .menu-icon { font-size: 28px; cursor: pointer; color: var(--dark-onyx); }
 .logo { font-weight: bold; color: var(--brand-red); font-size: 20px; letter-spacing: 2px; }
 
-/* Hidden Sidebar */
+/* Sidebar Logic */
 .mobile-nav {
     height: 100%;
-    width: 0; /* Hidden */
+    width: 0; 
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -42,5 +40,5 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .close-btn { position: absolute; top: 15px; right: 25px; font-size: 36px; color: white; cursor: pointer; }
 
 /* Hero Section */
-.hero { text-align: center; padding: 80px 20px; background: #f9f9f9; }
+.hero { text-align: center; padding: 100px 20px; background: #fcfcfc; }
 .btn-red { background: var(--brand-red); color: white; padding: 15px 30px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold; }
