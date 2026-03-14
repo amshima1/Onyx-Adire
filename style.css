@@ -4,6 +4,7 @@
     --onyx: #1A1A1A;
     --cream: #F9F9F9;
 }
+<link rel="stylesheet" href="style.css">
 
 body {
     font-family: 'Playfair Display', serif; /* Elegant fashion font */
