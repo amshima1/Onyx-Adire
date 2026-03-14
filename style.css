@@ -112,3 +112,50 @@ footer {
     padding: 40px 20px;
     margin-top: 50px;
 }
+/* Sidebar Menu Styling */
+.mobile-nav {
+    height: 100%;
+    width: 0; /* Starts hidden */
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #1a1a1a; /* Onyx Black */
+    overflow-x: hidden;
+    transition: 0.5s; /* Sliding effect */
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-nav a {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.mobile-nav a:hover {
+    color: #c61a21; /* Crimson Red from your reference */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+}
+// Function to open the hamburger menu
+document.getElementById("hamburger-btn").addEventListener("click", () => {
+    document.getElementById("mobile-menu").style.width = "250px";
+});
+
+// Function to close the hamburger menu
+document.getElementById("close-btn").addEventListener("click", () => {
+    document.getElementById("mobile-menu").style.width = "0";
+});
