@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiries & Bookings | Onyx & Adire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="marquee-container">
+        <p class="marquee-text">✨ BOOK YOUR PRIVATE FITTING — ENQUIRIES WELCOME — ONYX & ADIRE CUSTOM COUTURE ✨</p>
+    </div>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Product Showcase</a></li>
+                <li><a href="trustees.html">Board of Trustees</a></li>
+                <li><a href="events.html">Upcoming Events</a></li>
+                <li><a href="bookings.html" class="active">Inquiries</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="booking-area" style="padding: 50px 20px; text-align: center;">
+        <h1 id="welcome-text">Private Appointments</h1>
+        <p>Submit an inquiry for custom fittings or wholesale partnerships.</p>
+
+        <form id="appointment-form" style="max-width: 500px; margin: 30px auto; background: white; padding: 30px; border: 1px solid #eee; display: flex; flex-direction: column; gap: 15px; text-align: left;">
+            <input type="text" id="name" placeholder="Full Name" required style="padding: 12px; border: 1px solid #ddd;">
+            <input type="email" id="email" placeholder="Email Address" required style="padding: 12px; border: 1px solid #ddd;">
+            <label style="font-weight: bold; font-size: 0.9rem;">Preferred Date:</label>
+            <input type="date" id="date" required style="padding: 12px; border: 1px solid #ddd;">
+            <textarea id="message" placeholder="Describe your inquiry..." style="padding: 12px; border: 1px solid #ddd; height: 120px;"></textarea>
+            <button type="submit" style="background: #1a1a1a; color: #c5a059; padding: 15px; border: none; cursor: pointer; font-weight: bold; letter-spacing: 1px;">
+                SEND INQUIRY
+            </button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Onyx & Adire Fashion House. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
