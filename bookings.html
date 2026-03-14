@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiries & Bookings | Onyx & Adire</title>
+    <title>Inquiries | Onyx & Adire</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="marquee-container">
-        <p class="marquee-text">✨ BOOK YOUR PRIVATE FITTING — ENQUIRIES WELCOME — ONYX & ADIRE CUSTOM COUTURE ✨</p>
+        <p class="marquee-text">✨ BOOK YOUR PRIVATE FITTING — CUSTOM COUTURE INQUIRIES ✨</p>
     </div>
 
     <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Product Showcase</a></li>
-                <li><a href="trustees.html">Board of Trustees</a></li>
-                <li><a href="events.html">Upcoming Events</a></li>
-                <li><a href="bookings.html" class="active">Inquiries</a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon" id="hamburger-btn">&#9776;</div>
+        <div class="logo">ONYX & ADIRE</div>
+        <div class="header-icons">🔍 👜</div>
     </header>
 
+    <div id="mobile-menu" class="mobile-nav">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <div class="nav-content">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Products</a>
+            <a href="trustees.html">Trustees</a>
+            <a href="events.html">Events</a>
+            <a href="bookings.html">Inquiries</a>
+        </div>
+    </div>
+
     <main id="booking-area" style="padding: 50px 20px; text-align: center;">
-        <h1 id="welcome-text">Private Appointments</h1>
-        <p>Submit an inquiry for custom fittings or wholesale partnerships.</p>
+        <h1 style="color: #c61a21; margin-bottom: 10px;">Inquiries</h1>
+        <p>Submit a request for custom fittings or wholesale partnerships.</p>
 
         <form id="appointment-form" style="max-width: 500px; margin: 30px auto; background: white; padding: 30px; border: 1px solid #eee; display: flex; flex-direction: column; gap: 15px; text-align: left;">
             <input type="text" id="name" placeholder="Full Name" required style="padding: 12px; border: 1px solid #ddd;">
             <input type="email" id="email" placeholder="Email Address" required style="padding: 12px; border: 1px solid #ddd;">
-            <label style="font-weight: bold; font-size: 0.9rem;">Preferred Date:</label>
-            <input type="date" id="date" required style="padding: 12px; border: 1px solid #ddd;">
-            <textarea id="message" placeholder="Describe your inquiry..." style="padding: 12px; border: 1px solid #ddd; height: 120px;"></textarea>
-            <button type="submit" style="background: #1a1a1a; color: #c5a059; padding: 15px; border: none; cursor: pointer; font-weight: bold; letter-spacing: 1px;">
+            <textarea id="message" placeholder="How can we help you?" style="padding: 12px; border: 1px solid #ddd; height: 120px;"></textarea>
+            <button type="submit" class="btn-red" style="border: none; width: 100%; cursor: pointer;">
                 SEND INQUIRY
             </button>
         </form>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Onyx & Adire Fashion House. All Rights Reserved.</p>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
-
