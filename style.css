@@ -42,3 +42,34 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 /* Hero Section */
 .hero { text-align: center; padding: 100px 20px; background: #fcfcfc; }
 .btn-red { background: var(--brand-red); color: white; padding: 15px 30px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold; }
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--brand-red); /* Using your crimson red */
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+    z-index: 3000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+    background-color: #a51419; /* Slightly darker on hover */
+}
+
+.whatsapp-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.whatsapp-icon {
+    font-size: 1.2rem;
+}
