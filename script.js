@@ -27,4 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// Function to open the hamburger menu
+document.getElementById("hamburger-btn").addEventListener("click", () => {
+    document.getElementById("mobile-menu").style.width = "250px";
+});
+
+// Function to close the hamburger menu
+document.getElementById("close-btn").addEventListener("click", () => {
+    document.getElementById("mobile-menu").style.width = "0";
+});
 
