@@ -1,0 +1,31 @@
+/* Consistent Brand Styling */
+:root {
+    --gold: #C5A059;
+    --onyx: #1A1A1A;
+    --cream: #F9F9F9;
+}
+
+body {
+    font-family: 'Playfair Display', serif; /* Elegant fashion font */
+    background-color: var(--cream);
+    color: var(--onyx);
+    margin: 0;
+}
+
+.marquee-container {
+    background: var(--onyx);
+    color: var(--gold);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
