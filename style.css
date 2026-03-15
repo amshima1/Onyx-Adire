@@ -40,8 +40,19 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .close-btn { position: absolute; top: 15px; right: 25px; font-size: 36px; color: white; cursor: pointer; }
 
 /* Hero Section */
-.hero { text-align: center; padding: 100px 20px; background: #fcfcfc; }
-.btn-red { background: var(--brand-red); color: white; padding: 15px 30px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold; }
+.hero { 
+    text-align: center; 
+    padding: 120px 20px; 
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('your-image-name.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    color: white; /* This ensures your "Good Morning" text is white so it's readable */
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* WhatsApp Floating Button */
 .whatsapp-float {
     position: fixed;
