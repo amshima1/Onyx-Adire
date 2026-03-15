@@ -41,22 +41,24 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 
 /* Hero Section */
 .hero {
+    position: relative;
     text-align: center;
-    /* Increase the padding to make the section taller */
-    padding: 250px 20px; 
-    
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('todun-adri-iro-and-buba.jpg'); 
     background-size: cover; 
     background-position: center;
     
-    /* This makes the picture take up 90% of the phone screen height */
-    min-height: 90vh; 
+    /* This is the magic line to make it full screen */
+    height: 100vh; 
+    
+    /* Remove the extra space at the top/bottom */
+    padding: 0; 
+    margin: 0;
     
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 
 
 
