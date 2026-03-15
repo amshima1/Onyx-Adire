@@ -52,6 +52,17 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     flex-direction: column;
     justify-content: center;
 }
+.btn-red {
+    background-color: #c61a21; /* Crimson Red */
+    color: white !important;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
 
 /* WhatsApp Floating Button */
 .whatsapp-float {
