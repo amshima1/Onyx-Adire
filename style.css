@@ -43,17 +43,18 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .hero {
     text-align: center;
     padding: 120px 20px;
-    /* Replace 'fashion.jpg' with the name of the photo you upload to GitHub */
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('fashion.jpg'); 
+    /* Change 'hero.jpg' to match the exact name of the file you uploaded */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero.jpg'); 
     background-size: cover;
     background-position: center;
-    color: white;
-    min-height: 60vh;
+    color: white; /* This makes "Good Morning" white so it stands out */
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 
 .btn-red {
     background-color: #c61a21; /* Crimson Red */
