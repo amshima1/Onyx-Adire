@@ -106,3 +106,41 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .whatsapp-icon {
     font-size: 1.2rem;
 }
+/* --- NEW GALLERY GRID STYLES --- */
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 items side-by-side */
+    gap: 20px;
+    padding: 20px 15px;
+    background-color: #fff;
+}
+
+.grid-item {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto; /* Keeps the natural shape of your photos */
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 2px; /* Slight rounding for a clean look */
+}
+
+.grid-item h3 {
+    font-family: 'serif', 'Times New Roman', serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px 0;
+    color: #222;
+    text-transform: capitalize;
+}
+
+.grid-item .price {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
