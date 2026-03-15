@@ -42,19 +42,22 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 120px 20px;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('todun-adri-iro-and-buba.jpg');
-
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('todun-adri-iro-and-buba.jpg'); 
-    background-size: cover;
+    /* Increase the padding to make the section taller */
+    padding: 250px 20px; 
+    
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('todun-adri-iro-and-buba.jpg'); 
+    background-size: cover; 
     background-position: center;
-    color: white; 
-    min-height: 75vh;
+    
+    /* This makes the picture take up 90% of the phone screen height */
+    min-height: 90vh; 
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 
 
 
