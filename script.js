@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-btn');
+
+    // Open Menu
+    if (menuBtn) {
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.style.display = 'block';
+        });
+    }
+
+    // Close Menu
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            mobileMenu.style.display = 'none';
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     
     // --- FEATURE 1: Home Page Scroll Fade-in ---
     const faders = document.querySelectorAll('.grid-item');
