@@ -189,3 +189,20 @@ header {
     right: 30px;
     cursor: pointer;
 }
+#mobile-menu {
+    display: none; /* Stays hidden until JS runs */
+    position: fixed;
+    inset: 0; /* Covers the whole screen */
+    background: white;
+    z-index: 3000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links a {
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    margin: 20px 0;
+}
