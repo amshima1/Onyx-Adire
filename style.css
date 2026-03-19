@@ -161,3 +161,31 @@ header {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 1000;
 }
+/* Styling the content inside the Mobile Menu */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%; /* Centers the links vertically */
+}
+
+.nav-links a {
+    font-family: serif;
+    font-size: 28px;
+    color: #000; /* Ensures text is black and visible */
+    text-decoration: none;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Make sure the close button is visible */
+#close-btn {
+    color: #000;
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+}
