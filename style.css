@@ -1,35 +1,100 @@
-/* Product Grid Layout */
-.home-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 items side-by-side */
-    gap: 15px;
-    padding: 15px;
-    background-color: #fff;
+/* General Setup */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #111; overflow-x: hidden; }
+
+/* Announcement Bar */
+.announcement-bar {
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    padding: 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.grid-item {
-    text-align: left;
-    margin-bottom: 20px;
+/* Luxury Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
+.header-left, .header-right { flex: 1; display: flex; }
+.header-right { justify-content: flex-end; gap: 20px; }
+.header-center { flex: 2; text-align: center; }
+
+.logo {
+    font-family: serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #8b0000;
+    text-transform: uppercase;
+}
+
+.icon, #hamburger-btn { font-size: 22px; cursor: pointer; }
+
+/* Product Grid */
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 per row like DFL */
+    gap: 10px;
+    padding: 15px;
+}
+
+.grid-item { text-decoration: none; color: inherit; }
 
 .grid-item img {
     width: 100%;
-    height: 350px; /* Keeps all images uniform */
-    object-fit: cover; /* Prevents stretching */
-    border-radius: 2px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
 }
 
-.grid-item h3 {
-    font-family: serif;
-    font-size: 13px;
-    margin: 10px 0 5px;
+.product-info {
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 12px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #333;
+    margin-bottom: 5px;
 }
 
 .price {
+    font-size: 13px;
     font-weight: bold;
-    font-size: 14px;
-    color: #8b0000; /* Matching your logo red */
+    color: #444;
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 3000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-btn { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; }
+
+.nav-links a {
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+    margin: 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
