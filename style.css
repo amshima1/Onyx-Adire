@@ -1,93 +1,244 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board of Trustees | Onyx-Adire</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* --- 1. LUXURY THEME VARIABLES --- */
+:root {
+    --brand-red: #cc0000;
+    --white: #ffffff;
+    --dark: #1a1a1a;
+    --gray-bg: #f4f4f4;
+    --wa-gradient: linear-gradient(to right, #ff8c00, #e65100);
+}
 
-    <div class="announcement-bar">
-        <marquee scrollamount="7">
-            ONYX-ADIRE LEADERSHIP • PRESERVING TRADITION • DEFINING MODERN AFRICAN LUXURY
-        </marquee>
-    </div>
+/* --- 2. GLOBAL RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <nav>
-        <div class="nav-left">
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="nav-centre">
-            <h1 class="logo">ONYX-ADIRE</h1>
-        </div>
+body {
+    font-family: 'Serif', 'Playfair Display', Times, serif;
+    background-color: var(--white);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        <div class="nav-right"></div>
+/* --- 3. ANNOUNCEMENT BAR --- */
+.announcement-bar {
+    background-color: var(--brand-red);
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
 
-        <div id="nav-menu" class="menu-links">
-            <a href="index.html">HOME</a>
-            <a href="gallery.html">SHOWCASE</a>
-            <a href="trustees.html">TRUSTEES</a>
-            <a href="events.html">EVENTS</a>
-            <a href="bookings.html">INQUIRIES</a>
-        </div>
-    </nav>
+/* --- 4. NAVIGATION (3-COLUMN FLEX) --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: var(--white);
+    border-bottom: 2px solid var(--brand-red);
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    height: 70px;
+}
 
-    <header class="luxury-header">
-        <h2 class="red-white-box">BOARD OF TRUSTEES</h2>
-    </header>
+.nav-left, .nav-right { flex: 1; }
+.nav-centre { flex: 2; text-align: center; }
 
-    <main class="container">
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="victor-amshima.jpg" alt="Victor Amshima">
-                <h3>VICTOR AMSHIMA</h3>
-                <p class="role-title">CHAIRMAN</p>
-                <div class="bio-container">
-                    <p class="bio-text">
-                        A visionary leader with a deep passion for African textiles. Victor oversees the strategic direction of Onyx-Adire, ensuring every piece reflects authentic cultural heritage and premium craftsmanship.
-                    </p>
-                </div>
-                <a href="https://wa.me/234XXXXXXXXXX" class="book-btn">CONTACT CHAIR</a>
-            </div>
+.logo {
+    color: var(--brand-red);
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 
-            <div class="product-card">
-                <img src="paul-gbawuan.jpg" alt="Paul Gbawuan">
-                <h3>PAUL GBAWUAN</h3>
-                <p class="role-title">TRUSTEE MEMBER</p>
-                <div class="bio-container">
-                    <p class="bio-text">
-                        Expert in sustainable fashion and operational excellence. Paul ensures that our traditional hand-dyeing processes meet modern luxury standards for our discerning global clientele.
-                    </p>
-                </div>
-                <a href="https://wa.me/234XXXXXXXXXX" class="book-btn">CONTACT TRUSTEE</a>
-            </div>
+/* HAMBURGER MENU */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+}
 
-        </div>
-    </main>
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-red);
+    border-radius: 2px;
+}
 
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="fullImage">
-    </div>
+/* MOBILE MENU DRAWER */
+.menu-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-bar" target="_blank">
-        <div class="whatsapp-content">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            <span>Chat Via Whatsapp</span>
-        </div>
-    </a>
+.menu-links.active { display: flex; }
 
-    <footer>
-        <p>&copy; 2026 ONYX-ADIRE | <span id="clock"></span></p>
-    </footer>
+.menu-links a {
+    color: var(--brand-red);
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* --- 5. HEADERS --- */
+.luxury-header {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.red-white-box {
+    display: inline-block;
+    border: 3px solid var(--brand-red);
+    padding: 10px 25px;
+    color: var(--brand-red);
+    background-color: var(--white);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- 6. PRODUCT GRID (FIXES STACKED IMAGES) --- */
+.container {
+    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    border: 1px solid var(--brand-red);
+    background: var(--white);
+    text-align: center;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.product-card h3 {
+    font-size: 0.85rem;
+    margin: 10px 5px;
+    color: var(--brand-red);
+    text-transform: uppercase;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* TRUSTEE & EVENTS BIO TEXT */
+.role-title {
+    color: var(--brand-red);
+    font-weight: bold;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+}
+
+.bio-text {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    padding: 0 10px;
+    font-style: italic;
+    color: #555;
+}
+
+.book-btn {
+    background-color: var(--brand-red);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- 7. LIGHTBOX MODAL --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 5000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    border: 2px solid white;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* --- 8. WHATSAPP FLOATING BAR --- */
+.whatsapp-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--wa-gradient);
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 4000;
+}
+
+.whatsapp-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-content img { width: 20px; }
+.whatsapp-content span { font-size: 0.85rem; font-weight: bold; }
+
+/* --- 9. FOOTER --- */
+footer {
+    background-color: var(--brand-red);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    font-size: 0.75rem;
+    margin-top: 40px;
+}
