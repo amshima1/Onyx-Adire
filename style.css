@@ -1,188 +1,237 @@
-/* ONYX-ADIRE OFFICIAL STYLESHEET 
-   Theme: Red & White Luxury 
-   Fix: Full Image Visibility & Responsive Grid
-*/
-
+/* --- 1. CORE SETTINGS --- */
 :root {
     --brand-red: #cc0000;
-    --pure-white: #ffffff;
-    --bg-light: #fdfdfd;
+    --dark-text: #1a1a1a;
+    --light-bg: #fdfdfd;
+    --white: #ffffff;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Garamond', serif;
-    background-color: var(--pure-white);
-    color: var(--brand-red);
-    text-align: center;
-    line-height: 1.5;
+    font-family: 'Playfair Display', serif; /* Luxury Serif Font */
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
 }
 
-/* --- NAVIGATION & BIG HAMBURGER --- */
+/* --- 2. NAVIGATION --- */
 nav {
-    background-color: var(--brand-red);
-    height: 80px;
+    background: var(--white);
+    padding: 1rem 5%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    border-bottom: 2px solid var(--brand-red);
     position: sticky;
     top: 0;
-    z-index: 2000;
-}
-
-.menu-icon {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 50px;
-}
-
-.menu-icon span {
-    display: block;
-    width: 35px;
-    height: 5px;
-    background-color: var(--pure-white);
-    border-radius: 4px;
+    z-index: 1000;
 }
 
 .logo {
-    color: var(--pure-white);
-    font-size: 1.6rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-left: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--brand-red);
     letter-spacing: 2px;
 }
 
-/* --- SLIDE-OUT MENU --- */
-.menu-links {
-    display: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 280px;
-    background-color: var(--brand-red);
-    border-right: 4px solid var(--pure-white);
-    flex-direction: column;
-    text-align: left;
-    box-shadow: 10px 0 20px rgba(0,0,0,0.2);
-}
-
 .menu-links a {
-    color: var(--pure-white);
     text-decoration: none;
-    padding: 20px;
-    font-weight: bold;
+    color: var(--dark-text);
+    margin-left: 20px;
+    font-weight: 600;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
-.show-menu {
-    display: flex !important;
+.menu-links a:hover {
+    color: var(--brand-red);
 }
 
-/* --- ANNOUNCEMENT BAR --- */
+/* --- 3. ANNOUNCEMENT BAR --- */
 .marquee-container {
     background-color: var(--brand-red);
-    color: var(--pure-white);
-    padding: 15px 0;
-    border-top: 5px solid var(--pure-white);
-    border-bottom: 5px solid var(--pure-white);
-}
-
-marquee {
-    font-size: 1.4rem;
-    font-weight: 900;
-}
-
-/* --- PRODUCT GRID & FULL IMAGE FIX --- */
-h1 {
-    display: inline-block;
-    border: 6px solid var(--brand-red);
-    padding: 15px 30px;
-    margin: 40px auto 20px;
+    color: var(--white);
+    padding: 8px 0;
+    font-weight: bold;
     text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* --- 4. PRODUCT GRID --- */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    border: 2px solid var(--brand-red);
+    display: inline-block;
+    padding: 10px 30px;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .product-card {
-    background-color: var(--bg-light);
-    border: 3px solid var(--brand-red);
+    background: var(--white);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
     display: flex;
-    flex-direction: column; /* Stacks image top, text bottom */
-    transition: 0.3s ease;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .product-card img {
     width: 100%;
-    height: auto; /* CRITICAL: Allows the full dress to show without cropping */
+    height: 450px; /* Consistent height for luxury catalog */
+    object-fit: cover; /* Ensures images fill the space */
     display: block;
-    object-fit: contain; /* Ensures the image fits inside without being cut */
-    background-color: #fff;
 }
 
 .product-info {
     padding: 20px;
-    border-top: 3px solid var(--brand-red);
-    flex-grow: 1; /* Pushes the button to the bottom if cards vary in height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    text-align: center;
+    border-top: 1px solid #eee;
 }
 
 .product-info h3 {
+    font-size: 1.1rem;
     margin-bottom: 10px;
-    font-size: 1.3rem;
-    text-transform: uppercase;
+    color: var(--brand-red);
 }
 
 .price {
-    font-size: 1.4rem;
-    font-weight: 900;
-    color: #333;
-    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
 }
 
 .book-btn {
     display: block;
-    background-color: var(--brand-red);
-    color: var(--pure-white) !important;
-    padding: 15px;
+    background: var(--brand-red);
+    color: var(--white);
     text-decoration: none;
-    font-weight: bold;
+    padding: 12px;
     text-transform: uppercase;
-    border: 2px solid var(--brand-red);
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .book-btn:hover {
-    background-color: var(--pure-white);
-    color: var(--brand-red) !important;
+    background: #990000;
 }
 
-/* --- FOOTER --- */
+/* --- 5. WHATSAPP & CHATBOT --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Moved to left to avoid overlapping chatbot */
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 2000;
+}
+
+.whatsapp-float img { width: 35px; }
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: var(--white);
+    border: 2px solid var(--brand-red);
+    border-radius: 10px 10px 0 0;
+    z-index: 2000;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+}
+
+.chatbot-header {
+    background: var(--brand-red);
+    color: var(--white);
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-body {
+    height: 300px;
+    padding: 15px;
+    overflow-y: auto;
+    display: none; /* Hidden until toggled */
+    background: #f9f9f9;
+}
+
+.chat-footer {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.chat-footer button {
+    background: var(--brand-red);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* --- 6. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr 1fr; /* Two items per row on mobile */
+        gap: 15px;
+    }
+    
+    .product-card img {
+        height: 280px; /* Shorter images for mobile viewing */
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        width: 90%;
+    }
+}
+
 footer {
-    background-color: var(--brand-red);
-    color: var(--pure-white);
-    padding: 40px;
-    margin-top: 60px;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 600px) {
-    .logo { font-size: 1.2rem; }
-    h1 { font-size: 1.5rem; width: 90%; }
+    background: var(--brand-red);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
 }
