@@ -129,3 +129,64 @@ footer {
     margin-top: 60px;
     font-weight: bold;
 }
+/* HAMBURGER MENU STYLES */
+.hamburger-nav {
+    background-color: #cc0000 !important;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns everything to the left */
+    position: relative;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-right: 20px; /* Space between lines and logo */
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff; /* White lines */
+    border-radius: 3px;
+}
+
+.logo {
+    color: #ffffff !important;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* Hidden Links Styling */
+.menu-links {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #cc0000;
+    width: 200px;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    z-index: 1000;
+}
+
+.menu-links a {
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Class to show menu via JS */
+.show-menu {
+    display: flex !important;
+}
