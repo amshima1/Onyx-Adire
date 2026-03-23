@@ -1,165 +1,170 @@
-/* --- ONYX-ADIRE OFFICIAL STYLE GUIDE --- */
+/* --- 1. GLOBAL & COLORS --- */
 :root {
     --brand-red: #cc0000;
-    --pure-white: #ffffff;
-    --dark-text: #333333;
+    --white: #ffffff;
+    --dark-text: #1a1a1a;
+    --light-gray: #f4f4f4;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Garamond', serif;
-    background-color: var(--pure-white);
-    color: var(--brand-red);
-    text-align: center;
-    line-height: 1.6;
+    font-family: 'Serif', 'Playfair Display', Times, serif;
+    background-color: var(--white);
+    color: var(--dark-text);
+    overflow-x: hidden;
 }
 
-/* --- 1. NAVIGATION (TOP LEFT HAMBURGER) --- */
+/* --- 2. NAVIGATION & HAMBURGER --- */
 nav {
-    background-color: var(--brand-red);
-    height: 80px;
+    background-color: var(--brand-red); /* Matches red bar in screenshot */
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 5%;
     position: sticky;
     top: 0;
     z-index: 2000;
-}
-
-.menu-icon {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 50px; /* Big clickable area */
-    z-index: 2001;
-}
-
-.menu-icon span {
-    display: block;
-    width: 35px;
-    height: 5px; /* Thicker lines for visibility */
-    background-color: var(--pure-white);
-    border-radius: 4px;
+    height: 60px;
 }
 
 .logo {
-    color: var(--pure-white);
-    font-size: 1.6rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-left: 20px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.4rem;
     letter-spacing: 2px;
 }
 
-/* --- 2. THE SLIDE-OUT MENU --- */
-.menu-links {
-    display: none; /* Hidden until clicked */
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 280px;
-    background-color: var(--brand-red);
-    border-right: 4px solid var(--pure-white);
+/* Hamburger Icon Structure */
+.hamburger {
+    display: flex;
     flex-direction: column;
-    text-align: left;
-    box-shadow: 10px 0 20px rgba(0,0,0,0.2);
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--white); /* White bars for visibility */
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* Mobile Menu Links */
+.menu-links {
+    display: none; /* Hidden by default on mobile */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--brand-red);
+    flex-direction: column;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Triggered by JS classList.toggle('active') */
+.menu-links.active {
+    display: flex;
 }
 
 .menu-links a {
-    color: var(--pure-white);
+    color: var(--white);
     text-decoration: none;
-    padding: 20px;
+    padding: 15px;
     font-weight: bold;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.show-menu {
-    display: flex !important;
+/* --- 3. BRAND HEADING --- */
+.luxury-header {
+    text-align: center;
+    margin: 30px 0;
 }
 
-/* --- 3. BIG ANNOUNCEMENT BAR --- */
-.marquee-container {
-    background-color: var(--brand-red);
-    color: var(--pure-white);
-    padding: 15px 0;
-    border-top: 5px solid var(--pure-white);
-    border-bottom: 5px solid var(--pure-white);
-}
-
-marquee {
-    font-size: 1.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-/* --- 4. THE PRODUCT GRID (THE FIX) --- */
-h1 {
+.luxury-header h2 {
     display: inline-block;
-    border: 6px solid var(--brand-red);
-    padding: 15px 30px;
-    margin: 40px auto 20px;
+    border: 3px solid var(--brand-red); /* Red Bordered Box */
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    color: var(--dark-text);
     text-transform: uppercase;
 }
 
-.product-grid {
-    display: grid;
-    /* This creates the 3-column layout on PC and 1-column on mobile */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px;
+/* --- 4. PRODUCT GRID --- */
+.container {
+    padding: 10px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+    gap: 15px;
+}
+
 .product-card {
-    background-color: var(--pure-white);
-    border: 3px solid var(--brand-red);
-    padding-bottom: 20px;
-    transition: 0.3s;
+    border: 1px solid var(--brand-red);
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    text-align: center;
 }
 
 .product-card img {
     width: 100%;
-    height: 450px; /* Uniform height for all 9 images */
-    object-fit: cover; /* Prevents stretching */
-    border-bottom: 3px solid var(--brand-red);
+    height: auto;
+    display: block;
 }
 
 .product-card h3 {
-    margin: 15px 0 5px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin: 10px 0 5px;
+    color: var(--brand-red);
+    text-transform: capitalize;
 }
 
-.price {
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--dark-text);
-    margin-bottom: 15px;
+.product-card p {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
 .book-btn {
-    display: inline-block;
     background-color: var(--brand-red);
-    color: var(--pure-white) !important;
-    padding: 10px 20px;
+    color: var(--white);
     text-decoration: none;
+    padding: 10px;
+    font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 0.9rem;
 }
 
-/* --- 5. FOOTER --- */
-footer {
-    background-color: var(--brand-red);
-    color: var(--pure-white);
-    padding: 30px;
-    margin-top: 50px;
+/* --- 5. FLOATING ELEMENTS --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 3000;
 }
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 260px;
+    border: 1px solid var(--brand-red);
