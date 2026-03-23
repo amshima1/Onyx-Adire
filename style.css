@@ -1,192 +1,101 @@
-/* ONYX-ADIRE OFFICIAL RED & WHITE THEME 
-   Guaranteed Override for GitHub Pages 
-*/
-
-:root {
-    --brand-red: #cc0000;
-    --pure-white: #ffffff;
-    --text-dark: #333333;
-}
-
-* {
-    box-sizing: border-box;
-}
-
+/* --- GLOBAL THEME --- */
 body {
-    background-color: var(--pure-white) !important;
-    color: var(--brand-red) !important;
-    font-family: 'Garamond', serif;
     margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #cc0000;
+    font-family: 'serif';
     text-align: center;
+    overflow-x: hidden; /* Prevents side-scrolling */
 }
 
-/* 1. Navigation Bar (Red Background, White Links) */
+/* --- NAVIGATION & HAMBURGER --- */
 nav {
-    background-color: var(--brand-red) !important;
-    padding: 15px 20px !important;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 4px solid var(--brand-red);
-}
-
-.logo {
-    color: var(--pure-white) !important;
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: 3px;
-}
-
-.nav-links a {
-    color: var(--pure-white) !important;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-/* MASSIVE RED & WHITE ANNOUNCEMENT BAR */
-.marquee-container {
-    background-color: #cc0000 !important; /* Bold Red Background */
-    color: #ffffff !important;           /* White Text */
-    padding: 25px 0 !important;          /* INCREASED: Makes the bar much taller */
-    border-top: 8px solid #ffffff !important;    /* THICK White Border Top */
-    border-bottom: 8px solid #ffffff !important; /* THICK White Border Bottom */
-    display: flex !important;
-    align-items: center !important;
-    margin-bottom: 20px;
-}
-
-marquee {
-    font-size: 1.8rem !important;        /* BIGGER: Larger font size */
-    font-weight: 900 !important;         /* EXTRA BOLD */
-    letter-spacing: 3px !important;      /* Spaced out for luxury feel */
-    text-transform: uppercase !important;
-}
-
-
-/* 3. The Main Heading (Red Border Box) */
-h1 {
-    color: var(--brand-red) !important;
-    font-size: 2.2rem !important;
-    font-weight: 900 !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    
-    display: inline-block;
-    margin: 40px auto 10px auto !important;
-    padding: 15px 30px !important;
-    border: 7px solid var(--brand-red) !important;
-    background-color: var(--pure-white) !important;
-}
-
-p {
-    color: var(--text-dark);
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-/* 4. Images & Product Showcase */
-img {
-    max-width: 90%;
-    height: auto;
-    border: 6px solid var(--brand-red) !important;
-    margin-top: 20px;
-}
-
-/* Grid for Gallery and Trustees */
-.plain-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 40px;
-}
-
-/* 5. Forms (Inquiries/Bookings) */
-input, textarea, button {
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    margin: 10px auto;
-    display: block;
-    border: 2px solid var(--brand-red);
-    border-radius: 0;
-}
-
-button {
-    background-color: var(--brand-red);
-    color: var(--pure-white);
-    font-weight: 900;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-/* 6. Footer */
-footer {
-    background-color: var(--brand-red);
-    color: var(--pure-white);
-    padding: 20px;
-    margin-top: 60px;
-    font-weight: bold;
-}
-/* HAMBURGER MENU STYLES */
-.hamburger-nav {
-    background-color: #cc0000 !important;
-    padding: 15px 20px;
+    background-color: #cc0000;
+    height: 60px;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Aligns everything to the left */
+    padding: 0 20px;
     position: relative;
+    z-index: 1000;
 }
 
 .menu-icon {
-    width: 30px;
-    height: 20px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-right: 20px; /* Space between lines and logo */
+    gap: 5px;
+    margin-right: 20px;
 }
 
 .menu-icon span {
     display: block;
+    width: 25px;
     height: 3px;
-    width: 100%;
-    background-color: #ffffff; /* White lines */
-    border-radius: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
 }
 
 .logo {
-    color: #ffffff !important;
+    color: #ffffff;
     font-weight: 900;
     letter-spacing: 2px;
+    font-size: 1.2rem;
 }
 
-/* Hidden Links Styling */
+/* The Hidden Menu */
 .menu-links {
     display: none; /* Hidden by default */
-    flex-direction: column;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 0;
     background-color: #cc0000;
-    width: 200px;
-    padding: 20px;
-    border: 2px solid #ffffff;
-    z-index: 1000;
+    width: 250px;
+    flex-direction: column;
+    text-align: left;
+    border-bottom-right-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 }
 
 .menu-links a {
-    color: #ffffff !important;
+    color: #ffffff;
     text-decoration: none;
-    padding: 10px 0;
+    padding: 15px 25px;
     font-weight: bold;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Class to show menu via JS */
+/* SHOW CLASS (Triggered by JS) */
 .show-menu {
     display: flex !important;
+}
+
+/* --- BIG ANNOUNCEMENT BAR --- */
+.marquee-container {
+    background-color: #cc0000;
+    color: #ffffff;
+    padding: 20px 0;
+    border-top: 5px solid #ffffff;
+    border-bottom: 5px solid #ffffff;
+}
+
+marquee {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+/* --- CONTENT --- */
+h1 {
+    display: inline-block;
+    border: 6px solid #cc0000;
+    padding: 15px 25px;
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.main-image img {
+    max-width: 90%;
+    border: 5px solid #cc0000;
+    margin: 20px 0;
 }
