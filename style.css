@@ -9,39 +9,35 @@ body {
     overflow-x: hidden; /* Prevents side-scrolling */
 }
 
-/* --- NAVIGATION & HAMBURGER --- */
-nav {
-    background-color: #cc0000;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1000;
-}
-
+/* --- BIGGER HAMBURGER ICON --- */
 .menu-icon {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-right: 20px;
+    justify-content: center;
+    gap: 6px;             /* Space between the lines */
+    width: 45px;          /* INCREASED: Wider clickable area */
+    height: 45px;         /* INCREASED: Taller clickable area */
+    padding: 5px;
+    margin-right: 15px;
+    z-index: 1001;        /* Keeps it above the menu when open */
 }
 
 .menu-icon span {
     display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    border-radius: 2px;
+    width: 35px;          /* INCREASED: Makes the lines longer */
+    height: 5px;          /* INCREASED: Makes the lines thicker/bolder */
+    background-color: #ffffff; 
+    border-radius: 4px;
+    transition: 0.3s ease-in-out; /* Smooth transition for future animations */
 }
 
+/* Ensure the Logo shifts slightly to make room for the bigger icon */
 .logo {
-    color: #ffffff;
-    font-weight: 900;
-    letter-spacing: 2px;
-    font-size: 1.2rem;
+    font-size: 1.5rem !important; /* Makes the brand name bigger to match */
+    margin-left: 5px;
 }
+
 
 /* The Hidden Menu */
 .menu-links {
