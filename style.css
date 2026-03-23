@@ -1,170 +1,72 @@
-/* --- 1. GLOBAL & COLORS --- */
 :root {
     --brand-red: #cc0000;
     --white: #ffffff;
-    --dark-text: #1a1a1a;
-    --light-gray: #f4f4f4;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'serif'; background: var(--white); overflow-x: hidden; }
 
-body {
-    font-family: 'Serif', 'Playfair Display', Times, serif;
-    background-color: var(--white);
-    color: var(--dark-text);
-    overflow-x: hidden;
-}
-
-/* --- 2. NAVIGATION & HAMBURGER --- */
+/* NAVIGATION (Red with White text) */
 nav {
-    background-color: var(--brand-red); /* Matches red bar in screenshot */
+    background: var(--brand-red);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
+    padding: 12px 5%;
+    color: var(--white);
     position: sticky;
     top: 0;
     z-index: 2000;
-    height: 60px;
 }
 
-.logo {
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-}
-
-/* Hamburger Icon Structure */
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-}
+.logo { font-weight: bold; letter-spacing: 2px; font-size: 1.3rem; }
 
 .hamburger span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--white); /* White bars for visibility */
-    border-radius: 3px;
-    transition: 0.3s;
+    display: block; width: 25px; height: 3px; background: var(--white); margin: 4px 0;
 }
 
-/* Mobile Menu Links */
 .menu-links {
-    display: none; /* Hidden by default on mobile */
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: var(--brand-red);
-    flex-direction: column;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: none; position: absolute; top: 55px; left: 0; width: 100%;
+    background: var(--brand-red); flex-direction: column; text-align: center;
 }
 
-/* Triggered by JS classList.toggle('active') */
-.menu-links.active {
-    display: flex;
-}
+.menu-links.active { display: flex; }
+.menu-links a { color: var(--white); text-decoration: none; padding: 15px; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.2); }
 
-.menu-links a {
-    color: var(--white);
-    text-decoration: none;
-    padding: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* --- 3. BRAND HEADING --- */
-.luxury-header {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.luxury-header h2 {
+/* RED & WHITE BOX HEADING */
+.luxury-header { text-align: center; margin: 30px 0; }
+.red-white-box {
     display: inline-block;
-    border: 3px solid var(--brand-red); /* Red Bordered Box */
+    border: 4px solid var(--brand-red);
     padding: 10px 25px;
+    color: var(--brand-red);
+    background: var(--white);
     font-size: 1.1rem;
     letter-spacing: 3px;
-    color: var(--dark-text);
     text-transform: uppercase;
 }
 
-/* --- 4. PRODUCT GRID --- */
-.container {
-    padding: 10px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
-    gap: 15px;
-}
-
-.product-card {
-    border: 1px solid var(--brand-red);
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-    text-align: center;
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.product-card h3 {
-    font-size: 0.8rem;
-    margin: 10px 0 5px;
-    color: var(--brand-red);
-    text-transform: capitalize;
-}
-
-.product-card p {
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
+/* CATALOG GRID */
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; }
+.product-card { border: 2px solid var(--brand-red); text-align: center; padding-bottom: 10px; background: var(--white); }
+.product-card img { width: 100%; height: auto; }
+.product-card h3 { color: var(--brand-red); font-size: 0.85rem; margin-top: 8px; }
+.price { font-weight: bold; margin: 5px 0; color: #000; }
 
 .book-btn {
-    background-color: var(--brand-red);
-    color: var(--white);
-    text-decoration: none;
-    padding: 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    background: var(--brand-red); color: var(--white);
+    text-decoration: none; display: block; padding: 10px; margin: 5px 10px;
+    font-size: 0.7rem; font-weight: bold; text-transform: uppercase;
 }
 
-/* --- 5. FLOATING ELEMENTS --- */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    z-index: 3000;
-}
+/* MARQUEE & FOOTER */
+.marquee-container { background: #000; color: var(--white); padding: 5px 0; font-size: 0.8rem; }
+footer { background: var(--brand-red); color: var(--white); text-align: center; padding: 20px; font-size: 0.75rem; margin-top: 30px; }
 
-.chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 260px;
-    border: 1px solid var(--brand-red);
+/* CHATBOT (Red & White Theme) */
+.chatbot-container { position: fixed; bottom: 20px; right: 20px; width: 280px; border: 2px solid var(--brand-red); background: var(--white); z-index: 3000; }
+.chatbot-header { background: var(--brand-red); color: var(--white); padding: 10px; cursor: pointer; display: flex; justify-content: space-between; }
+.chat-body { height: 200px; display: none; padding: 10px; overflow-y: auto; font-size: 0.8rem; }
+.chat-footer { display: none; padding: 8px; border-top: 1px solid var(--brand-red); }
+.chat-footer input { flex: 1; border: 1px solid #ddd; padding: 5px; }
+.chat-footer button { background: var(--brand-red); color: var(--white); border: none; padding: 5px 10px; }
