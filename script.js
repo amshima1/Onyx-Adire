@@ -28,3 +28,14 @@ if(bForm) {
         alert("Onyx-Adire has received your request. We will reach out shortly!");
     });
 }
+const bigMarquee = document.querySelector('marquee');
+
+if (bigMarquee) {
+    bigMarquee.addEventListener('mouseover', () => {
+        bigMarquee.scrollAmount = 20; // Speed up on hover
+    });
+
+    bigMarquee.addEventListener('mouseout', () => {
+        bigMarquee.scrollAmount = 12; // Normal speed
+    });
+}
