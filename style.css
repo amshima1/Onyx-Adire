@@ -45,17 +45,25 @@ nav {
     text-transform: uppercase;
     font-size: 0.8rem;
 }
-
-/* 2. Announcement Bar (White Background, Red Border & Text) */
+/* MASSIVE RED & WHITE ANNOUNCEMENT BAR */
 .marquee-container {
-    background-color: var(--pure-white) !important;
-    color: var(--brand-red) !important;
-    border-top: 5px solid var(--brand-red) !important;
-    border-bottom: 5px solid var(--brand-red) !important;
-    padding: 10px 0 !important;
-    font-weight: 900 !important;
-    text-transform: uppercase;
+    background-color: #cc0000 !important; /* Bold Red Background */
+    color: #ffffff !important;           /* White Text */
+    padding: 25px 0 !important;          /* INCREASED: Makes the bar much taller */
+    border-top: 8px solid #ffffff !important;    /* THICK White Border Top */
+    border-bottom: 8px solid #ffffff !important; /* THICK White Border Bottom */
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 20px;
 }
+
+marquee {
+    font-size: 1.8rem !important;        /* BIGGER: Larger font size */
+    font-weight: 900 !important;         /* EXTRA BOLD */
+    letter-spacing: 3px !important;      /* Spaced out for luxury feel */
+    text-transform: uppercase !important;
+}
+
 
 /* 3. The Main Heading (Red Border Box) */
 h1 {
