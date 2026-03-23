@@ -1,139 +1,212 @@
+/* --- 1. CORE THEME & RESET --- */
 :root {
     --brand-red: #cc0000;
     --white: #ffffff;
+    --dark: #1a1a1a;
+    --wa-gradient: linear-gradient(to right, #ff8c00, #e65100);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'serif'; background: var(--white); overflow-x: hidden; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* ANNOUNCEMENT BAR */
+body {
+    font-family: 'Serif', 'Playfair Display', Times, serif;
+    background-color: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+/* --- 2. ANNOUNCEMENT BAR --- */
 .announcement-bar {
-    background: var(--brand-red);
+    background-color: var(--brand-red);
     color: var(--white);
     padding: 8px 0;
-    font-weight: bold;
     font-size: 0.8rem;
-    border-bottom: 1px solid var(--white);
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-/* NAVIGATION (3-Column Layout) */
+/* --- 3. NAVIGATION (3-COLUMN LAYOUT) --- */
 nav {
-    background: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 10px 5%;
+    background-color: var(--white);
     border-bottom: 2px solid var(--brand-red);
     position: sticky;
     top: 0;
     z-index: 2000;
+    height: 70px;
 }
 
-.nav-left, .nav-right { flex: 1; }
-.nav-centre { flex: 2; text-align: center; }
-
-.logo { 
-    color: var(--brand-red); 
-    font-weight: bold; 
-    letter-spacing: 2px; 
-    font-size: 1.4rem; 
+.nav-left, .nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
+.nav-centre {
+    flex: 2;
+    text-align: center;
+}
+
+.logo {
+    color: var(--brand-red);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* HAMBURGER (Top Left) */
 .hamburger {
     display: flex;
     flex-direction: column;
-    width: 25px;
+    justify-content: space-around;
+    width: 28px;
+    height: 20px;
     cursor: pointer;
 }
 
 .hamburger span {
     width: 100%;
     height: 3px;
-    background: var(--brand-red);
-    margin: 2px 0;
-    transition: 0.3s;
+    background-color: var(--brand-red);
+    border-radius: 2px;
 }
 
-/* MOBILE DRAWER */
+/* MOBILE MENU DRAWER */
 .menu-links {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0;
     width: 100%;
-    background: var(--white);
+    background-color: var(--white);
     flex-direction: column;
-    border-bottom: 2px solid var(--brand-red);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.menu-links.active { display: flex; }
+.menu-links.active {
+    display: flex;
+}
+
 .menu-links a {
     color: var(--brand-red);
     text-decoration: none;
     padding: 15px;
-    font-weight: bold;
     text-align: center;
-    border-top: 1px solid #eee;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
 }
 
-/* HEADING BOX */
-.luxury-header { text-align: center; margin: 30px 0; }
+/* --- 4. BRANDING HEADER --- */
+.luxury-header {
+    text-align: center;
+    margin: 30px 0;
+}
+
 .red-white-box {
     display: inline-block;
     border: 3px solid var(--brand-red);
-    padding: 10px 20px;
+    padding: 10px 25px;
     color: var(--brand-red);
+    background-color: var(--white);
     font-size: 1rem;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-/* PRODUCT GRID (2 Columns for Mobile) */
+/* --- 5. PRODUCT GRID (10 ITEMS) --- */
+.container {
+    padding: 0 10px;
+}
+
 .product-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    padding: 15px;
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    gap: 12px;
 }
 
 .product-card {
     border: 1px solid var(--brand-red);
+    background: var(--white);
     text-align: center;
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-card img { width: 100%; height: auto; display: block; }
-.product-card h3 { 
-    color: var(--brand-red); 
-    font-size: 0.8rem; 
-    margin: 10px 5px 5px; 
+.product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-.price { font-weight: bold; font-size: 0.9rem; margin-bottom: 8px; }
+.product-card h3 {
+    font-size: 0.8rem;
+    margin: 8px 0 3px;
+    color: var(--brand-red);
+}
+
+.price {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
 
 .book-btn {
-    background: var(--brand-red);
+    background-color: var(--brand-red);
     color: var(--white);
     text-decoration: none;
-    display: block;
-    padding: 8px;
+    padding: 10px;
     margin: 0 10px;
     font-size: 0.7rem;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
-/* FOOTER */
+/* --- 6. WHATSAPP BAR (Bottom Right) --- */
+.whatsapp-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--wa-gradient);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 3000;
+}
+
+.whatsapp-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-content img {
+    width: 20px;
+    height: 20px;
+}
+
+.whatsapp-content span {
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* --- 7. FOOTER --- */
 footer {
-    background: var(--brand-red);
+    background-color: var(--brand-red);
     color: var(--white);
     text-align: center;
     padding: 20px;
-    font-size: 0.7rem;
-}
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    z-index: 1000;
+    margin-top: 40px;
+    font-size: 0.75rem;
 }
