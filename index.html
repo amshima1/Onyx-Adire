@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onyx-Adire | Luxury Red & White Collection</title>
+    <title>Onyx-Adire | Luxury African Fashion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="announcement-bar">
         <marquee scrollamount="7">
-            ONYX-ADIRE • AUTHENTIC AFRICAN HERITAGE • MODERN LUXURY • FREE NATIONWIDE DELIVERY • SHOP THE RED COLLECTION NOW
+            ONYX-ADIRE • AUTHENTIC AFRICAN HERITAGE • MODERN LUXURY • WORLDWIDE SHIPPING
         </marquee>
     </div>
 
@@ -40,86 +40,57 @@
     </nav>
 
     <header class="luxury-header">
-        <h2 class="red-white-box">AUTHENTIC AFRICAN LUXURY</h2>
+        <h2 class="red-white-box">THE HERITAGE COLLECTION</h2>
     </header>
 
     <main class="container">
         <div class="product-grid">
             
             <div class="product-card">
-                <img src="sadiya-adire-long-dress.jpg" alt="Sadiya Silk Gown">
+                <div class="image-container">
+                    <img src="sadiya-adire-long-dress.jpg" alt="Sadiya Silk Gown">
+                    <div class="hover-overlay" onclick="openModal('sadiya-adire-long-dress.jpg')">QUICK VIEW</div>
+                </div>
                 <h3>Sadiya Silk Gown</h3>
                 <p class="price">₦85,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
+                <a href="bookings.html" class="options-btn">CHOOSE OPTIONS</a>
             </div>
 
             <div class="product-card">
-                <img src="adesewa-adire-set.jpg" alt="Adesewa Adire Set">
+                <div class="image-container">
+                    <img src="adesewa-adire-set.jpg" alt="Adesewa Set">
+                    <div class="hover-overlay" onclick="openModal('adesewa-adire-set.jpg')">QUICK VIEW</div>
+                </div>
                 <h3>Adesewa Adire Set</h3>
                 <p class="price">₦65,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="midnight-lace-tunic.jpg" alt="Midnight Lace Tunic">
-                <h3>Midnight Lace Tunic</h3>
-                <p class="price">₦45,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="heritage-agbada-gold.jpg" alt="Heritage Gold Agbada">
-                <h3>Heritage Gold Agbada</h3>
-                <p class="price">₦120,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic">
-                <h3>Adire Silk Tunic</h3>
-                <p class="price">₦55,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="bespoke-traditional-agbada.jpg" alt="Traditional Agbada">
-                <h3>Traditional Agbada</h3>
-                <p class="price">₦110,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="ebony-silk-boubou.jpg" alt="Ebony Silk Boubou">
-                <h3>Ebony Silk Boubou</h3>
-                <p class="price">₦75,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="luxury-lace-iro-and-buba.jpg" alt="Lace Iro & Buba">
-                <h3>Lace Iro & Buba</h3>
-                <p class="price">₦95,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="royal-thread-evening-gown.jpg" alt="Royal Evening Gown">
-                <h3>Royal Evening Gown</h3>
-                <p class="price">₦150,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
-            </div>
-
-            <div class="product-card">
-                <img src="vibrant-batik-shirtdress.jpg" alt="Batik Shirt Dress">
-                <h3>Batik Shirt Dress</h3>
-                <p class="price">₦60,000</p>
-                <a href="bookings.html" class="book-btn">BOOK APPOINTMENT</a>
+                <a href="bookings.html" class="options-btn">CHOOSE OPTIONS</a>
             </div>
 
         </div>
     </main>
 
-    <a href="https://wa.me/2348137663447" class="whatsapp-bar" target="_blank">
+    <section class="container related-products">
+        <h3 class="section-title">YOU MAY ALSO LIKE</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="14179.jpg" alt="Collection Piece">
+                <h3>Onyx Wrap</h3>
+                <a href="gallery.html" class="options-btn">VIEW ALL</a>
+            </div>
+            <div class="product-card">
+                <img src="14181.jpg" alt="Collection Piece">
+                <h3>Heritage Tunic</h3>
+                <a href="gallery.html" class="options-btn">VIEW ALL</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-bar" target="_blank">
         <div class="whatsapp-content">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             <span>Chat Via Whatsapp</span>
