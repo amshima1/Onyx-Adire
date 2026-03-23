@@ -1,30 +1,93 @@
-<nav>
-    <div class="logo">ONYX-ADIRE</div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="gallery.html">Showcase</a>
-        <a href="trustees.html">Trustees</a>
-        <a href="events.html">Events</a>
-        <a href="bookings.html">Inquiries</a>
-    </div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Onyx-Adire Luxury Fashion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="marquee-container">
-    <marquee behavior="scroll" direction="left">
-        EXQUISITE ADIRE HERITAGE • NEW ARRIVALS: HERITAGE AGBADA GOLD • LUXURY SILK TUNICS • BOOK YOUR FITTING TODAY
-    </marquee>
-</div>
+    <div class="announcement-bar">
+        <marquee scrollamount="7">
+            LATEST UPDATES: MIVA OPEN UNIVERSITY MATRICULATION • UPCOMING FASHION SHOWS • WORKSHOPS
+        </marquee>
+    </div>
 
-<main class="container">
-    <h1>Calendar of Style</h1>
-    <div class="card" style="margin-bottom: 20px; padding: 20px; background: var(--gray);">
-        <h2>Lagos Fashion Week</h2>
-        <p>October 20th - 25th, 2026</p>
-        <p>Showcasing the "Onyx-Midnight" Collection.</p>
+    <nav>
+        <div class="nav-left">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="nav-centre">
+            <h1 class="logo">ONYX-ADIRE</h1>
+        </div>
+
+        <div class="nav-right"></div>
+
+        <div id="nav-menu" class="menu-links">
+            <a href="index.html">HOME</a>
+            <a href="gallery.html">SHOWCASE</a>
+            <a href="trustees.html">TRUSTEES</a>
+            <a href="events.html">EVENTS</a>
+            <a href="bookings.html">INQUIRIES</a>
+        </div>
+    </nav>
+
+    <header class="luxury-header">
+        <h2 class="red-white-box">EXCLUSIVE EVENTS</h2>
+    </header>
+
+    <main class="container">
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="july-collections-2026.jpg" alt="Miva Matriculation">
+                <h3>UNIVERSITY MATRICULATION</h3>
+                <p class="role-title">LADI KWALI HALL, ABUJA</p>
+                <div class="bio-container">
+                    <p class="bio-text">
+                        Celebrating the official matriculation at Miva Open University. A proud moment blending academic excellence with the Onyx-Adire spirit.
+                    </p>
+                </div>
+                <a href="#" class="book-btn">VIEW MEMORIES</a>
+            </div>
+
+            <div class="product-card">
+                <img src="modern-agbada-fusion.jpg" alt="Fashion Show">
+                <h3>ANNUAL FASHION GALA</h3>
+                <p class="role-title">COMING SOON - DEC 2026</p>
+                <div class="bio-container">
+                    <p class="bio-text">
+                        Get ready for our flagship runway event featuring the latest "Heritage Gold" collection. Exclusive invitations will be sent via WhatsApp.
+                    </p>
+                </div>
+                <a href="https://wa.me/234XXXXXXXXXX" class="book-btn">RESERVE SEAT</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage">
     </div>
-    <div class="card" style="padding: 20px; background: var(--gray);">
-        <h2>Abuja Private Viewing</h2>
-        <p>December 5th, 2026</p>
-        <p>Venue: Continental Hotel.</p>
-    </div>
-</main>
+
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-bar" target="_blank">
+        <div class="whatsapp-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            <span>Chat Via Whatsapp</span>
+        </div>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 ONYX-ADIRE | <span id="clock"></span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
