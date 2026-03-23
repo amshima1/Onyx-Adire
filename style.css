@@ -1,146 +1,69 @@
+/* GLOBAL RESET TO RED & WHITE */
 :root {
-    --luxury-red: #990000; /* Deep, bold red */
-    --gold: #D4AF37;
-    --black: #000000;
-    --white: #ffffff;
+    --primary-red: #cc0000;
+    --pure-white: #ffffff;
 }
-
-/* FORCE RED MARQUEE AND BORDERED HEADING */
-
-.marquee-container {
-    background-color: #ff0000 !important; /* Pure Bold Red */
-    color: #ffffff !important;           /* White Text */
-    padding: 15px 0 !important;
-    border-top: 6px solid #ffffff !important;    /* Thick White Top Border */
-    border-bottom: 6px solid #ffffff !important; /* Thick White Bottom Border */
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    display: block !important;
-}
-
-h1 {
-    color: #ff0000 !important;           /* Red Text */
-    font-size: 2.8rem !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 3px !important;
-    
-    /* THE RED BORDER BOX */
-    display: inline-block !important;
-    padding: 20px 40px !important;
-    border: 8px solid #ff0000 !important; /* Extra Thick Red Border */
-    background-color: transparent !important;
-    margin-top: 30px !important;
-}
-
-/* Ensure the text inside the marquee is visible */
-marquee {
-    font-weight: 900 !important;
-    color: #ffffff !important;
-}
-
-
-/* Ensure the marquee text inside is also bold */
-marquee {
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-}
-
-
-/* 2. The Main Heading */
-h1 {
-    color: var(--luxury-red);
-    font-size: 3rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-top: 50px;
-    
-    /* Adding the Border Effect to the Heading */
-    display: inline-block;
-    padding: 15px 30px;
-    border: 5px solid var(--luxury-red);
-    background-color: transparent;
-    transition: 0.3s ease-in-out;
-}
-
-h1:hover {
-    background-color: var(--luxury-red);
-    color: var(--white);
-}
-
-/* 3. Subtext under the heading */
-main p {
-    color: var(--white);
-    font-weight: bold;
-    margin-top: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
 
 body {
-    background-color: var(--onyx);
-    color: var(--white);
+    background-color: var(--pure-white) !important;
+    color: var(--primary-red) !important;
     font-family: 'Garamond', serif;
     margin: 0;
-    line-height: 1.6;
 }
 
-/* Navigation */
+/* 1. Navigation Bar */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background: #000;
-    border-bottom: 1px solid var(--gold);
+    background-color: var(--primary-red) !important;
+    border-bottom: 5px solid var(--primary-red);
+    padding: 15px 5%;
 }
 
-.logo { font-size: 24px; letter-spacing: 3px; color: var(--gold); font-weight: bold; }
-
-.nav-links a {
-    color: var(--white);
+nav a, .logo {
+    color: var(--pure-white) !important;
     text-decoration: none;
-    margin-left: 20px;
+    font-weight: 900;
     text-transform: uppercase;
-    font-size: 14px;
-    transition: 0.3s;
 }
 
-.nav-links a:hover { color: var(--gold); }
-
-/* Marquee */
-.marquee-container {
-    background: var(--gold);
-    color: #000;
-    padding: 10px 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    overflow: hidden;
+/* 2. The Announcement Bar (Marquee) */
+.marquee-container, .marquee-bar {
+    background-color: var(--pure-white) !important;
+    color: var(--primary-red) !important;
+    border-top: 4px solid var(--primary-red) !important;
+    border-bottom: 4px solid var(--primary-red) !important;
+    padding: 10px 0 !important;
 }
 
-marquee { font-size: 14px; }
+marquee {
+    font-weight: 900 !important;
+    font-size: 1.1rem;
+}
 
-/* Content Layout */
-.container { padding: 40px 5%; text-align: center; }
+/* 3. The Main Heading & Borders */
+h1 {
+    color: var(--primary-red) !important;
+    border: 6px solid var(--primary-red) !important; /* Bold Red Border */
+    padding: 20px 40px !important;
+    display: inline-block !important;
+    background-color: var(--pure-white) !important;
+    font-weight: 900 !important;
+    margin-top: 40px !important;
+}
 
-h1 { color: var(--gold); margin-bottom: 30px; }
+/* 4. Product Showcase & Images */
+.card img, .main-image img {
+    border: 5px solid var(--primary-red) !important; /* Red border on photos */
+    background-color: var(--pure-white);
+}
 
 .plain-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    background-color: var(--pure-white) !important;
 }
 
-.card img { width: 100%; height: 450px; object-fit: cover; border: 1px solid var(--gray); }
-
-footer { padding: 20px; text-align: center; border-top: 1px solid var(--gray); margin-top: 50px; }
-
-/* Forms */
-input, textarea, button {
-    width: 100%; padding: 12px; margin: 10px 0;
-    background: var(--gray); color: white; border: 1px solid var(--gold);
+/* 5. Footer */
+footer {
+    background-color: var(--primary-red) !important;
+    color: var(--pure-white) !important;
+    padding: 20px;
+    margin-top: 50px;
 }
-
-button { background: var(--gold); color: black; font-weight: bold; cursor: pointer; }
