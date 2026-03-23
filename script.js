@@ -39,3 +39,18 @@ if (bigMarquee) {
         bigMarquee.scrollAmount = 12; // Normal speed
     });
 }
+// Toggle Hamburger Menu
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('show-menu');
+}
+
+// Close menu if user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.menu-icon') && !event.target.matches('.menu-icon span')) {
+        const menu = document.getElementById('nav-menu');
+        if (menu.classList.contains('show-menu')) {
+            menu.classList.remove('show-menu');
+        }
+    }
+}
