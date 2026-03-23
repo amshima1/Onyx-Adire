@@ -6,67 +6,134 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'serif'; background: var(--white); overflow-x: hidden; }
 
-/* NAVIGATION (Red with White text) */
-nav {
+/* ANNOUNCEMENT BAR */
+.announcement-bar {
     background: var(--brand-red);
+    color: var(--white);
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--white);
+}
+
+/* NAVIGATION (3-Column Layout) */
+nav {
+    background: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 5%;
-    color: var(--white);
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--brand-red);
     position: sticky;
     top: 0;
     z-index: 2000;
 }
 
-.logo { font-weight: bold; letter-spacing: 2px; font-size: 1.3rem; }
+.nav-left, .nav-right { flex: 1; }
+.nav-centre { flex: 2; text-align: center; }
 
-.hamburger span {
-    display: block; width: 25px; height: 3px; background: var(--white); margin: 4px 0;
+.logo { 
+    color: var(--brand-red); 
+    font-weight: bold; 
+    letter-spacing: 2px; 
+    font-size: 1.4rem; 
 }
 
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 25px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: var(--brand-red);
+    margin: 2px 0;
+    transition: 0.3s;
+}
+
+/* MOBILE DRAWER */
 .menu-links {
-    display: none; position: absolute; top: 55px; left: 0; width: 100%;
-    background: var(--brand-red); flex-direction: column; text-align: center;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    border-bottom: 2px solid var(--brand-red);
 }
 
 .menu-links.active { display: flex; }
-.menu-links a { color: var(--white); text-decoration: none; padding: 15px; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.2); }
+.menu-links a {
+    color: var(--brand-red);
+    text-decoration: none;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
 
-/* RED & WHITE BOX HEADING */
+/* HEADING BOX */
 .luxury-header { text-align: center; margin: 30px 0; }
 .red-white-box {
     display: inline-block;
-    border: 4px solid var(--brand-red);
-    padding: 10px 25px;
+    border: 3px solid var(--brand-red);
+    padding: 10px 20px;
     color: var(--brand-red);
-    background: var(--white);
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 2px;
 }
 
-/* CATALOG GRID */
-.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; }
-.product-card { border: 2px solid var(--brand-red); text-align: center; padding-bottom: 10px; background: var(--white); }
-.product-card img { width: 100%; height: auto; }
-.product-card h3 { color: var(--brand-red); font-size: 0.85rem; margin-top: 8px; }
-.price { font-weight: bold; margin: 5px 0; color: #000; }
+/* PRODUCT GRID (2 Columns for Mobile) */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+.product-card {
+    border: 1px solid var(--brand-red);
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.product-card img { width: 100%; height: auto; display: block; }
+.product-card h3 { 
+    color: var(--brand-red); 
+    font-size: 0.8rem; 
+    margin: 10px 5px 5px; 
+}
+
+.price { font-weight: bold; font-size: 0.9rem; margin-bottom: 8px; }
 
 .book-btn {
-    background: var(--brand-red); color: var(--white);
-    text-decoration: none; display: block; padding: 10px; margin: 5px 10px;
-    font-size: 0.7rem; font-weight: bold; text-transform: uppercase;
+    background: var(--brand-red);
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    margin: 0 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
 }
 
-/* MARQUEE & FOOTER */
-.marquee-container { background: #000; color: var(--white); padding: 5px 0; font-size: 0.8rem; }
-footer { background: var(--brand-red); color: var(--white); text-align: center; padding: 20px; font-size: 0.75rem; margin-top: 30px; }
+/* FOOTER */
+footer {
+    background: var(--brand-red);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.7rem;
+}
 
-/* CHATBOT (Red & White Theme) */
-.chatbot-container { position: fixed; bottom: 20px; right: 20px; width: 280px; border: 2px solid var(--brand-red); background: var(--white); z-index: 3000; }
-.chatbot-header { background: var(--brand-red); color: var(--white); padding: 10px; cursor: pointer; display: flex; justify-content: space-between; }
-.chat-body { height: 200px; display: none; padding: 10px; overflow-y: auto; font-size: 0.8rem; }
-.chat-footer { display: none; padding: 8px; border-top: 1px solid var(--brand-red); }
-.chat-footer input { flex: 1; border: 1px solid #ddd; padding: 5px; }
-.chat-footer button { background: var(--brand-red); color: var(--white); border: none; padding: 5px 10px; }
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    z-index: 1000;
+}
