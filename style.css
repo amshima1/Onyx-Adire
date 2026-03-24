@@ -1,6 +1,5 @@
-/* ONYX-ADIRE OFFICIAL STYLESHEET 
-   Theme: Romantic International Luxury
-   Version: 3.0 (Final Brand Alignment)
+/* ONYX-ADIRE OFFICIAL STYLESHEET
+   Version: 4.0 - Fresh Start / Left-Nav Alignment
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -12,7 +11,7 @@
     --transition: 0.3s ease-in-out;
 }
 
-/* --- 1. BASE STYLES --- */
+/* --- 1. BASE RESET --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -24,10 +23,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: var(--romantic-red);
     overflow-x: hidden;
-    line-height: 1.5;
 }
 
-/* --- 2. ANNOUNCEMENT & NAVIGATION --- */
+/* --- 2. ANNOUNCEMENT BAR --- */
 .marquee-bar {
     background-color: var(--romantic-red);
     color: var(--champagne);
@@ -37,6 +35,7 @@ body {
     letter-spacing: 2px;
 }
 
+/* --- 3. NAVIGATION (LEFT-SIDE HAMBURGER) --- */
 nav {
     background: var(--champagne);
     padding: 15px 5%;
@@ -48,56 +47,81 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    gap: 20px;
+}
+
+/* Hamburger Icon on the Left */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--romantic-red);
+    border-radius: 2px;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-decoration: none;
     color: var(--romantic-red);
+    margin-right: auto; /* Pushes links to the right */
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--romantic-red);
-    font-size: 0.65rem; /* Matches screenshot */
+    font-size: 0.65rem;
     font-weight: 500;
-    letter-spacing: 1.5px;
-    margin-left: 25px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
 }
 
-/* --- 3. HERO & STORY SECTIONS --- */
+/* --- 4. HERO SECTION --- */
 .hero-section img {
     width: 100%;
     height: auto;
     display: block;
 }
 
+/* --- 5. BRAND STORY --- */
 .brand-story {
     background-color: var(--romantic-red);
     color: var(--champagne);
-    padding: 60px 10%;
+    padding: 70px 10%;
     text-align: center;
 }
 
 .story-box p {
-    font-size: 0.95rem;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    font-style: italic;
     font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    max-width: 750px;
+    margin: 0 auto 35px;
+    line-height: 1.6;
 }
 
 .btn-outline {
     border: 1px solid var(--champagne);
     color: var(--champagne);
-    padding: 10px 25px;
+    padding: 12px 30px;
     text-decoration: none;
     font-size: 0.7rem;
     letter-spacing: 2px;
@@ -109,37 +133,28 @@ nav {
     color: var(--romantic-red);
 }
 
-/* --- 4. MOTHER'S DAY EDIT & GRID --- */
-.promo-banner {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.promo-text h3 {
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.promo-text p {
-    font-size: 0.75rem;
-    opacity: 0.8;
+/* --- 6. PRODUCT GRID --- */
+.product-showcase {
+    padding: 60px 0;
 }
 
 .edit-title {
-    text-align: left;
     padding-left: 5%;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.8rem;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns mobile */
     gap: 15px;
-    padding: 0 5% 60px;
+    padding: 0 5%;
+}
+
+.product-card {
+    margin-bottom: 20px;
 }
 
 .product-card img {
@@ -149,76 +164,71 @@ nav {
 }
 
 .product-meta h4 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 400;
     color: #333;
-    margin: 10px 0 5px;
+    margin: 12px 0 5px;
 }
 
 .product-meta p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: #000; /* Matching price style */
+    color: #000;
 }
 
-/* --- 5. GALLERY MASONRY --- */
-.gallery-grid {
-    column-count: 2;
-    column-gap: 10px;
-    padding: 10px;
-}
-
-.gallery-item {
-    break-inside: avoid;
-    margin-bottom: 10px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* --- 6. WHATSAPP FLOATING BUTTON --- */
+/* --- 7. WHATSAPP FLOATING BUTTON --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     background-color: var(--wa-terracotta);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 22px;
     border-radius: 40px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 10px;
+    font-size: 13.5px;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     z-index: 2000;
 }
 
 .whatsapp-float img {
-    width: 18px;
-    filter: brightness(0) invert(1); /* Forces icon to white */
+    width: 20px;
+    filter: brightness(0) invert(1); /* Makes icon white */
 }
 
-/* --- 7. FOOTER --- */
+/* --- 8. FOOTER --- */
 footer {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .footer-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
+    font-size: 1.3rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
 }
 
-/* --- 8. RESPONSIVE --- */
+/* --- 9. RESPONSIVE DESIGN --- */
+@media (max-width: 1023px) {
+    .nav-links {
+        display: none; /* Hide full links on mobile, use hamburger */
+    }
+}
+
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    }
+}
+
 @media (min-width: 1024px) {
-    .product-grid { grid-template-columns: repeat(4, 1fr); }
-    .gallery-grid { column-count: 4; }
-    .nav-links a { font-size: 0.75rem; }
+    .hamburger {
+        display: none; /* Hide hamburger on desktop */
+    }
 }
