@@ -1,18 +1,21 @@
-// JavaScript for Onyx-Adire
-document.addEventListener("DOMContentLoaded", () => {
-    // Feature 1: Toggle Red Mode (Example of DOM Manipulation)
-    const logo = document.querySelector('.logo');
-    logo.addEventListener('click', () => {
-        alert("Onyx-Adire: Redefining Nigerian Heritage in Red.");
+// JavaScript for Onyx-Adire: Left Hamburger Feature
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    // JS Feature: Toggle Menu Visibility
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // Optional: Console log for debugging DOM action
+        console.log("Navigation menu state: " + (navLinks.classList.contains('active') ? "Open" : "Closed"));
     });
 
-    // Feature 2: Appointment Form Logic
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.onsubmit = (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            document.getElementById('formResponse').innerText = `Thank you, ${name}. Your appointment is being processed!`;
-        };
-    }
+    // Close menu if user clicks a link
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
 });
