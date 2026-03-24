@@ -5,68 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Collection | Onyx—Adire</title>
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fff; color: #333; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fffcf9; color: #333; }
         
-        /* Navigation */
-        nav { padding: 25px; text-align: center; border-bottom: 1px solid #f4f4f4; }
-        .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
+        /* Navigation & Hamburger */
+        nav { display: flex; align-items: center; justify-content: center; padding: 20px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fff; }
+        .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
+        .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; }
+
+        /* Mobile Menu Overlay */
+        .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 1000000; padding: 60px 20px; text-align: center; }
+        .menu-overlay a { display: block; margin: 25px 0; font-size: 20px; text-decoration: none; color: #333; text-transform: uppercase; letter-spacing: 2px; }
+        .close-menu { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; }
 
         /* Header */
-        header { text-align: center; padding: 60px 20px 40px; }
-        header h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 2.5rem; margin: 0; color: #333; }
+        header { text-align: center; padding: 50px 20px 30px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; color: #800020; font-style: italic; }
         header p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-top: 10px; }
 
-        /* Product Grid - 8 Items */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; max-width: 1200px; margin: 0 auto; }
+        .product-card { text-decoration: none; color: inherit; background: #fff; padding-bottom: 15px; }
+        .product-card img { width: 100%; height: 350px; object-fit: cover; display: block; background: #fdfdfd; }
 
-        .product-card { text-decoration: none; color: inherit; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
-        
-        .image-wrapper { width: 100%; background: #f9f9f9; overflow: hidden; }
-        .product-card img {
-            width: 100%;
-            height: 380px; /* Consistent height for all 8 pictures */
-            object-fit: cover;
-            display: block;
-        }
+        .product-meta { padding: 12px 5px; text-align: left; }
+        .product-meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 0; font-weight: normal; }
+        .product-meta p { font-size: 13px; font-weight: bold; margin: 5px 0 0; color: #111; }
 
-        .product-meta { padding: 15px 0; text-align: center; }
-        .product-meta h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 15px;
-            margin: 5px 0;
-            font-style: italic;
-            color: #800020;
-        }
-        .product-meta p { font-size: 13px; font-weight: 600; color: #444; margin: 0; }
-
-        /* FIXED WhatsApp Button - Onyx Orange */
+        /* FORCED Orange WhatsApp Button */
         .whatsapp-sticky { 
-            position: fixed !important; 
-            bottom: 30px !important; 
-            right: 30px !important; 
-            background-color: #e85d43 !important; 
-            color: white !important; 
-            text-decoration: none !important; 
-            border-radius: 50px !important; 
-            padding: 15px 25px !important; 
-            display: flex !important; 
-            align-items: center !important; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important; 
-            z-index: 999999 !important; 
-            font-weight: bold;
-            font-size: 14px;
+            position: fixed !important; bottom: 25px !important; right: 20px !important; 
+            background-color: #e85d43 !important; color: white !important; 
+            text-decoration: none !important; border-radius: 50px !important; 
+            padding: 12px 20px !important; display: flex !important; 
+            align-items: center !important; box-shadow: 0 8px 15px rgba(0,0,0,0.2) !important; 
+            z-index: 9999 !important; font-size: 14px; font-weight: 500;
         }
 
         @media (min-width: 768px) {
-            .product-grid { grid-template-columns: repeat(4, 1fr); } /* 4 columns on desktop */
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 25px; }
             .product-card img { height: 450px; }
         }
     </style>
@@ -74,7 +50,15 @@
 <body>
 
     <nav>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <a href="index.html" class="logo">Onyx—Adire</a>
+        
+        <div id="mobileMenu" class="menu-overlay">
+            <span class="close-menu" onclick="toggleMenu()">&times;</span>
+            <a href="index.html">Home</a>
+            <a href="products.html" style="color: #800020; font-weight: bold;">Collection</a>
+            <a href="bookings.html">Bespoke Booking</a>
+        </div>
     </nav>
 
     <header>
@@ -86,42 +70,42 @@
         <section class="product-grid">
             
             <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=galaxy-print-jumpsuit.jpg" class="product-card">
-                <div class="image-wrapper"><img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit"></div>
+                <img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit">
                 <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,500.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=bespoke-traditional-agbada.jpg" class="product-card">
-                <div class="image-wrapper"><img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada"></div>
+                <img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada">
                 <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Uwata+Dashiki+Set&price=₦62,500.00&img=uwata-dashiki-set.jpg" class="product-card">
-                <div class="image-wrapper"><img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set"></div>
+                <img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set">
                 <div class="product-meta"><h4>Uwata Dashiki Set</h4><p>₦62,500.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Adesewa+Adire+Set&price=₦65,000.00&img=adesewa-adire-set.jpg" class="product-card">
-                <div class="image-wrapper"><img src="adesewa-adire-set.jpg" alt="Adesewa Adire Set"></div>
+                <img src="adesewa-adire-set.jpg" alt="Adesewa Adire Set">
                 <div class="product-meta"><h4>Adesewa Adire Set</h4><p>₦65,000.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Floral+Adire+Kaftan&price=₦52,000.00&img=floral-adire-kaftan.jpg" class="product-card">
-                <div class="image-wrapper"><img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan"></div>
+                <img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan">
                 <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Adire+Silk+Tunic&price=₦45,000.00&img=adire-silk-tunic.jpg" class="product-card">
-                <div class="image-wrapper"><img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic"></div>
+                <img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic">
                 <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Sadiya+Adire+Long+Dress&price=₦60,000.00&img=sadiya-adire-long-dress.jpg" class="product-card">
-                <div class="image-wrapper"><img src="sadiya-adire-long-dress.jpg" alt="Sadiya Long Dress"></div>
+                <img src="sadiya-adire-long-dress.jpg" alt="Sadiya Long Dress">
                 <div class="product-meta"><h4>Sadiya Long Dress</h4><p>₦60,000.00</p></div>
             </a>
 
             <a href="product-detail.html?name=Asymmetric+Adire+Tunic&price=₦48,000.00&img=asymmetric-adire-tunic.jpg" class="product-card">
-                <div class="image-wrapper"><img src="asymmetric-adire-tunic.jpg" alt="Asymmetric Tunic"></div>
+                <img src="asymmetric-adire-tunic.jpg" alt="Asymmetric Tunic">
                 <div class="product-meta"><h4>Asymmetric Tunic</h4><p>₦48,000.00</p></div>
             </a>
 
@@ -129,12 +113,14 @@
     </main>
 
     <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">
-        <span style="margin-right:10px;">💬</span> Chat with Atelier
+        <span style="margin-right:8px;">💬</span> Chat Via Whatsapp
     </a>
 
-    <footer style="text-align: center; padding: 80px 20px 40px; font-size: 10px; letter-spacing: 2px; color: #bbb; text-transform: uppercase;">
-        &copy; 2026 Onyx—Adire Heritage
-    </footer>
-
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
