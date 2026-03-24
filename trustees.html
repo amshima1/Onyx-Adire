@@ -3,66 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onyx-Adire | Board of Trustees</title>
+    <title>The Visionaries | Onyx—Adire</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <marquee class="marquee-bar" scrollamount="6">
-        ✦ Weaving the Soul of Heritage into the Fabric of Tomorrow ✦ Every Thread Tells a Story of Power ✦
+    <marquee class="marquee-bar" scrollamount="4">
+        ✦ WEAVING THE SOUL OF HERITAGE INTO THE FABRIC OF TOMORROW ✦ A GLOBAL SYMPHONY OF STYLE ✦
     </marquee>
 
     <nav>
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <a href="index.html" class="logo">ONYX-ADIRE</a>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="products.html">Showcase</a>
-            <a href="trustees.html">Trustees</a>
-            <a href="events.html">Events</a>
-            <a href="booking.html">Book Now</a>
+        <div class="nav-container">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
+
+            <a href="index.html" class="logo">Onyx—Adire</a>
+
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">THE HOME</a>
+                <a href="products.html">THE COLLECTION</a>
+                <a href="trustees.html" class="active-link">THE VISIONARIES</a>
+                <a href="events.html">THE RUNWAY</a>
+                <a href="bookings.html">THE ATELIER</a>
+            </div>
         </div>
     </nav>
 
-    <main class="container">
-        <h1>The Visionaries</h1>
-        <p>Meet the Board of Trustees behind the Onyx-Adire movement.</p>
+    <main>
+        <section class="collection-header">
+            <h1 class="edit-title centralized">The Visionaries</h1>
+            <p class="collection-subtext">The architects of heritage and modern elegance.</p>
+        </section>
 
-        <div class="grid">
-            <div class="card">
-                <img src="member1.jpg" alt="Group Member 1">
-                <h3>[Name 1]</h3>
-                <p>Chairman & Creative Director</p>
-            </div>
+        <section class="product-showcase">
+            <div class="product-grid visionaries-grid">
+                
+                <div class="product-card">
+                    <div class="full-image-wrapper">
+                        <img src="victor-amshima.jpg" alt="Victor Amshima">
+                    </div>
+                    <div class="product-meta">
+                        <h4>Victor Amshima</h4>
+                        <p>CO-FOUNDER & CREATIVE DIRECTOR</p>
+                    </div>
+                </div>
 
-            <div class="card">
-                <img src="member2.jpg" alt="Group Member 2">
-                <h3>[Name 2]</h3>
-                <p>Lead Technical Architect</p>
-            </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper">
+                        <img src="paul-gbawuan.jpg" alt="Paul Gbawuan">
+                    </div>
+                    <div class="product-meta">
+                        <h4>Paul Gbawuan</h4>
+                        <p>CO-FOUNDER & EXECUTIVE DIRECTOR</p>
+                    </div>
+                </div>
 
-            <div class="card">
-                <img src="member3.jpg" alt="Group Member 3">
-                <h3>[Name 3]</h3>
-                <p>Director of Operations</p>
             </div>
+        </section>
 
-            <div class="card">
-                <img src="member4.jpg" alt="Group Member 4">
-                <h3>[Name 4]</h3>
-                <p>Head of Heritage Research</p>
+        <section class="brand-story">
+            <div class="story-box">
+                <p>
+                    "Our vision transcends fashion. We are dedicated to preserving the world's most prestigious 
+                    textile traditions while emboldening the modern silhouette with the power of Adire."
+                </p>
+                <a href="bookings.html" class="btn-outline">CONNECT WITH THE ATELIER</a>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer style="padding: 40px; text-align: center; border-top: 2px solid #D2122E; margin-top: 50px;">
-        <p>&copy; 2026 Onyx-Adire Collective. All Rights Reserved.</p>
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        <span>Chat Via Whatsapp</span>
+    </a>
+
+    <footer>
+        <h2 class="footer-logo">ONYX—ADIRE</h2>
+        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
     </footer>
 
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
