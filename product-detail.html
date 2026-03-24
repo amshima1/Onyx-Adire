@@ -6,79 +6,75 @@
     <title>Product Details | Onyx—Adire</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Specific styling for the detail page to ensure perfect alignment */
-        .detail-main {
+        /* Detail Page Layout */
+        .detail-container {
             display: flex;
             flex-direction: column;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            gap: 30px;
         }
-        .featured-image-container {
+        .image-box {
             width: 100%;
-            background-color: #f9f9f9;
-            margin-bottom: 20px;
+            background: #fdfdfd;
         }
         #main-img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain;
+            object-fit: cover;
         }
-        .detail-info {
+        .info-box {
             padding: 10px;
         }
-        .product-title {
+        .product-name {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            text-transform: capitalize;
+            font-size: 2rem;
+            margin-bottom: 5px;
         }
         .product-price {
+            font-size: 1.3rem;
             font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        .selector-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+        /* Buttons */
+        .action-btn {
             display: block;
-            margin-bottom: 8px;
-        }
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #000;
-            margin-bottom: 20px;
-            font-family: inherit;
-        }
-        .btn-buy-now {
-            background: #000;
-            color: #fff;
             width: 100%;
             padding: 18px;
-            border: none;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
-        .btn-whatsapp {
-            display: block;
             text-align: center;
-            border: 1px solid #000;
-            color: #000;
-            padding: 15px;
             text-decoration: none;
             font-size: 0.8rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border: 1px solid #000;
+            transition: 0.3s;
         }
+        .buy-btn { background: #000; color: #fff; border: none; }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-sticky {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
+        }
+        .whatsapp-sticky img { width: 25px; margin-right: 10px; }
+
         @media (min-width: 768px) {
-            .detail-main { flex-direction: row; gap: 50px; padding: 60px 20px; }
-            .featured-image-container { width: 55%; }
-            .detail-info { width: 40%; }
+            .detail-container { flex-direction: row; padding: 60px 20px; }
+            .image-box { width: 50%; }
+            .info-box { width: 45%; }
         }
     </style>
 </head>
@@ -88,85 +84,74 @@
         <div class="nav-container">
             <a href="index.html" class="logo">Onyx—Adire</a>
             <div class="nav-links">
-                <a href="index.html">THE HOME</a>
-                <a href="products.html">THE COLLECTION</a>
+                <a href="index.html">HOME</a>
+                <a href="products.html">COLLECTION</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <div class="detail-main">
-            <div class="featured-image-container">
-                <img src="" id="main-img" alt="Loading Product...">
+        <div class="detail-container">
+            <div class="image-box">
+                <img src="" id="main-img" alt="Product Image">
             </div>
 
-            <div class="detail-info">
-                <h1 id="p-name" class="product-title">Loading...</h1>
+            <div class="info-box">
+                <h1 id="p-name" class="product-name">Loading Product...</h1>
                 <p id="p-price" class="product-price">₦0.00 NGN</p>
                 
-                <div class="purchase-area">
-                    <span class="selector-label">Size</span>
-                    <select id="size-dropdown">
-                        <option>8</option>
-                        <option>10</option>
-                        <option>12</option>
-                        <option>14</option>
-                        <option>16</option>
-                    </select>
+                <label style="font-size: 10px; letter-spacing: 1px;">SELECT SIZE</label>
+                <select style="width: 100%; padding: 12px; margin: 10px 0 30px; border: 1px solid #ddd;">
+                    <option>Small (8)</option>
+                    <option>Medium (10-12)</option>
+                    <option>Large (14-16)</option>
+                    <option>Custom Tailoring</option>
+                </select>
 
-                    <button class="btn-buy-now">BUY IT NOW</button>
-                    <a href="#" id="wa-order-link" class="btn-whatsapp">ORDER VIA WHATSAPP</a>
-                </div>
-
-                <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-                    <span class="selector-label">Description</span>
-                    <p id="p-desc" style="font-size: 0.9rem; line-height: 1.6; color: #444; margin-top: 10px;">
-                        A masterpiece from the Onyx—Adire collection, handcrafted with premium heritage textiles.
-                    </p>
-                </div>
+                <button class="action-btn buy-btn">ADD TO ATELIER BAG</button>
+                <p style="font-size: 0.9rem; color: #555; line-height: 1.6;">
+                    Hand-dyed in the heart of Nigeria, this piece represents the soul of Adire heritage.
+                </p>
             </div>
         </div>
 
-        <section class="recommendations" style="padding: 40px 20px;">
-            <h2 class="edit-title centralized" style="margin-bottom: 30px;">You May Also Like</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="floral-adire-kaftan.jpg">
-                    <div class="product-meta"><h4>Floral Kaftan</h4><p>₦52,000.00</p></div>
-                </div>
-                <div class="product-card">
-                    <img src="galaxy-print-jumpsuit.jpg">
-                    <div class="product-meta"><h4>Galaxy Jumpsuit</h4><p>₦58,500.00</p></div>
-                </div>
+        <section style="padding: 50px 20px; border-top: 1px solid #eee;">
+            <h3 style="text-align: center; margin-bottom: 30px; font-style: italic;">You May Also Like</h3>
+            <div class="product-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=bespoke-traditional-agbada.jpg" style="text-decoration:none; color:inherit;">
+                    <img src="bespoke-traditional-agbada.jpg" style="width:100%;">
+                    <p style="font-size:12px; text-align:center;">Traditional Agbada</p>
+                </a>
+                <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=galaxy-print-jumpsuit.jpg" style="text-decoration:none; color:inherit;">
+                    <img src="galaxy-print-jumpsuit.jpg" style="width:100%;">
+                    <p style="font-size:12px; text-align:center;">Galaxy Jumpsuit</p>
+                </a>
             </div>
         </section>
     </main>
 
+    <a href="#" id="floating-wa" class="whatsapp-sticky" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        <span>Chat with Atelier</span>
+    </a>
+
     <script>
-        // 1. Get URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        
-        // 2. Extract and Decode (removes the + signs and special codes)
-        const name = urlParams.get('name');
-        const price = urlParams.get('price');
-        const img = urlParams.get('img');
+        // Extracting data from the URL
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const price = params.get('price');
+        const img = params.get('img');
 
         if (name && price && img) {
-            // Fill the page data
+            // Updating Page Content
             document.getElementById('p-name').innerText = decodeURIComponent(name.replace(/\+/g, ' '));
             document.getElementById('p-price').innerText = decodeURIComponent(price.replace(/\+/g, ' '));
             document.getElementById('main-img').src = img;
 
-            // 3. Update WhatsApp Link with specific details
-            const myNumber = "234XXXXXXXXXX"; // REPLACED WITH YOUR REAL NUMBER
-            const cleanName = decodeURIComponent(name.replace(/\+/g, ' '));
-            const message = `Hello Onyx-Adire, I'm interested in the ${cleanName} (${price}). Is it available?`;
-            document.getElementById('wa-order-link').href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
-            
-            // 4. Update Description based on name
-            if (name.includes("Uwata")) {
-                document.getElementById('p-desc').innerText = "The Uwata Set is a tribute to heritage, featuring hand-dyed silk designed to command grace and attention.";
-            }
+            // Updating Floating WhatsApp Link
+            const phone = "234XXXXXXXXXX"; // REPLACED WITH YOUR NUMBER
+            const msg = `Hello Onyx-Adire, I am interested in ordering the ${decodeURIComponent(name.replace(/\+/g, ' '))} (${price}).`;
+            document.getElementById('floating-wa').href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
         }
     </script>
 </body>
