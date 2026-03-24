@@ -1,6 +1,6 @@
 /* ONYX-ADIRE OFFICIAL STYLESHEET 
    Theme: Romantic International Luxury
-   Layout: Edge-to-Edge with Centered Product Grid
+   Version: Gallery & Masonry Update
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
@@ -11,7 +11,7 @@
     --transition: 0.4s ease;
 }
 
-/* --- 1. CRITICAL ALIGNMENT RESET --- */
+/* --- 1. RESET & BASE --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,210 +20,131 @@
 
 html, body {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Fixes the white gap on the right */
+    overflow-x: hidden;
     background-color: var(--champagne);
-    -webkit-font-smoothing: antialiased;
-}
-
-body {
     font-family: 'Montserrat', sans-serif;
     color: var(--romantic-red);
     line-height: 1.6;
 }
 
-/* --- 2. TYPOGRAPHY (Stylish Alphabet) --- */
-h1, h2, h3, .logo, .nav-links a, .crimson-statement p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-}
-
-/* --- 3. ANNOUNCEMENT BAR --- */
-.marquee-bar {
-    background-color: var(--romantic-red);
-    color: var(--champagne);
-    padding: 12px 0;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    border: none;
-}
-
-/* --- 4. NAVIGATION --- */
+/* --- 2. NAVIGATION --- */
 nav {
     width: 100%;
     display: flex;
     align-items: center;
     padding: 20px 5%;
     background: var(--champagne);
-    border-bottom: 1px solid rgba(158, 27, 50, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.hamburger span {
-    width: 100%;
-    height: 1px;
-    background-color: var(--romantic-red);
+    border-bottom: 1px solid rgba(158, 27, 50, 0.1);
 }
 
 .logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
     font-size: 1.6rem;
     text-decoration: none;
     color: var(--romantic-red);
+}
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--romantic-red);
+    font-size: 0.8rem;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* --- 5. MOBILE MENU --- */
-.nav-links {
-    display: none; 
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--champagne);
-    border-bottom: 1px solid var(--romantic-red);
-    z-index: 999;
-}
-
-.nav-links.active { display: flex !important; }
-
-.nav-links a {
-    padding: 20px 5%;
-    text-decoration: none;
-    color: var(--romantic-red);
-    border-bottom: 1px solid rgba(158, 27, 50, 0.05);
-}
-
-/* --- 6. HERO IMAGE (Knee-Length Crop) --- */
-.edge-to-edge-hero {
-    width: 100vw;
-    height: 65vh; 
-    overflow: hidden;
-    line-height: 0;
-}
-
-.edge-to-edge-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-}
-
-/* --- 7. CRIMSON STATEMENT SECTION --- */
-.crimson-statement {
-    width: 100vw;
-    background-color: var(--romantic-red);
-    color: var(--champagne);
-    padding: 80px 10%;
+/* --- 3. GALLERY HEADER --- */
+.gallery-header {
     text-align: center;
-    margin-top: -1px; /* Gap fix */
-}
-
-.crimson-statement p {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto 35px;
-}
-
-.btn-romance {
-    border: 1px solid var(--champagne);
-    color: var(--champagne);
-    padding: 14px 35px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    transition: var(--transition);
-}
-
-.btn-romance:hover {
-    background: var(--champagne);
-    color: var(--romantic-red);
-}
-
-/* --- 8. PRODUCT GRID (Centered & Two-Column) --- */
-.product-collection {
-    width: 100%;
-    padding: 70px 0;
+    padding: 80px 20px 40px;
 }
 
 .section-title {
-    width: 100%;
-    text-align: center; /* Centralises the title */
-    margin-bottom: 50px;
-    font-size: 2.2rem;
-    color: var(--romantic-red);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
-    gap: 15px;
-    padding: 0 15px;
-    max-width: 1200px;
-    margin: 0 auto; /* Centers the grid container */
-}
-
-.product-card {
-    margin-bottom: 25px;
-}
-
-.product-image {
-    width: 100%;
-    aspect-ratio: 2/3;
-    overflow: hidden;
-    background: #f0f0f0; /* Grey box if image fails to load */
-}
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.product-info {
-    padding: 12px 0;
-}
-
-.product-info h3 {
+.gallery-subtitle {
     font-size: 0.8rem;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
     text-transform: uppercase;
-    color: #444;
-    margin-bottom: 4px;
+    letter-spacing: 2px;
+    opacity: 0.7;
 }
 
-.product-info p {
-    font-size: 0.9rem;
+/* --- 4. MASONRY GALLERY GRID --- */
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+}
+
+.gallery-grid {
+    /* This creates the artistic staggered effect */
+    column-count: 2; 
+    column-gap: 20px;
+}
+
+.gallery-item {
+    break-inside: avoid; /* Prevents images from splitting between columns */
+    margin-bottom: 20px;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(20%);
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+/* --- 5. WHATSAPP WIDGET --- */
+.whatsapp-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--romantic-red);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.8rem;
     font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    z-index: 2000;
 }
 
-/* --- 9. FOOTER --- */
+/* --- 6. FOOTER --- */
 footer {
-    padding: 80px 20px;
     text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(158, 27, 50, 0.1);
 }
 
-/* Responsive Tablet/Desktop */
-@media (min-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
-    }
+/* --- 7. RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Standard for mobile hamburger menu */
+    .gallery-grid { column-count: 2; }
+    .section-title { font-size: 2rem; }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid { column-count: 4; } /* 4 columns for desktop */
 }
