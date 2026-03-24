@@ -3,51 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collection | Onyx—Adire</title>
+    <title>The Collection | Onyx—Adire</title>
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fffcf9; color: #333; overflow-x: hidden; }
         
-        /* Navigation & Left-Aligned Menu */
+        /* Navigation & Corrected Hamburger Menu */
         nav { display: flex; align-items: center; justify-content: center; padding: 25px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fffcf9; }
         .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
         .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
 
+        /* Left-Aligned Menu Overlay - Matches Cite 14524.jpg */
         .menu-overlay { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: #fffcf9; z-index: 1000000; flex-direction: column; padding: 80px 40px; 
         }
-        .menu-overlay a { margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; }
+        .menu-overlay a { margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
 
-        /* Product Grid Style */
+        /* Grid Layouts */
         .section-title { font-family: 'Playfair Display', serif; text-align: center; font-style: italic; margin: 40px 0 20px; color: #800020; }
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 15px 40px; max-width: 1200px; margin: 0 auto; }
         
-        .card { background: #fff; position: relative; cursor: pointer; }
-        .card img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.4s ease; }
-        .card:hover img { transform: scale(1.02); }
+        .card { background: #fff; cursor: pointer; transition: transform 0.3s ease; }
+        .card img { width: 100%; height: 350px; object-fit: cover; }
         .meta { padding: 10px; text-align: left; }
         .meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 0; font-style: italic; }
         .meta p { font-size: 12px; font-weight: bold; margin: 5px 0; }
 
-        /* IMAGE EXPAND MODAL (Lightbox) */
+        /* Image Expand Modal */
         #imageModal {
             display: none; position: fixed; z-index: 2000000; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.98); justify-content: center; align-items: center;
+            background: rgba(255, 255, 255, 0.98); justify-content: center; align-items: center; flex-direction: column;
         }
-        #modalImg { max-width: 90%; max-height: 80vh; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        #modalImg { max-width: 90%; max-height: 70vh; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .close-expand { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; color: #800020; }
-        .view-details-btn { 
-            position: absolute; bottom: 50px; background: #000; color: #fff; 
-            padding: 15px 30px; text-decoration: none; letter-spacing: 2px; font-size: 12px; 
-        }
+        .view-btn { margin-top: 30px; background: #000; color: #fff; padding: 15px 40px; text-decoration: none; font-size: 12px; letter-spacing: 2px; }
 
-        /* WhatsApp */
+        /* Floating WhatsApp Button - Matches Cite 14518.jpg */
         .whatsapp-sticky { 
             position: fixed !important; bottom: 25px !important; right: 20px !important; 
             background-color: #e85d43 !important; color: white !important; 
             text-decoration: none !important; border-radius: 50px !important; 
-            padding: 12px 20px !important; display: flex !important; align-items: center !important; 
-            z-index: 9999; font-size: 14px;
+            padding: 12px 22px !important; display: flex !important; align-items: center !important; 
+            z-index: 9999; font-size: 14px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         @media (min-width: 768px) {
@@ -61,10 +58,11 @@
     <nav>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <a href="index.html" class="logo">Onyx—Adire</a>
+        
         <div id="mobileMenu" class="menu-overlay">
-            <span onclick="toggleMenu()" style="position: absolute; left: 25px; top: 20px; font-size: 35px; cursor: pointer;">&times;</span>
+            <span onclick="toggleMenu()" class="close-expand" style="position: static; margin-bottom: 40px;">&times;</span>
             <a href="index.html">The Home</a>
-            <a href="products.html">The Collection</a>
+            <a href="products.html" style="font-weight: bold;">The Collection</a>
             <a href="bookings.html">The Atelier</a>
         </div>
     </nav>
@@ -83,24 +81,35 @@
     <div id="imageModal">
         <span class="close-expand" onclick="closeExpand()">&times;</span>
         <img id="modalImg" src="">
-        <a href="#" id="modalDetailLink" class="view-details-btn">VIEW FULL DETAILS</a>
+        <a href="#" id="modalLink" class="view-btn">VIEW FULL DETAILS</a>
     </div>
 
-    <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">💬 Chat Via Whatsapp</a>
+    <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">
+        <span style="margin-right:10px;">💬</span> Chat Via Whatsapp
+    </a>
 
     <script>
-        const allProducts = [
+        // List of core 8 pieces and discovery assets
+        const coreItems = [
             { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "galaxy-print-jumpsuit.jpg" },
             { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "bespoke-traditional-agbada.jpg" },
             { name: "Adire Silk Tunic", price: "₦45,000.00", img: "adire-silk-tunic.jpg" },
             { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "floral-adire-kaftan.jpg" },
-            { name: "Adesewa Adire Set", price: "₦65,000.00", img: "adesewa-adire-set.jpg" },
             { name: "Ebony Silk Boubou", price: "₦65,000.00", img: "ebony-silk-boubou.jpg" },
             { name: "Indigo Kimono", price: "₦40,000.00", img: "indigo-oversized-kimono.jpg" },
+            { name: "Maroon Palazzo Trousers", price: "₦35,000.00", img: "maroon-palazzo-trousers.jpg" },
             { name: "Midnight Lace Tunic", price: "₦47,000.00", img: "midnight-lace-tunic.jpg" }
         ];
 
-        function createCard(item, isMain = false) {
+        // Additional assets for random display (40 total potential)
+        const discoveryAssets = [
+            { name: "Adesewa Adire Set", price: "₦55,000.00", img: "adesewa-adire-set.jpg" },
+            { name: "Bespoke Velvet Caftan", price: "₦75,000.00", img: "bespoke-velvet-caftan.jpg" },
+            { name: "Luxury Lace Iro & Buba", price: "₦110,000.00", img: "luxury-lace-iro-and-buba.jpg" },
+            { name: "Geometric Print Boubou", price: "₦62,000.00", img: "geometric-print-boubou.jpg" }
+        ];
+
+        function createCard(item) {
             return `
                 <div class="card" onclick="openExpand('${item.img}', '${encodeURIComponent(item.name)}', '${encodeURIComponent(item.price)}')">
                     <img src="${item.img}">
@@ -110,10 +119,10 @@
 
         function openExpand(img, name, price) {
             document.getElementById('modalImg').src = img;
-            document.getElementById('modalDetailLink').href = `product-detail.html?name=${name}&price=${price}&img=${img}`;
+            document.getElementById('modalLink').href = `product-detail.html?name=${name}&price=${price}&img=${img}`;
             document.getElementById('imageModal').style.display = 'flex';
             
-            // Save to recent when "expanded"
+            // Log to Recent History
             let recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
             recent = recent.filter(i => i.img !== img);
             recent.unshift({name: decodeURIComponent(name), price: decodeURIComponent(price), img: img});
@@ -128,13 +137,16 @@
         }
 
         window.onload = function() {
+            // Render 8 Main Items
             const mGrid = document.getElementById('main-grid');
-            allProducts.forEach(item => mGrid.innerHTML += createCard(item));
+            coreItems.forEach(item => mGrid.innerHTML += createCard(item));
 
+            // Render 4 Random Items
             const rGrid = document.getElementById('random-grid');
-            const shuffled = [...allProducts].sort(() => 0.5 - Math.random()).slice(0, 4);
+            const shuffled = [...discoveryAssets].sort(() => 0.5 - Math.random()).slice(0, 4);
             shuffled.forEach(item => rGrid.innerHTML += createCard(item));
 
+            // Render Recently Viewed
             const recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
             if(recent.length > 0) {
                 document.getElementById('recent-section').style.display = 'block';
