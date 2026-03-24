@@ -6,88 +6,57 @@
     <title>Product Details | Onyx—Adire</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Detail Page Layout */
-        .detail-container {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
-        }
-        .image-box {
-            width: 100%;
-            background: #fdfdfd;
-        }
-        #main-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-        .info-box {
-            padding: 10px;
-        }
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        /* Buttons */
-        .action-btn {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            border: 1px solid #000;
-            transition: 0.3s;
-        }
-        .buy-btn { background: #000; color: #fff; border: none; }
+        /* General Layout */
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fff; }
+        .detail-container { display: flex; flex-direction: column; padding: 20px; max-width: 1200px; margin: 0 auto; gap: 40px; }
         
-        /* Floating WhatsApp Button */
-        .whatsapp-sticky {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 10000;
+        /* Image Section */
+        .image-box { width: 100%; }
+        #main-img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+        /* Info Section */
+        .info-box { width: 100%; padding: 10px; }
+        .product-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; margin: 0 0 10px 0; color: #800020; }
+        .product-price { font-size: 1.2rem; font-weight: 600; margin-bottom: 25px; color: #333; }
+        
+        .selector-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        select { width: 100%; padding: 12px; border: 1px solid #000; margin-bottom: 20px; outline: none; }
+
+        /* Buttons */
+        .buy-btn { 
+            display: block; width: 100%; padding: 18px; background: #000; color: #fff; 
+            text-align: center; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; border: none; cursor: pointer;
         }
-        .whatsapp-sticky img { width: 25px; margin-right: 10px; }
+        
+        /* Floating WhatsApp - Brand Orange */
+        .whatsapp-sticky {
+            position: fixed; bottom: 25px; right: 25px; 
+            background-color: #e85d43; /* Brand Orange from catalog */
+            color: white; text-decoration: none; border-radius: 50px; 
+            padding: 12px 24px; display: flex; align-items: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10000; transition: 0.3s;
+        }
+        .whatsapp-sticky:hover { transform: scale(1.05); background-color: #d44d35; }
+        .whatsapp-sticky img { width: 22px; margin-right: 10px; filter: brightness(0) invert(1); }
+
+        /* Recommendations */
+        .recommendation-section { padding: 50px 20px; border-top: 1px solid #eee; margin-top: 40px; }
+        .recommendation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .rec-card { text-decoration: none; color: inherit; text-align: center; }
+        .rec-card img { width: 100%; height: 250px; object-fit: cover; margin-bottom: 8px; }
+        .rec-card p { font-size: 13px; margin: 5px 0; font-family: 'Playfair Display', serif; }
 
         @media (min-width: 768px) {
-            .detail-container { flex-direction: row; padding: 60px 20px; }
-            .image-box { width: 50%; }
-            .info-box { width: 45%; }
+            .detail-container { flex-direction: row; padding: 60px 20px; align-items: flex-start; }
+            .image-box { width: 55%; }
+            .info-box { width: 40%; position: sticky; top: 100px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Onyx—Adire</a>
-            <div class="nav-links">
-                <a href="index.html">HOME</a>
-                <a href="products.html">COLLECTION</a>
-            </div>
-        </div>
+    <nav style="padding: 20px; text-align: center; border-bottom: 1px solid #f4f4f4;">
+        <a href="index.html" style="text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic;">Onyx—Adire</a>
     </nav>
 
     <main>
@@ -100,59 +69,94 @@
                 <h1 id="p-name" class="product-name">Loading Product...</h1>
                 <p id="p-price" class="product-price">₦0.00 NGN</p>
                 
-                <label style="font-size: 10px; letter-spacing: 1px;">SELECT SIZE</label>
-                <select style="width: 100%; padding: 12px; margin: 10px 0 30px; border: 1px solid #ddd;">
+                <span class="selector-label">Size</span>
+                <select id="size-select">
                     <option>Small (8)</option>
                     <option>Medium (10-12)</option>
                     <option>Large (14-16)</option>
-                    <option>Custom Tailoring</option>
+                    <option>Custom Measurement</option>
                 </select>
 
-                <button class="action-btn buy-btn">ADD TO ATELIER BAG</button>
-                <p style="font-size: 0.9rem; color: #555; line-height: 1.6;">
-                    Hand-dyed in the heart of Nigeria, this piece represents the soul of Adire heritage.
-                </p>
+                <button class="buy-btn">ADD TO ATELIER BAG</button>
+                
+                <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                    <span class="selector-label">Description</span>
+                    <p id="p-desc" style="font-size: 0.9rem; color: #555; line-height: 1.6;">
+                        A curated masterpiece from the Onyx—Adire Heritage Collection, designed for elegance and cultural pride.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <section style="padding: 50px 20px; border-top: 1px solid #eee;">
-            <h3 style="text-align: center; margin-bottom: 30px; font-style: italic;">You May Also Like</h3>
-            <div class="product-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=bespoke-traditional-agbada.jpg" style="text-decoration:none; color:inherit;">
-                    <img src="bespoke-traditional-agbada.jpg" style="width:100%;">
-                    <p style="font-size:12px; text-align:center;">Traditional Agbada</p>
-                </a>
-                <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=galaxy-print-jumpsuit.jpg" style="text-decoration:none; color:inherit;">
-                    <img src="galaxy-print-jumpsuit.jpg" style="width:100%;">
-                    <p style="font-size:12px; text-align:center;">Galaxy Jumpsuit</p>
-                </a>
-            </div>
+        <section class="recommendation-section">
+            <h3 style="text-align: center; font-style: italic; margin-bottom: 30px;">You May Also Like</h3>
+            <div id="random-recs" class="recommendation-grid">
+                </div>
         </section>
     </main>
 
     <a href="#" id="floating-wa" class="whatsapp-sticky" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-        <span>Chat with Atelier</span>
+        <span>Chat Via Whatsapp</span>
     </a>
 
     <script>
-        // Extracting data from the URL
+        // 1. MASTER PRODUCT LIST (Based on your files)
+        const allProducts = [
+            { name: "Adire Silk Tunic", price: "₦45,000.00", img: "adire-silk-tunic.jpg" },
+            { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "bespoke-traditional-agbada.jpg" },
+            { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "galaxy-print-jumpsuit.jpg" },
+            { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "floral-adire-kaftan.jpg" },
+            { name: "Asymmetric Adire Tunic", price: "₦48,000.00", img: "asymmetric-adire-tunic.jpg" },
+            { name: "Adesewa Adire Set", price: "₦65,000.00", img: "adesewa-adire-set.jpg" },
+            { name: "Ebony Silk Boubou", price: "₦70,000.00", img: "ebony-silk-boubou.jpg" },
+            { name: "Indigo Oversized Kimono", price: "₦55,000.00", img: "indigo-oversized-kimono.jpg" },
+            { name: "Lace Overlay Boubou", price: "₦75,000.00", img: "lace-overlay-boubou.jpg" },
+            { name: "Royal Thread Evening Gown", price: "₦150,000.00", img: "royal-thread-evening-gown.jpg" },
+            { name: "Sadiya Adire Long Dress", price: "₦60,000.00", img: "sadiya-adire-long-dress.jpg" }
+            // You can keep adding your 40+ filenames here following this format
+        ];
+
+        // 2. GET URL DATA
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
-        const price = params.get('price');
+        const name = params.get('name') ? decodeURIComponent(params.get('name').replace(/\+/g, ' ')) : "Product";
+        const price = params.get('price') ? decodeURIComponent(params.get('price').replace(/\+/g, ' ')) : "";
         const img = params.get('img');
 
+        // 3. UPDATE PAGE CONTENT
         if (name && price && img) {
-            // Updating Page Content
-            document.getElementById('p-name').innerText = decodeURIComponent(name.replace(/\+/g, ' '));
-            document.getElementById('p-price').innerText = decodeURIComponent(price.replace(/\+/g, ' '));
+            document.getElementById('p-name').innerText = name;
+            document.getElementById('p-price').innerText = price;
             document.getElementById('main-img').src = img;
 
-            // Updating Floating WhatsApp Link
-            const phone = "234XXXXXXXXXX"; // REPLACED WITH YOUR NUMBER
-            const msg = `Hello Onyx-Adire, I am interested in ordering the ${decodeURIComponent(name.replace(/\+/g, ' '))} (${price}).`;
+            // Update Floating WhatsApp Link
+            const phone = "234XXXXXXXXXX"; // ADD YOUR NUMBER HERE
+            const msg = `Hello Onyx-Adire, I'm interested in the ${name} (${price}).`;
             document.getElementById('floating-wa').href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
         }
+
+        // 4. RANDOM RECOMMENDATIONS LOGIC
+        function loadRandomRecs() {
+            // Remove current product from the list so it doesn't recommend itself
+            const otherProducts = allProducts.filter(p => p.img !== img);
+            
+            // Shuffle and pick 2
+            const shuffled = otherProducts.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 2);
+
+            const container = document.getElementById('random-recs');
+            selected.forEach(item => {
+                container.innerHTML += `
+                    <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="rec-card">
+                        <img src="${item.img}">
+                        <p>${item.name}</p>
+                        <small>${item.price}</small>
+                    </a>
+                `;
+            });
+        }
+
+        window.onload = loadRandomRecs;
     </script>
 </body>
 </html>
