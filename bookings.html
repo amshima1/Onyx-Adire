@@ -3,73 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiries | Onyx-Adire</title>
+    <title>The Atelier | Onyx—Adire</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="announcement-bar">
-        <marquee scrollamount="7">
-            ONYX-ADIRE • AUTHENTIC AFRICAN HERITAGE • NEW ARRIVALS AVAILABLE FOR INQUIRY • WORLDWIDE SHIPPING
-        </marquee>
-    </div>
+    <marquee class="marquee-bar" scrollamount="4">
+        ✦ EXPERIENCE BESPOKE CRAFTSMANSHIP ✦ CONSULTATIONS BY APPOINTMENT ONLY ✦ TAILORED TO YOUR SILHOUETTE ✦
+    </marquee>
 
     <nav>
-        <div class="nav-left">
-            <div class="hamburger" onclick="toggleMenu()">
+        <div class="nav-container">
+            <div class="hamburger" id="hamburger-menu">
                 <span></span><span></span><span></span>
             </div>
-        </div>
-        <div class="nav-centre">
-            <h1 class="logo">ONYX-ADIRE</h1>
-        </div>
-        <div class="nav-right"></div>
 
-        <div id="nav-menu" class="menu-links">
-            <a href="index.html">HOME</a>
-            <a href="gallery.html">SHOWCASE</a>
-            <a href="trustees.html">TRUSTEES</a>
-            <a href="events.html">EVENTS</a>
-            <a href="bookings.html">INQUIRIES</a>
+            <a href="index.html" class="logo">Onyx—Adire</a>
+
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">THE HOME</a>
+                <a href="products.html">THE COLLECTION</a>
+                <a href="trustees.html">THE VISIONARIES</a>
+                <a href="events.html">THE RUNWAY</a>
+                <a href="bookings.html" class="active-link">THE ATELIER</a>
+            </div>
         </div>
     </nav>
 
-    <header class="luxury-header">
-        <h2 class="red-white-box">PRODUCT INQUIRIES</h2>
-    </header>
+    <main>
+        <section class="collection-header">
+            <h1 class="edit-title centralized">The Atelier</h1>
+            <p class="collection-subtext">A sanctuary for bespoke African elegance.</p>
+        </section>
 
-    <main class="container">
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="sadiya-adire-long-dress.jpg" alt="Sadiya Gown">
-                <h3>Sadiya Silk Gown</h3>
-                <p class="price">₦85,000</p>
-                <a href="https://wa.me/234XXXXXXXXXX?text=I%20am%20interested%20in%20the%20Sadiya%20Silk%20Gown" class="order-btn">INQUIRE NOW</a>
+        <section class="hero-section">
+            <div class="full-image-wrapper">
+                <img src="tailored-bespoke-suit.jpg" alt="The Atelier Craftsmanship">
             </div>
-
-            <div class="product-card">
-                <img src="ebony-silk-boubou.jpg" alt="Ebony Boubou">
-                <h3>Ebony Silk Boubou</h3>
-                <p class="price">₦95,000</p>
-                <a href="https://wa.me/234XXXXXXXXXX?text=I%20am%20interested%20in%20the%20Ebony%20Silk%20Boubou" class="order-btn">INQUIRE NOW</a>
+            <div class="brand-story">
+                <div class="story-box">
+                    <p>"Where every stitch tells a story of heritage, and every fabric is a canvas of cultural pride."</p>
+                    <a href="https://wa.me/yournumber" class="btn-outline">BOOK A CONSULTATION</a>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <section class="product-showcase">
+            <h2 class="edit-title centralized">Our Services</h2>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <div class="full-image-wrapper">
+                        <img src="bespoke-traditional-agbada.jpg" alt="Custom Bespoke Wear">
+                    </div>
+                    <div class="product-meta">
+                        <h4>Custom Bespoke Wear</h4>
+                        <p>TAILORED EXCLUSIVITY</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper">
+                        <img src="traditional-aso-oke-wrapper.jpg" alt="Bridal & Ceremonial">
+                    </div>
+                    <div class="product-meta">
+                        <h4>Bridal & Ceremonial</h4>
+                        <p>HERITAGE PACKAGES</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper">
+                        <img src="bespoke-velvet-caftan.jpg" alt="Corporate & Formal">
+                    </div>
+                    <div class="product-meta">
+                        <h4>Corporate & Formal</h4>
+                        <p>MODERN PROFESSIONAL</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper">
+                        <img src="torera-adire-and-aso-oke.jpg" alt="Textile Sourcing">
+                    </div>
+                    <div class="product-meta">
+                        <h4>Textile Sourcing</h4>
+                        <p>PREMIUM ADIRE & ASO OKE</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-fixed-btn" target="_blank">
-        <div class="whatsapp-content">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            <span>Chat Via Whatsapp</span>
-        </div>
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        <span>Chat Via Whatsapp</span>
     </a>
 
     <footer>
-        <p>&copy; 2026 ONYX-ADIRE | <span id="clock"></span></p>
+        <h2 class="footer-logo">ONYX—ADIRE</h2>
+        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
