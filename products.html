@@ -7,67 +7,65 @@
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fffcf9; color: #333; overflow-x: hidden; }
         
-        /* Navigation */
-        nav { display: flex; align-items: center; justify-content: center; padding: 25px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fffcf9; }
+        /* Navigation Bar */
+        nav { display: flex; align-items: center; justify-content: center; padding: 25px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fffcf9; z-index: 1000; }
         .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
         .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
 
-        /* FIXED: Side-Panel Menu (Left Side Only) */
+        /* FIXED: Top-Half Menu Overlay (45-50% Height) */
         .menu-overlay { 
             display: none; 
             position: fixed; 
             top: 0; 
             left: 0; 
-            width: 75%; /* Covers 75% of the screen instead of 100% */
-            max-width: 320px; /* Limits width on larger screens */
-            height: 100%; 
+            width: 100%; 
+            height: 48vh; /* Covers roughly 48% of the viewport height */
             background: #fffcf9; 
             z-index: 1000000; 
             flex-direction: column; 
-            padding: 40px 30px; 
-            box-shadow: 5px 0 15px rgba(0,0,0,0.05); /* Adds shadow for depth */
-            animation: slideIn 0.3s ease-out;
+            padding: 20px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            animation: slideDown 0.4s ease-out;
+            text-align: center;
         }
 
-        /* Slide-in Animation */
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
 
-        /* Black Screen Tint when Menu is Open */
+        /* Background Tint for the bottom half */
         .menu-tint {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3); z-index: 999999;
+            background: rgba(0,0,0,0.4); z-index: 999999;
         }
 
-        .menu-overlay a { margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
-        .close-btn { font-size: 35px; cursor: pointer; color: #800020; margin-bottom: 30px; }
+        .menu-overlay a { margin: 12px 0; font-size: 13px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+        .close-btn { font-size: 30px; cursor: pointer; color: #800020; align-self: flex-start; margin-left: 20px; }
 
-        /* Product Grid */
+        /* Grid System */
         .section-title { font-family: 'Playfair Display', serif; text-align: center; font-style: italic; margin: 40px 0 20px; color: #800020; }
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 15px 40px; max-width: 1200px; margin: 0 auto; }
-        
         .card { background: #fff; cursor: pointer; }
         .card img { width: 100%; height: 350px; object-fit: cover; }
         .meta { padding: 10px; text-align: left; }
         .meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 0; font-style: italic; }
         .meta p { font-size: 12px; font-weight: bold; margin: 5px 0; }
 
-        /* Image Expand Modal */
+        /* Expand Modal */
         #imageModal {
             display: none; position: fixed; z-index: 2000000; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.98); justify-content: center; align-items: center; flex-direction: column;
         }
-        #modalImg { max-width: 90%; max-height: 70vh; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .close-expand { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; color: #800020; }
-        .view-btn { margin-top: 30px; background: #000; color: #fff; padding: 15px 40px; text-decoration: none; font-size: 12px; letter-spacing: 2px; }
+        #modalImg { max-width: 90%; max-height: 70vh; }
+        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; color: #800020; }
+        .view-btn { margin-top: 30px; background: #000; color: #fff; padding: 15px 40px; text-decoration: none; font-size: 11px; letter-spacing: 2px; }
 
-        /* WhatsApp Button */
+        /* Floating WhatsApp Icon */
         .whatsapp-sticky { 
             position: fixed; bottom: 25px; right: 20px; background-color: #e85d43; color: white; 
             text-decoration: none; border-radius: 50px; padding: 12px 22px; display: flex; align-items: center; 
-            z-index: 9999; font-size: 14px;
+            z-index: 9999; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         @media (min-width: 768px) {
@@ -81,14 +79,15 @@
     <nav>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <a href="index.html" class="logo">Onyx—Adire</a>
-        
         <div id="menuTint" class="menu-tint" onclick="toggleMenu()"></div>
 
         <div id="mobileMenu" class="menu-overlay">
             <span onclick="toggleMenu()" class="close-btn">&times;</span>
             <a href="index.html">The Home</a>
             <a href="products.html" style="font-weight: bold;">The Collection</a>
-            <a href="trustees.html">The Visionaries</a> <a href="events.html">The Runway</a> <a href="bookings.html">The Atelier</a>
+            <a href="trustees.html">The Visionaries</a> 
+            <a href="events.html">The Runway</a> 
+            <a href="bookings.html">The Atelier</a>
         </div>
     </nav>
 
@@ -104,7 +103,7 @@
     </div>
 
     <div id="imageModal">
-        <span class="close-expand" onclick="closeExpand()">&times;</span>
+        <span class="close-modal" onclick="closeExpand()">&times;</span>
         <img id="modalImg" src="">
         <a href="#" id="modalLink" class="view-btn">VIEW FULL DETAILS</a>
     </div>
@@ -149,7 +148,7 @@
 
         function closeExpand() { document.getElementById('imageModal').style.display = 'none'; }
 
-        // FIXED: Side-Panel Toggle Logic
+        // Top-Half Toggle
         function toggleMenu() {
             const m = document.getElementById("mobileMenu");
             const t = document.getElementById("menuTint");
