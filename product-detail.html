@@ -10,8 +10,11 @@
 
     <nav>
         <div class="nav-container">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
             <a href="index.html" class="logo">Onyx—Adire</a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="index.html">THE HOME</a>
                 <a href="products.html">THE COLLECTION</a>
             </div>
@@ -25,31 +28,28 @@
             </div>
 
             <div class="detail-info">
-                <h1 id="p-name">Product Name</h1>
-                <p id="p-price" class="product-price">₦0.00 NGN</p>
+                <h1 id="p-name" style="font-family: 'Playfair Display'; italic; font-size: 1.8rem; color: #000;">Loading...</h1>
+                <p id="p-price" class="product-price" style="font-size: 1.1rem; color: #000; font-weight: 600; margin: 15px 0;">₦0.00 NGN</p>
                 
                 <div class="purchase-options">
-                    <label>Size</label>
-                    <select>
-                        <option>8</option><option>10</option><option>12</option><option>14</option>
+                    <label style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Size</label>
+                    <select style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #eee;">
+                        <option>8</option><option>10</option><option>12</option><option>14</option><option>16</option>
                     </select>
 
-                    <label>Quantity</label>
-                    <div class="quantity-selector">
-                        <button onclick="changeQty(-1)">-</button>
-                        <input type="number" id="qty" value="1" min="1">
-                        <button onclick="changeQty(1)">+</button>
-                    </div>
-
-                    <button class="btn-cart">Add to cart</button>
-                    <button class="btn-buy">Buy it now</button>
+                    <button class="btn-buy" style="background: #000; color: #fff; width: 100%; padding: 15px; border: none; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer;">BUY IT NOW</button>
+                    
+                    <a href="#" id="wa-order-btn" class="btn-outline" style="display: block; text-align: center; margin-top: 15px; border: 1px solid #000; color: #000; padding: 12px;">ORDER VIA WHATSAPP</a>
                 </div>
-                <p class="product-description" id="p-desc"></p>
+                
+                <div class="product-description" style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                    <p id="p-desc" style="font-size: 0.85rem; line-height: 1.6; color: #333;"></p>
+                </div>
             </div>
         </section>
 
         <section class="recommendations">
-            <h2 class="edit-title centralized">You May Also Like</h2>
+            <h2 class="edit-title centralized" style="margin-top: 60px;">You May Also Like</h2>
             <div class="product-grid">
                 <div class="product-card">
                     <img src="floral-adire-kaftan.jpg">
@@ -64,25 +64,37 @@
     </main>
 
     <script>
-        // SMART DATA LOADER
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
-        const price = params.get('price');
+        const name = params.get('name') || "Exquisite Piece";
+        const price = params.get('price') || "Contact for Price";
         const img = params.get('img');
 
         document.getElementById('p-name').innerText = name;
         document.getElementById('p-price').innerText = price;
         document.getElementById('main-img').src = img;
 
-        // Add special description for Uwata
-        if(name.includes("Uwata")) {
-            document.getElementById('p-desc').innerHTML = "Named <strong>Uwata</strong>, meaning 'My Mother,' this piece is a tribute to heritage.";
-        }
+        // Custom WhatsApp Message
+        const waNumber = "234XXXXXXXXXX"; // Replace with your number
+        const waMessage = `Hello Onyx-Adire, I am interested in ordering the ${name} (${price}).`;
+        document.getElementById('wa-order-btn').href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 
-        function changeQty(val) {
-            let q = document.getElementById('qty');
-            q.value = Math.max(1, parseInt(q.value) + val);
+        // Dynamic Descriptions
+        const descriptions = {
+            "Uwata": "Named Uwata, meaning 'My Mother,' this piece is a tribute to the timeless strength of African heritage.",
+            "Adesewa": "The Adesewa set blends bold traditional patterns with a sophisticated modern silhouette.",
+            "Bespoke": "Our signature agbada, hand-crafted with premium textiles for the discerning visionary."
+        };
+
+        let foundDesc = "A curated masterpiece from the Onyx—Adire Heritage Collection, designed for elegance and cultural pride.";
+        for (let key in descriptions) {
+            if (name.includes(key)) foundDesc = descriptions[key];
         }
+        document.getElementById('p-desc').innerText = foundDesc;
+
+        // Hamburger
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
     </script>
 </body>
 </html>
