@@ -1,100 +1,104 @@
-/* External CSS for Onyx-Adire: Red & White Theme */
+/* External CSS: Onyx-Adire Red & White (Left-Nav Edition) */
 :root {
-    --primary-red: #D2122E; /* Bold Crimson Red */
-    --pure-white: #FFFFFF;
-    --soft-gray: #f9f9f9;
-    --dark-text: #222222;
+    --brand-red: #e60000;
+    --pure-white: #ffffff;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 0;
     background-color: var(--pure-white);
-    color: var(--dark-text);
+    color: var(--brand-red);
 }
 
-/* Marquee Requirement */
-.marquee-container {
-    background-color: var(--primary-red);
+/* Global Marquee Requirement */
+.marquee-bar {
+    background: var(--brand-red);
     color: var(--pure-white);
     padding: 10px 0;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 2px solid #a10d22;
+    border-bottom: 2px solid #800000;
 }
 
-/* Navigation - Consistent on all pages */
+/* Navigation Container */
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 15px 5%;
+    border-bottom: 3px solid var(--brand-red);
     background: var(--pure-white);
-    border-bottom: 3px solid var(--primary-red);
+}
+
+/* Hamburger - Positioned Left */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    margin-right: 20px; /* Space between menu and logo */
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: var(--brand-red);
+    transition: 0.3s;
+}
+
+/* The Hidden Menu (Triggered by JS) */
+.nav-links {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px; /* Sidebar style width */
+    background: var(--pure-white);
+    border: 3px solid var(--brand-red);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--brand-red);
+    font-weight: bold;
+    border-bottom: 1px solid #ffcccc;
+    text-align: left;
+}
+
+.nav-links a:hover {
+    background: var(--brand-red);
+    color: var(--pure-white);
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary-red);
+    font-size: 1.6rem;
+    font-weight: 900;
     text-decoration: none;
+    color: var(--brand-red);
+    letter-spacing: 1px;
 }
 
-nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
-
-nav ul li { margin-left: 25px; }
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-nav ul li a:hover { color: var(--primary-red); }
-
-/* Layout Sections */
-.container { width: 85%; margin: auto; padding: 50px 0; }
-
-.section-title {
-    color: var(--primary-red);
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    border-bottom: 2px solid var(--primary-red);
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-/* Red Buttons */
-.btn {
-    background-color: var(--primary-red);
+/* Page Content */
+.container { padding: 60px 10%; text-align: center; }
+.btn-red {
+    border: 2px solid var(--brand-red);
+    background: var(--brand-red);
     color: white;
-    padding: 12px 30px;
+    padding: 15px 40px;
     text-decoration: none;
-    border: none;
-    cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    display: inline-block;
 }
-
-.btn:hover { background-color: #8b0000; }
-
-/* Grid for Products/Trustees */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    border: 1px solid #eee;
-    padding: 20px;
-    text-align: center;
-    background: var(--soft-gray);
-}
-
-.card img { width: 100%; height: auto; border: 4px solid var(--primary-red); }
