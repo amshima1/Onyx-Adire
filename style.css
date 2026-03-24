@@ -1,24 +1,28 @@
-/* External CSS for Onyx-Adire */
+/* External CSS for Onyx-Adire: Red & White Theme */
 :root {
-    --onyx: #1a1a1a;
-    --gold: #c5a059;
-    --light: #f4f4f4;
+    --primary-red: #D2122E; /* Bold Crimson Red */
+    --pure-white: #FFFFFF;
+    --soft-gray: #f9f9f9;
+    --dark-text: #222222;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    line-height: 1.6;
+    padding: 0;
+    background-color: var(--pure-white);
+    color: var(--dark-text);
 }
 
-/* Marquee Style - Required for all pages */
-.event-marquee {
-    background: var(--onyx);
-    color: white;
+/* Marquee Requirement */
+.marquee-container {
+    background-color: var(--primary-red);
+    color: var(--pure-white);
     padding: 10px 0;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #a10d22;
 }
 
 /* Navigation - Consistent on all pages */
@@ -27,29 +31,70 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    border-bottom: 1px solid #ddd;
-    background: white;
+    background: var(--pure-white);
+    border-bottom: 3px solid var(--primary-red);
 }
 
-nav a {
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-red);
     text-decoration: none;
-    color: var(--onyx);
-    margin: 0 15px;
+}
+
+nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+
+nav ul li { margin-left: 25px; }
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-text);
     font-weight: 600;
     font-size: 0.9rem;
-}
-
-nav a:hover { color: var(--gold); }
-
-.container { width: 90%; max-auto; margin: auto; padding: 50px 0; }
-
-.btn {
-    background: var(--onyx);
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    display: inline-block;
     transition: 0.3s;
 }
 
-.btn:hover { background: var(--gold); }
+nav ul li a:hover { color: var(--primary-red); }
+
+/* Layout Sections */
+.container { width: 85%; margin: auto; padding: 50px 0; }
+
+.section-title {
+    color: var(--primary-red);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--primary-red);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Red Buttons */
+.btn {
+    background-color: var(--primary-red);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover { background-color: #8b0000; }
+
+/* Grid for Products/Trustees */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    border: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+    background: var(--soft-gray);
+}
+
+.card img { width: 100%; height: auto; border: 4px solid var(--primary-red); }
