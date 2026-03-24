@@ -1,6 +1,6 @@
 /* ONYX-ADIRE OFFICIAL STYLESHEET 
    Theme: Romantic International Luxury
-   Layout: Edge-to-Edge Full Width (No Side Gaps)
+   Layout: Edge-to-Edge with Centered Product Grid
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
@@ -11,7 +11,7 @@
     --transition: 0.4s ease;
 }
 
-/* --- 1. THE CRITICAL RESET (Fixes the white gap) --- */
+/* --- 1. CRITICAL ALIGNMENT RESET --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,8 +22,9 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevents the horizontal scroll/gap */
+    overflow-x: hidden; /* Fixes the white gap on the right */
     background-color: var(--champagne);
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
     line-height: 1.6;
 }
 
-/* --- 2. TYPOGRAPHY --- */
+/* --- 2. TYPOGRAPHY (Stylish Alphabet) --- */
 h1, h2, h3, .logo, .nav-links a, .crimson-statement p {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -46,9 +47,10 @@ h1, h2, h3, .logo, .nav-links a, .crimson-statement p {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 3px;
+    border: none;
 }
 
-/* --- 4. NAVIGATION (TOP LEFT HAMBURGER) --- */
+/* --- 4. NAVIGATION --- */
 nav {
     width: 100%;
     display: flex;
@@ -65,12 +67,12 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 18px;
+    width: 25px;
+    height: 16px;
     background: transparent;
     border: none;
     cursor: pointer;
-    margin-right: 25px;
+    margin-right: 20px;
 }
 
 .hamburger span {
@@ -80,21 +82,21 @@ nav {
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-decoration: none;
     color: var(--romantic-red);
+    letter-spacing: 1px;
 }
 
-/* --- 5. HIDDEN MENU --- */
+/* --- 5. MOBILE MENU --- */
 .nav-links {
     display: none; 
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
-    width: 280px;
+    width: 100%;
     background-color: var(--champagne);
-    border-right: 1px solid var(--romantic-red);
     border-bottom: 1px solid var(--romantic-red);
     z-index: 999;
 }
@@ -102,18 +104,16 @@ nav {
 .nav-links.active { display: flex !important; }
 
 .nav-links a {
-    padding: 20px 30px;
+    padding: 20px 5%;
     text-decoration: none;
     color: var(--romantic-red);
-    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(158, 27, 50, 0.05);
 }
 
-/* --- 6. THE EDGE-TO-EDGE HERO (Fixes Image Framing) --- */
+/* --- 6. HERO IMAGE (Knee-Length Crop) --- */
 .edge-to-edge-hero {
-    width: 100vw; /* Forces image to touch both sides of screen */
+    width: 100vw;
     height: 65vh; 
-    margin: 0;
-    padding: 0;
     overflow: hidden;
     line-height: 0;
 }
@@ -122,58 +122,73 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top; /* Keeps faces visible */
+    object-position: center top;
 }
 
-/* --- 7. THE CRIMSON STATEMENT (Fixes Red Section Gap) --- */
+/* --- 7. CRIMSON STATEMENT SECTION --- */
 .crimson-statement {
-    width: 100vw; /* Forces red to touch both sides */
+    width: 100vw;
     background-color: var(--romantic-red);
     color: var(--champagne);
     padding: 80px 10%;
     text-align: center;
-    margin: 0;
-    margin-top: -1px; /* Overlap to prevent thin white line */
+    margin-top: -1px; /* Gap fix */
 }
 
 .crimson-statement p {
-    font-size: 1.4rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 35px;
 }
 
 .btn-romance {
     border: 1px solid var(--champagne);
     color: var(--champagne);
-    padding: 15px 40px;
+    padding: 14px 35px;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 2px;
+    transition: var(--transition);
 }
 
-/* --- 8. THE PRODUCT GRID (2 Columns on Mobile) --- */
+.btn-romance:hover {
+    background: var(--champagne);
+    color: var(--romantic-red);
+}
+
+/* --- 8. PRODUCT GRID (Centered & Two-Column) --- */
 .product-collection {
     width: 100%;
-    padding: 60px 0;
-    background: var(--champagne);
+    padding: 70px 0;
+}
+
+.section-title {
+    width: 100%;
+    text-align: center; /* Centralises the title */
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    color: var(--romantic-red);
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Side-by-side products */
+    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
     gap: 15px;
     padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the grid container */
 }
 
 .product-card {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .product-image {
     width: 100%;
     aspect-ratio: 2/3;
     overflow: hidden;
+    background: #f0f0f0; /* Grey box if image fails to load */
 }
 
 .product-image img {
@@ -183,20 +198,32 @@ nav {
 }
 
 .product-info {
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .product-info h3 {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     text-transform: uppercase;
-    color: #333;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.product-info p {
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 /* --- 9. FOOTER --- */
 footer {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
-    background-color: var(--champagne);
+}
+
+/* Responsive Tablet/Desktop */
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+    }
 }
