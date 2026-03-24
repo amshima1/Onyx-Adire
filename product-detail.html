@@ -5,43 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details | Onyx—Adire</title>
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fff; color: #333; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fffcf9; color: #333; }
         
-        /* Navigation & Centered Menu */
-        nav { display: flex; align-items: center; justify-content: center; padding: 20px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fff; }
+        /* Navigation & Left-Aligned Hamburger */
+        nav { display: flex; align-items: center; justify-content: center; padding: 25px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fffcf9; }
         .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
-        .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; }
+        .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
 
+        /* Menu Overlay Styles */
         .menu-overlay { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: white; z-index: 1000000; flex-direction: column;
-            justify-content: center; align-items: center; 
+            background: #fffcf9; z-index: 1000000; flex-direction: column; padding: 80px 40px; 
         }
-        .menu-overlay a { margin: 15px 0; font-size: 18px; text-decoration: none; color: #333; text-transform: uppercase; letter-spacing: 3px; }
+        .menu-overlay a { margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
 
-        /* Main Layout */
-        .detail-container { display: flex; flex-direction: column; padding: 20px; max-width: 1200px; margin: 0 auto; gap: 40px; }
-        #main-img { width: 100%; height: auto; object-fit: cover; background: #f9f9f9; }
-        .product-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; color: #800020; margin: 0; }
+        /* Product Content */
+        .detail-container { display: flex; flex-direction: column; padding: 20px; max-width: 1200px; margin: 0 auto; gap: 30px; }
+        #main-img { width: 100%; height: auto; object-fit: cover; border-radius: 4px; }
+        .product-info { flex: 1; }
+        .product-name { font-family: 'Playfair Display', serif; font-size: 2rem; color: #800020; margin-bottom: 10px; font-style: italic; }
+        .price { font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; color: #111; }
+        
+        .cta-button { width: 100%; padding: 18px; background: #000; color: #fff; border: none; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; font-size: 13px; }
 
-        /* Recently Viewed Section */
-        .recent-section { padding: 40px 20px; background: #fafafa; border-top: 1px solid #eee; margin-top: 50px; }
-        .recent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
-        .recent-card { text-decoration: none; color: inherit; text-align: center; font-size: 11px; }
-        .recent-card img { width: 100%; height: 150px; object-fit: cover; margin-bottom: 5px; }
+        /* Grid for Sections */
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-style: italic; margin: 50px 0 25px; border-top: 1px solid #eee; padding-top: 40px; color: #800020; }
+        .item-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px 40px; }
+        .item-card { text-decoration: none; color: inherit; text-align: center; font-size: 12px; }
+        .item-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 10px; }
 
-        /* Orange WhatsApp */
+        /* --- STICKY FLOATING WHATSAPP BUTTON --- */
         .whatsapp-sticky { 
-            position: fixed !important; bottom: 25px !important; right: 20px !important; 
-            background-color: #e85d43 !important; color: white !important; 
-            text-decoration: none !important; border-radius: 50px !important; 
-            padding: 12px 20px !important; display: flex !important; 
-            align-items: center !important; z-index: 9999; font-size: 14px;
+            position: fixed !important; 
+            bottom: 25px !important; 
+            right: 20px !important; 
+            background-color: #e85d43 !important; /* Brand Orange */
+            color: white !important; 
+            text-decoration: none !important; 
+            border-radius: 50px !important; 
+            padding: 12px 22px !important; 
+            display: flex !important; 
+            align-items: center !important; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; 
+            z-index: 999999 !important; 
+            font-size: 14px;
+            font-weight: 500;
         }
 
         @media (min-width: 768px) {
-            .detail-container { flex-direction: row; padding: 60px 20px; }
-            .recent-grid { grid-template-columns: repeat(5, 1fr); }
+            .detail-container { flex-direction: row; padding: 60px 20px; align-items: flex-start; }
+            .item-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
@@ -51,81 +64,100 @@
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <a href="index.html" class="logo">Onyx—Adire</a>
         <div id="mobileMenu" class="menu-overlay">
-            <span onclick="toggleMenu()" style="position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer;">&times;</span>
+            <span onclick="toggleMenu()" style="position: absolute; left: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #800020;">&times;</span>
             <a href="index.html">The Home</a>
             <a href="products.html">The Collection</a>
+            <a href="visionaries.html">The Visionaries</a>
+            <a href="runway.html">The Runway</a>
             <a href="bookings.html">The Atelier</a>
         </div>
     </nav>
 
     <div class="detail-container">
-        <div style="flex: 1;"><img src="" id="main-img"></div>
-        <div style="flex: 1;">
+        <div style="flex: 1.2;"><img src="" id="main-img"></div>
+        <div class="product-info">
             <h1 id="p-name" class="product-name">Loading...</h1>
-            <p id="p-price" style="font-weight: bold; font-size: 1.2rem;">₦0.00</p>
-            <button style="width:100%; padding:15px; background:#000; color:#fff; border:none; letter-spacing:2px; cursor:pointer;">ADD TO BAG</button>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 20px; line-height: 1.6;">Authentic Adire heritage, hand-crafted for the modern visionary.</p>
+            <p id="p-price" class="price">₦0.00</p>
+            <button class="cta-button">ADD TO ATELIER BAG</button>
+            <p style="margin-top:30px; font-size: 0.95rem; line-height: 1.8; color: #555;">
+                Hand-crafted heritage. This piece embodies the soul of Adire artistry, designed for the modern visionary.
+            </p>
         </div>
     </div>
 
-    <section id="recent-viewed-section" class="recent-section" style="display: none;">
-        <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-style: italic;">Recently Viewed</h3>
-        <div id="recent-grid" class="recent-grid"></div>
-    </section>
+    <h3 class="section-title">You May Also Like</h3>
+    <div id="recommend-grid" class="item-grid"></div>
 
-    <a href="https://wa.me/2347077978711" id="wa-btn" class="whatsapp-sticky" target="_blank">💬 Chat Via Whatsapp</a>
+    <div id="recent-view-container" style="display: none;">
+        <h3 class="section-title">Recently Viewed</h3>
+        <div id="recent-grid" class="item-grid"></div>
+    </div>
+
+    <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">
+        <span style="margin-right:10px; font-size: 18px;">💬</span> Chat Via Whatsapp
+    </a>
 
     <script>
+        // Data and Logic
+        const allProducts = [
+            { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "galaxy-print-jumpsuit.jpg" },
+            { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "bespoke-traditional-agbada.jpg" },
+            { name: "Adire Silk Tunic", price: "₦45,000.00", img: "adire-silk-tunic.jpg" },
+            { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "floral-adire-kaftan.jpg" }
+        ];
+
         const params = new URLSearchParams(window.location.search);
-        const currentItem = {
+        const current = {
             name: params.get('name'),
             price: params.get('price'),
             img: params.get('img')
         };
 
-        if (currentItem.name && currentItem.img) {
-            document.getElementById('p-name').innerText = currentItem.name;
-            document.getElementById('p-price').innerText = currentItem.price;
-            document.getElementById('main-img').src = currentItem.img;
+        // Initialize Page
+        if (current.name) {
+            document.getElementById('p-name').innerText = current.name;
+            document.getElementById('p-price').innerText = current.price;
+            document.getElementById('main-img').src = current.img;
+            updateRecent(current);
+        }
+
+        function updateRecent(item) {
+            let recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
+            recent = recent.filter(i => i.name !== item.name);
+            recent.unshift(item);
+            localStorage.setItem('onyx_recent', JSON.stringify(recent.slice(0, 5)));
+        }
+
+        function renderLists() {
+            const recGrid = document.getElementById('recommend-grid');
+            allProducts.filter(p => p.name !== current.name).forEach(item => {
+                recGrid.innerHTML += createCard(item);
+            });
+
+            const recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
+            const recentGrid = document.getElementById('recent-grid');
+            const others = recent.filter(r => r.name !== current.name);
             
-            saveToRecent(currentItem);
-        }
-
-        function saveToRecent(item) {
-            let recent = JSON.parse(localStorage.getItem('recentViewed')) || [];
-            // Remove if already exists to move it to the front
-            recent = recent.filter(r => r.name !== item.name);
-            recent.unshift(item); // Add to start
-            recent = recent.slice(0, 5); // Keep only last 5
-            localStorage.setItem('recentViewed', JSON.stringify(recent));
-        }
-
-        function displayRecent() {
-            const recent = JSON.parse(localStorage.getItem('recentViewed')) || [];
-            const grid = document.getElementById('recent-grid');
-            const section = document.getElementById('recent-viewed-section');
-
-            // Don't show the current item in the recent list
-            const others = recent.filter(r => r.name !== currentItem.name);
-
             if (others.length > 0) {
-                section.style.display = 'block';
-                others.forEach(item => {
-                    grid.innerHTML += `
-                        <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="recent-card">
-                            <img src="${item.img}">
-                            <p>${item.name}</p>
-                        </a>`;
-                });
+                document.getElementById('recent-view-container').style.display = 'block';
+                others.forEach(item => { recentGrid.innerHTML += createCard(item); });
             }
         }
 
-        function toggleMenu() {
-            const menu = document.getElementById("mobileMenu");
-            menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+        function createCard(item) {
+            return `
+                <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="item-card">
+                    <img src="${item.img}">
+                    <p style="font-style:italic; font-family:'Playfair Display';">${item.name}</p>
+                </a>`;
         }
 
-        window.onload = displayRecent;
+        function toggleMenu() {
+            const m = document.getElementById("mobileMenu");
+            m.style.display = (m.style.display === "flex") ? "none" : "flex";
+        }
+
+        window.onload = renderLists;
     </script>
 </body>
 </html>
