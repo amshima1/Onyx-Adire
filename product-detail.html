@@ -7,36 +7,25 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fff; color: #333; }
-        .detail-container { display: flex; flex-direction: column; padding: 20px; max-width: 1200px; margin: 0 auto; gap: 40px; }
         
-        /* Product Visuals */
+        /* Navigation */
+        nav { padding: 25px; text-align: center; border-bottom: 1px solid #f4f4f4; }
+        .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
+
+        /* Main Layout */
+        .detail-container { display: flex; flex-direction: column; padding: 20px; max-width: 1200px; margin: 0 auto; gap: 40px; }
         .image-box { width: 100%; }
         #main-img { width: 100%; height: auto; display: block; object-fit: cover; }
-
-        /* Product Info */
         .info-box { width: 100%; padding: 10px; }
-        .brand-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; margin: 0 0 10px 0; color: #800020; }
-        .product-price { font-size: 1.2rem; font-weight: 600; margin-bottom: 25px; }
-        
-        .selector-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: bold; }
-        select { width: 100%; padding: 12px; border: 1px solid #000; margin: 10px 0 20px; outline: none; border-radius: 0; }
 
-        .buy-btn { 
-            display: block; width: 100%; padding: 18px; background: #000; color: #fff; 
-            text-align: center; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; border: none; cursor: pointer;
-            transition: 0.3s;
-        }
-        .buy-btn:hover { background: #333; }
+        /* Typography & UI */
+        .product-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; margin: 0 0 10px 0; color: #800020; }
+        .product-price { font-size: 1.2rem; font-weight: 600; margin-bottom: 25px; }
+        .selector-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: bold; }
         
-        /* Floating WhatsApp - Orange Brand Style */
-        .whatsapp-sticky {
-            position: fixed; bottom: 25px; right: 25px; 
-            background-color: #e85d43; /* Matches Onyx-Adire orange */
-            color: white; text-decoration: none; border-radius: 50px; 
-            padding: 12px 24px; display: flex; align-items: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10000; transition: 0.3s;
-        }
-        .whatsapp-sticky img { width: 22px; margin-right: 10px; filter: brightness(0) invert(1); }
+        select { width: 100%; padding: 12px; border: 1px solid #000; margin: 10px 0 20px; border-radius: 0; outline: none; }
+        .buy-btn { display: block; width: 100%; padding: 18px; background: #000; color: #fff; text-align: center; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; }
+        .buy-btn:hover { background: #333; }
 
         /* Size Guide Modal */
         .modal-overlay { display: none; position: fixed; z-index: 11000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
@@ -45,23 +34,30 @@
         .size-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
         .size-table th, .size-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: center; }
 
-        /* Recommendations */
+        /* Floating WhatsApp (Orange) */
+        .whatsapp-sticky { position: fixed; bottom: 25px; right: 25px; background-color: #e85d43; color: white; text-decoration: none; border-radius: 50px; padding: 12px 24px; display: flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10000; transition: 0.3s; }
+        .whatsapp-sticky img { width: 22px; margin-right: 10px; filter: brightness(0) invert(1); }
+        .whatsapp-sticky:hover { transform: scale(1.05); background-color: #d44d35; }
+
+        /* Recommendations - 4 Columns */
         .rec-section { padding: 50px 20px; border-top: 1px solid #eee; margin-top: 40px; }
-        .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .rec-card { text-decoration: none; color: inherit; text-align: center; }
-        .rec-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 8px; }
+        .rec-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 8px; }
+        .rec-card p { font-size: 11px; margin: 5px 0; font-family: 'Playfair Display', serif; }
 
         @media (min-width: 768px) {
             .detail-container { flex-direction: row; padding: 60px 20px; }
             .image-box { width: 55%; }
             .info-box { width: 40%; position: sticky; top: 50px; }
+            .rec-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <nav style="padding: 25px; text-align: center; border-bottom: 1px solid #f4f4f4;">
-        <a href="index.html" style="text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic;">Onyx—Adire</a>
+    <nav>
+        <a href="index.html" class="logo">Onyx—Adire</a>
     </nav>
 
     <main>
@@ -71,7 +67,7 @@
             </div>
 
             <div class="info-box">
-                <h1 id="p-name" class="brand-title">Loading...</h1>
+                <h1 id="p-name" class="product-name">Loading...</h1>
                 <p id="p-price" class="product-price">₦0.00 NGN</p>
                 
                 <div style="display: flex; justify-content: space-between; align-items: baseline;">
@@ -91,7 +87,7 @@
                 <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
                     <span class="selector-label">Heritage Note</span>
                     <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">
-                        Hand-dyed in the heart of Nigeria, this piece represents the soul of Onyx—Adire heritage.
+                        A curated masterpiece from the Onyx—Adire collection, designed for elegance and cultural pride.
                     </p>
                 </div>
             </div>
@@ -124,18 +120,20 @@
     </div>
 
     <script>
+        // 1. MASTER PRODUCT LIST
         const allProducts = [
-            { name: "Adire Silk Tunic", price: "₦45,000.00", img: "adire-silk-tunic.jpg" },
-            { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "bespoke-traditional-agbada.jpg" },
-            { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "galaxy-print-jumpsuit.jpg" },
-            { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "floral-adire-kaftan.jpg" },
-            { name: "Asymmetric Adire Tunic", price: "₦48,000.00", img: "asymmetric-adire-tunic.jpg" },
-            { name: "Ebony Silk Boubou", price: "₦70,000.00", img: "ebony-silk-boubou.jpg" },
-            { name: "Indigo Oversized Kimono", price: "₦55,000.00", img: "indigo-oversized-kimono.jpg" },
-            { name: "Royal Thread Evening Gown", price: "₦150,000.00", img: "royal-thread-evening-gown.jpg" },
-            { name: "Sadiya Adire Long Dress", price: "₦60,000.00", img: "sadiya-adire-long-dress.jpg" }
+            { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "14491.jpg" },
+            { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "14496.jpg" },
+            { name: "Adire Silk Tunic", price: "₦45,000.00", img: "14479.jpg" },
+            { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "14477.jpg" },
+            { name: "Sadiya Long Dress", price: "₦60,000.00", img: "14481.jpg" },
+            { name: "Asymmetric Tunic", price: "₦48,000.00", img: "14483.jpg" },
+            { name: "Uwata Dashiki Set", price: "₦62,500.00", img: "14473.jpg" },
+            { name: "Adesewa Adire Set", price: "₦65,000.00", img: "14475.jpg" }
+            // Add remaining 30+ items here...
         ];
 
+        // 2. LOAD CURRENT PRODUCT
         const params = new URLSearchParams(window.location.search);
         const name = params.get('name') ? decodeURIComponent(params.get('name').replace(/\+/g, ' ')) : "Product";
         const price = params.get('price') ? decodeURIComponent(params.get('price').replace(/\+/g, ' ')) : "";
@@ -146,23 +144,25 @@
             document.getElementById('p-price').innerText = price;
             document.getElementById('main-img').src = img;
 
-            const phone = "234XXXXXXXXXX"; // REPLACED WITH YOUR NUMBER
+            const phone = "234XXXXXXXXXX"; // Update with your real number
             const msg = `Hello Onyx-Adire, I want to order the ${name} (${price}).`;
             document.getElementById('floating-wa').href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
         }
 
+        // 3. UI FUNCTIONS
         function toggleModal(show) {
             document.getElementById('sizeModal').style.display = show ? 'block' : 'none';
         }
 
+        // 4. RANDOM RECOMMENDATIONS (4 ITEMS)
         function loadRecs() {
             const others = allProducts.filter(p => p.img !== img).sort(() => 0.5 - Math.random());
             const container = document.getElementById('random-recs');
-            others.slice(0, 2).forEach(item => {
+            others.slice(0, 4).forEach(item => {
                 container.innerHTML += `
                     <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="rec-card">
                         <img src="${item.img}">
-                        <p style="font-size:12px; margin:5px 0;">${item.name}</p>
+                        <p>${item.name}</p>
                     </a>`;
             });
         }
