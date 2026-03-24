@@ -12,11 +12,16 @@
 
     <nav>
         <div class="nav-container">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
             <a href="index.html" class="logo">Onyx—Adire</a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="index.html">THE HOME</a>
                 <a href="products.html" class="active-link">THE COLLECTION</a>
                 <a href="trustees.html">THE VISIONARIES</a>
+                <a href="events.html">THE RUNWAY</a>
+                <a href="bookings.html">THE ATELIER</a>
             </div>
         </div>
     </nav>
@@ -31,46 +36,57 @@
                 
                 <div class="product-card">
                     <a href="product-detail.html?name=Uwata+Dashiki+Set&price=₦62,500.00+NGN&img=uwata-dashiki-set.jpg">
-                        <img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set">
+                        <div class="full-image-wrapper"><img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set"></div>
                     </a>
-                    <div class="product-meta">
-                        <h4>Uwata Dashiki Set</h4>
-                        <p>₦62,500.00 NGN</p>
-                    </div>
+                    <div class="product-meta"><h4>Uwata Dashiki Set</h4><p>₦62,500.00 NGN</p></div>
                 </div>
 
                 <div class="product-card">
                     <a href="product-detail.html?name=Adesewa+Adire+Pants+Set&price=₦60,500.00+NGN&img=adesewa-adire-pants-set.jpg">
-                        <img src="adesewa-adire-pants-set.jpg" alt="Adesewa Adire Pants Set">
+                        <div class="full-image-wrapper"><img src="adesewa-adire-pants-set.jpg" alt="Adesewa Adire Pants Set"></div>
                     </a>
-                    <div class="product-meta">
-                        <h4>Adesewa Adire Pants Set</h4>
-                        <p>₦60,500.00 NGN</p>
-                    </div>
+                    <div class="product-meta"><h4>Adesewa Adire Pants Set</h4><p>₦60,500.00 NGN</p></div>
                 </div>
 
                 <div class="product-card">
                     <a href="product-detail.html?name=Adire+Silk+Tunic&price=₦45,000.00+NGN&img=adire-silk-tunic.jpg">
-                        <img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic">
+                        <div class="full-image-wrapper"><img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic"></div>
                     </a>
-                    <div class="product-meta">
-                        <h4>Adire Silk Tunic</h4>
-                        <p>₦45,000.00 NGN</p>
-                    </div>
+                    <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00 NGN</p></div>
                 </div>
 
                 <div class="product-card">
                     <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00+NGN&img=bespoke-traditional-agbada.jpg">
-                        <img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada">
+                        <div class="full-image-wrapper"><img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada"></div>
                     </a>
-                    <div class="product-meta">
-                        <h4>Bespoke Traditional Agbada</h4>
-                        <p>₦95,000.00 NGN</p>
-                    </div>
+                    <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <a href="product-detail.html?name=Sadiya+Adire+Long+Dress&price=₦60,000.00+NGN&img=sadiya-adire-long-dress.jpg">
+                        <div class="full-image-wrapper"><img src="sadiya-adire-long-dress.jpg" alt="Sadiya Adire Long Dress"></div>
+                    </a>
+                    <div class="product-meta"><h4>Sadiya Adire Long Dress</h4><p>₦60,000.00 NGN</p></div>
                 </div>
 
             </div>
         </section>
     </main>
+
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        <span>Chat Via Whatsapp</span>
+    </a>
+
+    <footer>
+        <h2 class="footer-logo">ONYX—ADIRE</h2>
+        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
 </body>
 </html>
