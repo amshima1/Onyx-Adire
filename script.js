@@ -1,16 +1,18 @@
-// JavaScript Features for Onyx-Adire
+// JavaScript for Onyx-Adire
 document.addEventListener("DOMContentLoaded", () => {
-    // Feature 1: Dynamic Greeting
-    const hour = new Date().getHours();
-    let greeting = hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
-    console.log(`${greeting}! Welcome to Onyx-Adire.`);
+    // Feature 1: Toggle Red Mode (Example of DOM Manipulation)
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('click', () => {
+        alert("Onyx-Adire: Redefining Nigerian Heritage in Red.");
+    });
 
-    // Feature 2: Simple Alert on Booking
-    const form = document.querySelector("#bookingForm");
-    if (form) {
-        form.addEventListener("submit", (e) => {
+    // Feature 2: Appointment Form Logic
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+        bookingForm.onsubmit = (e) => {
             e.preventDefault();
-            alert("Thank you! Your appointment request for Onyx-Adire has been received.");
-        });
+            const name = document.getElementById('name').value;
+            document.getElementById('formResponse').innerText = `Thank you, ${name}. Your appointment is being processed!`;
+        };
     }
 });
