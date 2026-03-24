@@ -1,10 +1,9 @@
-/* --- 1. GLOBAL RESET & BRAND COLORS --- */
+/* --- 1. CORE BRANDING --- */
 :root {
     --brand-red: #cc0000;
     --brand-orange: #ff8c00;
     --white: #ffffff;
     --black: #000000;
-    --light-grey: #f9f9f9;
 }
 
 * {
@@ -14,13 +13,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: var(--white);
-    color: var(--black);
-    line-height: 1.6;
-}
-
-/* --- 2. CLEAN NAVIGATION MENU (Fixes 14382.jpg & 14392.jpg) --- */
+/* --- 2. LUXURY NAVIGATION (Fixes 14396.jpg, 14402.jpg) --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -39,107 +32,97 @@ nav {
     font-size: 1.4rem;
     font-weight: 900;
     text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .menu-links {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 .menu-links a {
     text-decoration: none;
     color: var(--brand-red);
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
 }
 
-/* --- 3. LUXURY BRANDING BOX (Fixes 14386.jpg & 14392.jpg) --- */
+/* --- 3. THE BRANDING BOX (Fixes 14396.jpg, 14400.jpg) --- */
 .luxury-header {
     text-align: center;
-    padding: 25px 0;
+    padding: 25px 0 10px 0;
 }
 
+/* Apply this class to your <h2> on every sub-page */
 .red-white-box {
     display: inline-block;
-    border: 3px solid var(--brand-red); /* Bold luxury border */
-    padding: 12px 30px;
+    border: 2px solid var(--brand-red);
+    padding: 10px 20px;
     color: var(--brand-red);
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
-/* --- 4. CONSISTENT PRODUCT GRID (Fixes 14366.jpg & 14376.jpg) --- */
+/* --- 4. GRID CONSISTENCY (Fixes 14394.jpg, 14398.jpg) --- */
 .container {
-    padding: 10px 15px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 15px;
 }
 
-.product-grid {
+.product-grid, .trustee-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    grid-template-columns: 1fr 1fr; /* Solid 2-column mobile layout */
     gap: 15px;
 }
 
-.product-card {
-    background: var(--white);
+.product-card, .trustee-card {
     border: 1px solid #eee;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    background: #fff;
 }
 
-.product-card img {
+.product-card img, .trustee-card img {
     width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 10px;
 }
 
-.product-card h3 {
-    font-size: 0.9rem;
-    margin: 5px 0;
-}
-
-.price {
-    font-weight: bold;
-    color: var(--black);
-}
-
-/* --- 5. THE GLOBAL WHATSAPP PILL (Fixes 14364.jpg & 14368.jpg) --- */
+/* --- 5. WHATSAPP BUTTON (Fixes 14364.jpg, 14368.jpg) --- */
 .whatsapp-fixed-btn {
     position: fixed !important;
     bottom: 20px !important;
     right: 15px !important;
     background-color: var(--brand-orange) !important;
-    padding: 12px 20px !important;
+    padding: 12px 18px !important;
     border-radius: 50px !important;
     z-index: 9999 !important;
     display: flex !important;
     align-items: center !important;
     text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
 }
 
 .whatsapp-content img {
-    width: 24px !important; /* Forces consistency across sub-pages */
-    height: 24px !important;
-    margin-right: 10px;
+    width: 22px !important; /* Fixed size across all pages */
+    height: 22px !important;
+    margin-right: 8px;
 }
 
 .whatsapp-content span {
     color: var(--white) !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 700 !important;
 }
 
 /* --- 6. FOOTER --- */
 footer {
     background: var(--brand-red);
-    color: var(--white);
+    color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
+    font-size: 0.8rem;
     margin-top: 30px;
 }
