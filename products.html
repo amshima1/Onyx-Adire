@@ -5,112 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Collection | Onyx—Adire</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic Grid Styling */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+            }
+        }
+        .product-card {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background: #f9f9f9;
+        }
+        .product-meta {
+            padding: 10px 0;
+            text-align: center;
+        }
+        .product-meta h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            margin: 5px 0;
+            font-style: italic;
+        }
+        .product-meta p {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
-    <marquee class="marquee-bar" scrollamount="4">
-        ✦ WEAVING THE SOUL OF HERITAGE INTO THE FABRIC OF TOMORROW ✦ LIMITED PIECES ✦
-    </marquee>
-
-    <nav>
-        <div class="nav-container">
-            <div class="hamburger" id="hamburger-menu">
-                <span></span><span></span><span></span>
-            </div>
-            <a href="index.html" class="logo">Onyx—Adire</a>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html">THE HOME</a>
-                <a href="products.html" class="active-link">THE COLLECTION</a>
-                <a href="trustees.html">THE VISIONARIES</a>
-                <a href="events.html">THE RUNWAY</a>
-                <a href="bookings.html">THE ATELIER</a>
-            </div>
-        </div>
+    <nav style="padding: 20px; text-align: center; border-bottom: 1px solid #eee;">
+        <a href="index.html" style="text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic;">Onyx—Adire</a>
     </nav>
 
+    <header style="text-align: center; padding: 40px 20px;">
+        <h1 style="font-family: 'Playfair Display', serif; font-weight: 400;">The Debut Edit</h1>
+        <p style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #999;">8 Timeless Pieces</p>
+    </header>
+
     <main>
-        <section class="collection-header">
-            <h1 class="edit-title centralized">The Debut Edit</h1>
-            <p class="collection-subtext">A symphony of traditional African heritage and modern silhouette.</p>
-        </section>
+        <section class="product-grid">
+            
+            <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=14491.jpg" class="product-card">
+                <img src="14491.jpg" alt="Galaxy Print Jumpsuit">
+                <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,500.00</p></div>
+            </a>
 
-        <section class="product-showcase">
-            <div class="product-grid">
-                
-                <div class="product-card">
-                    <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00+NGN&img=galaxy-print-jumpsuit.jpg">
-                        <div class="full-image-wrapper"><img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit"></div>
-                    </a>
-                    <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,500.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=14496.jpg" class="product-card">
+                <img src="14496.jpg" alt="Bespoke Traditional Agbada">
+                <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Uwata+Dashiki+Set&price=₦62,500.00+NGN&img=uwata-dashiki-set.jpg">
-                        <div class="full-image-wrapper"><img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set"></div>
-                    </a>
-                    <div class="product-meta"><h4>Uwata Dashiki Set</h4><p>₦62,500.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Uwata+Dashiki+Set&price=₦62,500.00&img=14473.jpg" class="product-card">
+                <img src="14473.jpg" alt="Uwata Dashiki Set">
+                <div class="product-meta"><h4>Uwata Dashiki Set</h4><p>₦62,500.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Adesewa+Adire+Pants+Set&price=₦60,500.00+NGN&img=adesewa-adire-pants-set.jpg">
-                        <div class="full-image-wrapper"><img src="adesewa-adire-pants-set.jpg" alt="Adesewa Adire Pants Set"></div>
-                    </a>
-                    <div class="product-meta"><h4>Adesewa Adire Pants Set</h4><p>₦60,500.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Adesewa+Adire+Set&price=₦65,000.00&img=14475.jpg" class="product-card">
+                <img src="14475.jpg" alt="Adesewa Adire Set">
+                <div class="product-meta"><h4>Adesewa Adire Set</h4><p>₦65,000.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Sadiya+Adire+Long+Dress&price=₦60,000.00+NGN&img=sadiya-adire-long-dress.jpg">
-                        <div class="full-image-wrapper"><img src="sadiya-adire-long-dress.jpg" alt="Sadiya Adire Long Dress"></div>
-                    </a>
-                    <div class="product-meta"><h4>Sadiya Adire Long Dress</h4><p>₦60,000.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Floral+Adire+Kaftan&price=₦52,000.00&img=14477.jpg" class="product-card">
+                <img src="14477.jpg" alt="Floral Adire Kaftan">
+                <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Adire+Silk+Tunic&price=₦45,000.00+NGN&img=adire-silk-tunic.jpg">
-                        <div class="full-image-wrapper"><img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic"></div>
-                    </a>
-                    <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Adire+Silk+Tunic&price=₦45,000.00&img=14479.jpg" class="product-card">
+                <img src="14479.jpg" alt="Adire Silk Tunic">
+                <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Floral+Adire+Kaftan&price=₦52,000.00+NGN&img=floral-adire-kaftan.jpg">
-                        <div class="full-image-wrapper"><img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan"></div>
-                    </a>
-                    <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Sadiya+Adire+Long+Dress&price=₦60,000.00&img=14481.jpg" class="product-card">
+                <img src="14481.jpg" alt="Sadiya Long Dress">
+                <div class="product-meta"><h4>Sadiya Long Dress</h4><p>₦60,000.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00+NGN&img=bespoke-traditional-agbada.jpg">
-                        <div class="full-image-wrapper"><img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada"></div>
-                    </a>
-                    <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00 NGN</p></div>
-                </div>
+            <a href="product-detail.html?name=Asymmetric+Adire+Tunic&price=₦48,000.00&img=14483.jpg" class="product-card">
+                <img src="14483.jpg" alt="Asymmetric Tunic">
+                <div class="product-meta"><h4>Asymmetric Tunic</h4><p>₦48,000.00</p></div>
+            </a>
 
-                <div class="product-card">
-                    <a href="product-detail.html?name=Asymmetric+Adire+Tunic&price=₦48,000.00+NGN&img=asymmetric-adire-tunic.jpg">
-                        <div class="full-image-wrapper"><img src="asymmetric-adire-tunic.jpg" alt="Asymmetric Adire Tunic"></div>
-                    </a>
-                    <div class="product-meta"><h4>Asymmetric Adire Tunic</h4><p>₦48,000.00 NGN</p></div>
-                </div>
-
-            </div>
         </section>
     </main>
 
-    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-        <span>Chat Via Whatsapp</span>
-    </a>
-
-    <footer>
-        <h2 class="footer-logo">ONYX—ADIRE</h2>
-        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
+    <footer style="text-align: center; padding: 60px 20px; font-size: 10px; letter-spacing: 2px; color: #999;">
+        &copy; 2026 ONYX—ADIRE HERITAGE
     </footer>
 
-    <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
-    </script>
 </body>
 </html>
