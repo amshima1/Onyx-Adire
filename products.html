@@ -12,37 +12,53 @@
         .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
         .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; }
 
-        /* Mobile Menu Overlay */
-        .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 1000000; padding: 60px 20px; text-align: center; }
-        .menu-overlay a { display: block; margin: 25px 0; font-size: 20px; text-decoration: none; color: #333; text-transform: uppercase; letter-spacing: 2px; }
+        /* FIXED Mobile Menu Overlay - Centered Style */
+        .menu-overlay { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: white; 
+            z-index: 1000000; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-overlay a { 
+            display: block; 
+            margin: 20px 0; 
+            font-size: 18px; 
+            text-decoration: none; 
+            color: #333; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            transition: 0.3s;
+        }
+        .menu-overlay a.active { color: #800020; font-weight: bold; }
         .close-menu { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; }
-
-        /* Header */
-        header { text-align: center; padding: 50px 20px 30px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; color: #800020; font-style: italic; }
-        header p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-top: 10px; }
 
         /* Product Grid */
         .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; max-width: 1200px; margin: 0 auto; }
-        .product-card { text-decoration: none; color: inherit; background: #fff; padding-bottom: 15px; }
+        .product-card { text-decoration: none; color: inherit; }
         .product-card img { width: 100%; height: 350px; object-fit: cover; display: block; background: #fdfdfd; }
-
         .product-meta { padding: 12px 5px; text-align: left; }
-        .product-meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 0; font-weight: normal; }
+        .product-meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 0; font-weight: normal; font-style: italic; }
         .product-meta p { font-size: 13px; font-weight: bold; margin: 5px 0 0; color: #111; }
 
-        /* FORCED Orange WhatsApp Button */
+        /* Orange WhatsApp Button */
         .whatsapp-sticky { 
             position: fixed !important; bottom: 25px !important; right: 20px !important; 
             background-color: #e85d43 !important; color: white !important; 
             text-decoration: none !important; border-radius: 50px !important; 
             padding: 12px 20px !important; display: flex !important; 
             align-items: center !important; box-shadow: 0 8px 15px rgba(0,0,0,0.2) !important; 
-            z-index: 9999 !important; font-size: 14px; font-weight: 500;
+            z-index: 9999 !important; font-size: 14px;
         }
 
         @media (min-width: 768px) {
-            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 25px; }
+            .product-grid { grid-template-columns: repeat(4, 1fr); }
             .product-card img { height: 450px; }
         }
     </style>
@@ -56,59 +72,36 @@
         <div id="mobileMenu" class="menu-overlay">
             <span class="close-menu" onclick="toggleMenu()">&times;</span>
             <a href="index.html">Home</a>
-            <a href="products.html" style="color: #800020; font-weight: bold;">Collection</a>
-            <a href="bookings.html">Bespoke Booking</a>
+            <a href="products.html" class="active">Collection</a>
+            <a href="visionaries.html">The Visionaries</a>
+            <a href="runway.html">The Runway</a>
+            <a href="bookings.html">The Atelier</a>
         </div>
     </nav>
 
-    <header>
-        <h1>The Debut Edit</h1>
-        <p>8 Timeless Heritage Pieces</p>
+    <header style="text-align: center; padding: 40px 20px 20px;">
+        <h1 style="font-family: 'Playfair Display', serif; font-style: italic; color: #800020;">The Debut Edit</h1>
+        <p style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999;">8 Timeless Heritage Pieces</p>
     </header>
 
     <main>
         <section class="product-grid">
-            
-            <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=galaxy-print-jumpsuit.jpg" class="product-card">
-                <img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit">
-                <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,500.00</p></div>
-            </a>
-
-            <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=bespoke-traditional-agbada.jpg" class="product-card">
-                <img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada">
-                <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00</p></div>
-            </a>
-
-            <a href="product-detail.html?name=Uwata+Dashiki+Set&price=₦62,500.00&img=uwata-dashiki-set.jpg" class="product-card">
-                <img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set">
-                <div class="product-meta"><h4>Uwata Dashiki Set</h4><p>₦62,500.00</p></div>
-            </a>
-
-            <a href="product-detail.html?name=Adesewa+Adire+Set&price=₦65,000.00&img=adesewa-adire-set.jpg" class="product-card">
-                <img src="adesewa-adire-set.jpg" alt="Adesewa Adire Set">
-                <div class="product-meta"><h4>Adesewa Adire Set</h4><p>₦65,000.00</p></div>
-            </a>
-
-            <a href="product-detail.html?name=Floral+Adire+Kaftan&price=₦52,000.00&img=floral-adire-kaftan.jpg" class="product-card">
-                <img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan">
-                <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00</p></div>
-            </a>
-
             <a href="product-detail.html?name=Adire+Silk+Tunic&price=₦45,000.00&img=adire-silk-tunic.jpg" class="product-card">
                 <img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic">
                 <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00</p></div>
             </a>
-
-            <a href="product-detail.html?name=Sadiya+Adire+Long+Dress&price=₦60,000.00&img=sadiya-adire-long-dress.jpg" class="product-card">
-                <img src="sadiya-adire-long-dress.jpg" alt="Sadiya Long Dress">
-                <div class="product-meta"><h4>Sadiya Long Dress</h4><p>₦60,000.00</p></div>
+            <a href="product-detail.html?name=Floral+Adire+Kaftan&price=₦52,000.00&img=floral-adire-kaftan.jpg" class="product-card">
+                <img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan">
+                <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00</p></div>
             </a>
-
-            <a href="product-detail.html?name=Asymmetric+Adire+Tunic&price=₦48,000.00&img=asymmetric-adire-tunic.jpg" class="product-card">
-                <img src="asymmetric-adire-tunic.jpg" alt="Asymmetric Tunic">
-                <div class="product-meta"><h4>Asymmetric Tunic</h4><p>₦48,000.00</p></div>
+            <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=bespoke-traditional-agbada.jpg" class="product-card">
+                <img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada">
+                <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00</p></div>
             </a>
-
+            <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=galaxy-print-jumpsuit.jpg" class="product-card">
+                <img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit">
+                <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,500.00</p></div>
+            </a>
         </section>
     </main>
 
@@ -119,7 +112,11 @@
     <script>
         function toggleMenu() {
             var menu = document.getElementById("mobileMenu");
-            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
         }
     </script>
 </body>
