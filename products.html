@@ -7,54 +7,37 @@
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fffcf9; color: #333; }
         
-        /* Navigation - Matches Home/Detail Left-Align Style */
+        /* Navigation & Left-Aligned Hamburger */
         nav { display: flex; align-items: center; justify-content: center; padding: 25px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fffcf9; }
         .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
         .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
 
-        /* Left-Aligned Menu Overlay */
+        /* Menu Overlay (Matches Home Style) */
         .menu-overlay { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #fffcf9; z-index: 1000000; flex-direction: column;
-            padding: 80px 40px; 
+            background: #fffcf9; z-index: 1000000; flex-direction: column; padding: 80px 40px; 
         }
-        .menu-overlay a { 
-            margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; 
-            text-transform: uppercase; letter-spacing: 2px; font-weight: 500;
-        }
+        .menu-overlay a { margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Header */
-        header { text-align: center; padding: 40px 20px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #800020; font-style: italic; margin: 0; }
-        header p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-top: 10px; }
+        /* Product Grids */
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-style: italic; margin: 40px 0 20px; color: #800020; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 15px 40px; max-width: 1200px; margin: 0 auto; }
+        .card { text-decoration: none; color: inherit; text-align: left; }
+        .card img { width: 100%; height: 380px; object-fit: cover; background: #fdfdfd; }
+        .meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 10px 0 0; font-style: italic; font-weight: normal; }
+        .meta p { font-size: 13px; font-weight: bold; margin: 5px 0; }
 
-        /* Main Product Grid */
-        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; max-width: 1200px; margin: 0 auto; }
-        .product-card { text-decoration: none; color: inherit; }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; display: block; background: #fdfdfd; }
-        .product-meta { padding: 12px 5px; text-align: left; }
-        .product-meta h4 { font-family: 'Playfair Display', serif; font-size: 14px; margin: 0; font-style: italic; }
-        .product-meta p { font-size: 13px; font-weight: bold; margin: 5px 0 0; }
-
-        /* Recently Viewed Section */
-        .recent-section { padding: 40px 20px; background: #fafafa; border-top: 1px solid #eee; margin-top: 50px; }
-        .recent-title { font-family: 'Playfair Display', serif; text-align: center; font-style: italic; margin-bottom: 25px; }
-        .recent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .recent-card { text-decoration: none; color: inherit; text-align: center; font-size: 11px; }
-        .recent-card img { width: 100%; height: 180px; object-fit: cover; margin-bottom: 5px; }
-
-        /* Orange WhatsApp Button */
+        /* Floating WhatsApp */
         .whatsapp-sticky { 
             position: fixed !important; bottom: 25px !important; right: 20px !important; 
             background-color: #e85d43 !important; color: white !important; 
             text-decoration: none !important; border-radius: 50px !important; 
-            padding: 12px 20px !important; display: flex !important; 
-            align-items: center !important; z-index: 9999; font-size: 14px;
+            padding: 12px 20px !important; display: flex !important; align-items: center !important; 
+            z-index: 9999; font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         @media (min-width: 768px) {
-            .product-grid { grid-template-columns: repeat(4, 1fr); }
-            .recent-grid { grid-template-columns: repeat(5, 1fr); }
+            .grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
@@ -63,76 +46,83 @@
     <nav>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <a href="index.html" class="logo">Onyx—Adire</a>
-        
         <div id="mobileMenu" class="menu-overlay">
             <span onclick="toggleMenu()" style="position: absolute; left: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #800020;">&times;</span>
             <a href="index.html">The Home</a>
-            <a href="products.html" style="font-weight: bold; border-left: 2px solid #800020; padding-left: 10px;">The Collection</a>
-            <a href="visionaries.html">The Visionaries</a>
-            <a href="runway.html">The Runway</a>
+            <a href="products.html">The Collection</a>
             <a href="bookings.html">The Atelier</a>
         </div>
     </nav>
 
-    <header>
-        <h1>The Debut Edit</h1>
-        <p>8 Timeless Heritage Pieces</p>
+    <header style="text-align: center; padding: 40px 20px;">
+        <h1 style="font-family: 'Playfair Display', serif; font-style: italic; color: #800020; margin: 0;">The Debut Edit</h1>
+        <p style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999;">8 Curated Pieces</p>
     </header>
 
-    <main>
-        <section class="product-grid">
-            <a href="product-detail.html?name=Galaxy+Print+Jumpsuit&price=₦58,500.00&img=galaxy-print-jumpsuit.jpg" class="product-card">
-                <img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit">
-                <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,500.00</p></div>
-            </a>
-            <a href="product-detail.html?name=Bespoke+Traditional+Agbada&price=₦95,000.00&img=bespoke-traditional-agbada.jpg" class="product-card">
-                <img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada">
-                <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00</p></div>
-            </a>
-            <a href="product-detail.html?name=Adire+Silk+Tunic&price=₦45,000.00&img=adire-silk-tunic.jpg" class="product-card">
-                <img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic">
-                <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00</p></div>
-            </a>
-            <a href="product-detail.html?name=Floral+Adire+Kaftan&price=₦52,000.00&img=floral-adire-kaftan.jpg" class="product-card">
-                <img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan">
-                <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00</p></div>
-            </a>
-        </section>
-    </main>
+    <div class="grid" id="main-collection">
+        <script>
+            const mainItems = [
+                { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "galaxy-print-jumpsuit.jpg" },
+                { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "bespoke-traditional-agbada.jpg" },
+                { name: "Adire Silk Tunic", price: "₦45,000.00", img: "adire-silk-tunic.jpg" },
+                { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "floral-adire-kaftan.jpg" },
+                { name: "Ebony Silk Boubou", price: "₦65,000.00", img: "ebony-silk-boubou.jpg" },
+                { name: "Maroon Palazzo Trousers", price: "₦35,000.00", img: "maroon-palazzo-trousers.jpg" },
+                { name: "Minimalist Linen Kaftan", price: "₦48,000.00", img: "minimalist-linen-kaftan.jpg" },
+                { name: "Modern Agbada Fusion", price: "₦88,000.00", img: "modern-agbada-fusion.jpg" }
+            ];
 
-    <section id="recent-view-section" class="recent-section" style="display: none;">
-        <h3 class="recent-title">Recently Viewed</h3>
-        <div id="recent-grid" class="recent-grid"></div>
-    </section>
+            const mainGrid = document.getElementById('main-collection');
+            mainItems.forEach(item => {
+                mainGrid.innerHTML += `
+                    <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="card">
+                        <img src="${item.img}">
+                        <div class="meta"><h4>${item.name}</h4><p>${item.price}</p></div>
+                    </a>`;
+            });
+        </script>
+    </div>
 
-    <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">
-        <span style="margin-right:10px;">💬</span> Chat Via Whatsapp
-    </a>
+    <h3 class="section-title">Discover More</h3>
+    <div class="grid" id="random-discovery"></div>
+
+    <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">💬 Chat Via Whatsapp</a>
 
     <script>
+        // Full list of your 40 assets
+        const allAssets = [
+            { name: "Adesewa Adire Set", price: "₦55,000", img: "adesewa-adire-set.jpg" },
+            { name: "Asymmetric Adire Tunic", price: "₦42,000", img: "asymmetric-adire-tunic.jpg" },
+            { name: "Bespoke Velvet Caftan", price: "₦75,000", img: "bespoke-velvet-caftan.jpg" },
+            { name: "Indigo Oversized Kimono", price: "₦40,000", img: "indigo-oversized-kimono.jpg" },
+            { name: "Geometric Print Boubou", price: "₦62,000", img: "geometric-print-boubou.jpg" },
+            { name: "Luxury Lace Iro and Buba", price: "₦110,000", img: "luxury-lace-iro-and-buba.jpg" },
+            { name: "Midnight Lace Tunic", price: "₦47,000", img: "midnight-lace-tunic.jpg" },
+            { name: "Striped Adire Set", price: "₦50,000", img: "striped-adire-set.jpg" },
+            { name: "Vibrant Ankara Jumpsuit", price: "₦54,000", img: "vibrant-ankara-jumpsuit.jpg" }
+            // ... Add more from your file list here
+        ];
+
+        function displayRandom() {
+            const shuffled = allAssets.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 4);
+            const randomGrid = document.getElementById('random-discovery');
+            
+            selected.forEach(item => {
+                randomGrid.innerHTML += `
+                    <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="card">
+                        <img src="${item.img}">
+                        <div class="meta"><h4>${item.name}</h4><p>${item.price}</p></div>
+                    </a>`;
+            });
+        }
+
         function toggleMenu() {
             const m = document.getElementById("mobileMenu");
             m.style.display = (m.style.display === "flex") ? "none" : "flex";
         }
 
-        function loadRecentlyViewed() {
-            const recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
-            const grid = document.getElementById('recent-grid');
-            const section = document.getElementById('recent-view-section');
-
-            if (recent.length > 0) {
-                section.style.display = 'block';
-                recent.forEach(item => {
-                    grid.innerHTML += `
-                        <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="recent-card">
-                            <img src="${item.img}">
-                            <p style="font-style:italic; font-family:'Playfair Display';">${item.name}</p>
-                        </a>`;
-                });
-            }
-        }
-
-        window.onload = loadRecentlyViewed;
+        window.onload = displayRandom;
     </script>
 </body>
 </html>
