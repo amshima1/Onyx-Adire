@@ -3,75 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heritage Gallery | Onyx—Adire</title>
+    <title>The Collection | Onyx—Adire</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 
+    <marquee class="marquee-bar" scrollamount="4">
+        ✦ EXPLORE THE FULL HERITAGE COLLECTION ✦ WORLDWIDE SHIPPING AVAILABLE ✦ NEW PIECES ADDED WEEKLY ✦
+    </marquee>
+
     <nav>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <a href="index.html" class="logo">Onyx—Adire</a>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">The Home</a>
-            <a href="gallery.html">The Gallery</a>
-            <a href="trustees.html">The Visionaries</a>
-            <a href="events.html">The Runway</a>
-            <a href="bookings.html">The Atelier</a>
+        <div class="nav-container">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <a href="index.html" class="logo">Onyx—Adire</a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">THE HOME</a>
+                <a href="products.html" class="active-link">THE COLLECTION</a>
+                <a href="trustees.html">THE VISIONARIES</a>
+                <a href="events.html">THE RUNWAY</a>
+                <a href="bookings.html">THE ATELIER</a>
+            </div>
         </div>
     </nav>
 
     <main>
-        <header class="gallery-header">
-            <h1 class="section-title">The Heritage Gallery</h1>
-            <p class="gallery-subtitle">A visual journey through artisanal mastery and modern silhouettes.</p>
-        </header>
+        <section class="collection-header">
+            <h1 class="edit-title centralized">The Heritage Collection</h1>
+            <p class="collection-subtext">A curated symphony of traditional textiles and modern silhouettes.</p>
+        </section>
 
-        <section class="gallery-container">
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="adesewa-adire-pants-set.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="adire-silk-tunic.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="asymmetric-adire-tunic.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="bespoke-traditional-agbada.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="bespoke-velvet-caftan.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="boubou-and-abaya.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="ebony-silk-boubou.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="embroidered-aso-oke-set.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="floral-adire-kaftan.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="floral-chiffon-maxi.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="galaxy-print-jumpsuit.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="geometric-print-boubou.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="heritage-agbada-gold.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="indigo-oversized-kimono.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="lace-overlay-boubou.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="luxury-lace-iro-and-buba.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="maroon-palazzo-trousers.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="midnight-lace-tunic.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="minimalist-linen-kaftan.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="modern-adire-shirtdress.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="monochrome-pattern-set.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="royal-thread-evening-gown.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="sadiya-adire-long-dress.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="safiya-adire-pants-set.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="silk-wrap-dress.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="stripe-mix-palazzo.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="striped-adire-set.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="teniola-adire-dress.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="todun-adri-iro-and-buba.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="torera-adire-and-aso-oke.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="uwata-dashiki-set.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="vibrant-batik-shirtdress.jpg" alt="Onyx-Adire"></div>
-                <div class="gallery-item"><img src="yarinya-shorts-set.jpg" alt="Onyx-Adire"></div>
+        <section class="product-showcase">
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="adesewa-adire-pants-set.jpg" alt="Adesewa Adire Pants Set"></div>
+                    <div class="product-meta"><h4>Adesewa Adire Pants Set</h4><p>₦60,500.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="adesewa-adire-set.jpg" alt="Adesewa Adire Set"></div>
+                    <div class="product-meta"><h4>Adesewa Adire Set</h4><p>₦62,500.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic"></div>
+                    <div class="product-meta"><h4>Adire Silk Tunic</h4><p>₦45,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="asymmetric-adire-tunic.jpg" alt="Asymmetric Adire Tunic"></div>
+                    <div class="product-meta"><h4>Asymmetric Adire Tunic</h4><p>₦48,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada"></div>
+                    <div class="product-meta"><h4>Bespoke Traditional Agbada</h4><p>₦95,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="bespoke-velvet-caftan.jpg" alt="Bespoke Velvet Caftan"></div>
+                    <div class="product-meta"><h4>Bespoke Velvet Caftan</h4><p>₦85,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="boubou-and-abaya.jpg" alt="Boubou and Abaya"></div>
+                    <div class="product-meta"><h4>Boubou and Abaya</h4><p>₦70,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="capes.jpg" alt="Heritage Capes"></div>
+                    <div class="product-meta"><h4>Heritage Capes</h4><p>₦35,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="ebony-silk-boubou.jpg" alt="Ebony Silk Boubou"></div>
+                    <div class="product-meta"><h4>Ebony Silk Boubou</h4><p>₦78,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="embroidered-aso-oke-set.jpg" alt="Embroidered Aso Oke Set"></div>
+                    <div class="product-meta"><h4>Embroidered Aso Oke Set</h4><p>₦110,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan"></div>
+                    <div class="product-meta"><h4>Floral Adire Kaftan</h4><p>₦52,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="floral-chiffon-maxi.jpg" alt="Floral Chiffon Maxi"></div>
+                    <div class="product-meta"><h4>Floral Chiffon Maxi</h4><p>₦55,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="galaxy-print-jumpsuit.jpg" alt="Galaxy Print Jumpsuit"></div>
+                    <div class="product-meta"><h4>Galaxy Print Jumpsuit</h4><p>₦58,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="geometric-print-boubou.jpg" alt="Geometric Print Boubou"></div>
+                    <div class="product-meta"><h4>Geometric Print Boubou</h4><p>₦65,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="gingham-check-pants.jpg" alt="Gingham Check Pants"></div>
+                    <div class="product-meta"><h4>Gingham Check Pants</h4><p>₦32,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="heritage-agbada-gold.jpg" alt="Heritage Agbada Gold"></div>
+                    <div class="product-meta"><h4>Heritage Agbada Gold</h4><p>₦98,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="indigo-oversized-kimono.jpg" alt="Indigo Oversized Kimono"></div>
+                    <div class="product-meta"><h4>Indigo Oversized Kimono</h4><p>₦42,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="july-collections-2026.jpg" alt="July Collections 2026 Set"></div>
+                    <div class="product-meta"><h4>July Edition Set</h4><p>₦68,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="lace-overlay-boubou.jpg" alt="Lace Overlay Boubou"></div>
+                    <div class="product-meta"><h4>Lace Overlay Boubou</h4><p>₦75,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="luxury-lace-iro-and-buba.jpg" alt="Luxury Lace Iro & Buba"></div>
+                    <div class="product-meta"><h4>Luxury Lace Iro & Buba</h4><p>₦85,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="maroon-palazzo-trousers.jpg" alt="Maroon Palazzo Trousers"></div>
+                    <div class="product-meta"><h4>Maroon Palazzo Trousers</h4><p>₦28,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="midnight-lace-tunic.jpg" alt="Midnight Lace Tunic"></div>
+                    <div class="product-meta"><h4>Midnight Lace Tunic</h4><p>₦45,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="minimalist-linen-kaftan.jpg" alt="Minimalist Linen Kaftan"></div>
+                    <div class="product-meta"><h4>Minimalist Linen Kaftan</h4><p>₦50,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="modern-adire-shirtdress.jpg" alt="Modern Adire Shirtdress"></div>
+                    <div class="product-meta"><h4>Modern Adire Shirtdress</h4><p>₦40,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="modern-agbada-fusion.jpg" alt="Modern Agbada Fusion"></div>
+                    <div class="product-meta"><h4>Modern Agbada Fusion</h4><p>₦88,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="monochrome-pattern-set.jpg" alt="Monochrome Pattern Set"></div>
+                    <div class="product-meta"><h4>Monochrome Pattern Set</h4><p>₦55,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="navy-lace-shirt.jpg" alt="Navy Lace Shirt"></div>
+                    <div class="product-meta"><h4>Navy Lace Shirt</h4><p>₦35,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="patchwork-adire-tunic.jpg" alt="Patchwork Adire Tunic"></div>
+                    <div class="product-meta"><h4>Patchwork Adire Tunic</h4><p>₦47,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="premium-linen-two-piece.jpg" alt="Premium Linen Two-Piece"></div>
+                    <div class="product-meta"><h4>Premium Linen Two-Piece</h4><p>₦65,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="royal-thread-evening-gown.jpg" alt="Royal Thread Evening Gown"></div>
+                    <div class="product-meta"><h4>Royal Thread Gown</h4><p>₦120,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="sadiya-adire-long-dress.jpg" alt="Sadiya Adire Long Dress"></div>
+                    <div class="product-meta"><h4>Sadiya Adire Long Dress</h4><p>₦60,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="safiya-adire-pants-set.jpg" alt="Safiya Adire Pants Set"></div>
+                    <div class="product-meta"><h4>Safiya Adire Pants Set</h4><p>₦58,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="silk-wrap-dress.jpg" alt="Silk Wrap Dress"></div>
+                    <div class="product-meta"><h4>Silk Wrap Dress</h4><p>₦72,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="stripe-mix-palazzo.jpg" alt="Stripe Mix Palazzo"></div>
+                    <div class="product-meta"><h4>Stripe Mix Palazzo</h4><p>₦30,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="striped-adire-set.jpg" alt="Striped Adire Set"></div>
+                    <div class="product-meta"><h4>Striped Adire Set</h4><p>₦54,000.00 NGN</p></div>
+                </div>
+
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="striped-shorts-black-lace.jpg" alt="Striped Shorts with Black Lace"></div>
+                    <div class="product-meta"><h4>Striped Shorts & Lace</h4><p>₦25,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="tailored-bespoke-suit.jpg" alt="Tailored Bespoke Suit"></div>
+                    <div class="product-meta"><h4>Tailored Bespoke Suit</h4><p>₦150,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="teniola-adire-dress.jpg" alt="Teniola Adire Dress"></div>
+                    <div class="product-meta"><h4>Teniola Adire Dress</h4><p>₦52,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="todun-adri-iro-and-buba.jpg" alt="Todun Adire Iro & Buba"></div>
+                    <div class="product-meta"><h4>Todun Adire Iro & Buba</h4><p>₦65,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="tope-adire-dress.jpg" alt="Tope Adire Dress"></div>
+                    <div class="product-meta"><h4>Tope Adire Dress</h4><p>₦50,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="torera-adire-and-aso-oke.jpg" alt="Torera Adire & Aso Oke"></div>
+                    <div class="product-meta"><h4>Torera Adire & Aso Oke</h4><p>₦95,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="traditional-aso-oke-wrapper.jpg" alt="Traditional Aso Oke Wrapper"></div>
+                    <div class="product-meta"><h4>Traditional Aso Oke Wrapper</h4><p>₦45,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="uwata-dashiki-set.jpg" alt="Uwata Dashiki Set"></div>
+                    <div class="product-meta"><h4>Uwata Dashiki Set</h4><p>₦48,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="velvet-accent-buba.jpg" alt="Velvet Accent Buba"></div>
+                    <div class="product-meta"><h4>Velvet Accent Buba</h4><p>₦55,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="vibrant-ankara-jumpsuit.jpg" alt="Vibrant Ankara Jumpsuit"></div>
+                    <div class="product-meta"><h4>Vibrant Ankara Jumpsuit</h4><p>₦45,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="vibrant-batik-shirtdress.jpg" alt="Vibrant Batik Shirtdress"></div>
+                    <div class="product-meta"><h4>Vibrant Batik Shirtdress</h4><p>₦38,000.00 NGN</p></div>
+                </div>
+                <div class="product-card">
+                    <div class="full-image-wrapper"><img src="yarinya-shorts-set.jpg" alt="Yarinya Shorts Set"></div>
+                    <div class="product-meta"><h4>Yarinya Shorts Set</h4><p>₦30,000.00 NGN</p></div>
+                </div>
             </div>
         </section>
     </main>
 
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        <span>Chat Via Whatsapp</span>
+    </a>
+
     <footer>
-        <h2 class="logo">Onyx—Adire</h2>
-        <p>&copy; 2026 Crafted Excellence.</p>
+        <h2 class="footer-logo">ONYX—ADIRE</h2>
+        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
     </footer>
 
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
 </body>
 </html>
+    
