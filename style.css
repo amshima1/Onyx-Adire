@@ -1,43 +1,46 @@
-/* --- 1. GLOBAL SETTINGS --- */
+/* --- 1. CORE BRANDING & FONTS --- */
 :root {
     --brand-red: #cc0000;
-    --brand-orange: #ff8c00; /* For the WhatsApp button from your screenshot */
+    --brand-orange: #ff8c00; /* Matching the reference in 14362.jpg */
     --white: #ffffff;
-    --dark: #1a1a1a;
-    --light-grey: #f4f4f4;
+    --dark: #111111;
+    --light-grey: #f9f9f9;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Playfair Display', serif; /* High-end fashion font */
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif; /* Luxury serif font */
 }
 
 body {
     background-color: var(--white);
     color: var(--dark);
-    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- 2. ASSIGNMENT FEATURE: MARQUEE --- */
+/* --- 2. MARQUEE (Assignment Requirement) --- */
 .announcement-bar {
     background: var(--brand-red);
     color: white;
-    padding: 10px 0;
-    font-size: 0.85rem;
+    padding: 8px 0;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-/* --- 3. NAVIGATION (Consistent Link Structure) --- */
+/* --- 3. NAVIGATION --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    border-bottom: 2px solid var(--brand-red);
+    border-bottom: 1.5px solid var(--brand-red);
     position: sticky;
     top: 0;
     background: white;
@@ -46,34 +49,33 @@ nav {
 
 .logo {
     color: var(--brand-red);
-    font-weight: 900;
-    font-size: 1.6rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
 }
 
 .hamburger {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 22px;
+    height: 2px;
     background: var(--brand-red);
 }
 
 .menu-links {
     display: none;
     position: absolute;
-    top: 65px;
+    top: 60px;
     left: 0;
     width: 100%;
     background: white;
     flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .menu-links.active {
@@ -81,85 +83,113 @@ nav {
 }
 
 .menu-links a {
-    padding: 18px;
+    padding: 15px;
     text-align: center;
     color: var(--brand-red);
     text-decoration: none;
-    border-bottom: 1px solid #eee;
-    font-weight: bold;
-    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-/* --- 4. BRANDING HEADER --- */
+/* --- 4. HEADER BOX --- */
 .luxury-header {
     text-align: center;
-    padding: 40px 10px;
+    padding: 30px 0;
 }
 
 .red-white-box {
     display: inline-block;
-    border: 2px solid var(--brand-red);
-    padding: 10px 25px;
+    border: 2.5px solid var(--brand-red);
+    padding: 8px 20px;
     color: var(--brand-red);
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 1.1rem;
     letter-spacing: 2px;
 }
 
-/* --- 5. PRODUCT SHOWCASE GRID --- */
+/* --- 5. PRODUCT GRID (2 Columns for Mobile) --- */
 .container {
-    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for mobile as requested */
-    gap: 15px;
-    margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr; /* Two columns like in 14256.jpg */
+    gap: 12px;
 }
 
 .product-card {
-    border: 1px solid #ddd;
+    border: 1px solid #eeeeee;
     text-align: center;
-    padding-bottom: 15px;
+    padding-bottom: 12px;
     background: #fff;
-    transition: 0.3s;
 }
 
 .product-card img {
     width: 100%;
     height: auto;
+    object-fit: cover;
     display: block;
-    cursor: pointer;
 }
 
 .product-card h3 {
-    font-size: 0.9rem;
-    margin: 10px 0 5px;
+    font-size: 0.8rem;
+    margin: 10px 5px 2px;
     color: var(--brand-red);
-    text-transform: uppercase;
 }
 
 .product-card .price {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 0.85rem;
     margin-bottom: 10px;
 }
 
-/* --- 6. BUTTONS (Order Now) --- */
-.options-btn {
-    display: block;
+/* --- 6. ORDER BUTTONS --- */
+.order-btn {
+    display: inline-block;
     background: var(--brand-red);
     color: white;
     text-decoration: none;
-    padding: 10px;
-    margin: 0 10px;
-    font-size: 0.8rem;
+    padding: 8px 15px;
+    font-size: 0.7rem;
     font-weight: bold;
-    border-radius: 2px;
+    letter-spacing: 1px;
 }
 
-/* --- 7. ASSIGNMENT FEATURE: JAVASCRIPT MODAL --- */
+/* --- 7. THE FIXED WHATSAPP PILL (Critical Fix) --- */
+.whatsapp-fixed-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    background-color: var(--brand-orange);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.whatsapp-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* This fixes the giant logo in 14364.jpg */
+.whatsapp-content img {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.whatsapp-content span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- 8. JAVASCRIPT MODAL --- */
 .modal {
     display: none;
     position: fixed;
@@ -181,56 +211,18 @@ nav {
 .close-modal {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 25px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     cursor: pointer;
 }
 
-/* --- 8. RE-ADDED FEATURE: CHAT VIA WHATSAPP --- */
-.whatsapp-floating-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    background-color: var(--brand-orange); /* Matching orange from cite: 14362.jpg */
-    color: white;
-    text-decoration: none;
-    padding: 12px 22px;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 9999;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-}
-
-.whatsapp-btn-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.whatsapp-btn-container img {
-    width: 22px;
-    height: 22px;
-}
-
-.whatsapp-btn-container span {
-    font-size: 0.85rem;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* --- 9. FOOTER & LIVE CLOCK --- */
+/* --- 9. FOOTER --- */
 footer {
     background: var(--brand-red);
     color: white;
     text-align: center;
-    padding: 25px;
-    margin-top: 50px;
-    font-size: 0.9rem;
-}
-
-#clock {
-    font-weight: bold;
-    margin-left: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.75rem;
 }
