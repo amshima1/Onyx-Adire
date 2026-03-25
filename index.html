@@ -26,16 +26,17 @@
             overflow-x: hidden;
         }
 
-        /* --- Announcement Bar --- */
+        /* --- Fixed Elements Layout --- */
         .announcement-wrapper {
             background-color: var(--brand-red);
             color: white;
             overflow: hidden;
             white-space: nowrap;
             padding: 10px 0;
-            position: sticky;
+            position: fixed; /* Fixed so it never disappears */
             top: 0;
-            z-index: 3000;
+            width: 100%;
+            z-index: 6000; /* Highest to stay above menu */
         }
 
         .announcement-content {
@@ -52,23 +53,23 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        /* --- Header & Centered Logo --- */
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 15px 20px;
-            position: sticky;
-            top: 35px;
+            position: fixed;
+            top: 35px; /* Sits below announcement */
+            width: 100%;
+            box-sizing: border-box;
             background: var(--bg-cream);
-            z-index: 2500;
+            z-index: 5500; /* Stays above menu */
             border-bottom: 1px solid rgba(139, 29, 29, 0.05);
         }
 
         .menu-icon {
             width: 30px;
             cursor: pointer;
-            z-index: 4000;
         }
 
         .menu-icon div {
@@ -89,18 +90,18 @@
 
         .header-spacer { width: 30px; }
 
-        /* --- Side Navigation --- */
+        /* --- Side Navigation (Pushed down) --- */
         #mySidenav {
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 5000;
+            z-index: 5000; /* Below header/announcement */
             top: 0;
             left: 0;
             background-color: var(--bg-cream);
             overflow-x: hidden;
             transition: 0.4s ease-in-out;
-            padding-top: 80px;
+            padding-top: 100px; /* Space for fixed header */
             text-align: left;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         }
@@ -125,7 +126,9 @@
             z-index: 4500;
         }
 
-        /* --- Content Sections --- */
+        /* --- Content Padding --- */
+        main { padding-top: 100px; }
+
         .hero-image { width: 100%; display: block; }
 
         .statement-section {
@@ -148,7 +151,7 @@
             margin: 60px 0 30px 0;
         }
 
-        /* --- Gallery --- */
+        /* --- Corrected Gallery --- */
         .product-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -161,6 +164,7 @@
             height: auto;
             border-radius: 2px;
             display: block;
+            background-color: #eee; /* Placeholder if image is missing */
         }
 
         .product-name {
@@ -174,16 +178,7 @@
 
         .product-price { font-size: 14px; color: var(--brand-red); margin: 0; }
 
-        /* --- Footer & Socials --- */
         footer { padding: 60px 0 0 0; background-color: var(--bg-cream); }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-style: italic;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
 
         .newsletter-section {
             background-color: var(--brand-red);
@@ -191,58 +186,7 @@
             padding: 40px 20px 120px 20px;
         }
 
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .newsletter-form input {
-            width: 100%;
-            max-width: 280px;
-            padding: 12px;
-            border: 1px solid white;
-            background: transparent;
-            color: white;
-            text-align: center;
-        }
-
-        .newsletter-form button {
-            background: white;
-            color: var(--brand-red);
-            border: none;
-            padding: 10px 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        #thank-you-msg {
-            display: none;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 18px;
-            margin-top: 20px;
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .social-icons a { color: white; text-decoration: none; }
-        .social-icons svg { width: 26px; height: 26px; fill: currentColor; }
-
-        /* --- Floating WhatsApp Button --- */
+        /* --- Floating WhatsApp --- */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -257,7 +201,7 @@
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             text-decoration: none;
-            z-index: 6000;
+            z-index: 7000; /* Stays above menu */
         }
     </style>
 </head>
@@ -269,76 +213,74 @@
         </div>
     </div>
 
-    <div id="mySidenav">
-        <a href="javascript:void(0)" onclick="closeNav()" style="font-size: 40px; text-align: right; padding-right: 30px;">&times;</a>
-        <a href="#" onclick="closeNav()">Home</a>
-        <a href="#debut-edit" onclick="closeNav()">Collections</a>
-        <a href="#">Trustees</a>
-        <a href="#">Events</a>
-        <a href="#">Inquiries</a>
-    </div>
-    <div id="overlay" onclick="closeNav()"></div>
-
     <header>
-        <div class="menu-icon" id="hamburger" onclick="openNav()">
+        <div class="menu-icon" onclick="openNav()">
             <div></div><div></div><div></div>
         </div>
         <div class="logo">Onyx—Adire</div>
         <div class="header-spacer"></div> 
     </header>
 
-    <img src="todun-adri-iro-and-buba.jpg" alt="Hero Banner" class="hero-image">
-
-    <div class="statement-section">
-        <p class="statement-text">
-            Onyx-Adire is dedicated to preserving the world's most prestigious textile traditions while emboldening the modern silhouette with the power of Red.
-        </p>
+    <div id="mySidenav">
+        <a href="javascript:void(0)" onclick="closeNav()" style="font-size: 40px; text-align: right; padding-right: 30px;">&times;</a>
+        <a href="#" onclick="closeNav()">Home</a>
+        <a href="#debut-edit" onclick="closeNav()">Collections</a>
+        <a href="trustees.html">Trustees</a>
+        <a href="events.html">Events</a>
+        <a href="bookings.html">Inquiries</a>
     </div>
+    <div id="overlay" onclick="closeNav()"></div>
 
-    <h2 id="debut-edit" class="section-heading">The Debut Edit</h2>
+    <main>
+        <img src="todun-adri-iro-and-buba.jpg" alt="Onyx-Adire Hero" class="hero-image">
 
-    <section class="product-gallery">
-        <div class="product-item"><img src="14621.jpg"><p class="product-name">Adesewa Pants Set</p><p class="product-price">₦45,000</p></div>
-        <div class="product-item"><img src="14623.jpg"><p class="product-name">Adire Silk Tunic</p><p class="product-price">₦35,000</p></div>
-        <div class="product-item"><img src="14441.jpg"><p class="product-name">Asymmetric Tunic</p><p class="product-price">₦38,500</p></div>
-        <div class="product-item"><img src="14439.jpg"><p class="product-name">Traditional Agbada</p><p class="product-price">₦85,000</p></div>
-        <div class="product-item"><img src="14437.jpg"><p class="product-name">Ebony Silk Boubou</p><p class="product-price">₦55,000</p></div>
-        <div class="product-item"><img src="14443.jpg"><p class="product-name">Floral Adire Kaftan</p><p class="product-price">₦42,000</p></div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">Onyx—Adire</div>
-        <div class="newsletter-section">
-            <h3 style="font-family: 'Playfair Display', serif; font-style: italic; margin: 0;">Subscribe to our newsletter</h3>
-            
-            <form id="newsletter-form" class="newsletter-form">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-
-            <div id="thank-you-msg">
-                <p>Thank you for joining the movement. You will be the first to know when our new collections drop.</p>
-            </div>
-
-            <div class="social-icons">
-                <a href="#" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-                <a href="#" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.07-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.03-2.86-.31-4.08-1.03-2.02-1.19-3.49-3.36-3.65-5.69-.16-2.38 1.09-4.72 3.06-6.17 1.5-1.1 3.4-1.61 5.21-1.43v4.02c-.11-.04-.21-.08-.32-.12-1.12-.25-2.38-.02-3.32.6-.51.37-.88.89-1.08 1.5-.22.61-.22 1.28-.01 1.91.2.58.58 1.11 1.06 1.5.6.5 1.34.78 2.13.78 1.41-.01 2.61-1.01 2.81-2.4.1-.28.11-.58.11-.87-.02-3.45-.02-6.88-.02-10.32z"/></svg>
-                </a>
-            </div>
+        <div class="statement-section">
+            <p class="statement-text">
+                Onyx-Adire is dedicated to preserving the world's most prestigious textile traditions while emboldening the modern silhouette with the power of Red.
+            </p>
         </div>
-    </footer>
 
-    <a href="https://wa.me/234XXXXXXXXXX?text=Hello%20Onyx%E2%80%94Adire%2C%20I%20am%20interested%20in%20your%20collection%20and%20would%20like%20to%20make%20an%20inquiry." 
-       target="_blank" 
-       class="whatsapp-float">
+        <h2 id="debut-edit" class="section-heading">The Debut Edit</h2>
+
+        <section class="product-gallery">
+            <div class="product-item">
+                <img src="adesewa-adire-pants-set.jpg" alt="Adesewa Pants Set">
+                <p class="product-name">Adesewa Pants Set</p>
+                <p class="product-price">₦45,000</p>
+            </div>
+            <div class="product-item">
+                <img src="adire-silk-tunic.jpg" alt="Adire Silk Tunic">
+                <p class="product-name">Adire Silk Tunic</p>
+                <p class="product-price">₦35,000</p>
+            </div>
+            <div class="product-item">
+                <img src="asymmetric-adire-tunic.jpg" alt="Asymmetric Tunic">
+                <p class="product-name">Asymmetric Tunic</p>
+                <p class="product-price">₦38,500</p>
+            </div>
+            <div class="product-item">
+                <img src="bespoke-traditional-agbada.jpg" alt="Traditional Agbada">
+                <p class="product-name">Traditional Agbada</p>
+                <p class="product-price">₦85,000</p>
+            </div>
+            <div class="product-item">
+                <img src="ebony-silk-boubou.jpg" alt="Ebony Silk Boubou">
+                <p class="product-name">Ebony Silk Boubou</p>
+                <p class="product-price">₦55,000</p>
+            </div>
+            <div class="product-item">
+                <img src="floral-adire-kaftan.jpg" alt="Floral Adire Kaftan">
+                <p class="product-name">Floral Adire Kaftan</p>
+                <p class="product-price">₦42,000</p>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/234XXXXXXXXXX?text=Hello%20Onyx%E2%80%94Adire%2C%20I%20am%20interested%20in%20your%20collection." target="_blank" class="whatsapp-float">
         <span>💬</span> Chat Via Whatsapp
     </a>
 
     <script>
-        // Hamburger logic
         function openNav() {
             document.getElementById("mySidenav").style.width = "280px";
             document.getElementById("overlay").style.display = "block";
@@ -347,13 +289,6 @@
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("overlay").style.display = "none";
         }
-
-        // Newsletter Thank You logic
-        document.getElementById("newsletter-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Stop page reload
-            this.style.display = "none"; // Hide form
-            document.getElementById("thank-you-msg").style.display = "block"; // Show message
-        });
     </script>
 </body>
 </html>
