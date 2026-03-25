@@ -7,13 +7,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .event-card { margin: 40px 20px; text-align: left; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .event-img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 15px; }
-        .event-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--brand-red); }
+        .event-card {
+            margin: 40px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(139, 29, 29, 0.1);
+            padding-bottom: 30px;
+        }
+        .event-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-style: italic;
+            color: var(--brand-red);
+            margin-bottom: 10px;
+        }
+        .event-meta {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .event-container { max-width: 900px; margin: 0 auto; }
+        }
     </style>
 </head>
 <body>
+
     <header>
+        <div class="announcement-bar">
+            <span class="announcement-text">✦ EXPLORE THE ONYX—ADIRE JOURNEY ✦ EXHIBITIONS & RUNWAYS ✦</span>
+        </div>
         <nav>
             <div class="menu-icon" onclick="toggleNav()"><div></div><div></div><div></div></div>
             <a href="index.html" class="logo">Onyx—Adire</a>
@@ -24,18 +56,31 @@
     <div id="mySidenav">
         <a href="index.html">Home</a>
         <a href="collections.html">Collections</a>
-        <a href="collection-detail.html">Collection Detail</a>
+        <a href="trustees.html">Trustees</a>
         <a href="events.html">Events</a>
         <a href="bookings.html">Bookings</a>
     </div>
     <div id="overlay"></div>
 
-    <main style="padding-top: 100px;">
-        <h1 class="debut-header">Upcoming Events</h1>
-        <div class="event-card">
-            <img src="14682.jpg" class="event-img">
-            <h2 class="event-title">Miva Matriculation Showcase</h2>
-            <p>Ladi Kwali Hall, Abuja Continental Hotel | Nov 2025</p>
+    <main style="padding-top: 120px;">
+        <section class="debut-header">
+            <h1>Events & Showcases</h1>
+        </section>
+
+        <div class="event-container">
+            <div class="event-card">
+                <img src="14682.jpg" alt="Miva Showcase" class="event-img">
+                <span class="event-meta">November 2025 | Abuja, Nigeria</span>
+                <h2 class="event-title">Miva Matriculation Showcase</h2>
+                <p>A celebration of cultural identity and academic milestones at the Ladi Kwali Hall, Abuja Continental Hotel.</p>
+            </div>
+
+            <div class="event-card">
+                <img src="14702.jpg" alt="Pop Up" class="event-img">
+                <span class="event-meta">Coming Soon | Lagos</span>
+                <h2 class="event-title">The Lagos Pop-Up Experience</h2>
+                <p>An exclusive opportunity to shop the Debut Edit in person and get bespoke measurements.</p>
+            </div>
         </div>
     </main>
 
