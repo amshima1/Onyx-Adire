@@ -1,14 +1,13 @@
-/* --- Global Theme & Colors --- */
+/* --- Onyx—Adire Core Branding --- */
 :root {
-    --onyx-red: #a30000;         /* Signature Brand Red */
-    --whatsapp-orange: #FF8C00;  /* High-visibility Orange */
-    --pure-white: #ffffff;
-    --dark-text: #1a1a1a;
-    --light-gray: #f9f9f9;
-    --transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    --onyx-red: #a30000;
+    --whatsapp-orange: #FF8C00;
+    --bg-gray: #f9f9f9;
+    --text-dark: #1a1a1a;
+    --transition: 0.3s ease-in-out;
 }
 
-/* --- Base Reset --- */
+/* --- Layout Architecture (Sticky Footer Fix) --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,43 +16,36 @@
 }
 
 html, body {
-    width: 100%;
-    height: 100%; /* Allows footer to push to the bottom */
-    background-color: var(--pure-white);
-    color: var(--dark-text);
+    height: 100%;
+    margin: 0;
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    background-color: #fff;
+    color: var(--text-dark);
 }
 
-/* --- Fixed Header Area (Z-Index 4000) --- */
+#main-content {
+    flex: 1 0 auto; /* This pushes the footer down if content is short */
+    width: 100%;
+}
+
+/* --- Header & Navigation --- */
 #main-header {
     position: sticky;
     top: 0;
-    width: 100%;
-    z-index: 4000; /* Stays above the SideNav */
-    background: var(--pure-white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 4000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .announcement-bar {
     background: var(--onyx-red);
-    color: var(--pure-white);
+    color: #fff;
     height: 35px;
     display: flex;
     align-items: center;
     overflow: hidden;
-}
-
-.ticker-text {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 15s linear infinite;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
 }
 
 @keyframes marquee {
@@ -61,118 +53,119 @@ html, body {
     100% { transform: translateX(-100%); }
 }
 
-.navbar {
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-bottom: 1px solid #f2f2f2;
+.ticker-text {
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
-.logo {
-    color: var(--onyx-red) !important;
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    font-style: italic;
-    text-decoration: none;
-}
-
-/* --- Hamburger Icon --- */
-.menu-icon {
-    position: absolute;
-    left: 20px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.bar {
-    width: 22px;
-    height: 2px;
-    background-color: var(--dark-text);
-    margin: 4px 0;
-    transition: 0.3s;
-}
-
-/* --- White Side Menu (Z-Index 3000) --- */
+/* --- Sidenav (Slides Under Header) --- */
 .sidenav {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 3000; /* Slides under the header */
+    z-index: 3000;
     left: 0;
-    background-color: var(--pure-white);
+    background-color: #fff;
     overflow-x: hidden;
     transition: var(--transition);
-    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+    padding-top: 20px;
 }
 
 .menu-links a {
-    padding: 20px 35px;
+    padding: 18px 30px;
     text-decoration: none;
-    font-size: 15px;
-    color: var(--dark-text);
+    font-size: 14px;
+    color: var(--text-dark);
     display: block;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-bottom: 1px solid #f9f9f9;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #f2f2f2;
 }
 
-/* --- Full Image Display (Head-to-Toe) --- */
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain !important; /* Forces the whole outfit to show */
-}
-
+/* --- Hero Section (Full Model View) --- */
 .hero-section {
     width: 100%;
-    background: var(--pure-white);
-    padding: 10px 0;
+    background: #fff;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-section img {
-    width: 100%;
-    max-height: 80vh; /* Fits comfortably on mobile screens */
+    width: 95%;
+    max-height: 75vh;
+    object-fit: contain !important; /* Forces head-to-toe view */
     display: block;
 }
 
+/* --- The 2-Column Product Grid --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
     padding: 15px;
 }
 
 .gallery-card {
+    text-align: center;
     background: #fff;
-    display: flex;
-    flex-direction: column;
 }
 
 .gallery-card img {
     width: 100%;
-    aspect-ratio: 3/4; /* Elegant portrait ratio */
-    background: var(--light-gray);
+    height: 300px; /* Tall height for full-length Adire pieces */
+    object-fit: contain !important; /* Prevents cropping model heads/feet */
+    background: var(--bg-gray);
+    border-radius: 4px;
 }
 
-.card-info {
-    padding: 10px 5px;
-    text-align: center;
+.item-name {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: block;
+    letter-spacing: 0.5px;
 }
 
-.item-name { font-size: 10px; font-weight: 600; text-transform: uppercase; }
-.item-price { font-size: 11px; color: var(--onyx-red); font-weight: 700; margin-top: 3px; }
+/* --- Modal & Suggestions --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 6000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    overflow-y: auto;
+}
 
-/* --- Floating Orange WhatsApp (Z-Index 5000) --- */
+.modal-content {
+    background: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 92%;
+    max-width: 500px;
+    border-radius: 12px;
+}
+
+#suggestion-grid img {
+    height: 140px;
+    object-fit: contain !important;
+}
+
+/* --- CTA: WhatsApp & Buttons --- */
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
     right: 20px;
-    background-color: var(--whatsapp-orange) !important;
-    color: white;
-    padding: 12px 20px;
+    background: var(--whatsapp-orange);
+    color: #fff;
+    padding: 12px 22px;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -180,76 +173,37 @@ img {
     text-decoration: none;
     font-weight: 600;
     font-size: 13px;
-    z-index: 5000; /* Highest layer */
+    z-index: 5000;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.whatsapp-float img {
-    width: 18px;
-    filter: brightness(0) invert(1); /* Makes the logo white */
-}
-
-/* --- Red Footer (Pinned to Screen Bottom) --- */
+/* --- The Red Footer (Pinned to Bottom) --- */
 .main-footer-red {
-    margin-top: auto; /* Pushes footer to the bottom of the body */
+    flex-shrink: 0; /* Prevents footer from collapsing */
     background: var(--onyx-red);
-    color: var(--pure-white);
-    padding: 60px 20px;
+    color: #fff;
+    padding: 50px 20px;
     text-align: center;
     width: 100%;
 }
 
-.footer-title { font-family: 'Playfair Display', serif; margin-bottom: 10px; }
-.footer-subtitle { font-size: 14px; opacity: 0.8; margin-bottom: 25px; }
-
-.subscribe-form {
-    display: flex;
-    max-width: 320px;
-    margin: 0 auto;
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-}
-
-.subscribe-form input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 10px;
-    color: white;
-    outline: none;
-}
-
-.subscribe-form button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    cursor: pointer;
-}
-
-/* --- Background Overlay --- */
 #overlay {
     position: fixed;
     display: none;
     width: 100%;
     height: 100%;
-    top: 0; left: 0;
-    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
     z-index: 2500;
 }
 
-/* --- Modal Popup --- */
-.modal {
-    z-index: 6000;
-    background: rgba(0,0,0,0.9);
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-}
-
-/* Responsive Desktop view */
+/* Responsive Tablet/Desktop Adjustments */
 @media (min-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .hero-section img {
+        max-height: 85vh;
+    }
 }
