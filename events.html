@@ -3,114 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Runway | Onyx—Adire</title>
+    <title>Onyx—Adire | Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific Styles for Events Page */
+        .event-section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(139, 29, 29, 0.1);
+            padding-bottom: 40px;
+        }
+
+        .event-date {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-red);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .event-location {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-rsvp {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--brand-red);
+            text-decoration: none;
+            color: var(--brand-red);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-rsvp:hover {
+            background: var(--brand-red);
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            .event-card {
+                flex-direction: row;
+                gap: 40px;
+                align-items: center;
+            }
+            .event-image {
+                width: 45%;
+                height: 350px;
+            }
+            .event-info {
+                width: 55%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <marquee class="marquee-bar" scrollamount="4">
-        ✦ WITNESS THE EVOLUTION OF TRADITION ✦ UPCOMING SHOWCASE: LAGOS FASHION WEEK 2026 ✦ THE RUNWAY AWAITS ✦
-    </marquee>
-
-    <nav>
-        <div class="nav-container">
-            <div class="hamburger" id="hamburger-menu">
-                <span></span><span></span><span></span>
-            </div>
-
-            <a href="index.html" class="logo">Onyx—Adire</a>
-
-            <div class="nav-links" id="nav-links">
-                <a href="index.html">THE HOME</a>
-                <a href="products.html">THE COLLECTION</a>
-                <a href="trustees.html">THE VISIONARIES</a>
-                <a href="events.html" class="active-link">THE RUNWAY</a>
-                <a href="bookings.html">THE ATELIER</a>
-            </div>
+    <header>
+        <div class="announcement-bar">
+            <span class="announcement-text">✦ THE ONYX—ADIRE EXPERIENCE ✦ WORLDWIDE SHIPPING AVAILABLE ✦ NEW DROP COMING SOON ✦</span>
         </div>
-    </nav>
+        <nav>
+            <div class="menu-icon" onclick="toggleNav()">
+                <div></div><div></div><div></div>
+            </div>
+            <a href="index.html" class="logo">Onyx—Adire</a>
+            <div style="width: 30px;"></div>
+        </nav>
+    </header>
+
+    <div id="mySidenav">
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="trustees.html">Trustees</a>
+        <a href="events.html">Events</a>
+        <a href="bookings.html">Bookings</a>
+    </div>
+    <div id="overlay"></div>
 
     <main>
-        <section class="collection-header">
-            <h1 class="edit-title centralized">The Runway</h1>
-            <p class="collection-subtext">Where heritage meets the spotlight.</p>
+        <section class="debut-header">
+            <h1>Events & Exhibitions</h1>
         </section>
 
-        <section class="hero-section">
-            <img src="july-collections-2026.jpg" alt="July Collections Showcase">
-            <div class="brand-story">
-                <div class="story-box">
-                    <p>"A cinematic display of movement, color, and the timeless artistry of Adire."</p>
-                    <a href="#gallery" class="btn-outline">VIEW HIGHLIGHTS</a>
+        <div class="event-section">
+            
+            <div class="event-card">
+                <img src="14682.jpg" alt="Fashion Show" class="event-image">
+                <div class="event-info">
+                    <span class="event-date">November 2025</span>
+                    <h2 class="event-title">Miva Matriculation Showcase</h2>
+                    <p class="event-details">
+                        <span class="event-location">Ladi Kwali Hall, Abuja Continental Hotel</span>
+                        Witness the intersection of academic excellence and cultural heritage as Onyx—Adire presents a special curated collection for the matriculation ceremony.
+                    </p>
+                    <a href="bookings.html" class="btn-rsvp">Request Invitation</a>
                 </div>
             </div>
-        </section>
 
-        <section class="product-showcase" id="gallery">
-            <h2 class="edit-title centralized">Moments In Motion</h2>
-            <div class="product-grid">
-                
-                <div class="product-card">
-                    <div class="full-image-wrapper">
-                        <img src="torera-adire-and-aso-oke.jpg" alt="Torera Runway Show">
-                    </div>
-                    <div class="product-meta">
-                        <h4>Heritage Gala 2026</h4>
-                        <p>LAGOS, NIGERIA</p>
-                    </div>
+            <div class="event-card">
+                <img src="14702.jpg" alt="Pop-up Shop" class="event-image">
+                <div class="event-info">
+                    <span class="event-date">Coming Soon</span>
+                    <h2 class="event-title">The Lagos Pop-Up Experience</h2>
+                    <p class="event-details">
+                        <span class="event-location">Victoria Island, Lagos</span>
+                        An exclusive weekend shopping experience featuring our limited "Debut Edit" and never-before-seen bespoke pieces. Meet the designers and get custom measurements.
+                    </p>
+                    <a href="https://wa.me/234XXXXXXXXXX" class="btn-rsvp">Join Waitlist</a>
                 </div>
-
-                <div class="product-card">
-                    <div class="full-image-wrapper">
-                        <img src="royal-thread-evening-gown.jpg" alt="Royal Thread Collection Premiere">
-                    </div>
-                    <div class="product-meta">
-                        <h4>Royal Thread Premiere</h4>
-                        <p>ABUJA CONTINENTAL</p>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="full-image-wrapper">
-                        <img src="embroidered-aso-oke-set.jpg" alt="Cultural Fusion Showcase">
-                    </div>
-                    <div class="product-meta">
-                        <h4>Cultural Fusion</h4>
-                        <p>LONDON FASHION WEEK</p>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="full-image-wrapper">
-                        <img src="luxury-lace-iro-and-buba.jpg" alt="Luxe Adire Exhibition">
-                    </div>
-                    <div class="product-meta">
-                        <h4>Luxe Adire Exhibition</h4>
-                        <p>THE ATELIER PREVIEW</p>
-                    </div>
-                </div>
-
             </div>
+
+        </div>
+
+        <section class="footer-cta">
+            <h2>Subscribe for event alerts</h2>
+            <div class="subscribe-container">
+                <input type="email" class="email-input" placeholder="Enter your email">
+                <button class="subscribe-btn">Join the Movement</button>
+            </div>
+            <span class="social-handle">@Onyx_Adire</span>
         </section>
     </main>
 
-    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-        <span>Chat Via Whatsapp</span>
-    </a>
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-link" target="_blank">💬 Chat Via Whatsapp</a>
 
-    <footer>
-        <h2 class="footer-logo">ONYX—ADIRE</h2>
-        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
-    </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
