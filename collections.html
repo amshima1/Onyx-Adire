@@ -3,94 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onyx—Adire | Full Collection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Collections | Onyx—Adire | Luxury Nigerian Craftsmanship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div id="overlay" onclick="toggleNav()"></div>
+
     <header>
         <div class="announcement-bar">
-            <span class="announcement-text">✦ THE ONYX—ADIRE EXPERIENCE ✦ WORLDWIDE SHIPPING AVAILABLE ✦ NEW DROP COMING SOON ✦</span>
+            <span class="announcement-text">✦ THE ONYX—ADIRE EXPERIENCE ✦ WORLDWIDE SHIPPING AVAILABLE ✦</span>
         </div>
         <nav>
             <div class="menu-icon" onclick="toggleNav()">
                 <div></div><div></div><div></div>
             </div>
             <a href="index.html" class="logo">Onyx—Adire</a>
-            <div style="width: 30px;"></div> 
+            <div class="cart-icon" style="font-size: 1.2rem; cursor: pointer;">👜</div> 
         </nav>
     </header>
 
-    <div id="mySidenav">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
         <a href="index.html">Home</a>
-        <a href="collections.html">Collections</a>
+        <a href="collections.html" class="active">Collections</a>
         <a href="trustees.html">Trustees</a>
         <a href="events.html">Events</a>
         <a href="bookings.html">Bookings</a>
     </div>
-    <div id="overlay"></div>
 
     <main>
         <section class="debut-header">
             <h1>The Master Collection</h1>
-            <p style="font-style: italic; color: #666; margin-top: 10px;">Authentic Nigerian Craftsmanship</p>
+            <p class="subtitle">Hand-dyed fabrics. Heritage silhouettes. Modern soul.</p>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Agbada</button>
+                <button class="filter-btn">Tunics</button>
+                <button class="filter-btn">Boubou</button>
+                <button class="filter-btn">Sets</button>
+            </div>
         </section>
 
         <div class="gallery-grid">
-            <div class="gallery-card"><img src="todun-adri-iro-and-buba.jpg"><div class="card-info"><span class="item-name">Todun Adri Iro & Buba</span><span class="item-price">₦95,000</span></div></div>
             
-            <div class="gallery-card"><img src="14627.jpg"><div class="card-info"><span class="item-name">Adesewa Pants Set</span><span class="item-price">₦55,000</span></div></div>
-            <div class="gallery-card"><img src="14629.jpg"><div class="card-info"><span class="item-name">Adesewa Set</span><span class="item-price">₦48,000</span></div></div>
+            <div class="gallery-card">
+                <img src="todun-adri-iro-and-buba.jpg" alt="Todun Adri Iro & Buba" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Todun Adri Iro & Buba</span>
+                    <span class="item-price">₦95,000</span>
+                </div>
+            </div>
             
-            <div class="gallery-card"><img src="14631.jpg"><div class="card-info"><span class="item-name">Adire Silk Tunic</span><span class="item-price">₦35,000</span></div></div>
-            <div class="gallery-card"><img src="14633.jpg"><div class="card-info"><span class="item-name">Asymmetric Adire Tunic</span><span class="item-price">₦42,000</span></div></div>
-            <div class="gallery-card"><img src="patchwork-adire-tunic.jpg"><div class="card-info"><span class="item-name">Patchwork Adire Tunic</span><span class="item-price">₦38,000</span></div></div>
-            <div class="gallery-card"><img src="midnight-lace-tunic.jpg"><div class="card-info"><span class="item-name">Midnight Lace Tunic</span><span class="item-price">₦45,000</span></div></div>
+            <div class="gallery-card">
+                <img src="14627.jpg" alt="Adesewa Pants Set" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Adesewa Pants Set</span>
+                    <span class="item-price">₦55,000</span>
+                </div>
+            </div>
 
-            <div class="gallery-card"><img src="bespoke-traditional-agbada.jpg"><div class="card-info"><span class="item-name">Bespoke Traditional Agbada</span><span class="item-price">₦120,000</span></div></div>
-            <div class="gallery-card"><img src="heritage-agbada-gold.jpg"><div class="card-info"><span class="item-name">Heritage Agbada Gold</span><span class="item-price">₦135,000</span></div></div>
-            <div class="gallery-card"><img src="bespoke-velvet-caftan.jpg"><div class="card-info"><span class="item-name">Bespoke Velvet Caftan</span><span class="item-price">₦85,000</span></div></div>
-            <div class="gallery-card"><img src="modern-agbada-fusion.jpg"><div class="card-info"><span class="item-name">Modern Agbada Fusion</span><span class="item-price">₦110,000</span></div></div>
+            <div class="gallery-card">
+                <img src="14631.jpg" alt="Adire Silk Tunic" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Adire Silk Tunic</span>
+                    <span class="item-price">₦35,000</span>
+                </div>
+            </div>
 
-            <div class="gallery-card"><img src="boubou-and-abaya.jpg"><div class="card-info"><span class="item-name">Boubou and Abaya</span><span class="item-price">₦65,000</span></div></div>
-            <div class="gallery-card"><img src="ebony-silk-boubou.jpg"><div class="card-info"><span class="item-name">Ebony Silk Boubou</span><span class="item-price">₦75,000</span></div></div>
-            <div class="gallery-card"><img src="14702.jpg"><div class="card-info"><span class="item-name">Geometric Print Boubou</span><span class="item-price">₦58,000</span></div></div>
-            <div class="gallery-card"><img src="lace-overlay-boubou.jpg"><div class="card-info"><span class="item-name">Lace Overlay Boubou</span><span class="item-price">₦70,000</span></div></div>
+            <div class="gallery-card">
+                <img src="midnight-lace-tunic.jpg" alt="Midnight Lace Tunic" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Midnight Lace Tunic</span>
+                    <span class="item-price">₦45,000</span>
+                </div>
+            </div>
 
-            <div class="gallery-card"><img src="embroidered-aso-oke-set.jpg"><div class="card-info"><span class="item-name">Embroidered Aso Oke Set</span><span class="item-price">₦150,000</span></div></div>
-            <div class="gallery-card"><img src="galaxy-print-jumpsuit.jpg"><div class="card-info"><span class="item-name">Galaxy Print Jumpsuit</span><span class="item-price">₦52,000</span></div></div>
-            <div class="gallery-card"><img src="vibrant-ankara-jumpsuit.jpg"><div class="card-info"><span class="item-name">Vibrant Ankara Jumpsuit</span><span class="item-price">₦45,000</span></div></div>
-            <div class="gallery-card"><img src="safiya-adire-pants-set.jpg"><div class="card-info"><span class="item-name">Safiya Adire Pants Set</span><span class="item-price">₦50,000</span></div></div>
+            <div class="gallery-card">
+                <img src="bespoke-traditional-agbada.jpg" alt="Bespoke Traditional Agbada" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Bespoke Agbada</span>
+                    <span class="item-price">₦120,000</span>
+                </div>
+            </div>
 
-            <div class="gallery-card"><img src="floral-adire-kaftan.jpg"><div class="card-info"><span class="item-name">Floral Adire Kaftan</span><span class="item-price">₦38,000</span></div></div>
-            <div class="gallery-card"><img src="floral-chiffon-maxi.jpg"><div class="card-info"><span class="item-name">Floral Chiffon Maxi</span><span class="item-price">₦45,000</span></div></div>
-            <div class="gallery-card"><img src="sadiya-adire-long-dress.jpg"><div class="card-info"><span class="item-name">Sadiya Adire Long Dress</span><span class="item-price">₦55,000</span></div></div>
-            <div class="gallery-card"><img src="teniola-adire-dress.jpg"><div class="card-info"><span class="item-name">Teniola Adire Dress</span><span class="item-price">₦42,000</span></div></div>
-            <div class="gallery-card"><img src="tope-adire-dress.jpg"><div class="card-info"><span class="item-name">Tope Adire Dress</span><span class="item-price">₦38,000</span></div></div>
-            <div class="gallery-card"><img src="silk-wrap-dress.jpg"><div class="card-info"><span class="item-name">Silk Wrap Dress</span><span class="item-price">₦48,000</span></div></div>
+            <div class="gallery-card">
+                <img src="heritage-agbada-gold.jpg" alt="Heritage Agbada Gold" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Heritage Gold Agbada</span>
+                    <span class="item-price">₦135,000</span>
+                </div>
+            </div>
 
-            <div class="gallery-card"><img src="gingham-check-pants.jpg"><div class="card-info"><span class="item-name">Gingham Check Pants</span><span class="item-price">₦20,000</span></div></div>
-            <div class="gallery-card"><img src="maroon-palazzo-trousers.jpg"><div class="card-info"><span class="item-name">Maroon Palazzo Trousers</span><span class="item-price">₦25,000</span></div></div>
-            <div class="gallery-card"><img src="stripe-mix-palazzo.jpg"><div class="card-info"><span class="item-name">Stripe Mix Palazzo</span><span class="item-price">₦25,000</span></div></div>
-            <div class="gallery-card"><img src="yarinya-shorts-set.jpg"><div class="card-info"><span class="item-name">Yarinya Shorts Set</span><span class="item-price">₦28,000</span></div></div>
+            <div class="gallery-card">
+                <img src="ebony-silk-boubou.jpg" alt="Ebony Silk Boubou" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Ebony Silk Boubou</span>
+                    <span class="item-price">₦75,000</span>
+                </div>
+            </div>
 
-            <div class="gallery-card"><img src="royal-thread-evening-gown.jpg"><div class="card-info"><span class="item-name">Royal Thread Evening Gown</span><span class="item-price">₦180,000</span></div></div>
-            <div class="gallery-card"><img src="premium-linen-two-piece.jpg"><div class="card-info"><span class="item-name">Premium Linen Two-Piece</span><span class="item-price">₦55,000</span></div></div>
-            <div class="gallery-card"><img src="july-collections-2026.jpg"><div class="card-info"><span class="item-name">July Collections 2026</span><span class="item-price">Coming Soon</span></div></div>
+            <div class="gallery-card">
+                <img src="royal-thread-evening-gown.jpg" alt="Royal Thread Evening Gown" loading="lazy">
+                <div class="card-info">
+                    <span class="item-name">Royal Thread Gown</span>
+                    <span class="item-price">₦180,000</span>
+                </div>
+            </div>
+
+            <div class="gallery-card coming-soon">
+                <img src="july-collections-2026.jpg" alt="Upcoming Collection" style="filter: grayscale(1);">
+                <div class="card-info">
+                    <span class="item-name">July 2026 Drop</span>
+                    <span class="item-price">Coming Soon</span>
+                </div>
+            </div>
+
         </div>
 
         <section class="footer-cta">
-            <h2>Subscribe to our newsletter</h2>
+            <h2>Join the Inner Circle</h2>
+            <p>Get early access to drops and private exhibition invites.</p>
             <div class="subscribe-container">
-                <input type="email" class="email-input" placeholder="Enter your email">
-                <button class="subscribe-btn">Join the Movement</button>
+                <input type="email" class="email-input" placeholder="Your email address">
+                <button class="subscribe-btn">Subscribe</button>
             </div>
-            <span class="social-handle">@Onyx_Adire</span>
+            <div class="social-links">
+                <span class="social-handle">Instagram: @Onyx_Adire</span>
+            </div>
         </section>
     </main>
 
-    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-link" target="_blank">💬 Chat Via Whatsapp</a>
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-link" target="_blank">
+        <span>Order on WhatsApp</span>
+    </a>
 
     <script src="script.js"></script>
 </body>
