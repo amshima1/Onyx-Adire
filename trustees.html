@@ -8,13 +8,10 @@
     <style>
         :root {
             --brand-red: #8B1D1D;
-            --deep-red-bg: #961926;
             --bg-cream: #FFFBF7;
             --whatsapp-orange: #E65137; 
             --text-dark: #333333;
         }
-
-        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
@@ -26,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* --- STICKY HEADER SYSTEM --- */
+        /* --- FIXED HEADER --- */
         .header-container {
             position: fixed;
             top: 0;
@@ -67,22 +64,14 @@
 
         .menu-icon { width: 30px; cursor: pointer; }
         .menu-icon div { height: 2px; width: 25px; background-color: var(--brand-red); margin: 6px 0; }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-style: italic;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--brand-red);
-        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; font-weight: 700; text-decoration: none; color: var(--brand-red); }
 
         /* --- SIDE NAVIGATION --- */
         #mySidenav {
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 7000; /* Higher than header to overlap when open */
+            z-index: 7000;
             top: 0;
             left: 0;
             background-color: var(--bg-cream);
@@ -90,7 +79,6 @@
             transition: 0.4s ease-in-out;
             padding-top: 100px;
             text-align: left;
-            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
         }
 
         #mySidenav a {
@@ -113,122 +101,98 @@
             z-index: 6500;
         }
 
-        /* --- MAIN CONTENT --- */
-        main { padding-top: 140px; min-height: 60vh; }
+        /* --- FULL SCREEN IMAGES & TEXT --- */
+        main { padding-top: 110px; }
 
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .page-subtitle {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 50px;
-            color: var(--text-dark);
-        }
-
-        /* --- TRUSTEES GRID --- */
-        .trustee-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px 15px;
-            padding: 0 15px 80px 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .trustee-card img {
+        .trustee-section {
             width: 100%;
-            aspect-ratio: 1 / 1.2;
-            object-fit: cover;
-            border-radius: 2px;
+            margin-bottom: 60px;
+        }
+
+        .full-width-img {
+            width: 100vw;
+            height: auto;
             display: block;
+            margin: 0;
+            object-fit: cover;
+        }
+
+        .trustee-info {
+            padding: 40px 25px;
+            background-color: var(--bg-cream);
         }
 
         .trustee-name {
             font-family: 'Playfair Display', serif;
-            font-size: 16px;
+            font-size: 28px;
             font-style: italic;
             font-weight: bold;
-            margin: 15px 0 5px 0;
+            margin-bottom: 5px;
+        }
+
+        .trustee-title {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .inspiring-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            line-height: 1.6;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
             color: var(--brand-red);
         }
 
-        .trustee-role {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dark);
-        }
-
-        /* --- RED FOOTER SECTION (Newsletter & Socials) --- */
+        /* --- RED FOOTER --- */
         .footer-cta {
             background-color: var(--brand-red);
             color: white;
             padding: 60px 20px 100px 20px;
-            margin-top: 40px;
         }
 
         .footer-cta h2 {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-weight: 400;
-            font-size: 26px;
+            font-size: 24px;
             margin-bottom: 25px;
-        }
-
-        .subscribe-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            max-width: 350px;
-            margin: 0 auto;
         }
 
         .subscribe-box input {
             width: 100%;
+            max-width: 300px;
             padding: 14px;
             border: 1px solid white;
             background: transparent;
             color: white;
             text-align: center;
-            box-sizing: border-box;
+            margin-bottom: 15px;
         }
-
-        .subscribe-box input::placeholder { color: rgba(255,255,255,0.7); }
 
         .subscribe-box button {
             background: white;
             color: var(--brand-red);
             border: none;
-            padding: 12px;
+            padding: 12px 60px;
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            width: 100%;
-        }
-
-        .social-container {
-            margin-top: 40px;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
         }
 
         .social-handle {
-            display: block;
+            margin-top: 40px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-size: 20px;
-            margin-bottom: 10px;
-            color: white;
-            text-decoration: none;
+            display: block;
         }
 
-        /* --- FLOATING WHATSAPP --- */
+        /* --- WHATSAPP --- */
         .whatsapp-link {
             position: fixed;
             bottom: 25px;
@@ -237,8 +201,6 @@
             color: white;
             padding: 12px 22px;
             border-radius: 50px;
-            display: flex;
-            align-items: center;
             font-size: 14px;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -252,7 +214,7 @@
     <div class="header-container">
         <div class="announcement-bar">
             <div class="announcement-content">
-                ✦ PRESERVING HERITAGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE BOARD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ BUILT ON TRADITION
+                ✦ TRADITION REIMAGINED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE LEADERSHIP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ BUILT ON HERITAGE
             </div>
         </div>
         <nav>
@@ -275,33 +237,37 @@
     <div id="overlay" onclick="toggleNav(false)"></div>
 
     <main>
-        <h1 class="page-title">Board of Trustees</h1>
-        <p class="page-subtitle">The Visionaries Behind the Heritage</p>
-
-        <section class="trustee-grid">
-            <div class="trustee-card">
-                <img src="victor-amshima.jpg" alt="Victor Amshima">
-                <p class="trustee-name">Victor Amshima</p>
-                <p class="trustee-role">Chairman</p>
+        <section class="trustee-section">
+            <img src="victor-amshima.jpg" alt="Victor Amshima" class="full-width-img">
+            <div class="trustee-info">
+                <h1 class="trustee-name">Victor Amshima</h1>
+                <span class="trustee-title">CEO OF ONYX—ADIRE</span>
+                <p class="inspiring-text">
+                    "True leadership lies in weaving the threads of our past into the canvas of our future. At Onyx—Adire, we don't just sell clothes; we preserve the soul of our heritage."
+                </p>
             </div>
-            <div class="trustee-card">
-                <img src="paul-gbawuan.jpg" alt="Paul Gbawuan">
-                <p class="trustee-name">Paul Gbawuan</p>
-                <p class="trustee-role">Trustee</p>
+        </section>
+
+        <section class="trustee-section">
+            <img src="paul-gbawuan.jpg" alt="Paul Gbawuan" class="full-width-img">
+            <div class="trustee-info">
+                <h2 class="trustee-name">Paul Gbawuan</h2>
+                <span class="trustee-title">Creative Director</span>
+                <p class="inspiring-text">
+                    "Creativity is the heartbeat of tradition. Our mission is to embolden the modern spirit with the timeless artistry of hand-dyed elegance."
+                </p>
             </div>
         </section>
 
         <section class="footer-cta">
             <h2>Subscribe to our newsletter</h2>
-            <form class="subscribe-box">
-                <input type="email" placeholder="Enter your email" required>
+            <div class="subscribe-box">
+                <input type="email" placeholder="Enter your email">
+                <br>
                 <button type="submit">Join Now</button>
-            </form>
-
-            <div class="social-container">
-                <a href="#" class="social-handle">@OnyxAdire_</a>
-                <p style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Instagram | TikTok</p>
             </div>
+            <span class="social-handle">@OnyxAdire_</span>
+            <p style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Instagram | TikTok</p>
         </section>
     </main>
 
@@ -310,18 +276,9 @@
     </a>
 
     <script>
-        // Logic to fix the hamburger menu functionality
         function toggleNav(isOpen) {
-            const sidenav = document.getElementById("mySidenav");
-            const overlay = document.getElementById("overlay");
-            
-            if (isOpen) {
-                sidenav.style.width = "280px";
-                overlay.style.display = "block";
-            } else {
-                sidenav.style.width = "0";
-                overlay.style.display = "none";
-            }
+            document.getElementById("mySidenav").style.width = isOpen ? "280px" : "0";
+            document.getElementById("overlay").style.display = isOpen ? "block" : "none";
         }
     </script>
 </body>
