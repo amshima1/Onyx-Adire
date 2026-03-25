@@ -23,12 +23,13 @@
             overflow-x: hidden;
         }
 
-        /* --- FIXED HEADER --- */
+        /* --- FIXED HEADER (ALWAYS TOP LAYER) --- */
         .header-container {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 6000;
+            /* Highest Z-Index to stay above the menu and overlay */
+            z-index: 9000; 
             background: var(--bg-cream);
         }
 
@@ -66,18 +67,20 @@
         .menu-icon div { height: 2px; width: 25px; background-color: var(--brand-red); margin: 6px 0; }
         .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; font-weight: 700; text-decoration: none; color: var(--brand-red); }
 
-        /* --- SIDE NAVIGATION --- */
+        /* --- SIDE NAVIGATION (Pushed Down to avoid Logo) --- */
         #mySidenav {
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 7000;
+            /* Lower than Header (9000) so it slides "under" the logo bar */
+            z-index: 8000; 
             top: 0;
             left: 0;
             background-color: var(--bg-cream);
             overflow-x: hidden;
             transition: 0.4s ease-in-out;
-            padding-top: 100px;
+            /* This padding ensures menu items start below the fixed header */
+            padding-top: 120px; 
             text-align: left;
         }
 
@@ -98,101 +101,28 @@
             height: 100%;
             top: 0; left: 0;
             background: rgba(0,0,0,0.5);
-            z-index: 6500;
+            /* Sits between menu and content */
+            z-index: 7500; 
         }
 
-        /* --- FULL SCREEN IMAGES & TEXT --- */
+        /* --- CONTENT --- */
         main { padding-top: 110px; }
 
-        .trustee-section {
-            width: 100%;
-            margin-bottom: 60px;
-        }
+        .trustee-section { width: 100%; margin-bottom: 60px; }
+        .full-width-img { width: 100vw; height: auto; display: block; }
 
-        .full-width-img {
-            width: 100vw;
-            height: auto;
-            display: block;
-            margin: 0;
-            object-fit: cover;
-        }
+        .trustee-info { padding: 40px 25px; }
+        .trustee-name { font-family: 'Playfair Display', serif; font-size: 28px; font-style: italic; font-weight: bold; }
+        .trustee-title { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dark); display: block; margin-bottom: 15px; }
+        .inspiring-text { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.6; font-style: italic; max-width: 600px; margin: 0 auto; }
 
-        .trustee-info {
-            padding: 40px 25px;
-            background-color: var(--bg-cream);
-        }
+        /* --- FOOTER --- */
+        .footer-cta { background-color: var(--brand-red); color: white; padding: 60px 20px 100px 20px; }
+        .footer-cta h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; margin-bottom: 25px; }
+        .subscribe-box input { width: 100%; max-width: 300px; padding: 14px; border: 1px solid white; background: transparent; color: white; text-align: center; margin-bottom: 15px; }
+        .subscribe-box button { background: white; color: var(--brand-red); border: none; padding: 12px 60px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
 
-        .trustee-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-style: italic;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .trustee-title {
-            font-size: 13px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .inspiring-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            line-height: 1.6;
-            font-style: italic;
-            max-width: 600px;
-            margin: 0 auto;
-            color: var(--brand-red);
-        }
-
-        /* --- RED FOOTER --- */
-        .footer-cta {
-            background-color: var(--brand-red);
-            color: white;
-            padding: 60px 20px 100px 20px;
-        }
-
-        .footer-cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 24px;
-            margin-bottom: 25px;
-        }
-
-        .subscribe-box input {
-            width: 100%;
-            max-width: 300px;
-            padding: 14px;
-            border: 1px solid white;
-            background: transparent;
-            color: white;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .subscribe-box button {
-            background: white;
-            color: var(--brand-red);
-            border: none;
-            padding: 12px 60px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .social-handle {
-            margin-top: 40px;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 20px;
-            display: block;
-        }
-
-        /* --- WHATSAPP --- */
+        /* --- WHATSAPP (TOP LAYER) --- */
         .whatsapp-link {
             position: fixed;
             bottom: 25px;
@@ -205,7 +135,8 @@
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             text-decoration: none;
-            z-index: 8000;
+            /* Highest Z-Index so it is always clickable */
+            z-index: 9999; 
         }
     </style>
 </head>
@@ -243,7 +174,7 @@
                 <h1 class="trustee-name">Victor Amshima</h1>
                 <span class="trustee-title">CEO OF ONYX—ADIRE</span>
                 <p class="inspiring-text">
-                    "True leadership lies in weaving the threads of our past into the canvas of our future. At Onyx—Adire, we don't just sell clothes; we preserve the soul of our heritage."
+                    "True leadership lies in weaving the threads of our past into the canvas of our future."
                 </p>
             </div>
         </section>
@@ -254,7 +185,7 @@
                 <h2 class="trustee-name">Paul Gbawuan</h2>
                 <span class="trustee-title">Creative Director</span>
                 <p class="inspiring-text">
-                    "Creativity is the heartbeat of tradition. Our mission is to embolden the modern spirit with the timeless artistry of hand-dyed elegance."
+                    "Creativity is the heartbeat of tradition."
                 </p>
             </div>
         </section>
@@ -266,8 +197,7 @@
                 <br>
                 <button type="submit">Join Now</button>
             </div>
-            <span class="social-handle">@OnyxAdire_</span>
-            <p style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Instagram | TikTok</p>
+            <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; margin-top: 40px;">@OnyxAdire_</p>
         </section>
     </main>
 
