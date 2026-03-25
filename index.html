@@ -27,11 +27,13 @@
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             z-index: 10000;
             background: var(--bg-cream);
         }
 
+        /* --- SCROLLING ANNOUNCEMENT BAR --- */
         .announcement-bar {
             background-color: var(--brand-red);
             color: white;
@@ -39,6 +41,20 @@
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            overflow: hidden; /* Hide the text when it goes off-screen */
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .announcement-text {
+            display: inline-block;
+            padding-left: 100%; /* Start the text off-side */
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
         }
 
         nav {
@@ -47,6 +63,7 @@
             justify-content: space-between;
             padding: 15px 20px;
             border-bottom: 1px solid rgba(139, 29, 29, 0.1);
+            background: var(--bg-cream);
         }
 
         .menu-icon { width: 30px; cursor: pointer; }
@@ -69,12 +86,12 @@
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 9000; 
+            z-index: 11000; 
             top: 0; left: 0;
             background-color: var(--bg-cream);
             overflow-x: hidden;
             transition: 0.4s ease-in-out;
-            padding-top: 110px; 
+            padding-top: 60px; 
             text-align: left;
         }
 
@@ -95,11 +112,11 @@
             height: 100%;
             top: 0; left: 0;
             background: rgba(0,0,0,0.5);
-            z-index: 8500; 
+            z-index: 10500; 
         }
 
-        /* --- MAIN CONTENT --- */
-        main { padding-top: 110px; }
+        /* --- MAIN CONTENT ADJUSTMENT --- */
+        main { padding-top: 130px; }
 
         .hero-banner { width: 100%; }
         .hero-img { width: 100vw; height: auto; display: block; }
@@ -185,13 +202,16 @@
 
         @media (min-width: 768px) {
             .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+            main { padding-top: 120px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="announcement-bar">✦ THE ONYX—ADIRE EXPERIENCE ✦</div>
+        <div class="announcement-bar">
+            <span class="announcement-text">✦ THE ONYX—ADIRE EXPERIENCE ✦ WORLDWIDE SHIPPING AVAILABLE ✦ NEW DROP COMING SOON ✦</span>
+        </div>
         <nav>
             <div class="menu-icon" onclick="toggleNav(true)"><div></div><div></div><div></div></div>
             <a href="index.html" class="logo">Onyx—Adire</a>
