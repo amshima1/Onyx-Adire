@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+keyframes marquee <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* --- HEADER (STAYS ON TOP) --- */
+        /* --- FIXED HEADER (ALWAYS ON TOP) --- */
         .header-container {
             position: fixed;
             top: 0;
@@ -103,34 +103,67 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            padding: 160px 20px 80px 20px;
+            padding: 160px 20px 60px 20px;
             background: var(--bg-cream);
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
+            font-size: 48px;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        /* --- THE DEBUT EDIT (MIDDLE SECTION) --- */
+        .debut-edit {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .debut-img {
+            width: 100vw;
+            height: auto;
+            display: block;
+        }
+
+        .debut-content {
+            padding: 40px 20px;
+        }
+
+        .debut-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
             font-style: italic;
             margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            margin-bottom: 40px;
+        .debut-content p {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            line-height: 1.6;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
         }
 
-        .cta-button {
+        .cta-outline {
             display: inline-block;
-            padding: 15px 40px;
-            background-color: var(--brand-red);
-            color: white;
+            padding: 12px 35px;
+            border: 1px solid var(--brand-red);
+            color: var(--brand-red);
             text-decoration: none;
             font-weight: bold;
-            letter-spacing: 1px;
             text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
         /* --- FOOTER (RED & WHITE) --- */
@@ -152,6 +185,7 @@
             text-align: center;
             margin-bottom: 15px;
             border-radius: 0;
+            font-family: inherit;
         }
 
         .subscribe-box button {
@@ -192,7 +226,7 @@
     <div class="header-container">
         <div class="announcement-bar">
             <div class="announcement-content">
-                ✦ TRADITION REIMAGINED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE EXPERIENCE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ SHOP THE COLLECTION
+                ✦ TRADITION REIMAGINED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE EXPERIENCE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ BUILT ON HERITAGE
             </div>
         </div>
         <nav>
@@ -216,9 +250,17 @@
 
     <main>
         <section class="hero">
-            <h1>Hand-Dyed Elegance</h1>
-            <p>Timeless Heritage for the Modern Spirit</p>
-            <a href="collections.html" class="cta-button">View Collections</a>
+            <h1>Onyx—Adire</h1>
+            <p>Heritage in every thread</p>
+        </section>
+
+        <section class="debut-edit">
+            <img src="14437.jpg" alt="The Debut Edit" class="debut-img">
+            <div class="debut-content">
+                <h2>The Debut Edit</h2>
+                <p>"A curated selection of hand-dyed masterpieces, blending ancient techniques with modern silhouettes."</p>
+                <a href="collections.html" class="cta-outline">Explore the Edit</a>
+            </div>
         </section>
 
         <section class="footer-cta">
