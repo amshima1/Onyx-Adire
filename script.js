@@ -1,24 +1,24 @@
 /**
- * Onyx—Adire Official Performance Script
- * Handles: Responsive Navigation, Full-Image Modals, and Orange WhatsApp Integration
+ * Onyx—Adire Official Site Script
+ * Logic: Dynamic Navigation, Full-Image Modals, and Orange WhatsApp CTA
  */
 
-// 1. NAVIGATION CONTROL (White Menu & Header Priority)
+// 1. NAVIGATION CONTROL (White Menu Logic)
 function toggleNav() {
     const sideNav = document.getElementById("mySidenav");
     const overlay = document.getElementById("overlay");
     const header = document.getElementById("main-header");
     
-    // Calculate header height so the white menu starts exactly below the logo
-    const headerOffset = header.offsetHeight;
-    sideNav.style.top = headerOffset + "px";
+    // Calculate header height so the menu starts EXACTLY below the logo
+    const headerHeight = header.offsetHeight;
+    sideNav.style.top = headerHeight + "px";
 
     if (sideNav.style.width === "280px") {
         closeNav();
     } else {
         sideNav.style.width = "280px";
-        overlay.style.display = "block";
-        // Lock background scroll but keep header/whatsapp accessible
+        if (overlay) overlay.style.display = "block";
+        // Lock background scroll to keep the focus on the menu
         document.body.style.overflow = "hidden"; 
     }
 }
@@ -28,7 +28,7 @@ function closeNav() {
     const overlay = document.getElementById("overlay");
     
     sideNav.style.width = "0";
-    overlay.style.display = "none";
+    if (overlay) overlay.style.display = "none";
     document.body.style.overflow = "auto";
 }
 
@@ -39,18 +39,18 @@ function openProduct(name, price, img) {
     const modalName = document.getElementById('modalName');
     const modalPrice = document.getElementById('modalPrice');
     
-    // Set Content
+    // Set Image and Content
     modalImg.src = img;
-    // Enforce full image display in the popup
+    // Double-ensure full display in the popup
     modalImg.style.objectFit = "contain"; 
     
     modalName.innerText = name;
     modalPrice.innerText = price;
 
-    // Configure WhatsApp Order Button
+    // Configure the "Order Now" Button inside the popup
     const orderBtn = document.querySelector('.order-btn');
-    const myNumber = "234XXXXXXXXXX"; // REPLACEME: Your actual WhatsApp number
-    const message = encodeURIComponent(`Hello Onyx—Adire, I'm interested in ordering the ${name} (${price}). Is this piece available?`);
+    const myNumber = "234XXXXXXXXXX"; // REPLACE with your actual WhatsApp number
+    const message = encodeURIComponent(`Hello Onyx—Adire, I'm interested in the ${name} (${price}). Is it available for order?`);
     
     orderBtn.onclick = () => {
         window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
@@ -60,36 +60,38 @@ function openProduct(name, price, img) {
     modal.style.display = "block";
     document.body.style.overflow = "hidden";
 
-    // Save to Recently Viewed
+    // Track for Recently Viewed
     saveToRecent(name, img);
 }
 
 function closeModal() {
-    document.getElementById('productModal').style.display = "none";
-    // Only re-enable scroll if the side menu is also closed
+    const modal = document.getElementById('productModal');
+    modal.style.display = "none";
+    
+    // Only re-enable scroll if the side menu is ALSO closed
     if (document.getElementById("mySidenav").style.width !== "280px") {
         document.body.style.overflow = "auto";
     }
 }
 
-// 3. RECENTLY VIEWED (Logic to avoid broken icons)
+// 3. RECENTLY VIEWED (Full Image Handling)
 function saveToRecent(name, img) {
-    // Only save if it's a valid Onyx-Adire product image
+    // Only save valid Onyx-Adire product images
     if (!img.toLowerCase().includes('onyx-adire')) return;
 
-    let items = JSON.parse(localStorage.getItem('onyx_recent_v5')) || [];
-    const isDuplicate = items.find(i => i.name === name);
+    let items = JSON.parse(localStorage.getItem('onyx_recent_v6')) || [];
+    const exists = items.find(i => i.name === name);
 
-    if (!isDuplicate) {
+    if (!exists) {
         items.unshift({ name, img });
-        if (items.length > 2) items.pop(); // Keep only 2 items for clean mobile UI
-        localStorage.setItem('onyx_recent_v5', JSON.stringify(items));
+        if (items.length > 2) items.pop(); // Keep it clean with 2 items
+        localStorage.setItem('onyx_recent_v6', JSON.stringify(items));
         renderRecent();
     }
 }
 
 function renderRecent() {
-    const items = JSON.parse(localStorage.getItem('onyx_recent_v5')) || [];
+    const items = JSON.parse(localStorage.getItem('onyx_recent_v6')) || [];
     const section = document.getElementById('recent-section');
     const grid = document.getElementById('recent-grid');
 
@@ -102,8 +104,8 @@ function renderRecent() {
     if (grid) {
         grid.innerHTML = items.map(item => `
             <div class="gallery-card" onclick="openProduct('${item.name}', 'View Piece', '${item.img}')">
-                <img src="${item.img}" style="height: 140px; width: 100%; object-fit: contain; background: #fff;">
-                <div class="card-info" style="text-align: center;">
+                <img src="${item.img}" style="height: 150px; width: 100%; object-fit: contain; background: #fff;">
+                <div class="card-info">
                     <span class="item-name" style="font-size: 10px;">${item.name}</span>
                 </div>
             </div>
@@ -111,7 +113,7 @@ function renderRecent() {
     }
 }
 
-// 4. GLOBAL EVENTS & INITIALIZATION
+// 4. GLOBAL CLICK EVENTS
 window.onclick = function(event) {
     const modal = document.getElementById('productModal');
     const overlay = document.getElementById('overlay');
@@ -120,10 +122,13 @@ window.onclick = function(event) {
     if (event.target == overlay) closeNav();
 };
 
+// Initialize on Load
 document.addEventListener('DOMContentLoaded', () => {
     renderRecent();
     
-    // Ensure the Orange WhatsApp button is always on top
+    // Fix: Force the Orange WhatsApp button to stay visible above everything
     const whatsapp = document.querySelector('.whatsapp-float');
-    if(whatsapp) whatsapp.style.zIndex = "5000";
+    if (whatsapp) {
+        whatsapp.style.zIndex = "5000";
+    }
 });
