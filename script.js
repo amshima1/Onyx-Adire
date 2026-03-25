@@ -1,89 +1,100 @@
 /**
- * Onyx—Adire E-commerce Logic
- * Handles: Navigation, Product Modal, Recently Viewed (Local Storage), and WhatsApp Integration
+ * Onyx—Adire Official Script
+ * Handles: Navigation, Modal Popups, Recently Viewed Persistence, and WhatsApp Orders
  */
 
-// 1. Navigation Logic
+// 1. SIDE NAVIGATION (HAMBURGER)
 function toggleNav() {
     const sideNav = document.getElementById("mySidenav");
     const overlay = document.getElementById("overlay");
     
+    // Check current width to toggle
     if (sideNav.style.width === "280px") {
         sideNav.style.width = "0";
         overlay.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scroll
     } else {
         sideNav.style.width = "280px";
         overlay.style.display = "block";
+        document.body.style.overflow = "hidden"; // Lock scroll when menu is open
     }
 }
 
-// 2. Product Modal Logic
+// 2. PRODUCT MODAL (POPUP)
 function openProduct(name, price, img) {
-    // Update Modal Content
-    document.getElementById('modalName').innerText = name;
-    document.getElementById('modalPrice').innerText = price;
-    document.getElementById('modalImg').src = img;
+    const modal = document.getElementById('productModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalName = document.getElementById('modalName');
+    const modalPrice = document.getElementById('modalPrice');
     
-    // Set up the WhatsApp button inside the modal
+    // Update content
+    modalImg.src = img;
+    modalName.innerText = name;
+    modalPrice.innerText = price;
+
+    // Configure WhatsApp Button inside Modal
     const whatsappBtn = document.querySelector('#productModal .subscribe-btn');
-    const phoneNumber = "234XXXXXXXXXX"; // REPLACEME: Your actual WhatsApp number
-    const message = encodeURIComponent(`Hello Onyx—Adire, I am interested in ordering the ${name} (${price}). Is it available?`);
+    const myNumber = "234XXXXXXXXXX"; // REPLACEME: Your actual WhatsApp number
+    const text = encodeURIComponent(`Hello Onyx—Adire, I'm interested in the ${name} (${price}). Is it available?`);
     
-    whatsappBtn.onclick = function() {
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    whatsappBtn.onclick = () => {
+        window.open(`https://wa.me/${myNumber}?text=${text}`, '_blank');
     };
 
-    // Show Modal
-    document.getElementById('productModal').style.display = "block";
-    document.body.style.overflow = "hidden"; // Prevent background scroll
+    // Show Modal & Disable background scroll
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
 
-    // Save to Recently Viewed
-    saveRecent(name, img);
+    // Save this click to "Recently Viewed"
+    saveToRecent(name, img);
 }
 
 function closeModal() {
     document.getElementById('productModal').style.display = "none";
-    document.body.style.overflow = "auto"; // Re-enable scroll
+    document.body.style.overflow = "auto"; // Re-enable scrolling
 }
 
-// 3. Recently Viewed Logic (Using LocalStorage)
-function saveRecent(name, img) {
-    let recentItems = JSON.parse(localStorage.getItem('onyx_recent')) || [];
+// 3. RECENTLY VIEWED LOGIC
+function saveToRecent(name, img) {
+    // SECURITY CHECK: Only save if it's a valid Onyx-Adire image 
+    // This prevents the "broken" images from your screenshot from saving.
+    if (!img.toLowerCase().includes('onyx-adire')) return;
 
-    // Check if item already exists to avoid duplicates
-    const exists = recentItems.find(item => item.name === name);
-    
-    if (!exists) {
-        // Add new item to the beginning of the array
-        recentItems.unshift({ name, img });
+    let items = JSON.parse(localStorage.getItem('onyx_recent_v2')) || [];
+
+    // Check if it's already in the list
+    const isDuplicate = items.find(i => i.name === name);
+
+    if (!isDuplicate) {
+        // Add to front of list
+        items.unshift({ name, img });
         
-        // Keep only the last 4 items
-        if (recentItems.length > 4) {
-            recentItems.pop();
-        }
+        // Only keep the most recent 2 items (matching your design)
+        if (items.length > 2) items.pop();
         
-        localStorage.setItem('onyx_recent', JSON.stringify(recentItems));
-        renderRecent();
+        localStorage.setItem('onyx_recent_v2', JSON.stringify(items));
+        renderRecentSection();
     }
 }
 
-function renderRecent() {
-    const recentItems = JSON.parse(localStorage.getItem('onyx_recent')) || [];
-    const recentGrid = document.getElementById('recent-grid');
-    const recentSection = document.getElementById('recent-section');
+function renderRecentSection() {
+    const items = JSON.parse(localStorage.getItem('onyx_recent_v2')) || [];
+    const section = document.getElementById('recent-section');
+    const grid = document.getElementById('recent-grid');
 
-    if (recentItems.length === 0) {
-        if (recentSection) recentSection.style.display = "none";
+    // If no items, hide the whole section
+    if (items.length === 0) {
+        if (section) section.style.display = "none";
         return;
     }
 
-    if (recentSection) recentSection.style.display = "block";
-    
-    if (recentGrid) {
-        recentGrid.innerHTML = recentItems.map(item => `
-            <div class="gallery-card" onclick="openProduct('${item.name}', 'View Details', '${item.img}')">
-                <img src="${item.img}" style="height: 150px; object-fit: cover;">
-                <div class="card-info" style="justify-content: center; text-align: center;">
+    // Show section and build HTML
+    if (section) section.style.display = "block";
+    if (grid) {
+        grid.innerHTML = items.map(item => `
+            <div class="gallery-card" onclick="openProduct('${item.name}', 'View Piece', '${item.img}')">
+                <img src="${item.img}" style="height: 140px; object-fit: cover; border-radius: 2px;">
+                <div class="card-info" style="text-align: center;">
                     <span class="item-name" style="font-size: 10px;">${item.name}</span>
                 </div>
             </div>
@@ -91,21 +102,15 @@ function renderRecent() {
     }
 }
 
-// 4. Global Event Listeners
-window.onclick = function(event) {
-    const modal = document.getElementById('productModal');
-    const overlay = document.getElementById('overlay');
+// 4. INITIALIZE ON LOAD
+document.addEventListener('DOMContentLoaded', () => {
+    renderRecentSection();
     
-    // Close modal if user clicks outside of the content box
-    if (event.target == modal) {
-        closeModal();
-    }
-    
-    // Close sidenav if user clicks the overlay
-    if (event.target == overlay) {
-        toggleNav();
-    }
-};
-
-// Initialize Recently Viewed on page load
-document.addEventListener('DOMContentLoaded', renderRecent);
+    // Close modal if user clicks outside the content box
+    window.onclick = function(event) {
+        const modal = document.getElementById('productModal');
+        const overlay = document.getElementById('overlay');
+        if (event.target == modal) closeModal();
+        if (event.target == overlay) toggleNav();
+    };
+});
