@@ -1,225 +1,151 @@
-/* --- Root Variables: Red & White Theme --- */
-:root {
-    --primary-red: #a30000;    /* Bold Nigerian Red */
-    --onyx: #1a1a1a;           /* Deep Black for text */
-    --white: #ffffff;
-    --light-bg: #fdfdfd;       /* Off-white for section depth */
-    --border: #eeeeee;
-    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Onyx—Adire | Nigerian Luxury Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* --- Base Reset & Scroll Fix --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
-}
+    <header id="main-header">
+        <div class="announcement-bar">
+            <span class="ticker-text">✦ THE ONYX—ADIRE EXPERIENCE ✦ WORLDWIDE SHIPPING ✦ NEW ARRIVALS EVERY WEEK ✦ SHOP NOW ✦</span>
+        </div>
+        
+        <nav class="navbar">
+            <div class="menu-icon" onclick="toggleNav()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            
+            <a href="index.html" class="logo">Onyx—Adire</a>
+            
+            <div style="width: 30px;"></div>
+        </nav>
+    </header>
 
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto; /* Ensures natural scrolling */
-    background-color: var(--white);
-    color: var(--onyx);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    -webkit-overflow-scrolling: touch;
-}
+    <div id="mySidenav" class="sidenav">
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="trustees.html">Trustees</a>
+        <a href="events.html">Events</a>
+        <a href="bookings.html">Bookings</a>
+    </div>
 
-h1, h2, h3, .logo {
-    font-family: 'Playfair Display', serif;
-}
+    <div id="overlay" onclick="toggleNav()"></div>
 
-/* --- Header & Red Logo --- */
-.announcement-bar {
-    background: var(--primary-red);
-    color: var(--white);
-    padding: 10px 0;
-    font-size: 11px;
-    text-align: center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
+    <main id="main-content">
+        <section class="hero-section">
+            <img src="Onyx-Adire18.jpg" alt="Featured Onyx-Adire Piece">
+        </section>
 
-nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        <section class="debut-header">
+            <h2 style="font-family: 'Playfair Display'; text-align: center; margin-top: 30px;">The Collection</h2>
+            <div style="width: 50px; height: 2px; background: #a30000; margin: 10px auto 30px;"></div>
+        </section>
 
-.logo {
-    color: var(--primary-red) !important;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
+        <div class="gallery-grid">
+            <div class="gallery-card" onclick="openProduct('Todun Iro & Buba', '₦95,000', 'Onyx-Adire1.jpg')">
+                <img src="Onyx-Adire1.jpg" alt="Piece 1">
+                <div class="card-info"><span class="item-name">Todun Iro & Buba</span><span class="item-price">₦95,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Adesewa Set', '₦48,000', 'Onyx-Adire2.jpg')">
+                <img src="Onyx-Adire2.jpg" alt="Piece 2">
+                <div class="card-info"><span class="item-name">Adesewa Set</span><span class="item-price">₦48,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Asymmetric Tunic', '₦42,000', 'Onyx-Adire3.jpg')">
+                <img src="Onyx-Adire3.jpg" alt="Piece 3">
+                <div class="card-info"><span class="item-name">Asymmetric Tunic</span><span class="item-price">₦42,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Patchwork Tunic', '₦38,000', 'Onyx-Adire4.jpg')">
+                <img src="Onyx-Adire4.jpg" alt="Piece 4">
+                <div class="card-info"><span class="item-name">Patchwork Tunic</span><span class="item-price">₦38,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Midnight Lace', '₦45,000', 'Onyx-Adire5.jpg')">
+                <img src="Onyx-Adire5.jpg" alt="Piece 5">
+                <div class="card-info"><span class="item-name">Midnight Lace</span><span class="item-price">₦45,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Traditional Agbada', '₦120,000', 'Onyx-Adire6.jpg')">
+                <img src="Onyx-Adire6.jpg" alt="Piece 6">
+                <div class="card-info"><span class="item-name">Traditional Agbada</span><span class="item-price">₦120,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Gold Agbada', '₦135,000', 'Onyx-Adire7.jpg')">
+                <img src="Onyx-Adire7.jpg" alt="Piece 7">
+                <div class="card-info"><span class="item-name">Gold Agbada</span><span class="item-price">₦135,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Velvet Caftan', '₦85,000', 'Onyx-Adire8.jpg')">
+                <img src="Onyx-Adire8.jpg" alt="Piece 8">
+                <div class="card-info"><span class="item-name">Velvet Caftan</span><span class="item-price">₦85,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Fusion Agbada', '₦110,000', 'Onyx-Adire9.jpg')">
+                <img src="Onyx-Adire9.jpg" alt="Piece 9">
+                <div class="card-info"><span class="item-name">Fusion Agbada</span><span class="item-price">₦110,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Boubou Abaya', '₦65,000', 'Onyx-Adire10.jpg')">
+                <img src="Onyx-Adire10.jpg" alt="Piece 10">
+                <div class="card-info"><span class="item-name">Boubou Abaya</span><span class="item-price">₦65,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Ebony Silk', '₦75,000', 'Onyx-Adire11.jpg')">
+                <img src="Onyx-Adire11.jpg" alt="Piece 11">
+                <div class="card-info"><span class="item-name">Ebony Silk</span><span class="item-price">₦75,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Geo Boubou', '₦58,000', 'Onyx-Adire12.jpg')">
+                <img src="Onyx-Adire12.jpg" alt="Piece 12">
+                <div class="card-info"><span class="item-name">Geo Boubou</span><span class="item-price">₦58,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Lace Overlay', '₦70,000', 'Onyx-Adire13.jpg')">
+                <img src="Onyx-Adire13.jpg" alt="Piece 13">
+                <div class="card-info"><span class="item-name">Lace Overlay</span><span class="item-price">₦70,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Galaxy Jumpsuit', '₦52,000', 'Onyx-Adire14.jpg')">
+                <img src="Onyx-Adire14.jpg" alt="Piece 14">
+                <div class="card-info"><span class="item-name">Galaxy Jumpsuit</span><span class="item-price">₦52,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Aso Oke Set', '₦150,000', 'Onyx-Adire15.jpg')">
+                <img src="Onyx-Adire15.jpg" alt="Piece 15">
+                <div class="card-info"><span class="item-name">Aso Oke Set</span><span class="item-price">₦150,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Vibrant Jumpsuit', '₦45,000', 'Onyx-Adire16.jpg')">
+                <img src="Onyx-Adire16.jpg" alt="Piece 16">
+                <div class="card-info"><span class="item-name">Vibrant Jumpsuit</span><span class="item-price">₦45,000</span></div>
+            </div>
+        </div>
 
-/* --- Hamburger Icon Performance --- */
-.menu-icon {
-    padding: 15px; /* Larger touch area for better performance */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        <section id="recent-section" class="recent-viewed-container" style="display: none;">
+            <h3 class="suggestion-title">Recently Viewed</h3>
+            <div id="recent-grid" class="gallery-grid" style="grid-template-columns: repeat(2, 1fr);">
+                </div>
+        </section>
 
-.menu-icon div {
-    background-color: var(--onyx);
-    transition: var(--transition);
-}
+        <footer class="main-footer" style="background: #a30000; color: white; padding: 60px 20px; text-align: center;">
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">The Onyx Society</h2>
+            <div style="max-width: 400px; margin: 0 auto; display: flex;">
+                <input type="email" placeholder="Email Address" style="flex: 1; padding: 12px; border: none;">
+                <button style="padding: 12px 20px; background: #1a1a1a; color: white; border: none;">Join</button>
+            </div>
+        </footer>
+    </main>
 
-/* --- Side Navigation --- */
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 3000;
-    top: 0;
-    left: 0;
-    background-color: var(--onyx);
-    overflow-x: hidden;
-    transition: var(--transition);
-    padding-top: 80px;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
-}
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modalImg" src="" alt="Full Product View">
+                <h2 id="modalName" style="margin-top: 20px;"></h2>
+                <p id="modalPrice" style="color: #a30000; font-weight: bold; font-size: 20px;"></p>
+                <button class="order-btn" style="width: 100%; margin-top: 20px; padding: 15px; background: #25D366; color: white; border: none; font-weight: bold; border-radius: 5px;">Order via WhatsApp</button>
+            </div>
+        </div>
+    </div>
 
-.sidenav a {
-    padding: 15px 40px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #bbbbbb;
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.3s;
-}
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span>Chat with Us</span>
+    </a>
 
-.sidenav a:hover {
-    color: var(--white);
-    padding-left: 50px;
-}
-
-/* --- Hero Section: Show Full Image --- */
-.hero-section {
-    width: 100%;
-    background: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.hero-section img {
-    width: 100%;
-    height: auto; 
-    max-height: 85vh; /* Fits on most mobile screens */
-    object-fit: contain; /* CRITICAL: Displays the full image without cropping */
-}
-
-/* --- Gallery Grid --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
-    gap: 20px;
-    padding: 20px 5%;
-}
-
-.gallery-card {
-    cursor: pointer;
-    background: var(--white);
-    transition: transform 0.3s ease;
-}
-
-.gallery-card img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    display: block;
-}
-
-.card-info {
-    padding: 12px 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.item-name {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--onyx);
-}
-
-.item-price {
-    font-size: 13px;
-    color: var(--primary-red);
-    font-weight: 700;
-    margin-top: 4px;
-}
-
-/* --- Recently Viewed --- */
-#recent-section {
-    background-color: var(--light-bg);
-    border-top: 1px solid var(--border);
-}
-
-.suggestion-title {
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 20px;
-}
-
-/* --- Modal (Product Popup) --- */
-.modal {
-    background-color: rgba(0,0,0,0.85);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    animation: modalSlide 0.4s ease-out;
-}
-
-@keyframes modalSlide {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* --- Floating Elements --- */
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 2500;
-}
-
-.whatsapp-link {
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    background: #25D366;
-    color: var(--white);
-    padding: 14px 22px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 13px;
-    z-index: 2000;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* --- Desktop Layout --- */
-@media (min-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .hero-section img {
-        width: 80%; /* Centers the full image on wider screens */
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
