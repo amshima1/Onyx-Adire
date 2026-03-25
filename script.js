@@ -1,86 +1,98 @@
 /**
  * Onyx—Adire Official Performance Script
- * Features: Optimized Hamburger, Full-Image Modal, and Smart "Recently Viewed"
+ * Handles: Responsive Navigation, Full-Image Modals, and Orange WhatsApp Integration
  */
 
-// 1. IMPROVED NAVIGATION PERFORMANCE
+// 1. NAVIGATION CONTROL (White Menu & Header Priority)
 function toggleNav() {
     const sideNav = document.getElementById("mySidenav");
     const overlay = document.getElementById("overlay");
-    const mainContent = document.getElementById("main-content");
+    const header = document.getElementById("main-header");
     
-    // Check current state
+    // Calculate header height so the white menu starts exactly below the logo
+    const headerOffset = header.offsetHeight;
+    sideNav.style.top = headerOffset + "px";
+
     if (sideNav.style.width === "280px") {
-        sideNav.style.width = "0";
-        overlay.style.display = "none";
-        if (mainContent) mainContent.style.filter = "none"; // Remove blur
-        document.body.style.overflow = "auto"; // Re-enable scroll
+        closeNav();
     } else {
         sideNav.style.width = "280px";
         overlay.style.display = "block";
-        if (mainContent) mainContent.style.filter = "blur(4px)"; // Performance focus blur
-        document.body.style.overflow = "hidden"; // Prevent background scroll
+        // Lock background scroll but keep header/whatsapp accessible
+        document.body.style.overflow = "hidden"; 
     }
 }
 
-// 2. PRODUCT MODAL (POPUP) LOGIC
+function closeNav() {
+    const sideNav = document.getElementById("mySidenav");
+    const overlay = document.getElementById("overlay");
+    
+    sideNav.style.width = "0";
+    overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// 2. PRODUCT MODAL (Full Picture Popup)
 function openProduct(name, price, img) {
     const modal = document.getElementById('productModal');
     const modalImg = document.getElementById('modalImg');
     const modalName = document.getElementById('modalName');
     const modalPrice = document.getElementById('modalPrice');
     
-    // Update Content
+    // Set Content
     modalImg.src = img;
+    // Enforce full image display in the popup
+    modalImg.style.objectFit = "contain"; 
+    
     modalName.innerText = name;
     modalPrice.innerText = price;
 
-    // Configure WhatsApp Ordering
-    const whatsappBtn = document.querySelector('#productModal .subscribe-btn');
+    // Configure WhatsApp Order Button
+    const orderBtn = document.querySelector('.order-btn');
     const myNumber = "234XXXXXXXXXX"; // REPLACEME: Your actual WhatsApp number
-    const text = encodeURIComponent(`Hello Onyx—Adire, I'm interested in ordering: ${name} (${price}). Is it available?`);
+    const message = encodeURIComponent(`Hello Onyx—Adire, I'm interested in ordering the ${name} (${price}). Is this piece available?`);
     
-    whatsappBtn.onclick = () => {
-        window.open(`https://wa.me/${myNumber}?text=${text}`, '_blank');
+    orderBtn.onclick = () => {
+        window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
     };
 
-    // Show Modal & Lock Scroll
+    // Show Modal
     modal.style.display = "block";
     document.body.style.overflow = "hidden";
 
     // Save to Recently Viewed
-    saveRecent(name, img);
+    saveToRecent(name, img);
 }
 
 function closeModal() {
-    const modal = document.getElementById('productModal');
-    modal.style.display = "none";
-    document.body.style.overflow = "auto"; // Re-enable scroll
+    document.getElementById('productModal').style.display = "none";
+    // Only re-enable scroll if the side menu is also closed
+    if (document.getElementById("mySidenav").style.width !== "280px") {
+        document.body.style.overflow = "auto";
+    }
 }
 
-// 3. SMART RECENTLY VIEWED (NO BROKEN IMAGES)
-function saveRecent(name, img) {
+// 3. RECENTLY VIEWED (Logic to avoid broken icons)
+function saveToRecent(name, img) {
     // Only save if it's a valid Onyx-Adire product image
     if (!img.toLowerCase().includes('onyx-adire')) return;
 
-    let items = JSON.parse(localStorage.getItem('onyx_v3_recent')) || [];
+    let items = JSON.parse(localStorage.getItem('onyx_recent_v5')) || [];
+    const isDuplicate = items.find(i => i.name === name);
 
-    // Avoid duplicates
-    const exists = items.find(i => i.name === name);
-    if (!exists) {
+    if (!isDuplicate) {
         items.unshift({ name, img });
-        if (items.length > 2) items.pop(); // Keep only the latest 2 pieces
-        localStorage.setItem('onyx_v3_recent', JSON.stringify(items));
+        if (items.length > 2) items.pop(); // Keep only 2 items for clean mobile UI
+        localStorage.setItem('onyx_recent_v5', JSON.stringify(items));
         renderRecent();
     }
 }
 
 function renderRecent() {
-    const items = JSON.parse(localStorage.getItem('onyx_v3_recent')) || [];
+    const items = JSON.parse(localStorage.getItem('onyx_recent_v5')) || [];
     const section = document.getElementById('recent-section');
     const grid = document.getElementById('recent-grid');
 
-    // Only show section if there are valid items
     if (items.length === 0) {
         if (section) section.style.display = "none";
         return;
@@ -90,25 +102,28 @@ function renderRecent() {
     if (grid) {
         grid.innerHTML = items.map(item => `
             <div class="gallery-card" onclick="openProduct('${item.name}', 'View Piece', '${item.img}')">
-                <img src="${item.img}" style="height: 140px; object-fit: cover; border-radius: 2px;">
+                <img src="${item.img}" style="height: 140px; width: 100%; object-fit: contain; background: #fff;">
                 <div class="card-info" style="text-align: center;">
-                    <span class="item-name" style="font-size: 10px; color: #1a1a1a;">${item.name}</span>
+                    <span class="item-name" style="font-size: 10px;">${item.name}</span>
                 </div>
             </div>
         `).join('');
     }
 }
 
-// 4. GLOBAL INITIALIZATION
+// 4. GLOBAL EVENTS & INITIALIZATION
+window.onclick = function(event) {
+    const modal = document.getElementById('productModal');
+    const overlay = document.getElementById('overlay');
+    
+    if (event.target == modal) closeModal();
+    if (event.target == overlay) closeNav();
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     renderRecent();
-
-    // Close elements when clicking the dark overlay
-    window.onclick = function(event) {
-        const modal = document.getElementById('productModal');
-        const overlay = document.getElementById('overlay');
-        
-        if (event.target == modal) closeModal();
-        if (event.target == overlay) toggleNav();
-    };
+    
+    // Ensure the Orange WhatsApp button is always on top
+    const whatsapp = document.querySelector('.whatsapp-float');
+    if(whatsapp) whatsapp.style.zIndex = "5000";
 });
