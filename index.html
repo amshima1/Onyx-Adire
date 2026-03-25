@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Onyx—Adire | Luxury Nigerian Fashion</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -20,7 +20,7 @@
                 <div></div><div></div><div></div>
             </div>
             <a href="index.html" class="logo">Onyx—Adire</a>
-            <div style="width: 30px;"></div>
+            <div style="width: 30px;"></div> 
         </nav>
     </header>
 
@@ -32,38 +32,96 @@
         <a href="bookings.html">Bookings</a>
     </div>
 
-    <main>
-        <section class="hero-section" style="height: 80vh; overflow: hidden;">
-            <img src="Onyx-Adire18.jpg" alt="Featured" style="width: 100%; height: 100%; object-fit: cover;">
+    <main id="main-content">
+        <section class="hero-section">
+            <img src="Onyx-Adire18.jpg" alt="Featured Onyx Adire">
         </section>
 
         <section class="debut-header">
             <h2>Featured Collections</h2>
+            <p style="font-style: italic; color: #666; margin-top: 5px;">Click any piece to view details</p>
         </section>
 
         <div class="gallery-grid">
             <div class="gallery-card" onclick="openProduct('Todun Iro & Buba', '₦95,000', 'Onyx-Adire1.jpg')">
-                <img src="Onyx-Adire1.jpg" alt="Item 1">
+                <img src="Onyx-Adire1.jpg" alt="Piece 1">
                 <div class="card-info"><span class="item-name">Todun Iro & Buba</span><span class="item-price">₦95,000</span></div>
             </div>
             <div class="gallery-card" onclick="openProduct('Adesewa Set', '₦48,000', 'Onyx-Adire2.jpg')">
-                <img src="Onyx-Adire2.jpg" alt="Item 2">
+                <img src="Onyx-Adire2.jpg" alt="Piece 2">
                 <div class="card-info"><span class="item-name">Adesewa Set</span><span class="item-price">₦48,000</span></div>
             </div>
+            <div class="gallery-card" onclick="openProduct('Asymmetric Tunic', '₦42,000', 'Onyx-Adire3.jpg')">
+                <img src="Onyx-Adire3.jpg" alt="Piece 3">
+                <div class="card-info"><span class="item-name">Asymmetric Tunic</span><span class="item-price">₦42,000</span></div>
             </div>
+            <div class="gallery-card" onclick="openProduct('Patchwork Tunic', '₦38,000', 'Onyx-Adire4.jpg')">
+                <img src="Onyx-Adire4.jpg" alt="Piece 4">
+                <div class="card-info"><span class="item-name">Patchwork Tunic</span><span class="item-price">₦38,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Midnight Lace Tunic', '₦45,000', 'Onyx-Adire5.jpg')">
+                <img src="Onyx-Adire5.jpg" alt="Piece 5">
+                <div class="card-info"><span class="item-name">Midnight Lace Tunic</span><span class="item-price">₦45,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Traditional Agbada', '₦120,000', 'Onyx-Adire6.jpg')">
+                <img src="Onyx-Adire6.jpg" alt="Piece 6">
+                <div class="card-info"><span class="item-name">Traditional Agbada</span><span class="item-price">₦120,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Gold Agbada', '₦135,000', 'Onyx-Adire7.jpg')">
+                <img src="Onyx-Adire7.jpg" alt="Piece 7">
+                <div class="card-info"><span class="item-name">Gold Agbada</span><span class="item-price">₦135,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Velvet Caftan', '₦85,000', 'Onyx-Adire8.jpg')">
+                <img src="Onyx-Adire8.jpg" alt="Piece 8">
+                <div class="card-info"><span class="item-name">Velvet Caftan</span><span class="item-price">₦85,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Modern Fusion Agbada', '₦110,000', 'Onyx-Adire9.jpg')">
+                <img src="Onyx-Adire9.jpg" alt="Piece 9">
+                <div class="card-info"><span class="item-name">Modern Agbada</span><span class="item-price">₦110,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Boubou and Abaya', '₦65,000', 'Onyx-Adire10.jpg')">
+                <img src="Onyx-Adire10.jpg" alt="Piece 10">
+                <div class="card-info"><span class="item-name">Boubou and Abaya</span><span class="item-price">₦65,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Ebony Silk Boubou', '₦75,000', 'Onyx-Adire11.jpg')">
+                <img src="Onyx-Adire11.jpg" alt="Piece 11">
+                <div class="card-info"><span class="item-name">Ebony Silk Boubou</span><span class="item-price">₦75,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Geometric Boubou', '₦58,000', 'Onyx-Adire12.jpg')">
+                <img src="Onyx-Adire12.jpg" alt="Piece 12">
+                <div class="card-info"><span class="item-name">Geometric Boubou</span><span class="item-price">₦58,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Lace Overlay', '₦70,000', 'Onyx-Adire13.jpg')">
+                <img src="Onyx-Adire13.jpg" alt="Piece 13">
+                <div class="card-info"><span class="item-name">Lace Overlay</span><span class="item-price">₦70,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Galaxy Jumpsuit', '₦52,000', 'Onyx-Adire14.jpg')">
+                <img src="Onyx-Adire14.jpg" alt="Piece 14">
+                <div class="card-info"><span class="item-name">Galaxy Jumpsuit</span><span class="item-price">₦52,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Aso Oke Set', '₦150,000', 'Onyx-Adire15.jpg')">
+                <img src="Onyx-Adire15.jpg" alt="Piece 15">
+                <div class="card-info"><span class="item-name">Aso Oke Set</span><span class="item-price">₦150,000</span></div>
+            </div>
+            <div class="gallery-card" onclick="openProduct('Vibrant Jumpsuit', '₦45,000', 'Onyx-Adire16.jpg')">
+                <img src="Onyx-Adire16.jpg" alt="Piece 16">
+                <div class="card-info"><span class="item-name">Vibrant Jumpsuit</span><span class="item-price">₦45,000</span></div>
+            </div>
+        </div>
 
-        <section id="recent-section" style="padding: 50px 5%; display: none;">
-            <h3 style="margin-bottom: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 2px;">Recently Viewed</h3>
-            <div id="recent-grid" class="gallery-grid" style="grid-template-columns: repeat(4, 1fr); gap: 15px;">
+        <section id="recent-section" style="padding: 40px 5%; display: none; background-color: #fff;">
+            <h3 class="suggestion-title">Recently Viewed</h3>
+            <div id="recent-grid" class="gallery-grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px;">
                 </div>
         </section>
 
         <section class="footer-cta">
-            <h2>Subscribe to our newsletter</h2>
+            <h2>Join the Inner Circle</h2>
             <div class="subscribe-container">
-                <input type="email" class="email-input" placeholder="Enter your email">
-                <button class="subscribe-btn">Join</button>
+                <input type="email" class="email-input" placeholder="Your email">
+                <button class="subscribe-btn">Subscribe</button>
             </div>
+            <span class="social-handle">@Onyx_Adire</span>
         </section>
     </main>
 
@@ -71,23 +129,28 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <div class="modal-body">
-                <img id="modalImg" src="" style="width: 100%; max-height: 500px; object-fit: cover;">
-                <h2 id="modalName" style="margin-top: 20px;"></h2>
-                <p id="modalPrice" style="color: #666;"></p>
+                <img id="modalImg" src="" style="width: 100%; aspect-ratio: 3/4; object-fit: cover;">
+                <h2 id="modalName" style="margin: 20px 0 10px;"></h2>
+                <p id="modalPrice" style="font-size: 1.2rem; color: #c5a059; font-weight: bold;"></p>
+                
                 <button class="subscribe-btn" style="width: 100%; margin-top: 20px;">Order on WhatsApp</button>
                 
-                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-                
-                <h3>You May Also Like</h3>
-                <div class="gallery-grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
-                    <div class="gallery-card"><img src="Onyx-Adire5.jpg"><p>Midnight Tunic</p></div>
-                    <div class="gallery-card"><img src="Onyx-Adire7.jpg"><p>Gold Agbada</p></div>
-                    <div class="gallery-card"><img src="Onyx-Adire10.jpg"><p>Abaya Silk</p></div>
-                    <div class="gallery-card"><img src="Onyx-Adire12.jpg"><p>Geo Boubou</p></div>
+                <div style="margin-top: 40px;">
+                    <h4 class="suggestion-title">You May Also Like</h4>
+                    <div class="gallery-grid" style="grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0;">
+                        <div class="gallery-card" onclick="openProduct('Agbada Gold', '₦135k', 'Onyx-Adire7.jpg')">
+                            <img src="Onyx-Adire7.jpg" style="height: 120px;">
+                        </div>
+                        <div class="gallery-card" onclick="openProduct('Silk Boubou', '₦75k', 'Onyx-Adire11.jpg')">
+                            <img src="Onyx-Adire11.jpg" style="height: 120px;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-link" target="_blank">Order via WhatsApp</a>
 
     <script src="script.js"></script>
 </body>
