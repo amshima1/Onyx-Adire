@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* --- FIXED HEADER SYSTEM --- */
+        /* --- FIXED HEADER --- */
         header {
             position: fixed;
             top: 0;
@@ -77,7 +77,7 @@
             transform: translateX(-50%);
         }
 
-        /* --- SIDENAV (STARTS BELOW HEADER) --- */
+        /* --- SIDE NAVIGATION --- */
         #mySidenav {
             height: 100%;
             width: 0;
@@ -112,7 +112,7 @@
             z-index: 8500; 
         }
 
-        /* --- CONTENT --- */
+        /* --- MAIN CONTENT --- */
         main { padding-top: 110px; }
 
         .hero-banner { width: 100%; }
@@ -137,15 +137,35 @@
         .item-name { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); font-weight: bold; }
         .item-price { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: var(--brand-red); margin-top: 5px; }
 
-        /* --- FOOTER (RED BACKGROUND TILL THE END) --- */
+        /* --- FOOTER --- */
         .footer-cta {
             background-color: var(--brand-red);
             color: white;
             padding: 80px 20px 120px 20px;
-            margin-top: 40px;
         }
 
-        .footer-cta h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 26px; margin-bottom: 30px; font-weight: 400; }
+        .footer-cta h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 26px; margin-bottom: 25px; font-weight: 400; }
+
+        .subscribe-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .email-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 16px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        .email-input::placeholder { color: rgba(255,255,255,0.7); }
 
         .subscribe-btn {
             background: white;
@@ -157,7 +177,6 @@
             font-size: 13px;
             letter-spacing: 1px;
             cursor: pointer;
-            margin-bottom: 60px;
             width: 100%;
             max-width: 300px;
         }
@@ -224,25 +243,28 @@
         </section>
 
         <div class="gallery-grid">
-            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 01</span><span class="item-price">₦45,000</span></div></div>
-            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 02</span><span class="item-price">₦52,000</span></div></div>
-            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Onyx Piece 03</span><span class="item-price">₦38,500</span></div></div>
-            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Onyx Piece 04</span><span class="item-price">₦60,000</span></div></div>
-            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 05</span><span class="item-price">₦25,000</span></div></div>
-            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 06</span><span class="item-price">₦85,000</span></div></div>
-            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Onyx Piece 07</span><span class="item-price">₦48,000</span></div></div>
-            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Onyx Piece 08</span><span class="item-price">₦35,000</span></div></div>
-            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 09</span><span class="item-price">₦120,000</span></div></div>
-            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 10</span><span class="item-price">₦55,000</span></div></div>
-            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Onyx Piece 11</span><span class="item-price">₦75,000</span></div></div>
-            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Onyx Piece 12</span><span class="item-price">₦95,000</span></div></div>
-            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 13</span><span class="item-price">₦32,000</span></div></div>
-            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 14</span><span class="item-price">₦28,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">The Heritage I</span><span class="item-price">₦45,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">The Heritage II</span><span class="item-price">₦52,000</span></div></div>
+            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">The Heritage III</span><span class="item-price">₦38,500</span></div></div>
+            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">The Heritage IV</span><span class="item-price">₦60,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Modern Adire I</span><span class="item-price">₦25,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Modern Adire II</span><span class="item-price">₦85,000</span></div></div>
+            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Modern Adire III</span><span class="item-price">₦48,000</span></div></div>
+            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Modern Adire IV</span><span class="item-price">₦35,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Luxe Edition V</span><span class="item-price">₦120,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Luxe Edition VI</span><span class="item-price">₦55,000</span></div></div>
+            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Bespoke VII</span><span class="item-price">₦75,000</span></div></div>
+            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Bespoke VIII</span><span class="item-price">₦95,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Signature IX</span><span class="item-price">₦32,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Signature X</span><span class="item-price">₦28,000</span></div></div>
         </div>
 
         <section class="footer-cta">
             <h2>Subscribe to our newsletter</h2>
-            <button class="subscribe-btn">Join the Movement</button>
+            <div class="subscribe-container">
+                <input type="email" class="email-input" placeholder="Enter your email">
+                <button class="subscribe-btn">Join the Movement</button>
+            </div>
             
             <div class="social-section">
                 <span class="social-handle">@Onyx_Adire</span>
