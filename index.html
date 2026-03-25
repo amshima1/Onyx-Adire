@@ -1,5 +1,3 @@
-I have updated your index.html to include the specific file names from your uploads. Since this is a home page gallery and not a full e-commerce shop, I have added the prices in a minimalist "Editorial" style to keep it looking like a high-end fashion debut.
-I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at the top as requested.
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +23,7 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
             overflow-x: hidden;
         }
 
-        /* --- HEADER SYSTEM --- */
+        /* --- FIXED HEADER (Z-INDEX 9000) --- */
         .header-container {
             position: fixed;
             top: 0;
@@ -64,14 +62,51 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
             border-bottom: 1px solid rgba(139, 29, 29, 0.1);
         }
 
+        .menu-icon { width: 30px; cursor: pointer; }
+        .menu-icon div { height: 2px; width: 25px; background-color: var(--brand-red); margin: 6px 0; }
         .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; font-weight: 700; text-decoration: none; color: var(--brand-red); }
 
-        /* --- HERO SECTION --- */
+        /* --- SIDENAV (MATCHES TRUSTEES.HTML) --- */
+        #mySidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 9500; 
+            top: 0;
+            left: 0;
+            background-color: var(--bg-cream);
+            overflow-x: hidden;
+            transition: 0.4s ease-in-out;
+            padding-top: 120px; 
+            text-align: left;
+        }
+
+        #mySidenav a {
+            padding: 15px 32px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--brand-red);
+            display: block;
+            font-style: italic;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9200; 
+        }
+
+        /* --- MAIN CONTENT --- */
         main { padding-top: 110px; }
 
         .hero-banner {
             width: 100%;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .hero-img {
@@ -80,10 +115,9 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
             display: block;
         }
 
-        /* --- DEBUT EDIT TITLES --- */
         .debut-header {
             padding: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .debut-header h1 {
@@ -93,12 +127,12 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
             margin: 0;
         }
 
-        /* --- GALLERY GRID --- */
+        /* --- GRID --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            padding: 15px;
+            padding: 0 15px 60px 15px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -117,37 +151,19 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
             display: block;
         }
 
-        .card-info {
-            padding: 15px 10px;
-        }
+        .card-info { padding: 15px 10px; }
+        .item-name { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 5px; font-weight: bold; }
+        .item-price { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: var(--brand-red); }
 
-        .item-name {
-            display: block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dark);
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .item-price {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 14px;
-            color: var(--brand-red);
-        }
-
-        /* --- FOOTER --- */
+        /* --- FOOTER (EXTENDED TO BOTTOM) --- */
         .footer-cta {
             background-color: var(--brand-red);
             color: white;
-            padding: 60px 20px;
-            margin-top: 60px;
+            padding: 80px 20px 120px 20px; /* Large bottom padding */
+            margin-top: 0;
         }
 
-        .footer-cta h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; margin-bottom: 25px; }
+        .footer-cta h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; margin-bottom: 25px; }
 
         .subscribe-box button {
             background: white;
@@ -159,7 +175,16 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
             width: 100%;
             max-width: 300px;
             cursor: pointer;
+            margin-bottom: 50px;
         }
+
+        .social-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 40px;
+        }
+
+        .social-handle { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; display: block; margin-bottom: 10px; }
+        .social-platforms { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; }
 
         /* --- WHATSAPP --- */
         .whatsapp-link {
@@ -186,15 +211,27 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
     <div class="header-container">
         <div class="announcement-bar">
             <div class="announcement-content">
-                ✦ TRADITION REIMAGINED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE EXPERIENCE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ NEW DESIGNS ADDED
+                ✦ TRADITION REIMAGINED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE EXPERIENCE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ BUILT ON HERITAGE
             </div>
         </div>
         <nav>
-            <div style="width: 30px;"></div>
+            <div class="menu-icon" onclick="toggleNav(true)">
+                <div></div><div></div><div></div>
+            </div>
             <a href="index.html" class="logo">Onyx—Adire</a>
             <div style="width: 30px;"></div> 
         </nav>
     </div>
+
+    <div id="mySidenav">
+        <a href="javascript:void(0)" onclick="toggleNav(false)" style="font-size: 40px; text-align: right; padding-right: 30px;">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="trustees.html">Trustees</a>
+        <a href="events.html">Events</a>
+        <a href="bookings.html">Bookings</a>
+    </div>
+    <div id="overlay" onclick="toggleNav(false)"></div>
 
     <main>
         <section class="hero-banner">
@@ -206,125 +243,31 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
         </section>
 
         <div class="gallery-grid">
-            
-            <div class="gallery-card">
-                <img src="safiya-adire-pants-set.jpg">
-                <div class="card-info">
-                    <span class="item-name">Safiya Pants Set</span>
-                    <span class="item-price">₦45,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="sadiya-adire-long-dress.jpg">
-                <div class="card-info">
-                    <span class="item-name">Sadiya Long Dress</span>
-                    <span class="item-price">₦52,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="premium-linen-two-piece.jpg">
-                <div class="card-info">
-                    <span class="item-name">Premium Linen Two-Piece</span>
-                    <span class="item-price">₦38,500</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="silk-wrap-dress.jpg">
-                <div class="card-info">
-                    <span class="item-name">Silk Wrap Dress</span>
-                    <span class="item-price">₦60,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="stripe-mix-palazzo.jpg">
-                <div class="card-info">
-                    <span class="item-name">Stripe Mix Palazzo</span>
-                    <span class="item-price">₦25,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="royal-thread-evening-gown.jpg">
-                <div class="card-info">
-                    <span class="item-name">Royal Thread Gown</span>
-                    <span class="item-price">₦85,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="teniola-adire-dress.jpg">
-                <div class="card-info">
-                    <span class="item-name">Teniola Adire Dress</span>
-                    <span class="item-price">₦48,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="geometric-print-boubou.jpg">
-                <div class="card-info">
-                    <span class="item-name">Geometric Boubou</span>
-                    <span class="item-price">₦35,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="heritage-agbada-gold.jpg">
-                <div class="card-info">
-                    <span class="item-name">Heritage Agbada (Gold)</span>
-                    <span class="item-price">₦120,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="lace-overlay-boubou.jpg">
-                <div class="card-info">
-                    <span class="item-name">Lace Overlay Boubou</span>
-                    <span class="item-price">₦55,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="luxury-lace-iro-and-buba.jpg">
-                <div class="card-info">
-                    <span class="item-name">Luxury Lace Iro & Buba</span>
-                    <span class="item-price">₦75,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="modern-agbada-fusion.jpg">
-                <div class="card-info">
-                    <span class="item-name">Modern Agbada Fusion</span>
-                    <span class="item-price">₦95,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="vibrant-batik-shirtdress.jpg">
-                <div class="card-info">
-                    <span class="item-name">Batik Shirtdress</span>
-                    <span class="item-price">₦32,000</span>
-                </div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="patchwork-adire-tunic.jpg">
-                <div class="card-info">
-                    <span class="item-name">Patchwork Tunic</span>
-                    <span class="item-price">₦28,000</span>
-                </div>
-            </div>
-
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 01</span><span class="item-price">₦45,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 02</span><span class="item-price">₦52,000</span></div></div>
+            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Onyx Piece 03</span><span class="item-price">₦38,500</span></div></div>
+            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Onyx Piece 04</span><span class="item-price">₦60,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 05</span><span class="item-price">₦25,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 06</span><span class="item-price">₦85,000</span></div></div>
+            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Onyx Piece 07</span><span class="item-price">₦48,000</span></div></div>
+            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Onyx Piece 08</span><span class="item-price">₦35,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 09</span><span class="item-price">₦120,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 10</span><span class="item-price">₦55,000</span></div></div>
+            <div class="gallery-card"><img src="14441.jpg"><div class="card-info"><span class="item-name">Onyx Piece 11</span><span class="item-price">₦75,000</span></div></div>
+            <div class="gallery-card"><img src="14443.jpg"><div class="card-info"><span class="item-name">Onyx Piece 12</span><span class="item-price">₦95,000</span></div></div>
+            <div class="gallery-card"><img src="14437.jpg"><div class="card-info"><span class="item-name">Onyx Piece 13</span><span class="item-price">₦32,000</span></div></div>
+            <div class="gallery-card"><img src="14439.jpg"><div class="card-info"><span class="item-name">Onyx Piece 14</span><span class="item-price">₦28,000</span></div></div>
         </div>
 
         <section class="footer-cta">
             <h2>Subscribe to our newsletter</h2>
             <div class="subscribe-box">
                 <button type="submit">Join the Movement</button>
+            </div>
+            
+            <div class="social-section">
+                <span class="social-handle">@OnyxAdire_</span>
+                <span class="social-platforms">Instagram | TikTok</span>
             </div>
         </section>
     </main>
@@ -333,7 +276,11 @@ I have also ensured that todun-adri-iro-and-buba.jpg is the main hero image at t
         💬 Chat Via Whatsapp
     </a>
 
+    <script>
+        function toggleNav(isOpen) {
+            document.getElementById("mySidenav").style.width = isOpen ? "280px" : "0";
+            document.getElementById("overlay").style.display = isOpen ? "block" : "none";
+        }
+    </script>
 </body>
 </html>
-
-Would you like me to adjust any of the prices or item names for these 14 pieces?
