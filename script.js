@@ -1,9 +1,9 @@
 /**
  * Onyx—Adire Official Site Engine
- * Updated: Random Suggestions & Full-Image Display
+ * Optimized for: Full-Image Modals, Random Suggestions, and Side-Menu Layering
  */
 
-// Master List for Suggestions (Matches your 16 Items)
+// 1. MASTER PRODUCT DATABASE (Ensure filenames match your GitHub folder exactly)
 const allProducts = [
     { name: 'Todun Iro & Buba', price: '₦95,000', img: 'Onyx-Adire1.jpg' },
     { name: 'Adesewa Set', price: '₦48,000', img: 'Onyx-Adire2.jpg' },
@@ -19,88 +19,115 @@ const allProducts = [
     { name: 'Geo Boubou', price: '₦58,000', img: 'Onyx-Adire12.jpg' },
     { name: 'Lace Overlay', price: '₦70,000', img: 'Onyx-Adire13.jpg' },
     { name: 'Galaxy Jumpsuit', price: '₦52,000', img: 'Onyx-Adire14.jpg' },
-    { name: 'Aso Oke Set', price: '₦150,000', img: 'Onyx-Adire15.jpg' },
-    { name: 'Vibrant Jumpsuit', price: '₦45,000', img: 'Onyx-Adire16.jpg' }
+    { name: 'Aso Oke Set', price: '₦150,000', img: 'Onyx-Adire15.jpg' }
 ];
 
-// 1. PRODUCT MODAL (Main Display + Random 4)
+// 2. NAVIGATION CONTROL (The "Logo-Visible" Logic)
+function toggleNav() {
+    const sideNav = document.getElementById("mySidenav");
+    const overlay = document.getElementById("overlay");
+    const header = document.getElementById("main-header");
+    
+    // Dynamically set the top of the menu to start UNDER the header
+    const headerHeight = header.offsetHeight;
+    sideNav.style.top = headerHeight + "px";
+
+    if (sideNav.style.width === "280px") {
+        closeNav();
+    } else {
+        sideNav.style.width = "280px";
+        overlay.style.display = "block";
+        document.body.style.overflow = "hidden"; // Lock scroll
+    }
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("overlay").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// 3. PRODUCT MODAL (Image Fix & Random 4 Suggestions)
 function openProduct(name, price, img) {
     const modal = document.getElementById('productModal');
     const modalImg = document.getElementById('modalImg');
     const modalName = document.getElementById('modalName');
     const modalPrice = document.getElementById('modalPrice');
     
+    // Fix: Ensure the image source is set correctly to avoid broken icons
     modalImg.src = img;
     modalName.innerText = name;
     modalPrice.innerText = price;
 
-    // WhatsApp Configuration
+    // Configure WhatsApp Button Message
     const orderBtn = document.querySelector('.order-btn');
-    const myNumber = "234XXXXXXXXXX"; 
-    const message = encodeURIComponent(`Hello Onyx—Adire, I am interested in ${name} (${price}).`);
-    orderBtn.onclick = () => { window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank'); };
+    const myNumber = "234XXXXXXXXXX"; // Your WhatsApp Number
+    const message = encodeURIComponent(`Hello Onyx—Adire, I am interested in ordering the ${name} (${price}). Is it available?`);
+    
+    orderBtn.onclick = () => {
+        window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+    };
 
     // GENERATE 4 RANDOM SUGGESTIONS
     const suggestions = allProducts
-        .filter(p => p.name !== name) // Don't suggest the item they are currently looking at
-        .sort(() => 0.5 - Math.random()) // Shuffle the list
+        .filter(p => p.name !== name) // Don't suggest current item
+        .sort(() => 0.5 - Math.random()) // Shuffle
         .slice(0, 4); // Pick top 4
 
     const suggestGrid = document.getElementById('suggestion-grid');
     suggestGrid.innerHTML = suggestions.map(p => `
         <div class="gallery-card" onclick="openProduct('${p.name}', '${p.price}', '${p.img}')" style="cursor:pointer;">
-            <img src="${p.img}" style="width:100%; height:120px; object-fit:contain; background:#f9f9f9;">
-            <div style="text-align:center; padding:5px;">
-                <span style="font-size:9px; display:block; font-weight:bold;">${p.name}</span>
-            </div>
+            <img src="${p.img}" style="width:100%; height:130px; object-fit:contain; background:#f9f9f9;">
+            <span style="font-size:9px; font-weight:bold; display:block; margin-top:5px;">${p.name}</span>
         </div>
     `).join('');
 
     modal.style.display = "block";
-    document.body.style.overflow = "hidden";
-    saveToRecent(name, img);
+    document.body.style.overflow = "hidden"; // Lock background scroll
+    saveToHistory(name, img);
 }
 
-// 2. RECENTLY VIEWED (Picking 2 Randomly from History)
-function saveToRecent(name, img) {
-    let items = JSON.parse(localStorage.getItem('onyx_recent_v8')) || [];
-    if (!items.find(i => i.name === name)) {
-        items.unshift({ name, img });
-        localStorage.setItem('onyx_recent_v8', JSON.stringify(items));
-        renderRecent();
-    }
-}
-
-function renderRecent() {
-    let items = JSON.parse(localStorage.getItem('onyx_recent_v8')) || [];
-    const section = document.getElementById('recent-section');
-    const grid = document.getElementById('recent-grid');
-
-    if (items.length < 2) return;
-
-    // Pick 2 random items from your history to keep it fresh
-    const randomHistory = items.sort(() => 0.5 - Math.random()).slice(0, 2);
-
-    if (section) section.style.display = "block";
-    if (grid) {
-        grid.innerHTML = randomHistory.map(item => `
-            <div class="gallery-card" onclick="openProduct('${item.name}', 'View Piece', '${item.img}')">
-                <img src="${item.img}" style="height: 140px; width: 100%; object-fit: contain; background: #fff;">
-                <div class="card-info"><span class="item-name">${item.name}</span></div>
-            </div>
-        `).join('');
-    }
-}
-
-// Standard Nav & Modal Close functions stay the same...
 function closeModal() {
     document.getElementById('productModal').style.display = "none";
     document.body.style.overflow = "auto";
 }
 
-function toggleNav() {
-    const sideNav = document.getElementById("mySidenav");
-    const h = document.getElementById("main-header").offsetHeight;
-    sideNav.style.top = h + "px";
-    sideNav.style.width = (sideNav.style.width === "280px") ? "0" : "280px";
+// 4. RECENTLY VIEWED (Random 2 from User History)
+function saveToHistory(name, img) {
+    let history = JSON.parse(localStorage.getItem('onyx_user_history')) || [];
+    // Only add if it's not already in history
+    if (!history.find(item => item.name === name)) {
+        history.unshift({ name, img });
+        localStorage.setItem('onyx_user_history', JSON.stringify(history));
+    }
+    renderRecent();
 }
+
+function renderRecent() {
+    const history = JSON.parse(localStorage.getItem('onyx_user_history')) || [];
+    const section = document.getElementById('recent-section');
+    const grid = document.getElementById('recent-grid');
+
+    if (history.length < 2) return; // Only show if user has seen at least 2 things
+
+    // Pick 2 random items from history to keep the "Look" fresh
+    const randomRecent = history.sort(() => 0.5 - Math.random()).slice(0, 2);
+
+    section.style.display = "block";
+    grid.innerHTML = randomRecent.map(item => `
+        <div class="gallery-card" onclick="openProduct('${item.name}', 'View Piece', '${item.img}')">
+            <img src="${item.img}" style="height:180px; width:100%; object-fit:contain; background:#fff;">
+            <span class="item-name">${item.name}</span>
+        </div>
+    `).join('');
+}
+
+// 5. GLOBAL INITIALIZATION
+window.onclick = function(event) {
+    const modal = document.getElementById('productModal');
+    const overlay = document.getElementById('overlay');
+    if (event.target == modal) closeModal();
+    if (event.target == overlay) closeNav();
+};
+
+document.addEventListener('DOMContentLoaded', renderRecent);
