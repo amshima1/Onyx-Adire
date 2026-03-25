@@ -3,93 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Visionaries | Onyx—Adire</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Trustees | Onyx—Adire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: #8B1D1D;
+            --deep-red-bg: #961926;
+            --bg-cream: #FFFBF7;
+            --whatsapp-orange: #E65137; 
+            --text-dark: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-cream);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--brand-red);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* --- STICKY HEADER SYSTEM --- */
+        .header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 6000;
+            background: var(--bg-cream);
+        }
+
+        .announcement-bar {
+            background-color: var(--brand-red);
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+        }
+
+        .announcement-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(139, 29, 29, 0.1);
+        }
+
+        .menu-icon { width: 30px; cursor: pointer; }
+        .menu-icon div { height: 2px; width: 25px; background-color: var(--brand-red); margin: 6px 0; }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--brand-red);
+        }
+
+        /* --- SIDE NAVIGATION --- */
+        #mySidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 5500;
+            top: 0;
+            left: 0;
+            background-color: var(--bg-cream);
+            overflow-x: hidden;
+            transition: 0.4s ease-in-out;
+            padding-top: 120px;
+            text-align: left;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+        }
+
+        #mySidenav a {
+            padding: 15px 32px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--brand-red);
+            display: block;
+            font-style: italic;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 5000;
+        }
+
+        /* --- MAIN CONTENT --- */
+        main { padding-top: 130px; }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+
+        /* --- TRUSTEES GRID --- */
+        .trustee-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 20px;
+            padding: 0 20px 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .trustee-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1.3;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .trustee-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-style: italic;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            color: var(--brand-red);
+        }
+
+        .trustee-role {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        /* --- FOOTER CTA --- */
+        .footer-cta {
+            background-color: var(--brand-red);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        .subscribe-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .subscribe-box input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            text-align: center;
+        }
+
+        .subscribe-box button {
+            background: white;
+            color: var(--brand-red);
+            border: none;
+            padding: 12px 50px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .social-handle {
+            margin-top: 40px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        /* --- WHATSAPP --- */
+        .whatsapp-link {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            background-color: var(--whatsapp-orange);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 7000;
+        }
+    </style>
 </head>
 <body>
 
-    <marquee class="marquee-bar" scrollamount="4">
-        ✦ WEAVING THE SOUL OF HERITAGE INTO THE FABRIC OF TOMORROW ✦ A GLOBAL SYMPHONY OF STYLE ✦
-    </marquee>
-
-    <nav>
-        <div class="nav-container">
-            <div class="hamburger" id="hamburger-menu">
-                <span></span><span></span><span></span>
-            </div>
-
-            <a href="index.html" class="logo">Onyx—Adire</a>
-
-            <div class="nav-links" id="nav-links">
-                <a href="index.html">THE HOME</a>
-                <a href="products.html">THE COLLECTION</a>
-                <a href="trustees.html" class="active-link">THE VISIONARIES</a>
-                <a href="events.html">THE RUNWAY</a>
-                <a href="bookings.html">THE ATELIER</a>
+    <div class="header-container">
+        <div class="announcement-bar">
+            <div class="announcement-content">
+                ✦ PRESERVING HERITAGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ THE ONYX—ADIRE BOARD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✦ BUILT ON TRADITION
             </div>
         </div>
-    </nav>
+        <nav>
+            <div class="menu-icon" onclick="toggleNav(true)">
+                <div></div><div></div><div></div>
+            </div>
+            <a href="index.html" class="logo">Onyx—Adire</a>
+            <div style="width: 30px;"></div> 
+        </nav>
+    </div>
+
+    <div id="mySidenav">
+        <a href="javascript:void(0)" onclick="toggleNav(false)" style="font-size: 35px; text-align: right; padding-right: 30px;">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Collections</a>
+        <a href="trustees.html">Board of Trustees</a>
+        <a href="events.html">Events</a>
+        <a href="bookings.html">Bookings</a>
+    </div>
+    <div id="overlay" onclick="toggleNav(false)"></div>
 
     <main>
-        <section class="collection-header">
-            <h1 class="edit-title centralized">The Visionaries</h1>
-            <p class="collection-subtext">The architects of heritage and modern elegance.</p>
-        </section>
+        <h1 class="page-title">Board of Trustees</h1>
+        <p class="page-subtitle">The Visionaries Behind the Heritage</p>
 
-        <section class="product-showcase">
-            <div class="product-grid visionaries-grid">
-                
-                <div class="product-card">
-                    <div class="full-image-wrapper">
-                        <img src="victor-amshima.jpg" alt="Victor Amshima">
-                    </div>
-                    <div class="product-meta">
-                        <h4>Victor Amshima</h4>
-                        <p>CO-FOUNDER & CREATIVE DIRECTOR</p>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="full-image-wrapper">
-                        <img src="paul-gbawuan.jpg" alt="Paul Gbawuan">
-                    </div>
-                    <div class="product-meta">
-                        <h4>Paul Gbawuan</h4>
-                        <p>CO-FOUNDER & EXECUTIVE DIRECTOR</p>
-                    </div>
-                </div>
-
+        <section class="trustee-grid">
+            <div class="trustee-card">
+                <img src="victor-amshima.jpg" alt="Victor Amshima">
+                <p class="trustee-name">Victor Amshima</p>
+                <p class="trustee-role">Chairman</p>
             </div>
-        </section>
-
-        <section class="brand-story">
-            <div class="story-box">
-                <p>
-                    "Our vision transcends fashion. We are dedicated to preserving the world's most prestigious 
-                    textile traditions while emboldening the modern silhouette with the power of Adire."
-                </p>
-                <a href="bookings.html" class="btn-outline">CONNECT WITH THE ATELIER</a>
-            </div>
-        </section>
-    </main>
-
-    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-        <span>Chat Via Whatsapp</span>
-    </a>
-
-    <footer>
-        <h2 class="footer-logo">ONYX—ADIRE</h2>
-        <p>&copy; 2026 ONYX-ADIRE INTERNATIONAL</p>
-    </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
-</body>
-</html>
+            <div class="trustee-card">
+                <img src="
