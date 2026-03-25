@@ -1,24 +1,24 @@
-/* 1. Reset & Typography */
+/* 1. Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
 :root {
     --brand-red: #800000;
     --announcement-height: 40px;
     --header-height: 70px;
-    --total-offset: 110px; /* Announcement + Header */
+    --total-offset: 110px; /* Sum of both top bars */
 }
 
 body {
+    font-family: 'Inter', sans-serif;
     background-color: #fff;
-    line-height: 1.6;
+    overflow-x: hidden; /* Prevents side-scrolling when menu is hidden */
 }
 
-/* 2. Fixed Top Navigation (Announcement + Header) */
+/* 2. Fixed Top Sections (Announcement + Header) */
 .announcement-bar {
     position: fixed;
     top: 0;
@@ -30,9 +30,8 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    z-index: 1001; /* Highest layer for the top bar */
+    letter-spacing: 1px;
+    z-index: 2000; /* Stays on top of everything */
 }
 
 header {
@@ -45,103 +44,93 @@ header {
     align-items: center;
     padding: 0 20px;
     border-bottom: 1px solid #eee;
-    z-index: 1001; /* Keeps logo and hamburger above the sliding menu */
+    z-index: 2000; /* Same as announcement bar */
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 24px;
-    color: var(--brand-red);
-    margin-left: 15px;
     flex-grow: 1;
     text-align: center;
+    font-family: serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--brand-red);
+    font-weight: bold;
 }
 
-/* 3. Hamburger Icon Styling */
+/* 3. Hamburger Icon */
 .hamburger-icon {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    z-index: 2100;
 }
 
 .line {
     width: 25px;
     height: 2px;
     background-color: var(--brand-red);
-    transition: 0.3s;
+    margin: 5px 0;
 }
 
-/* 4. Side Drawer Menu (The GitHub Style) */
+/* 4. Side Drawer (The GitHub Style) */
 .side-menu {
     position: fixed;
-    top: var(--total-offset); /* Starts exactly under the header */
-    left: -100%; /* Hidden off-screen */
+    top: var(--total-offset); /* Starts exactly below the header */
+    left: -300px; /* Hidden off-screen to the left */
     width: 280px;
     height: calc(100vh - var(--total-offset));
     background: white;
-    z-index: 999; /* Below header, above main content */
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-top: 20px;
-    border-right: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
+    z-index: 1500; /* Above main content, below header */
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid #ddd;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.05);
+    display: block !important; /* Forces visibility when active */
 }
 
-/* When the menu is active */
+/* This moves the menu into the screen */
 .side-menu.active {
-    transform: translateX(100%);
-    left: 0;
+    transform: translateX(300px); 
 }
 
 /* Menu Links */
 .menu-links {
     list-style: none;
+    padding: 20px 0;
 }
 
 .menu-links li a {
     display: block;
-    padding: 18px 30px;
-    font-family: 'Playfair Display', serif;
+    padding: 15px 25px;
+    font-family: serif;
     font-style: italic;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--brand-red);
     text-decoration: none;
-    transition: 0.2s;
+    border-bottom: 1px solid #f9f9f9;
 }
 
-.menu-links li a:hover {
-    background-color: #f9f9f9;
-    padding-left: 35px;
-}
-
-/* 5. Close Button (X) inside the menu */
+/* 5. The Close Icon (X) */
 .close-area {
-    padding-right: 20px;
+    padding: 10px 20px;
     text-align: right;
 }
 
 .close-icon {
-    font-size: 35px;
+    font-size: 30px;
     color: #ccc;
     cursor: pointer;
-    font-weight: 200;
 }
 
-/* 6. Dimmable Background Overlay */
+/* 6. Background Overlay (Dims the site) */
 .menu-overlay {
     position: fixed;
     top: var(--total-offset);
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1400;
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
-    z-index: 998;
 }
 
 .menu-overlay.active {
@@ -149,31 +138,24 @@ header {
     visibility: visible;
 }
 
-/* 7. Floating WhatsApp Button */
+/* 7. WhatsApp Button (Highest Priority) */
 .whatsapp-float {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     right: 20px;
-    background-color: #f05a41; /* Your custom orange-red */
+    background-color: #f05a41;
     color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
+    padding: 12px 20px;
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 14px;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    z-index: 1100; /* Stays above the menu and everything else */
-    transition: 0.3s transform;
+    font-size: 14px;
+    z-index: 3000; /* Stays above the menu drawer */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.05);
-}
-
-/* 8. Main Content Container */
+/* 8. Main Content */
 main {
-    padding-top: var(--total-offset); /* Prevents content from hiding behind fixed header */
+    padding-top: var(--total-offset);
+    min-height: 100vh;
 }
