@@ -3,161 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details | Onyx—Adire</title>
+    <title>Onyx—Adire | Collection Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #fffcf9; color: #333; }
-        
-        /* Navigation & Left-Aligned Hamburger */
-        nav { display: flex; align-items: center; justify-content: center; padding: 25px; border-bottom: 1px solid #f4f4f4; position: relative; background: #fffcf9; }
-        .menu-icon { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: #800020; }
-        .logo { text-decoration: none; color: #800020; font-family: 'Playfair Display', serif; font-size: 26px; font-style: italic; }
-
-        /* Menu Overlay Styles */
-        .menu-overlay { 
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #fffcf9; z-index: 1000000; flex-direction: column; padding: 80px 40px; 
+        .details-hero {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
-        .menu-overlay a { margin: 15px 0; font-size: 14px; text-decoration: none; color: #800020; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
 
-        /* Product Content */
-        .detail-container { display: flex; flex-direction: column; padding: 20px; max-width: 1200px; margin: 0 auto; gap: 30px; }
-        #main-img { width: 100%; height: auto; object-fit: cover; border-radius: 4px; }
-        .product-info { flex: 1; }
-        .product-name { font-family: 'Playfair Display', serif; font-size: 2rem; color: #800020; margin-bottom: 10px; font-style: italic; }
-        .price { font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; color: #111; }
-        
-        .cta-button { width: 100%; padding: 18px; background: #000; color: #fff; border: none; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; font-size: 13px; }
+        .featured-product-img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
 
-        /* Grid for Sections */
-        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-style: italic; margin: 50px 0 25px; border-top: 1px solid #eee; padding-top: 40px; color: #800020; }
-        .item-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px 40px; }
-        .item-card { text-decoration: none; color: inherit; text-align: center; font-size: 12px; }
-        .item-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 10px; }
+        .product-meta {
+            text-align: left;
+            padding: 20px;
+            background: #fff;
+            border-radius: 4px;
+        }
 
-        /* --- STICKY FLOATING WHATSAPP BUTTON --- */
-        .whatsapp-sticky { 
-            position: fixed !important; 
-            bottom: 25px !important; 
-            right: 20px !important; 
-            background-color: #e85d43 !important; /* Brand Orange */
-            color: white !important; 
-            text-decoration: none !important; 
-            border-radius: 50px !important; 
-            padding: 12px 22px !important; 
-            display: flex !important; 
-            align-items: center !important; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; 
-            z-index: 999999 !important; 
+        .full-catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .catalog-item {
+            background: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .catalog-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .item-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-red);
+            font-weight: bold;
+        }
+
+        .item-price-tag {
+            display: block;
+            font-family: 'Playfair Display', serif;
             font-size: 14px;
-            font-weight: 500;
+            margin-top: 5px;
         }
 
         @media (min-width: 768px) {
-            .detail-container { flex-direction: row; padding: 60px 20px; align-items: flex-start; }
-            .item-grid { grid-template-columns: repeat(4, 1fr); }
+            .details-hero { flex-direction: row; }
+            .featured-product-img { width: 60%; }
+            .product-meta { width: 40%; }
+            .full-catalog-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        <a href="index.html" class="logo">Onyx—Adire</a>
-        <div id="mobileMenu" class="menu-overlay">
-            <span onclick="toggleMenu()" style="position: absolute; left: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #800020;">&times;</span>
-            <a href="index.html">The Home</a>
-            <a href="products.html">The Collection</a>
-            <a href="visionaries.html">The Visionaries</a>
-            <a href="runway.html">The Runway</a>
-            <a href="bookings.html">The Atelier</a>
+    <header>
+        <div class="announcement-bar">
+            <span class="announcement-text">✦ HANDCRAFTED ADIRE ✦ WORLDWIDE SHIPPING ✦ CUSTOM TAILORING ✦</span>
         </div>
-    </nav>
+        <nav>
+            <div class="menu-icon" onclick="toggleNav()"><div></div><div></div><div></div></div>
+            <a href="index.html" class="logo">Onyx—Adire</a>
+            <div style="width: 30px;"></div>
+        </nav>
+    </header>
 
-    <div class="detail-container">
-        <div style="flex: 1.2;"><img src="" id="main-img"></div>
-        <div class="product-info">
-            <h1 id="p-name" class="product-name">Loading...</h1>
-            <p id="p-price" class="price">₦0.00</p>
-            <button class="cta-button">ADD TO ATELIER BAG</button>
-            <p style="margin-top:30px; font-size: 0.95rem; line-height: 1.8; color: #555;">
-                Hand-crafted heritage. This piece embodies the soul of Adire artistry, designed for the modern visionary.
-            </p>
+    <div id="mySidenav">
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="trustees.html">Trustees</a>
+        <a href="events.html">Events</a>
+        <a href="bookings.html">Bookings</a>
+    </div>
+    <div id="overlay"></div>
+
+    <main>
+        <section class="details-hero">
+            <img src="14682.jpg" alt="Todun Adri Iro and Buba" class="featured-product-img">
+            <div class="product-meta">
+                <h1 style="font-family: 'Playfair Display', serif; font-style: italic;">Todun Adri Iro & Buba</h1>
+                <p>Our signature handcrafted set, blending heritage Adire techniques with modern silhouettes.</p>
+                <p><strong>Material:</strong> Premium Hand-dyed Silk</p>
+                <a href="https://wa.me/234XXXXXXXXXX" class="subscribe-btn" style="display:block; text-align:center; text-decoration:none;">Order Now</a>
+            </div>
+        </section>
+
+        <h2 style="font-family: 'Playfair Display', serif; margin-top: 60px;">Explore All Pieces</h2>
+        <hr style="width: 50px; border: 1px solid var(--brand-red);">
+
+        <div class="full-catalog-grid">
+            <div class="catalog-item"><img src="14627.jpg"><span class="item-label">Adesewa Pants Set</span><span class="item-price-tag">₦55,000</span></div>
+            <div class="catalog-item"><img src="14629.jpg"><span class="item-label">Adesewa Set</span><span class="item-price-tag">₦48,000</span></div>
+            <div class="catalog-item"><img src="14631.jpg"><span class="item-label">Adire Silk Tunic</span><span class="item-price-tag">₦35,000</span></div>
+            <div class="catalog-item"><img src="14633.jpg"><span class="item-label">Asymmetric Adire Tunic</span><span class="item-price-tag">₦42,000</span></div>
+            <div class="catalog-item"><img src="bespoke-traditional-agbada.jpg"><span class="item-label">Bespoke Traditional Agbada</span><span class="item-price-tag">₦120,000</span></div>
+            <div class="catalog-item"><img src="bespoke-velvet-caftan.jpg"><span class="item-label">Bespoke Velvet Caftan</span><span class="item-price-tag">₦85,000</span></div>
+            <div class="catalog-item"><img src="boubou-and-abaya.jpg"><span class="item-label">Boubou & Abaya</span><span class="item-price-tag">₦65,000</span></div>
+            <div class="catalog-item"><img src="ebony-silk-boubou.jpg"><span class="item-label">Ebony Silk Boubou</span><span class="item-price-tag">₦75,000</span></div>
+            <div class="catalog-item"><img src="embroidered-aso-oke-set.jpg"><span class="item-label">Embroidered Aso Oke Set</span><span class="item-price-tag">₦150,000</span></div>
+            <div class="catalog-item"><img src="floral-adire-kaftan.jpg"><span class="item-label">Floral Adire Kaftan</span><span class="item-price-tag">₦38,000</span></div>
+            <div class="catalog-item"><img src="floral-chiffon-maxi.jpg"><span class="item-label">Floral Chiffon Maxi</span><span class="item-price-tag">₦45,000</span></div>
+            <div class="catalog-item"><img src="galaxy-print-jumpsuit.jpg"><span class="item-label">Galaxy Print Jumpsuit</span><span class="item-price-tag">₦52,000</span></div>
+            <div class="catalog-item"><img src="14702.jpg"><span class="item-label">Geometric Print Boubou</span><span class="item-price-tag">₦58,000</span></div>
+            <div class="catalog-item"><img src="gingham-check-pants.jpg"><span class="item-label">Gingham Check Pants</span><span class="item-price-tag">₦20,000</span></div>
+            <div class="catalog-item"><img src="heritage-agbada-gold.jpg"><span class="item-label">Heritage Agbada Gold</span><span class="item-price-tag">₦135,000</span></div>
+            <div class="catalog-item"><img src="indigo-oversized-kimono.jpg"><span class="item-label">Indigo Kimono</span><span class="item-price-tag">₦35,000</span></div>
+            <div class="catalog-item"><img src="july-collections-2026.jpg"><span class="item-label">July Collection 2026</span><span class="item-price-tag">Custom</span></div>
+            <div class="catalog-item"><img src="lace-overlay-boubou.jpg"><span class="item-label">Lace Overlay Boubou</span><span class="item-price-tag">₦70,000</span></div>
+            <div class="catalog-item"><img src="luxury-lace-iro-and-buba.jpg"><span class="item-label">Luxury Lace Set</span><span class="item-price-tag">₦125,000</span></div>
+            <div class="catalog-item"><img src="maroon-palazzo-trousers.jpg"><span class="item-label">Maroon Palazzo</span><span class="item-price-tag">₦25,000</span></div>
+            <div class="catalog-item"><img src="midnight-lace-tunic.jpg"><span class="item-label">Midnight Lace Tunic</span><span class="item-price-tag">₦45,000</span></div>
+            <div class="catalog-item"><img src="minimalist-linen-kaftan.jpg"><span class="item-label">Minimalist Linen Kaftan</span><span class="item-price-tag">₦32,000</span></div>
+            <div class="catalog-item"><img src="modern-adire-shirtdress.jpg"><span class="item-label">Adire Shirtdress</span><span class="item-price-tag">₦28,000</span></div>
+            <div class="catalog-item"><img src="modern-agbada-fusion.jpg"><span class="item-label">Modern Agbada Fusion</span><span class="item-price-tag">₦110,000</span></div>
+            <div class="catalog-item"><img src="monochrome-pattern-set.jpg"><span class="item-label">Monochrome Set</span><span class="item-price-tag">₦48,000</span></div>
+            <div class="catalog-item"><img src="navy-lace-shirt.jpg"><span class="item-label">Navy Lace Shirt</span><span class="item-price-tag">₦30,000</span></div>
+            <div class="catalog-item"><img src="patchwork-adire-tunic.jpg"><span class="item-label">Patchwork Tunic</span><span class="item-price-tag">₦38,000</span></div>
+            <div class="catalog-item"><img src="premium-linen-two-piece.jpg"><span class="item-label">Premium Linen Set</span><span class="item-price-tag">₦55,000</span></div>
+            <div class="catalog-item"><img src="royal-thread-evening-gown.jpg"><span class="item-label">Evening Gown</span><span class="item-price-tag">₦180,000</span></div>
+            <div class="catalog-item"><img src="sadiya-adire-long-dress.jpg"><span class="item-label">Sadiya Long Dress</span><span class="item-price-tag">₦55,000</span></div>
+            <div class="catalog-item"><img src="safiya-adire-pants-set.jpg"><span class="item-label">Safiya Pants Set</span><span class="item-price-tag">₦50,000</span></div>
+            <div class="catalog-item"><img src="silk-wrap-dress.jpg"><span class="item-label">Silk Wrap Dress</span><span class="item-price-tag">₦48,000</span></div>
+            <div class="catalog-item"><img src="stripe-mix-palazzo.jpg"><span class="item-label">Stripe Mix Palazzo</span><span class="item-price-tag">₦25,000</span></div>
+            <div class="catalog-item"><img src="striped-adire-set.jpg"><span class="item-label">Striped Adire Set</span><span class="item-price-tag">₦45,000</span></div>
+            <div class="catalog-item"><img src="striped-shorts-black-lace.jpg"><span class="item-label">Striped Shorts & Lace</span><span class="item-price-tag">₦30,000</span></div>
+            <div class="catalog-item"><img src="tailored-bespoke-suit.jpg"><span class="item-label">Tailored Bespoke Suit</span><span class="item-price-tag">₦140,000</span></div>
+            <div class="catalog-item"><img src="teniola-adire-dress.jpg"><span class="item-label">Teniola Adire Dress</span><span class="item-price-tag">₦42,000</span></div>
+            <div class="catalog-item"><img src="tope-adire-dress.jpg"><span class="item-label">Tope Adire Dress</span><span class="item-price-tag">₦38,000</span></div>
+            <div class="catalog-item"><img src="torera-adire-and-aso-oke.jpg"><span class="item-label">Torera Adire & Aso Oke</span><span class="item-price-tag">₦95,000</span></div>
+            <div class="catalog-item"><img src="traditional-aso-oke-wrapper.jpg"><span class="item-label">Traditional Aso Oke Wrapper</span><span class="item-price-tag">₦85,000</span></div>
+            <div class="catalog-item"><img src="uwata-dashiki-set.jpg"><span class="item-label">Uwata Dashiki Set</span><span class="item-price-tag">₦40,000</span></div>
+            <div class="catalog-item"><img src="velvet-accent-buba.jpg"><span class="item-label">Velvet Accent Buba</span><span class="item-price-tag">₦50,000</span></div>
+            <div class="catalog-item"><img src="vibrant-ankara-jumpsuit.jpg"><span class="item-label">Ankara Jumpsuit</span><span class="item-price-tag">₦45,000</span></div>
+            <div class="catalog-item"><img src="vibrant-batik-shirtdress.jpg"><span class="item-label">Batik Shirtdress</span><span class="item-price-tag">₦30,000</span></div>
+            <div class="catalog-item"><img src="yarinya-shorts-set.jpg"><span class="item-label">Yarinya Shorts Set</span><span class="item-price-tag">₦28,000</span></div>
         </div>
-    </div>
 
-    <h3 class="section-title">You May Also Like</h3>
-    <div id="recommend-grid" class="item-grid"></div>
+        <section class="footer-cta">
+            <span class="social-handle">@Onyx_Adire</span>
+        </section>
+    </main>
 
-    <div id="recent-view-container" style="display: none;">
-        <h3 class="section-title">Recently Viewed</h3>
-        <div id="recent-grid" class="item-grid"></div>
-    </div>
-
-    <a href="https://wa.me/2347077978711" class="whatsapp-sticky" target="_blank">
-        <span style="margin-right:10px; font-size: 18px;">💬</span> Chat Via Whatsapp
-    </a>
-
-    <script>
-        // Data and Logic
-        const allProducts = [
-            { name: "Galaxy Print Jumpsuit", price: "₦58,500.00", img: "galaxy-print-jumpsuit.jpg" },
-            { name: "Bespoke Traditional Agbada", price: "₦95,000.00", img: "bespoke-traditional-agbada.jpg" },
-            { name: "Adire Silk Tunic", price: "₦45,000.00", img: "adire-silk-tunic.jpg" },
-            { name: "Floral Adire Kaftan", price: "₦52,000.00", img: "floral-adire-kaftan.jpg" }
-        ];
-
-        const params = new URLSearchParams(window.location.search);
-        const current = {
-            name: params.get('name'),
-            price: params.get('price'),
-            img: params.get('img')
-        };
-
-        // Initialize Page
-        if (current.name) {
-            document.getElementById('p-name').innerText = current.name;
-            document.getElementById('p-price').innerText = current.price;
-            document.getElementById('main-img').src = current.img;
-            updateRecent(current);
-        }
-
-        function updateRecent(item) {
-            let recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
-            recent = recent.filter(i => i.name !== item.name);
-            recent.unshift(item);
-            localStorage.setItem('onyx_recent', JSON.stringify(recent.slice(0, 5)));
-        }
-
-        function renderLists() {
-            const recGrid = document.getElementById('recommend-grid');
-            allProducts.filter(p => p.name !== current.name).forEach(item => {
-                recGrid.innerHTML += createCard(item);
-            });
-
-            const recent = JSON.parse(localStorage.getItem('onyx_recent')) || [];
-            const recentGrid = document.getElementById('recent-grid');
-            const others = recent.filter(r => r.name !== current.name);
-            
-            if (others.length > 0) {
-                document.getElementById('recent-view-container').style.display = 'block';
-                others.forEach(item => { recentGrid.innerHTML += createCard(item); });
-            }
-        }
-
-        function createCard(item) {
-            return `
-                <a href="product-detail.html?name=${encodeURIComponent(item.name)}&price=${encodeURIComponent(item.price)}&img=${item.img}" class="item-card">
-                    <img src="${item.img}">
-                    <p style="font-style:italic; font-family:'Playfair Display';">${item.name}</p>
-                </a>`;
-        }
-
-        function toggleMenu() {
-            const m = document.getElementById("mobileMenu");
-            m.style.display = (m.style.display === "flex") ? "none" : "flex";
-        }
-
-        window.onload = renderLists;
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
