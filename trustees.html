@@ -82,13 +82,13 @@
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 5500;
+            z-index: 7000; /* Higher than header to overlap when open */
             top: 0;
             left: 0;
             background-color: var(--bg-cream);
             overflow-x: hidden;
             transition: 0.4s ease-in-out;
-            padding-top: 120px;
+            padding-top: 100px;
             text-align: left;
             box-shadow: 2px 0 15px rgba(0,0,0,0.1);
         }
@@ -109,12 +109,12 @@
             width: 100%;
             height: 100%;
             top: 0; left: 0;
-            background: rgba(0,0,0,0.4);
-            z-index: 5000;
+            background: rgba(0,0,0,0.5);
+            z-index: 6500;
         }
 
         /* --- MAIN CONTENT --- */
-        main { padding-top: 130px; }
+        main { padding-top: 140px; min-height: 60vh; }
 
         .page-title {
             font-family: 'Playfair Display', serif;
@@ -124,7 +124,7 @@
         }
 
         .page-subtitle {
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 50px;
@@ -135,17 +135,18 @@
         .trustee-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px 20px;
-            padding: 0 20px 80px 20px;
+            gap: 40px 15px;
+            padding: 0 15px 80px 15px;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .trustee-card img {
             width: 100%;
-            aspect-ratio: 1 / 1.3;
+            aspect-ratio: 1 / 1.2;
             object-fit: cover;
             border-radius: 2px;
+            display: block;
         }
 
         .trustee-name {
@@ -164,16 +165,18 @@
             color: var(--text-dark);
         }
 
-        /* --- FOOTER CTA --- */
+        /* --- RED FOOTER SECTION (Newsletter & Socials) --- */
         .footer-cta {
             background-color: var(--brand-red);
             color: white;
-            padding: 60px 20px;
+            padding: 60px 20px 100px 20px;
+            margin-top: 40px;
         }
 
         .footer-cta h2 {
             font-family: 'Playfair Display', serif;
             font-style: italic;
+            font-weight: 400;
             font-size: 26px;
             margin-bottom: 25px;
         }
@@ -183,7 +186,7 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            max-width: 400px;
+            max-width: 350px;
             margin: 0 auto;
         }
 
@@ -194,42 +197,53 @@
             background: transparent;
             color: white;
             text-align: center;
+            box-sizing: border-box;
         }
+
+        .subscribe-box input::placeholder { color: rgba(255,255,255,0.7); }
 
         .subscribe-box button {
             background: white;
             color: var(--brand-red);
             border: none;
-            padding: 12px 50px;
+            padding: 12px;
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
             width: 100%;
         }
 
-        .social-handle {
+        .social-container {
             margin-top: 40px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 20px;
         }
 
-        /* --- WHATSAPP --- */
+        .social-handle {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* --- FLOATING WHATSAPP --- */
         .whatsapp-link {
             position: fixed;
             bottom: 25px;
             right: 20px;
             background-color: var(--whatsapp-orange);
             color: white;
-            padding: 12px 25px;
+            padding: 12px 22px;
             border-radius: 50px;
             display: flex;
             align-items: center;
             font-size: 14px;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             text-decoration: none;
-            z-index: 7000;
+            z-index: 8000;
         }
     </style>
 </head>
@@ -251,7 +265,7 @@
     </div>
 
     <div id="mySidenav">
-        <a href="javascript:void(0)" onclick="toggleNav(false)" style="font-size: 35px; text-align: right; padding-right: 30px;">&times;</a>
+        <a href="javascript:void(0)" onclick="toggleNav(false)" style="font-size: 40px; text-align: right; padding-right: 30px;">&times;</a>
         <a href="index.html">Home</a>
         <a href="index.html#shop">Collections</a>
         <a href="trustees.html">Board of Trustees</a>
@@ -271,4 +285,44 @@
                 <p class="trustee-role">Chairman</p>
             </div>
             <div class="trustee-card">
-                <img src="
+                <img src="paul-gbawuan.jpg" alt="Paul Gbawuan">
+                <p class="trustee-name">Paul Gbawuan</p>
+                <p class="trustee-role">Trustee</p>
+            </div>
+        </section>
+
+        <section class="footer-cta">
+            <h2>Subscribe to our newsletter</h2>
+            <form class="subscribe-box">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Join Now</button>
+            </form>
+
+            <div class="social-container">
+                <a href="#" class="social-handle">@OnyxAdire_</a>
+                <p style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Instagram | TikTok</p>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-link" target="_blank">
+        💬 Chat Via Whatsapp
+    </a>
+
+    <script>
+        // Logic to fix the hamburger menu functionality
+        function toggleNav(isOpen) {
+            const sidenav = document.getElementById("mySidenav");
+            const overlay = document.getElementById("overlay");
+            
+            if (isOpen) {
+                sidenav.style.width = "280px";
+                overlay.style.display = "block";
+            } else {
+                sidenav.style.width = "0";
+                overlay.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
