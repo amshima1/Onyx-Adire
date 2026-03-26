@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trustees | Onyx-Adire Haute Couture</title>
+    <title>Trustees | Onyx-Adire Luxury Heritage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -14,9 +14,9 @@
             --header-height: 105px;
         }
 
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--onyx-black); }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--onyx-black); overflow-x: hidden; }
 
-        /* UNBREAKABLE HEADER (Same as Home/Collection) */
+        /* HEADER SYSTEM */
         .master-header {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
             z-index: 9999; background: white; display: flex; flex-direction: column;
@@ -39,37 +39,67 @@
         .side-menu {
             height: calc(100vh - var(--header-height)); width: 0; position: fixed;
             z-index: 9000; top: var(--header-height); left: 0; background-color: white;
-            overflow-x: hidden; transition: 0.4s ease;
+            overflow-x: hidden; transition: 0.4s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.1);
         }
         .menu-links { padding-top: 40px; }
-        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; }
+        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; border-bottom: 1px solid #f9f9f9; }
 
         /* TRUSTEE CONTENT */
         .trustee-hero {
             margin-top: var(--header-height);
-            padding: 60px 20px;
+            padding: 80px 20px 40px;
             text-align: center;
             background-color: #fcfcfc;
         }
-        .trustee-hero h1 { font-family: 'Bodoni Moda', serif; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; }
+        .trustee-hero h1 { font-family: 'Bodoni Moda', serif; font-size: 36px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 10px; }
         
         .trustee-container { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
-        .trustee-card { margin-bottom: 60px; text-align: center; }
-        .trustee-card img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid var(--brand-red); padding: 5px; }
-        .trustee-name { font-family: 'Bodoni Moda', serif; font-size: 22px; font-weight: 700; margin-bottom: 5px; text-transform: uppercase; }
-        .trustee-title { color: var(--brand-red); font-weight: 600; font-size: 14px; margin-bottom: 15px; letter-spacing: 1px; }
-        .trustee-bio { line-height: 1.8; color: #555; font-size: 15px; text-align: justify; }
+        .trustee-card { margin-bottom: 80px; text-align: center; }
+        .trustee-card img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 2px solid var(--brand-red); padding: 8px; }
+        .trustee-name { font-family: 'Bodoni Moda', serif; font-size: 24px; font-weight: 700; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .trustee-title { color: var(--brand-red); font-weight: 600; font-size: 13px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; }
+        
+        /* Drop Cap Luxury Bio Styling */
+        .trustee-bio { line-height: 1.9; color: #444; font-size: 15px; text-align: justify; }
+        .trustee-bio::first-letter {
+            font-family: 'Bodoni Moda', serif; font-size: 45px; font-weight: 700;
+            float: left; margin-right: 10px; line-height: 1; color: var(--brand-red);
+        }
 
-        /* FOOTER */
-        footer { background-color: var(--brand-red); color: white; text-align: center; padding: 60px 20px; margin-top: 40px; }
+        /* 7. RED FOOTER BLOCK CSS */
+        footer {
+            background-color: var(--brand-red);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+        footer h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 28px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .footer-socials { margin-bottom: 35px; }
+        .footer-socials a {
+            color: white;
+            font-size: 28px;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .footer-socials a:hover { opacity: 0.7; }
 
-        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 8px; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: #25d366; color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
     <div class="master-header">
-        <div class="promo-bar"><div class="marquee-text">ONYX-ADIRE • PRESERVING HERITAGE • EMPOWERING ARTISANS • GLOBAL VISION</div></div>
+        <div class="promo-bar">
+            <div class="marquee-text">ONYX-ADIRE • PRESERVING HERITAGE • EMPOWERING ARTISANS • GLOBAL VISION</div>
+        </div>
         <header>
             <div class="hamburger" onclick="toggleNav()">☰</div>
             <a href="index.html" class="logo">Onyx-Adire</a>
@@ -78,50 +108,60 @@
 
     <div id="mySideMenu" class="side-menu">
         <div class="menu-links">
-            <div class="menu-links">
-    <a href="index.html" onclick="toggleNav()">Home</a>
-    <a href="collection.html" onclick="toggleNav()">Collection</a>
-    <a href="trustees.html" onclick="toggleNav()">Trustees</a>
-    <a href="events.html" onclick="toggleNav()">Events</a>
-    <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
-</div>
-
+            <a href="index.html" onclick="toggleNav()">Home</a>
+            <a href="collection.html" onclick="toggleNav()">Collection</a>
+            <a href="trustees.html" onclick="toggleNav()">Trustees</a>
+            <a href="events.html" onclick="toggleNav()">Events</a>
+            <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
         </div>
     </div>
 
     <section class="trustee-hero">
         <h1>Our Visionaries</h1>
-        <p style="letter-spacing: 2px; font-size: 12px; color: #888; text-transform: uppercase;">The Leadership of Onyx-Adire</p>
+        <p style="letter-spacing: 3px; font-size: 11px; color: #888; text-transform: uppercase;">Leading the Evolution of African Luxury</p>
     </section>
 
     <div class="trustee-container">
         <div class="trustee-card">
-            <img src="Trustee1.jpg" alt="Founder"> <div class="trustee-name">Chief Executive Officer</div>
+            <img src="Trustee1.jpg" alt="Founder"> 
+            <div class="trustee-name">Chief Executive Officer</div>
             <div class="trustee-title">Founder & Creative Director</div>
             <p class="trustee-bio">
-                At Onyx-Adire, our mission is to redefine African luxury by blending ancient Yoruba dyeing techniques with contemporary high-fashion silhouettes. Our leadership is dedicated to ethical craftsmanship and the global promotion of Nigerian heritage.
+                Onyx-Adire was born from a singular obsession: to prove that ancient Yoruba craftsmanship belongs on the world’s most prestigious runways. Our founder envisions a world where Adire is not just a fabric, but a global language of luxury. By marrying the soulful, hand-dyed artistry of our ancestors with sophisticated silhouettes, we are creating a new legacy.
             </p>
         </div>
 
         <div class="trustee-card">
-            <img src="Trustee2.jpg" alt="Director"> <div class="trustee-name">Executive Director</div>
+            <img src="Trustee2.jpg" alt="Director"> 
+            <div class="trustee-name">Executive Director</div>
             <div class="trustee-title">Head of Heritage & Operations</div>
             <p class="trustee-bio">
-                Ensuring that every piece of fabric maintains the soul of traditional Adire while meeting international standards of luxury. Our focus is on sustainability and supporting the local artisan communities.
+                Luxury is nothing without authenticity. My mission is to ensure that every yard of silk and cotton that leaves our atelier carries the fingerprint of a master artisan. We are committed to an ethical ecosystem supporting dyers in Abeokuta and Lagos while maintaining international standards. Our partnership with Miva Open University reflects our dedication to education and excellence.
             </p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Onyx-Adire Haute Couture</p>
+        <h2>Join the Onyx Circle</h2>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="font-size: 10px; letter-spacing: 2px; opacity: 0.8;">&copy; 2026 ONYX-ADIRE HAUTE COUTURE</p>
     </footer>
 
-    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-float"><i class="fab fa-whatsapp"></i> Contact Admin</a>
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i> Chat with Admin
+    </a>
 
     <script>
         function toggleNav() {
             var m = document.getElementById("mySideMenu");
-            m.style.width = (m.style.width === "280px") ? "0" : "280px";
+            if (m.style.width === "280px") {
+                m.style.width = "0";
+            } else {
+                m.style.width = "280px";
+            }
         }
     </script>
 </body>
