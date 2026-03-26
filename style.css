@@ -1,161 +1,198 @@
-/* 1. Reset & Base Styles */
+/* --- Onyx—Adire: Luxury Nigerian Fashion --- */
+:root {
+    --onyx-red: #a30000;
+    --whatsapp-orange: #FF8C00;
+    --text-dark: #1a1a1a;
+    --nav-white: #ffffff;
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Layout Engine (Sticky Footer Fix) --- */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-:root {
-    --brand-red: #800000;
-    --announcement-height: 40px;
-    --header-height: 70px;
-    --total-offset: 110px; /* Sum of both top bars */
-}
-
-body {
+html, body {
+    height: 100%;
+    margin: 0;
     font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
-    overflow-x: hidden; /* Prevents side-scrolling when menu is hidden */
+    overflow-x: hidden;
 }
 
-/* 2. Fixed Top Sections (Announcement + Header) */
-.announcement-bar {
-    position: fixed;
+#main-content {
+    flex: 1 0 auto; /* Pushes the red footer to the absolute bottom */
+    width: 100%;
+}
+
+/* --- Header Architecture (Stays on Top) --- */
+#main-header {
+    position: sticky;
     top: 0;
+    z-index: 9999; /* Higher than the Side Menu */
+    background: white;
     width: 100%;
-    height: var(--announcement-height);
-    background-color: var(--brand-red);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.announcement-bar {
+    background: var(--onyx-red);
     color: white;
+    height: 35px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    overflow: hidden;
+}
+
+.ticker-text {
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
     font-size: 11px;
-    letter-spacing: 1px;
-    z-index: 2000; /* Stays on top of everything */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
-header {
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* --- Side Navigation (Slides UNDER the Header) --- */
+.sidenav {
+    height: 100%;
+    width: 0;
     position: fixed;
-    top: var(--announcement-height);
-    width: 100%;
-    height: var(--header-height);
-    background: white;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    border-bottom: 1px solid #eee;
-    z-index: 2000; /* Same as announcement bar */
+    z-index: 8888; /* Just below the header layer */
+    left: 0;
+    top: 0; /* JS will adjust this to start under the header */
+    background-color: var(--nav-white);
+    overflow-x: hidden;
+    transition: var(--transition);
+    padding-top: 60px; /* Space for the header height */
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
 }
 
-.logo {
-    flex-grow: 1;
-    text-align: center;
-    font-family: serif;
-    font-style: italic;
-    font-size: 24px;
-    color: var(--brand-red);
-    font-weight: bold;
-}
-
-/* 3. Hamburger Icon */
-.hamburger-icon {
-    cursor: pointer;
-    z-index: 2100;
-}
-
-.line {
-    width: 25px;
-    height: 2px;
-    background-color: var(--brand-red);
-    margin: 5px 0;
-}
-
-/* 4. Side Drawer (The GitHub Style) */
-.side-menu {
-    position: fixed;
-    top: var(--total-offset); /* Starts exactly below the header */
-    left: -300px; /* Hidden off-screen to the left */
-    width: 280px;
-    height: calc(100vh - var(--total-offset));
-    background: white;
-    z-index: 1500; /* Above main content, below header */
-    transition: transform 0.3s ease-in-out;
-    border-right: 1px solid #ddd;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.05);
-    display: block !important; /* Forces visibility when active */
-}
-
-/* This moves the menu into the screen */
-.side-menu.active {
-    transform: translateX(300px); 
-}
-
-/* Menu Links */
-.menu-links {
-    list-style: none;
-    padding: 20px 0;
-}
-
-.menu-links li a {
-    display: block;
-    padding: 15px 25px;
-    font-family: serif;
-    font-style: italic;
-    font-size: 20px;
-    color: var(--brand-red);
+.menu-links a {
+    padding: 20px 30px;
     text-decoration: none;
+    font-size: 15px;
+    color: var(--text-dark);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     border-bottom: 1px solid #f9f9f9;
 }
 
-/* 5. The Close Icon (X) */
-.close-area {
-    padding: 10px 20px;
-    text-align: right;
+/* --- Hero & Gallery: The Head-to-Toe Fix --- */
+.hero-section {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
 }
 
-.close-icon {
-    font-size: 30px;
-    color: #ccc;
-    cursor: pointer;
+.hero-section img {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain !important; /* Forces full image view */
 }
 
-/* 6. Background Overlay (Dims the site) */
-.menu-overlay {
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+.gallery-card {
+    text-align: center;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 320px; /* Height optimized for full-length Adire sets */
+    object-fit: contain !important; /* Prevents cropping model heads/feet */
+    background: #fdfdfd;
+}
+
+.item-name {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+}
+
+/* --- Modals (The Suggestion Popup) --- */
+.modal {
+    display: none;
     position: fixed;
-    top: var(--total-offset);
+    z-index: 99999;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1400;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
+    background: rgba(0,0,0,0.95);
+    overflow-y: auto;
 }
 
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
 }
 
-/* 7. WhatsApp Button (Highest Priority) */
+#modalImg {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain !important; /* Ensures product details aren't cut off */
+    margin-bottom: 15px;
+}
+
+/* --- Floating Orange WhatsApp Button --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
+    bottom: 25px;
     right: 20px;
-    background-color: #f05a41;
+    background: var(--whatsapp-orange);
     color: white;
     padding: 12px 20px;
     border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    z-index: 3000; /* Stays above the menu drawer */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-weight: 600;
+    font-size: 13px;
+    z-index: 9000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* 8. Main Content */
-main {
-    padding-top: var(--total-offset);
-    min-height: 100vh;
+/* --- Red Footer (Pinned) --- */
+.main-footer-red {
+    flex-shrink: 0;
+    background: var(--onyx-red);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 8000;
 }
