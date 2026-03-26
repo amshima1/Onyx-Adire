@@ -6,48 +6,47 @@
     <title>Onyx-Adire | Haute Couture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&family=Montserrat:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
 
         :root {
             --brand-red: #b31d24;
             --onyx-black: #111111;
-            --header-height: 105px; /* Total height of bar + logo area */
+            --header-height: 105px;
         }
 
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; overflow-x: hidden; }
 
-        /* 1. THE MASTER HEADER (STRONGLY FIXED) */
+        /* 1. MASTER HEADER (FIXED) */
         .master-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: var(--header-height);
-            z-index: 9999; /* Highest priority on the page */
+            z-index: 9999;
             background: white;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        /* FIXED ANNOUNCEMENT BAR */
         .promo-bar {
             background-color: var(--brand-red);
             color: white;
             height: 35px;
             display: flex;
             align-items: center;
-            overflow: hidden; /* Important for marquee */
+            overflow: hidden;
             position: relative;
         }
 
         .marquee-text {
             position: absolute;
             white-space: nowrap;
-            will-change: transform;
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            animation: scrolling 15s linear infinite;
+            animation: scrolling 20s linear infinite;
         }
 
         @keyframes scrolling {
@@ -55,34 +54,17 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* LOGO AREA */
         header {
             height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #eee;
             position: relative;
             background: white;
         }
 
-        .hamburger {
-            position: absolute;
-            left: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--onyx-black);
-            z-index: 10000;
-        }
-
-        .logo {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 24px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--onyx-black);
-            letter-spacing: 4px;
-        }
+        .hamburger { position: absolute; left: 20px; font-size: 28px; cursor: pointer; color: var(--onyx-black); }
+        .logo { font-family: 'Bodoni Moda', serif; font-size: 24px; text-transform: uppercase; text-decoration: none; color: var(--onyx-black); letter-spacing: 4px; font-weight: 700; }
 
         /* 2. SIDE MENU (STARTS BELOW HEADER) */
         .side-menu {
@@ -90,7 +72,7 @@
             width: 0;
             position: fixed;
             z-index: 9000; 
-            top: var(--header-height); /* Starts exactly under the logo */
+            top: var(--header-height);
             left: 0;
             background-color: white;
             overflow-x: hidden;
@@ -98,61 +80,45 @@
             box-shadow: 5px 0 15px rgba(0,0,0,0.05);
         }
 
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 26px;
-            cursor: pointer;
-        }
-
+        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 26px; cursor: pointer; color: var(--onyx-black); }
         .menu-links { padding-top: 40px; }
-        .menu-links a {
-            padding: 15px 40px;
-            display: block;
-            font-family: 'Bodoni Moda', serif;
-            font-size: 18px;
-            text-decoration: none;
-            color: var(--onyx-black);
-            text-transform: uppercase;
-        }
+        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; }
 
-        /* 3. MAIN CONTENT (PUSHED DOWN BY HEADER) */
-        .page-content {
-            margin-top: var(--header-height);
-            padding-bottom: 100px;
-        }
+        /* 3. MODAL / QUICK VIEW */
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background-color: #fff; margin: 20px auto; padding: 20px; width: 90%; max-width: 450px; position: relative; border-radius: 8px; text-align: center;}
+        .close-modal { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; }
+        .modal-img { width: 100%; height: auto; margin-bottom: 15px; }
+        .modal-btn { background-color: var(--brand-red); color: white; padding: 15px; text-decoration: none; display: block; font-weight: 600; border-radius: 4px; margin: 20px 0; }
 
+        /* 4. PRODUCT GRID */
+        .page-content { margin-top: var(--header-height); }
         .hero-img { width: 100%; height: auto; display: block; }
+        .debut-header { text-align: center; padding: 40px 20px; font-family: 'Bodoni Moda', serif; letter-spacing: 5px; text-transform: uppercase; font-size: 24px; }
+        .collection-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; }
+        .collection-item { text-align: center; margin-bottom: 30px; cursor: pointer; }
+        .collection-item img { width: 100%; height: auto; display: block; margin-bottom: 8px; }
+        .item-name { font-family: 'Bodoni Moda', serif; font-size: 15px; text-transform: uppercase; margin-bottom: 4px; }
+        .item-price { font-size: 13px; color: var(--brand-red); font-weight: 600; }
 
-        /* 4. WHATSAPP (STAYS ON TOP) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            background-color: var(--brand-red);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            z-index: 9998; 
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+        /* 5. RECENTLY VIEWED */
+        .recent-section { padding: 40px 15px; background: #f9f9f9; display: none; }
+        .recent-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        @media (max-width: 600px) { .recent-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* 6. FOOTER & WHATSAPP */
+        footer { background-color: var(--brand-red); color: white; text-align: center; padding: 60px 20px 120px; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
     <div class="master-header">
         <div class="promo-bar">
-            <div class="marquee-text">ONYX-ADIRE • LUXURY HERITAGE • WORLDWIDE SHIPPING • SHOP THE DEBUT EDIT •</div>
+            <div class="marquee-text">ONYX-ADIRE • LUXURY HERITAGE • WORLDWIDE SHIPPING • SIZES S-XXL •</div>
         </div>
         <header>
-            <div class="hamburger" id="hamBtn" onclick="toggleNav()">☰</div>
+            <div class="hamburger" onclick="toggleNav()">☰</div>
             <a href="#" class="logo">Onyx-Adire</a>
         </header>
     </div>
@@ -168,27 +134,91 @@
         </div>
     </div>
 
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" class="modal-img">
+            <h2 id="modalName" style="font-family: 'Bodoni Moda';"></h2>
+            <p id="modalPrice" style="color: var(--brand-red); font-weight: 700;"></p>
+            <a id="modalWaLink" href="" target="_blank" class="modal-btn"><i class="fab fa-whatsapp"></i> ORDER ON WHATSAPP</a>
+        </div>
+    </div>
+
     <div class="page-content">
         <img src="Onyx-Adire18.jpg" class="hero-img">
-        <h1 style="text-align: center; font-family: 'Bodoni Moda'; padding: 40px 0; letter-spacing: 5px;">THE DEBUT EDIT</h1>
-        </div>
+        <h1 class="debut-header">THE DEBUT EDIT</h1>
+        <div class="collection-grid" id="mainGrid"></div>
+    </div>
 
-    <a href="https://wa.me/2347077978701" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
-    </a>
+    <div class="recent-section" id="recentSection">
+        <h2 style="text-align: center; font-family: 'Bodoni Moda'; font-size: 18px; margin-bottom: 20px;">Recently Viewed</h2>
+        <div class="recent-grid" id="recentGrid"></div>
+    </div>
+
+    <footer>
+        <h2 style="font-family: 'Bodoni Moda';">Join the Onyx Circle</h2>
+        <div class="social-icons" style="margin-top: 20px;">
+            <a href="#" style="color:white; margin:0 15px; font-size: 24px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color:white; margin:0 15px; font-size: 24px;"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/2347077978701" class="whatsapp-float"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
 
     <script>
-        function toggleNav() {
-            var menu = document.getElementById("mySideMenu");
-            var ham = document.getElementById("hamBtn");
-            
-            if (menu.style.width === "280px") {
-                menu.style.width = "0";
-            } else {
-                menu.style.width = "280px";
+        const phoneNumber = "2347077978701"; 
+        const items = [
+            { id: 1, name: "Indigo Flora", price: "₦45,000" }, { id: 2, name: "Azure Wrap", price: "₦52,000" },
+            { id: 3, name: "Onyx Silk", price: "₦38,500" }, { id: 4, name: "Heritage Kaftan", price: "₦60,000" },
+            { id: 5, name: "Midnight Motif", price: "₦42,000" }, { id: 6, name: "Royal Tie-Dye", price: "₦55,000" },
+            { id: 7, name: "Earth & Sky", price: "₦48,000" }, { id: 8, name: "Vogue Indigo", price: "₦65,000" },
+            { id: 9, name: "Modern Ancestry", price: "₦35,000" }, { id: 10, name: "Silk Path", price: "₦50,000" },
+            { id: 11, name: "Velvet Bloom", price: "₦58,000" }, { id: 12, name: "Desert Rose", price: "₦44,500" },
+            { id: 13, name: "Sahara Night", price: "₦62,000" }, { id: 14, name: "River Essence", price: "₦39,000" },
+            { id: 15, name: "Sea Shift", price: "₦51,000" }, { id: 16, name: "Legacy Gown", price: "₦70,000" }
+        ];
+
+        let recentlyViewed = [];
+        const mainGrid = document.getElementById('mainGrid');
+
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'collection-item';
+            div.onclick = () => openProduct(item);
+            div.innerHTML = `<img src="Onyx-Adire${item.id}.jpg"><div class="item-name">${item.name}</div><div class="item-price">${item.price}</div>`;
+            mainGrid.appendChild(div);
+        });
+
+        function openProduct(item) {
+            document.getElementById('modalImg').src = `Onyx-Adire${item.id}.jpg`;
+            document.getElementById('modalName').innerText = item.name;
+            document.getElementById('modalPrice').innerText = item.price;
+            let msg = encodeURIComponent(`Hello Onyx-Adire! I want to order the ${item.name}.`);
+            document.getElementById('modalWaLink').href = `https://wa.me/${phoneNumber}?text=${msg}`;
+            document.getElementById('productModal').style.display = "block";
+
+            if (!recentlyViewed.find(i => i.id === item.id)) {
+                recentlyViewed.unshift(item);
+                if (recentlyViewed.length > 4) recentlyViewed.pop();
+                updateRecentDisplay();
             }
         }
-    </script>
 
+        function updateRecentDisplay() {
+            const section = document.getElementById('recentSection');
+            const grid = document.getElementById('recentGrid');
+            section.style.display = "block";
+            grid.innerHTML = '';
+            recentlyViewed.forEach(item => {
+                grid.innerHTML += `<div class="collection-item" onclick="openProduct(${JSON.stringify(item).replace(/"/g, '&quot;')})"><img src="Onyx-Adire${item.id}.jpg"><div class="item-name" style="font-size:12px">${item.name}</div></div>`;
+            });
+        }
+
+        function closeModal() { document.getElementById('productModal').style.display = "none"; }
+        function toggleNav() {
+            var m = document.getElementById("mySideMenu");
+            m.style.width = (m.style.width === "280px") ? "0" : "280px";
+        }
+    </script>
 </body>
 </html>
