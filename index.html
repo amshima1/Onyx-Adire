@@ -25,12 +25,12 @@
         .hamburger { position: absolute; left: 20px; font-size: 28px; cursor: pointer; }
         .logo { font-family: 'Bodoni Moda', serif; font-size: 24px; text-transform: uppercase; text-decoration: none; color: var(--onyx-black); letter-spacing: 4px; font-weight: 700; }
 
-        /* SIDE MENU (CLEAN - NO X) */
-        .side-menu { height: calc(100vh - var(--header-height)); width: 0; position: fixed; z-index: 9000; top: var(--header-height); left: 0; background-color: white; overflow-x: hidden; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); box-shadow: 5px 0 15px rgba(0,0,0,0.05); }
+        /* SIDE MENU (NO X) */
+        .side-menu { height: calc(100vh - var(--header-height)); width: 0; position: fixed; z-index: 9000; top: var(--header-height); left: 0; background-color: white; overflow-x: hidden; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); }
         .menu-links { padding-top: 40px; display: flex; flex-direction: column; }
         .menu-links a { padding: 20px 40px; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; border-bottom: 1px solid #f9f9f9; letter-spacing: 2px; }
 
-        /* HERO SECTION */
+        /* HERO (PIECE 18) */
         .hero { 
             margin-top: var(--header-height); 
             height: 85vh; 
@@ -41,24 +41,21 @@
             text-align: center; 
             color: white; 
         }
-        .hero-content h1 { font-family: 'Bodoni Moda', serif; font-size: clamp(35px, 9vw, 65px); text-transform: uppercase; letter-spacing: 12px; margin-bottom: 30px; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .hero-content h1 { font-family: 'Bodoni Moda', serif; font-size: clamp(35px, 9vw, 65px); text-transform: uppercase; letter-spacing: 12px; margin-bottom: 30px; line-height: 1.1; }
         .cta-btn { background: white; color: var(--onyx-black); padding: 18px 45px; text-decoration: none; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 3px; border: 1px solid white; transition: 0.3s; }
-        .cta-btn:hover { background: transparent; color: white; }
 
-        /* CURATOR'S GALLERY (1-16) */
+        /* GALLERY (1-16) */
         .featured-section { padding: 80px 10%; background: #fff; }
         .section-title { font-family: 'Bodoni Moda', serif; text-align: center; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 50px; font-size: 20px; }
         .featured-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .featured-item { text-align: center; text-decoration: none; color: inherit; margin-bottom: 25px; }
-        .featured-item img { width: 100%; height: auto; display: block; margin-bottom: 12px; border: 1px solid #f0f0f0; }
+        .featured-item img { width: 100%; height: auto; display: block; margin-bottom: 12px; }
         .featured-item span { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #999; }
 
-        /* FOOTER */
         footer { background-color: var(--brand-red); color: white; text-align: center; padding: 60px 20px; }
         .footer-socials a { color: white; font-size: 24px; margin: 0 15px; text-decoration: none; }
 
-        /* WHATSAPP FLOAT */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-size: 11px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-transform: uppercase; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-size: 11px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -74,10 +71,10 @@
     <div id="mySideMenu" class="side-menu">
         <div class="menu-links">
             <a href="index.html" onclick="toggleNav()">Home</a>
-            <a href="collection.html">The Collection</a>
-            <a href="trustees.html">Trustees</a>
-            <a href="events.html">Events</a>
-            <a href="inquiries.html">Inquiries</a>
+            <a href="collection.html" onclick="toggleNav()">Collection</a>
+            <a href="trustees.html" onclick="toggleNav()">Trustees</a>
+            <a href="events.html" onclick="toggleNav()">Events</a>
+            <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
         </div>
     </div>
 
@@ -109,7 +106,6 @@
     </a>
 
     <script>
-        // Automatic population of the 1-16 gallery
         const grid = document.getElementById('featuredGrid');
         for (let i = 1; i <= 16; i++) {
             grid.innerHTML += `
