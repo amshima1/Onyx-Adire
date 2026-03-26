@@ -3,87 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onyx—Adire | Events</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Events | Onyx-Adire Haute Couture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .event-card {
-            margin: 40px 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(139, 29, 29, 0.1);
-            padding-bottom: 30px;
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            --brand-red: #b31d24;
+            --onyx-black: #111111;
+            --header-height: 105px;
         }
-        .event-img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 2px;
-            margin-bottom: 20px;
+
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--onyx-black); }
+
+        /* HEADER SYSTEM */
+        .master-header {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+            z-index: 9999; background: white; display: flex; flex-direction: column;
+            border-bottom: 1px solid #eee;
         }
-        .event-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-style: italic;
-            color: var(--brand-red);
-            margin-bottom: 10px;
+        .promo-bar {
+            background-color: var(--brand-red); color: white; height: 35px;
+            display: flex; align-items: center; overflow: hidden; position: relative;
         }
-        .event-meta {
-            font-size: 13px;
-            text-transform: uppercase;
+        .marquee-text {
+            position: absolute; white-space: nowrap; font-size: 10px;
+            letter-spacing: 2px; text-transform: uppercase; animation: scrolling 20s linear infinite;
+        }
+        @keyframes scrolling { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
+        header { height: 70px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .hamburger { position: absolute; left: 20px; font-size: 28px; cursor: pointer; }
+        .logo { font-family: 'Bodoni Moda', serif; font-size: 24px; text-transform: uppercase; text-decoration: none; color: var(--onyx-black); letter-spacing: 4px; font-weight: 700; }
+
+        /* SIDE MENU */
+        .side-menu {
+            height: calc(100vh - var(--header-height)); width: 0; position: fixed;
+            z-index: 9000; top: var(--header-height); left: 0; background-color: white;
+            overflow-x: hidden; transition: 0.4s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        }
+        .menu-links { padding-top: 40px; }
+        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; }
+
+        /* CONTENT */
+        .events-hero {
+            margin-top: var(--header-height);
+            padding: 60px 20px;
+            text-align: center;
+            background: #fcfcfc;
+        }
+        .events-hero h1 { font-family: 'Bodoni Moda', serif; font-size: 32px; letter-spacing: 5px; text-transform: uppercase; }
+
+        .events-container { padding: 20px 15px 80px; max-width: 900px; margin: 0 auto; }
+        
+        .featured-event {
+            background: white;
+            border: 1px solid #eee;
+            margin-bottom: 50px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .featured-img { width: 100%; height: 400px; object-fit: cover; border-bottom: 4px solid var(--brand-red); }
+        
+        .event-details { padding: 30px; text-align: center; }
+        .location-tag { color: var(--brand-red); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        .event-title { font-family: 'Bodoni Moda', serif; font-size: 24px; margin: 10px 0; text-transform: uppercase; }
+        .event-desc { font-size: 15px; line-height: 1.8; color: #555; max-width: 700px; margin: 0 auto 25px; }
+        
+        .venue-info {
+            background: #f9f9f9;
+            padding: 15px;
+            font-size: 12px;
             letter-spacing: 1px;
-            color: #666;
-            margin-bottom: 15px;
-            display: block;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 25px;
         }
-        @media (min-width: 768px) {
-            .event-container { max-width: 900px; margin: 0 auto; }
+
+        .cta-btn {
+            background: var(--onyx-black); color: white; padding: 15px 30px;
+            text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; transition: 0.3s;
         }
+        .cta-btn:hover { background: var(--brand-red); }
+
+        footer { background-color: var(--brand-red); color: white; text-align: center; padding: 40px 20px; }
+
+        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 8px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="announcement-bar">
-            <span class="announcement-text">✦ EXPLORE THE ONYX—ADIRE JOURNEY ✦ EXHIBITIONS & RUNWAYS ✦</span>
-        </div>
-        <nav>
-            <div class="menu-icon" onclick="toggleNav()"><div></div><div></div><div></div></div>
-            <a href="index.html" class="logo">Onyx—Adire</a>
-            <div style="width: 30px;"></div>
-        </nav>
-    </header>
-
-    <div id="mySidenav">
-        <a href="index.html">Home</a>
-        <a href="collections.html">Collections</a>
-        <a href="trustees.html">Trustees</a>
-        <a href="events.html">Events</a>
-        <a href="bookings.html">Bookings</a>
+    <div class="master-header">
+        <div class="promo-bar"><div class="marquee-text">ONYX-ADIRE • EXCLUSIVE PARTNERSHIPS • HERITAGE IN MODERN SPACES •</div></div>
+        <header>
+            <div class="hamburger" onclick="toggleNav()">☰</div>
+            <a href="index.html" class="logo">Onyx-Adire</a>
+        </header>
     </div>
-    <div id="overlay"></div>
 
-    <main style="padding-top: 120px;">
-        <section class="debut-header">
-            <h1>Events & Showcases</h1>
-        </section>
+    <div id="mySideMenu" class="side-menu">
+        <div class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="trustees.html">Trustees</a>
+            <a href="events.html">Events</a>
+            <a href="inquiries.html">Inquiries</a>
+        </div>
+    </div>
 
-        <div class="event-container">
-            <div class="event-card">
-                <img src="14682.jpg" alt="Miva Showcase" class="event-img">
-                <span class="event-meta">November 2025 | Abuja, Nigeria</span>
-                <h2 class="event-title">Miva Matriculation Showcase</h2>
-                <p>A celebration of cultural identity and academic milestones at the Ladi Kwali Hall, Abuja Continental Hotel.</p>
-            </div>
+    <section class="events-hero">
+        <h1>Onyx Highlights</h1>
+        <p style="letter-spacing: 2px; font-size: 11px; color: #888; text-transform: uppercase;">Where Tradition Meets Excellence</p>
+    </section>
 
-            <div class="event-card">
-                <img src="14702.jpg" alt="Pop Up" class="event-img">
-                <span class="event-meta">Coming Soon | Lagos</span>
-                <h2 class="event-title">The Lagos Pop-Up Experience</h2>
-                <p>An exclusive opportunity to shop the Debut Edit in person and get bespoke measurements.</p>
+    <div class="events-container">
+        
+        <div class="featured-event">
+            <img src="Onyx-Adire19.jpg" class="featured-img" alt="Miva University Event">
+            <div class="event-details">
+                <span class="location-tag">Official Partnership</span>
+                <h2 class="event-title">Miva Open University Matriculation</h2>
+                
+                <div class="venue-info">
+                    <i class="fas fa-map-marker-alt"></i> Ladi Kwali Hall, Abuja Intercontinental Hotel
+                </div>
+
+                <p class="event-desc">
+                    A landmark occasion celebrating academic excellence. Onyx-Adire was proud to be part of the Miva Open University Matriculation ceremony, bringing a touch of indigenous luxury to the historic Ladi Kwali Hall at the Abuja Intercontinental.
+                </p>
+
+                <a href="https://wa.me/234XXXXXXXXXX" class="cta-btn">View Event Gallery</a>
             </div>
         </div>
-    </main>
 
-    <script src="script.js"></script>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Onyx-Adire Haute Couture</p>
+    </footer>
+
+    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-float"><i class="fab fa-whatsapp"></i> Event Inquiries</a>
+
+    <script>
+        function toggleNav() {
+            var m = document.getElementById("mySideMenu");
+            m.style.width = (m.style.width === "280px") ? "0" : "280px";
+        }
+    </script>
 </body>
 </html>
