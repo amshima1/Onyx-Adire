@@ -65,10 +65,7 @@
             left: 5%;
             font-size: 28px;
             cursor: pointer;
-            z-index: 6000; /* Stays above the side menu */
             color: var(--onyx-black);
-            width: 30px;
-            text-align: center;
         }
 
         .logo {
@@ -81,7 +78,7 @@
             color: var(--onyx-black);
         }
 
-        /* 3. SIDE MENU */
+        /* 3. SIDE MENU (THE POP OUT) */
         .side-menu {
             height: 100vh;
             width: 0;
@@ -92,32 +89,42 @@
             background-color: var(--glass-white);
             overflow-x: hidden;
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding-top: 120px;
             box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* The X inside the pop out */
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 35px;
+            cursor: pointer;
+            color: var(--brand-red);
+        }
+
+        .menu-links {
+            padding-top: 100px;
         }
 
         .side-menu a {
             padding: 15px 40px;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 22px;
             color: var(--onyx-black);
             font-family: 'Bodoni Moda', serif;
             display: block;
             text-transform: uppercase;
             letter-spacing: 2px;
-            white-space: nowrap;
         }
-
-        .side-menu a:hover { color: var(--brand-red); }
 
         /* 4. CONTENT */
         .hero-image { width: 100%; height: auto; display: block; }
 
         .debut-header {
             text-align: center;
-            padding: 60px 20px 20px;
+            padding: 50px 20px;
             font-family: 'Bodoni Moda', serif;
-            font-size: 36px;
+            font-size: 32px;
             letter-spacing: 6px;
             text-transform: uppercase;
         }
@@ -131,21 +138,14 @@
 
         .collection-item { text-align: center; margin-bottom: 25px; }
         .collection-item img { width: 100%; height: auto; display: block; margin-bottom: 10px; }
-        .item-price { font-weight: 500; font-size: 15px; color: #333; }
+        .item-price { font-weight: 500; font-size: 15px; }
 
         /* 5. FOOTER & NEWSLETTER */
         footer {
             background-color: var(--brand-red);
             color: white;
             text-align: center;
-            padding: 60px 20px;
-        }
-
-        .footer-title {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 24px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
+            padding: 60px 20px 100px 20px; /* Extra bottom padding */
         }
 
         .newsletter-box {
@@ -153,39 +153,19 @@
             padding: 5px;
             display: flex;
             width: 90%;
-            max-width: 400px;
-            margin: 0 auto 40px auto;
+            max-width: 350px;
+            margin: 20px auto 40px auto;
         }
 
-        .newsletter-box input {
-            border: none;
-            padding: 12px;
-            flex-grow: 1;
-            outline: none;
-        }
+        .newsletter-box input { border: none; padding: 12px; flex-grow: 1; outline: none; }
+        .newsletter-box button { background: var(--onyx-black); color: white; border: none; padding: 0 15px; cursor: pointer; }
 
-        .newsletter-box button {
-            background: var(--onyx-black);
-            color: white;
-            border: none;
-            padding: 0 20px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: 600;
-        }
+        .social-icons a { color: white; margin: 0 15px; font-size: 26px; }
 
-        .social-icons a {
-            color: white;
-            margin: 0 15px;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        /* 6. WHATSAPP PILL */
+        /* 6. WHATSAPP PILL (SHIFTED UP) */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
+            bottom: 110px; /* Shifted up to avoid covering social icons */
             right: 20px;
             background-color: var(--brand-red);
             color: white;
@@ -197,7 +177,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            z-index: 7000;
+            z-index: 6000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
     </style>
@@ -211,16 +191,19 @@
     </div>
 
     <header>
-        <div class="hamburger" id="hamIcon" onclick="toggleMenu()">☰</div>
+        <div class="hamburger" onclick="openNav()">☰</div>
         <a href="#" class="logo">Onyx-Adire</a>
     </header>
 
     <div id="mySideMenu" class="side-menu">
-        <a href="#" onclick="toggleMenu()">Home</a>
-        <a href="#" onclick="toggleMenu()">Collection</a>
-        <a href="#" onclick="toggleMenu()">Trustees</a>
-        <a href="#" onclick="toggleMenu()">Events</a>
-        <a href="#" onclick="toggleMenu()">Inquiries</a>
+        <span class="close-btn" onclick="closeNav()">✕</span>
+        <div class="menu-links">
+            <a href="#" onclick="closeNav()">Home</a>
+            <a href="#" onclick="closeNav()">Collection</a>
+            <a href="#" onclick="closeNav()">Trustees</a>
+            <a href="#" onclick="closeNav()">Events</a>
+            <a href="#" onclick="closeNav()">Inquiries</a>
+        </div>
     </div>
 
     <img src="Onyx-Adire18.jpg" alt="Hero" class="hero-image">
@@ -242,9 +225,9 @@
     </div>
 
     <footer>
-        <h2 class="footer-title">Subscribe to our newsletter</h2>
+        <h2 style="font-family: 'Bodoni Moda'; text-transform: uppercase;">Subscribe to our newsletter</h2>
         <div class="newsletter-box">
-            <input type="email" placeholder="Enter your email">
+            <input type="email" placeholder="Email Address">
             <button>Join</button>
         </div>
         <div class="social-icons">
@@ -258,19 +241,12 @@
     </a>
 
     <script>
-        function toggleMenu() {
-            var menu = document.getElementById("mySideMenu");
-            var icon = document.getElementById("hamIcon");
-            
-            if (menu.style.width === "280px") {
-                menu.style.width = "0";
-                icon.innerHTML = "☰"; // Reset to Hamburger
-                icon.style.color = "#111111";
-            } else {
-                menu.style.width = "280px";
-                icon.innerHTML = "✕"; // Change to X
-                icon.style.color = "#b31d24"; // Optional: make X red when open
-            }
+        function openNav() {
+            document.getElementById("mySideMenu").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySideMenu").style.width = "0";
         }
     </script>
 
