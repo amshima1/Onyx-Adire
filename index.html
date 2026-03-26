@@ -22,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* 1. WORKING ANNOUNCEMENT BAR */
+        /* 1. ANNOUNCEMENT BAR */
         .promo-bar {
             background-color: var(--brand-red);
             color: white;
@@ -65,8 +65,10 @@
             left: 5%;
             font-size: 28px;
             cursor: pointer;
-            z-index: 5000; /* Stays above menu */
-            transition: 0.3s;
+            z-index: 6000; /* Stays above the side menu */
+            color: var(--onyx-black);
+            width: 30px;
+            text-align: center;
         }
 
         .logo {
@@ -79,12 +81,12 @@
             color: var(--onyx-black);
         }
 
-        /* 3. SIDE MENU (TOGGLE FIXED) */
+        /* 3. SIDE MENU */
         .side-menu {
             height: 100vh;
             width: 0;
             position: fixed;
-            z-index: 4500;
+            z-index: 5000;
             top: 0;
             left: 0;
             background-color: var(--glass-white);
@@ -131,7 +133,7 @@
         .collection-item img { width: 100%; height: auto; display: block; margin-bottom: 10px; }
         .item-price { font-weight: 500; font-size: 15px; color: #333; }
 
-        /* 5. FOOTER & NEWSLETTER BOX */
+        /* 5. FOOTER & NEWSLETTER */
         footer {
             background-color: var(--brand-red);
             color: white;
@@ -146,18 +148,13 @@
             text-transform: uppercase;
         }
 
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
         .newsletter-box {
             background: white;
             padding: 5px;
             display: flex;
             width: 90%;
             max-width: 400px;
+            margin: 0 auto 40px auto;
         }
 
         .newsletter-box input {
@@ -165,7 +162,6 @@
             padding: 12px;
             flex-grow: 1;
             outline: none;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .newsletter-box button {
@@ -179,20 +175,14 @@
             font-weight: 600;
         }
 
-        .social-icons {
-            font-size: 24px;
-        }
-
         .social-icons a {
             color: white;
             margin: 0 15px;
+            font-size: 24px;
             text-decoration: none;
-            transition: 0.3s;
         }
 
-        .social-icons a:hover { opacity: 0.7; }
-
-        /* 6. CHAT VIA WHATSAPP (PILL STYLE) */
+        /* 6. WHATSAPP PILL */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -207,14 +197,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            z-index: 5000;
+            z-index: 7000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Mobile specific grid */
-        @media (max-width: 480px) {
-            .collection-grid { gap: 8px; padding: 8px; }
-            .debut-header { font-size: 28px; }
         }
     </style>
 </head>
@@ -259,11 +243,9 @@
 
     <footer>
         <h2 class="footer-title">Subscribe to our newsletter</h2>
-        <div class="newsletter-form">
-            <div class="newsletter-box">
-                <input type="email" placeholder="Enter your email">
-                <button>Join</button>
-            </div>
+        <div class="newsletter-box">
+            <input type="email" placeholder="Enter your email">
+            <button>Join</button>
         </div>
         <div class="social-icons">
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -282,10 +264,12 @@
             
             if (menu.style.width === "280px") {
                 menu.style.width = "0";
-                icon.innerHTML = "☰";
+                icon.innerHTML = "☰"; // Reset to Hamburger
+                icon.style.color = "#111111";
             } else {
                 menu.style.width = "280px";
-                icon.innerHTML = "✕"; // Changes icon to 'X' to close
+                icon.innerHTML = "✕"; // Change to X
+                icon.style.color = "#b31d24"; // Optional: make X red when open
             }
         }
     </script>
