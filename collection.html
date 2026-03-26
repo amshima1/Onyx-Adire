@@ -14,9 +14,9 @@
             --header-height: 105px;
         }
 
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--onyx-black); overflow-x: hidden; }
 
-        /* HEADER SYSTEM (Consistent with Home) */
+        /* HEADER & PROMO */
         .master-header {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
             z-index: 9999; background: white; display: flex; flex-direction: column;
@@ -35,51 +35,81 @@
         .hamburger { position: absolute; left: 20px; font-size: 28px; cursor: pointer; }
         .logo { font-family: 'Bodoni Moda', serif; font-size: 24px; text-transform: uppercase; text-decoration: none; color: var(--onyx-black); letter-spacing: 4px; font-weight: 700; }
 
-        /* CATEGORY FILTER BAR */
-        .filter-container {
-            margin-top: var(--header-height);
-            padding: 20px 0;
-            text-align: center;
-            background: #fff;
-            position: sticky;
-            top: var(--header-height);
-            z-index: 8000;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        .filter-btn {
-            background: none; border: none; font-family: 'Montserrat';
-            text-transform: uppercase; font-size: 11px; letter-spacing: 2px;
-            margin: 0 10px; cursor: pointer; color: #888; transition: 0.3s;
-        }
-        .filter-btn.active { color: var(--onyx-black); font-weight: 700; border-bottom: 1px solid var(--onyx-black); }
-
-        /* GRID STYLES */
-        .collection-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
-        .collection-item { text-align: center; margin-bottom: 30px; animation: fadeIn 0.8s ease forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .collection-item img { width: 100%; height: auto; border-radius: 2px; }
-        .item-name { font-family: 'Bodoni Moda', serif; font-size: 15px; margin: 10px 0 5px; text-transform: uppercase; }
-        .item-price { color: var(--brand-red); font-weight: 600; font-size: 13px; }
-
-        /* SIDE MENU (Hidden by default) */
+        /* SIDE MENU */
         .side-menu {
             height: calc(100vh - var(--header-height)); width: 0; position: fixed;
             z-index: 9000; top: var(--header-height); left: 0; background-color: white;
-            overflow-x: hidden; transition: 0.4s ease;
+            overflow-x: hidden; transition: 0.4s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.1);
         }
         .menu-links { padding-top: 40px; }
-        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; }
+        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; border-bottom: 1px solid #f9f9f9; }
 
-        /* WHATSAPP FLOAT */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        /* COLLECTION FILTERS */
+        .filter-container { 
+            margin-top: var(--header-height); 
+            padding: 30px 0; 
+            text-align: center; 
+            background: #fff;
+        }
+        .filter-btn { 
+            background: none; border: none; font-family: 'Montserrat'; 
+            text-transform: uppercase; font-size: 11px; letter-spacing: 2px; 
+            margin: 0 15px; cursor: pointer; color: #888; transition: 0.3s; 
+        }
+        .filter-btn.active { color: var(--onyx-black); font-weight: 700; border-bottom: 1px solid var(--onyx-black); }
+
+        /* GRID */
+        .collection-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+            padding: 0 15px 60px; 
+        }
+        .collection-item { text-align: center; margin-bottom: 30px; }
+        .collection-item img { width: 100%; height: auto; border-radius: 2px; display: block; }
+        .item-name { font-family: 'Bodoni Moda', serif; font-size: 14px; margin: 12px 0 4px; text-transform: uppercase; letter-spacing: 1px; }
+        .item-price { color: var(--brand-red); font-weight: 600; font-size: 12px; }
+
+        /* RED FOOTER BLOCK */
+        footer {
+            background-color: var(--brand-red);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 40px;
+        }
+        footer h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        .footer-socials a { color: white; font-size: 26px; margin: 0 20px; text-decoration: none; }
+
+        /* RED WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            background-color: var(--brand-red);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 9998;
+            display: flex;
+            align-items: center; gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body>
 
     <div class="master-header">
-        <div class="promo-bar">
-            <div class="marquee-text">EXPLORE THE ONYX-ADIRE COLLECTIONS • LUXURY CRAFTSMANSHIP • WORLDWIDE DELIVERY</div>
-        </div>
+        <div class="promo-bar"><div class="marquee-text">ONYX-ADIRE • NEW ARRIVALS • HAND-DYED LUXURY • WORLDWIDE SHIPPING AVAILABLE</div></div>
         <header>
             <div class="hamburger" onclick="toggleNav()">☰</div>
             <a href="index.html" class="logo">Onyx-Adire</a>
@@ -88,44 +118,48 @@
 
     <div id="mySideMenu" class="side-menu">
         <div class="menu-links">
-            <div class="menu-links">
-    <a href="index.html" onclick="toggleNav()">Home</a>
-    <a href="collection.html" onclick="toggleNav()">Collection</a>
-    <a href="trustees.html" onclick="toggleNav()">Trustees</a>
-    <a href="events.html" onclick="toggleNav()">Events</a>
-    <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
-</div>
-
+            <a href="index.html" onclick="toggleNav()">Home</a>
+            <a href="collection.html" onclick="toggleNav()">Collection</a>
+            <a href="trustees.html" onclick="toggleNav()">Trustees</a>
+            <a href="events.html" onclick="toggleNav()">Events</a>
+            <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
         </div>
     </div>
 
     <div class="filter-container">
-        <button class="filter-btn active" onclick="filterItems('all')">All</button>
-        <button class="filter-btn" onclick="filterItems('silk')">Silk</button>
-        <button class="filter-btn" onclick="filterItems('cotton')">Cotton</button>
-        <button class="filter-btn" onclick="filterItems('heritage')">Heritage</button>
+        <button class="filter-btn active" onclick="filterItems('all')">View All</button>
+        <button class="filter-btn" onclick="filterItems('silk')">Silk Edit</button>
+        <button class="filter-btn" onclick="filterItems('cotton')">Cotton Heritage</button>
     </div>
 
     <div class="collection-grid" id="collGrid">
         </div>
 
-    <a href="https://wa.me/2347077978701" class="whatsapp-float"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+    <footer>
+        <h2>Join the Onyx Circle</h2>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/234707797XXXX" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+    </a>
 
     <script>
+        // Data for your products
         const products = [
-            { id: 1, name: "Indigo Flora", price: "₦45,000", cat: "silk" },
-            { id: 2, name: "Azure Wrap", price: "₦52,000", cat: "cotton" },
-            { id: 3, name: "Onyx Silk", price: "₦38,500", cat: "silk" },
-            { id: 4, name: "Heritage Kaftan", price: "₦60,000", cat: "heritage" },
-            { id: 5, name: "Midnight Motif", price: "₦42,000", cat: "cotton" },
-            { id: 6, name: "Royal Tie-Dye", price: "₦55,000", cat: "heritage" },
-            { id: 7, name: "Earth & Sky", price: "₦48,000", cat: "silk" },
-            { id: 8, name: "Vogue Indigo", price: "₦65,000", cat: "silk" }
+            { id: 1, name: "Sea Shift Gown", price: "₦51,000", cat: "silk" },
+            { id: 2, name: "Legacy Adire Set", price: "₦70,000", cat: "cotton" },
+            { id: 3, name: "Indigo Wrap Silk", price: "₦45,000", cat: "silk" },
+            { id: 4, name: "Sahara Cotton Robe", price: "₦55,000", cat: "cotton" }
         ];
 
         function renderProducts(filter = 'all') {
             const grid = document.getElementById('collGrid');
             grid.innerHTML = '';
+            
             const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
             
             filtered.forEach(p => {
@@ -141,10 +175,9 @@
 
         function filterItems(cat) {
             renderProducts(cat);
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText.toLowerCase() === cat) btn.classList.add('active');
-            });
+            // Update active button state
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
 
         function toggleNav() {
@@ -152,7 +185,7 @@
             m.style.width = (m.style.width === "280px") ? "0" : "280px";
         }
 
-        // Initial Load
+        // Initialize the grid on load
         renderProducts();
     </script>
 </body>
