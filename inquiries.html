@@ -14,9 +14,9 @@
             --header-height: 105px;
         }
 
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--onyx-black); }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--onyx-black); overflow-x: hidden; }
 
-        /* HEADER SYSTEM (Consistent with all pages) */
+        /* HEADER & PROMO */
         .master-header {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
             z-index: 9999; background: white; display: flex; flex-direction: column;
@@ -42,58 +42,67 @@
             overflow-x: hidden; transition: 0.4s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.1);
         }
         .menu-links { padding-top: 40px; }
-        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; }
+        .menu-links a { padding: 15px 40px; display: block; font-family: 'Bodoni Moda', serif; font-size: 18px; text-decoration: none; color: var(--onyx-black); text-transform: uppercase; border-bottom: 1px solid #f9f9f9; }
 
         /* INQUIRIES CONTENT */
-        .inquiry-hero {
-            margin-top: var(--header-height);
-            padding: 60px 20px;
-            text-align: center;
-            background: #fcfcfc;
-        }
+        .inquiry-hero { margin-top: var(--header-height); padding: 80px 20px 40px; text-align: center; background: #fcfcfc; }
         .inquiry-hero h1 { font-family: 'Bodoni Moda', serif; font-size: 32px; letter-spacing: 5px; text-transform: uppercase; }
 
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px 100px;
-            text-align: center;
-        }
-
+        .contact-container { padding: 40px 20px 80px; max-width: 800px; margin: 0 auto; }
+        
         .contact-card {
-            background: white;
-            border: 1px solid #f0f0f0;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
+            background: white; border: 1px solid #eee; padding: 50px 30px;
+            margin-bottom: 30px; text-align: center; border-radius: 4px;
             transition: 0.3s;
         }
         .contact-card:hover { border-color: var(--brand-red); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-
-        .icon-box { font-size: 30px; color: var(--brand-red); margin-bottom: 15px; }
-        .contact-title { font-family: 'Bodoni Moda', serif; font-size: 20px; text-transform: uppercase; margin-bottom: 10px; }
-        .contact-text { font-size: 14px; color: #666; margin-bottom: 25px; line-height: 1.6; }
-
+        
+        .icon-box { font-size: 35px; color: var(--brand-red); margin-bottom: 20px; }
+        .contact-title { font-family: 'Bodoni Moda', serif; font-size: 22px; text-transform: uppercase; margin-bottom: 15px; }
+        .contact-text { font-size: 14px; color: #666; margin-bottom: 30px; line-height: 1.6; }
+        
         .contact-btn {
-            display: inline-block;
-            background: var(--onyx-black);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
+            display: inline-block; background: var(--onyx-black); color: white;
+            padding: 16px 45px; text-decoration: none; font-size: 11px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+            border-radius: 50px; transition: 0.3s;
         }
+        .contact-btn:hover { background: var(--brand-red); }
 
-        .social-row { margin-top: 40px; }
-        .social-row a { font-size: 24px; color: var(--onyx-black); margin: 0 15px; }
+        /* FOOTER */
+        footer {
+            background-color: var(--brand-red);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 40px;
+        }
+        footer h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        .footer-socials a { color: white; font-size: 26px; margin: 0 20px; text-decoration: none; }
 
-        footer { background-color: var(--brand-red); color: white; text-align: center; padding: 40px 20px; }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 20px; background-color: var(--brand-red); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-size: 13px; font-weight: 600; z-index: 9998; display: flex; align-items: center; gap: 8px; }
+        /* RED WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            background-color: var(--brand-red);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 9998;
+            display: flex;
+            align-items: center; gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
     </style>
 </head>
 <body>
@@ -108,51 +117,48 @@
 
     <div id="mySideMenu" class="side-menu">
         <div class="menu-links">
-            <div class="menu-links">
-    <a href="index.html" onclick="toggleNav()">Home</a>
-    <a href="collection.html" onclick="toggleNav()">Collection</a>
-    <a href="trustees.html" onclick="toggleNav()">Trustees</a>
-    <a href="events.html" onclick="toggleNav()">Events</a>
-    <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
-</div>
-
+            <a href="index.html" onclick="toggleNav()">Home</a>
+            <a href="collection.html" onclick="toggleNav()">Collection</a>
+            <a href="trustees.html" onclick="toggleNav()">Trustees</a>
+            <a href="events.html" onclick="toggleNav()">Events</a>
+            <a href="inquiries.html" onclick="toggleNav()">Inquiries</a>
         </div>
     </div>
 
     <section class="inquiry-hero">
         <h1>Connect with Us</h1>
-        <p style="letter-spacing: 2px; font-size: 11px; color: #888; text-transform: uppercase;">For Bespoke Orders & Collaborations</p>
+        <p style="letter-spacing: 2px; font-size: 11px; color: #888; text-transform: uppercase;">Direct Concierge & Corporate Inquiries</p>
     </section>
 
     <div class="contact-container">
         
         <div class="contact-card">
             <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
-            <h2 class="contact-title">Direct Concierge</h2>
-            <p class="contact-text">Chat with our personal shoppers for sizing advice, bespoke orders, or order tracking.</p>
-            <a href="https://wa.me/234XXXXXXXXXX" class="contact-btn">Message via WhatsApp</a>
+            <h2 class="contact-title">Private Shopping</h2>
+            <p class="contact-text">Chat with our personal shoppers for sizing advice, bespoke orders, or international shipping rates.</p>
+            <a href="https://wa.me/234707797XXXX" class="contact-btn">Message via WhatsApp</a>
         </div>
 
         <div class="contact-card">
             <div class="icon-box"><i class="far fa-envelope"></i></div>
-            <h2 class="contact-title">Corporate Inquiries</h2>
-            <p class="contact-text">For wholesale, press collaborations, or event partnerships across Nigeria and abroad.</p>
+            <h2 class="contact-title">Business & Press</h2>
+            <p class="contact-text">For wholesale, event partnerships (like Miva University), or press collaborations.</p>
             <a href="mailto:info@onyxadire.com" class="contact-btn">Send an Email</a>
-        </div>
-
-        <div class="social-row">
-            <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 20px;">Follow the Heritage</p>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Onyx-Adire Haute Couture</p>
+        <h2>Join the Onyx Circle</h2>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
     </footer>
 
-    <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-float"><i class="fab fa-whatsapp"></i> Chat Now</a>
+    <a href="https://wa.me/234707797XXXX" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+    </a>
 
     <script>
         function toggleNav() {
