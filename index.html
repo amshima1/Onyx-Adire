@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onyx-Adire | The Debut Edit</title>
+    <title>Onyx-Adire | Haute Couture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -19,10 +19,16 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: #fff;
-            overflow-x: hidden;
         }
 
-        /* 1. ANNOUNCEMENT BAR */
+        /* 1. TOP SECTION (Highest Z-Index) */
+        .header-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 6000; /* Stays above the menu */
+            background: white;
+        }
+
         .promo-bar {
             background-color: var(--brand-red);
             color: white;
@@ -32,9 +38,6 @@
             text-transform: uppercase;
             overflow: hidden;
             white-space: nowrap;
-            position: sticky;
-            top: 0;
-            z-index: 4000;
         }
 
         .marquee {
@@ -47,17 +50,12 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* 2. NAVIGATION */
         header {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px 5%;
-            background: white;
             border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 35px;
-            z-index: 3000;
         }
 
         .hamburger {
@@ -65,7 +63,6 @@
             left: 5%;
             font-size: 28px;
             cursor: pointer;
-            color: var(--onyx-black);
         }
 
         .logo {
@@ -78,38 +75,37 @@
             color: var(--onyx-black);
         }
 
-        /* 3. SIDE MENU (THE POP OUT) */
+        /* 2. SIDE MENU (Starts below the header) */
         .side-menu {
-            height: 100vh;
+            height: calc(100vh - 120px); /* Adjust based on header height */
             width: 0;
             position: fixed;
-            z-index: 5000;
-            top: 0;
+            z-index: 4000; /* Lower than header and WhatsApp */
+            top: 110px; /* Starts exactly where header ends */
             left: 0;
             background-color: var(--glass-white);
             overflow-x: hidden;
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+            box-shadow: 10px 0 30px rgba(0,0,0,0.05);
         }
 
-        /* The X inside the pop out */
         .close-btn {
             position: absolute;
-            top: 30px;
-            left: 30px;
-            font-size: 35px;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
             cursor: pointer;
-            color: var(--brand-red);
+            color: var(--onyx-black);
         }
 
         .menu-links {
-            padding-top: 100px;
+            padding-top: 60px;
         }
 
         .side-menu a {
             padding: 15px 40px;
             text-decoration: none;
-            font-size: 22px;
+            font-size: 20px;
             color: var(--onyx-black);
             font-family: 'Bodoni Moda', serif;
             display: block;
@@ -117,55 +113,33 @@
             letter-spacing: 2px;
         }
 
-        /* 4. CONTENT */
+        /* 3. COLLECTION STYLING */
         .hero-image { width: 100%; height: auto; display: block; }
-
-        .debut-header {
-            text-align: center;
-            padding: 50px 20px;
-            font-family: 'Bodoni Moda', serif;
-            font-size: 32px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-        }
-
+        .debut-header { text-align: center; padding: 50px 20px; font-family: 'Bodoni Moda', serif; letter-spacing: 6px; text-transform: uppercase; }
+        
         .collection-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 15px;
+            gap: 20px;
+            padding: 20px;
         }
 
-        .collection-item { text-align: center; margin-bottom: 25px; }
-        .collection-item img { width: 100%; height: auto; display: block; margin-bottom: 10px; }
-        .item-price { font-weight: 500; font-size: 15px; }
+        .collection-item { text-align: center; margin-bottom: 40px; }
+        .collection-item img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
+        .item-name { font-family: 'Bodoni Moda', serif; font-size: 18px; text-transform: uppercase; margin-bottom: 5px; }
+        .item-price { font-size: 15px; color: #555; }
 
-        /* 5. FOOTER & NEWSLETTER */
-        footer {
-            background-color: var(--brand-red);
-            color: white;
-            text-align: center;
-            padding: 60px 20px 100px 20px; /* Extra bottom padding */
-        }
-
-        .newsletter-box {
-            background: white;
-            padding: 5px;
-            display: flex;
-            width: 90%;
-            max-width: 350px;
-            margin: 20px auto 40px auto;
-        }
-
+        /* 4. FOOTER */
+        footer { background-color: var(--brand-red); color: white; text-align: center; padding: 60px 20px 150px 20px; }
+        .newsletter-box { background: white; padding: 5px; display: flex; width: 90%; max-width: 350px; margin: 20px auto 40px auto; }
         .newsletter-box input { border: none; padding: 12px; flex-grow: 1; outline: none; }
         .newsletter-box button { background: var(--onyx-black); color: white; border: none; padding: 0 15px; cursor: pointer; }
-
         .social-icons a { color: white; margin: 0 15px; font-size: 26px; }
 
-        /* 6. WHATSAPP PILL (SHIFTED UP) */
+        /* 5. FLOATING WHATSAPP (Highest Z-Index) */
         .whatsapp-float {
             position: fixed;
-            bottom: 110px; /* Shifted up to avoid covering social icons */
+            bottom: 30px; 
             right: 20px;
             background-color: var(--brand-red);
             color: white;
@@ -177,23 +151,24 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            z-index: 6000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 7000; /* Higher than everything else */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
     </style>
 </head>
 <body>
 
-    <div class="promo-bar">
-        <div class="marquee">
-            ONYX-ADIRE HERITAGE DROP • LUXURY CRAFTSMANSHIP • WORLDWIDE DELIVERY • 
+    <div class="header-wrapper">
+        <div class="promo-bar">
+            <div class="marquee">
+                ONYX-ADIRE HERITAGE DROP • LUXURY CRAFTSMANSHIP • WORLDWIDE DELIVERY • 
+            </div>
         </div>
+        <header>
+            <div class="hamburger" onclick="openNav()">☰</div>
+            <a href="#" class="logo">Onyx-Adire</a>
+        </header>
     </div>
-
-    <header>
-        <div class="hamburger" onclick="openNav()">☰</div>
-        <a href="#" class="logo">Onyx-Adire</a>
-    </header>
 
     <div id="mySideMenu" class="side-menu">
         <span class="close-btn" onclick="closeNav()">✕</span>
@@ -212,12 +187,23 @@
 
     <div class="collection-grid">
         <script>
-            const prices = ["₦45,000", "₦52,000", "₦38,500", "₦60,000", "₦42,000", "₦55,000", "₦48,000", "₦65,000", "₦35,000", "₦50,000", "₦58,000", "₦44,500", "₦62,000", "₦39,000", "₦51,000", "₦70,000"];
+            const items = [
+                { name: "Indigo Flora", price: "₦45,000" }, { name: "Azure Wrap", price: "₦52,000" },
+                { name: "Onyx Silk Adire", price: "₦38,500" }, { name: "Heritage Kaftan", price: "₦60,000" },
+                { name: "Midnight Motif", price: "₦42,000" }, { name: "Royal Tie-Dye", price: "₦55,000" },
+                { name: "Earth & Sky Set", price: "₦48,000" }, { name: "Vogue Indigo", price: "₦65,000" },
+                { name: "Modern Ancestry", price: "₦35,000" }, { name: "Silk Path Kimono", price: "₦50,000" },
+                { name: "Blue Velvet Bloom", price: "₦58,000" }, { name: "Desert Rose Adire", price: "₦44,500" },
+                { name: "Sahara Night", price: "₦62,000" }, { name: "River Essence", price: "₦39,000" },
+                { name: "Deep Sea Shift", price: "₦51,000" }, { name: "Legacy Gown", price: "₦70,000" }
+            ];
+
             for (let i = 1; i <= 16; i++) {
                 document.write(`
                     <div class="collection-item">
-                        <img src="Onyx-Adire${i}.jpg" alt="Piece ${i}">
-                        <div class="item-price">${prices[i-1]}</div>
+                        <img src="Onyx-Adire${i}.jpg" alt="${items[i-1].name}">
+                        <div class="item-name">${items[i-1].name}</div>
+                        <div class="item-price">${items[i-1].price}</div>
                     </div>
                 `);
             }
@@ -244,7 +230,6 @@
         function openNav() {
             document.getElementById("mySideMenu").style.width = "280px";
         }
-
         function closeNav() {
             document.getElementById("mySideMenu").style.width = "0";
         }
